@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Little Steps | วิทยาศาสตร์ ป.4 ชั่วโมงที่ 1</title>
+  <style>
+    :root{
+      --blue:#0756b3;
+      --blue-2:#0f7edb;
+      --blue-3:#eaf6ff;
+      --navy:#073c7a;
+      --yellow:#ffd23f;
+      --yellow-2:#fff6cf;
+      --green:#35a66a;
+      --pink:#ff6f9e;
+      --orange:#ff9f1c;
+      --ink:#16304f;
+      --muted:#5f7894;
+      --line:#b7dcff;
+      --paper:#ffffff;
+      --bg:#f5fbff;
+      --shadow:0 14px 34px rgba(7,86,179,.13);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(255,210,63,.24) 0 9rem, transparent 9.2rem),
+        radial-gradient(circle at 90% 10%, rgba(15,126,219,.13) 0 11rem, transparent 11.2rem),
+        linear-gradient(180deg,#ffffff 0%, var(--bg) 38%, #ffffff 100%);
+      color:var(--ink);
+      font-family: "Noto Sans Thai", "Sarabun", "Kanit", "Prompt", system-ui, sans-serif;
+      font-size:20px;
+      line-height:1.78;
+    }
+
+    .page{
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+      padding:22px 0 56px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:3px solid var(--line);
+      border-radius:38px;
+      background:
+        linear-gradient(135deg,#ffffff 0%,#f0f9ff 58%,#fff6d7 100%);
+      box-shadow:var(--shadow);
+      padding:34px 38px 36px;
+      margin:18px 0 24px;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:auto -90px -90px auto;
+      width:290px;
+      height:290px;
+      border-radius:50%;
+      background:rgba(255,210,63,.42);
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:#fff;
+      border:2px solid #d7eeff;
+      box-shadow:0 8px 20px rgba(7,86,179,.08);
+      color:var(--blue);
+      font-weight:900;
+      font-size:25px;
+      letter-spacing:.2px;
+    }
+
+    .brand .foot{font-size:30px}
+    .hero h1{
+      margin:22px 0 10px;
+      color:var(--navy);
+      font-size:clamp(38px,6vw,74px);
+      line-height:1.12;
+      font-weight:1000;
+      letter-spacing:-1px;
+    }
+
+    .subtitle{
+      font-size:clamp(22px,2.4vw,31px);
+      color:var(--blue);
+      font-weight:800;
+      margin:0 0 18px;
+    }
+
+    .tagline{
+      display:inline-block;
+      background:var(--yellow);
+      color:#27334b;
+      font-weight:900;
+      border-radius:999px;
+      padding:9px 22px;
+      font-size:23px;
+      box-shadow:0 8px 0 rgba(255,210,63,.25);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:stretch;
+    }
+
+    .big-card{
+      border-radius:var(--radius);
+      background:#fff;
+      border:2px solid var(--line);
+      padding:22px 24px;
+      box-shadow:0 8px 22px rgba(7,86,179,.08);
+    }
+
+    .visual-card{
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,#ffffff 0%,#e9f6ff 100%);
+      border:2px solid var(--line);
+      padding:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:250px;
+      box-shadow:0 8px 22px rgba(7,86,179,.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .visual-card .scene{
+      width:100%;
+      max-width:390px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      text-align:center;
+      z-index:1;
+    }
+
+    .object{
+      background:#fff;
+      border:2px dashed #a9d8ff;
+      border-radius:22px;
+      padding:16px 8px 12px;
+      font-weight:900;
+      color:var(--navy);
+      font-size:20px;
+    }
+    .object .emoji{display:block;font-size:45px;margin-bottom:8px}
+
+    .top-nav{
+      position:sticky;
+      top:0;
+      z-index:5;
+      margin:18px 0 24px;
+      padding:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border:2px solid #d9efff;
+      box-shadow:0 10px 24px rgba(7,86,179,.1);
+      display:flex;
+      gap:10px;
+      overflow:auto;
+    }
+    .top-nav a{
+      flex:0 0 auto;
+      text-decoration:none;
+      color:var(--navy);
+      background:var(--blue-3);
+      border:1px solid #c5e6ff;
+      border-radius:999px;
+      padding:9px 16px;
+      font-weight:800;
+      font-size:18px;
+      white-space:nowrap;
+    }
+    .top-nav a:hover{background:var(--yellow-2);border-color:var(--yellow)}
+
+    .section{
+      margin:26px 0;
+      background:var(--paper);
+      border:2px solid #d7ecff;
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .section-header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      background:linear-gradient(90deg,var(--blue),var(--blue-2));
+      color:#fff;
+      padding:18px 24px;
+    }
+
+    .badge{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:var(--yellow);
+      color:var(--navy);
+      font-weight:1000;
+      font-size:27px;
+      box-shadow:inset 0 -4px 0 rgba(0,0,0,.08);
+      flex:0 0 auto;
+    }
+
+    .section-header h2{
+      margin:0;
+      font-size:clamp(27px,3vw,39px);
+      line-height:1.25;
+      font-weight:1000;
+    }
+
+    .section-body{
+      padding:24px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .three-col{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .card{
+      background:#fff;
+      border:2px solid #d5ecff;
+      border-radius:24px;
+      padding:18px 20px;
+      min-height:100%;
+    }
+
+    .card.blue{background:#eef8ff}
+    .card.yellow{background:var(--yellow-2);border-color:#ffe492}
+    .card.green{background:#edfff5;border-color:#b9edcf}
+    .card.pink{background:#fff0f6;border-color:#ffc4d9}
+
+    .card-title{
+      display:inline-flex;
+      gap:9px;
+      align-items:center;
+      color:var(--navy);
+      font-size:25px;
+      font-weight:1000;
+      margin:0 0 12px;
+      line-height:1.25;
+    }
+
+    .mini-label{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy);
+      font-weight:900;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    p{margin:0 0 12px}
+    ul,ol{margin:8px 0 0 0;padding-left:1.45em}
+    li{margin:5px 0}
+    strong{color:var(--navy)}
+    mark{
+      background:linear-gradient(transparent 58%, rgba(255,210,63,.62) 58%);
+      padding:0 2px;
+      color:inherit;
+    }
+
+    .teacher-say{
+      position:relative;
+      background:#fff;
+      border:3px solid #bde5ff;
+      border-left:12px solid var(--blue);
+      border-radius:26px;
+      padding:20px 22px 18px;
+      margin:16px 0;
+      box-shadow:0 8px 18px rgba(7,86,179,.08);
+      font-size:22px;
+      line-height:1.85;
+    }
+    .teacher-say:before{
+      content:"ครูพูด";
+      position:absolute;
+      top:-17px;
+      left:24px;
+      background:var(--yellow);
+      color:var(--navy);
+      border-radius:999px;
+      padding:4px 16px;
+      font-size:18px;
+      font-weight:1000;
+    }
+
+    .note-template{
+      background:
+        linear-gradient(#fff,#fff) padding-box,
+        repeating-linear-gradient(0deg, transparent 0 42px, rgba(15,126,219,.18) 42px 44px);
+      border:2px solid #cde8ff;
+      border-radius:24px;
+      padding:20px 22px;
+      font-size:22px;
+      box-shadow:inset 0 0 0 9999px rgba(255,255,255,.82);
+    }
+
+    .notebook-line{
+      border-bottom:2px dotted #9bcaf1;
+      min-height:35px;
+      margin:7px 0 11px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border-radius:22px;
+      border:2px solid #cfe8ff;
+      margin:12px 0;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      min-width:650px;
+    }
+    th{
+      background:var(--blue);
+      color:#fff;
+      font-size:20px;
+      padding:12px;
+      text-align:left;
+    }
+    td{
+      border-top:1px solid #cfe8ff;
+      padding:12px;
+      vertical-align:top;
+      font-size:19px;
+    }
+    tr:nth-child(even) td{background:#f7fcff}
+
+    .timeline{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+    .time-row{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .time{
+      background:var(--navy);
+      color:#fff;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:1000;
+      font-size:20px;
+      padding:12px;
+    }
+    .time-content{
+      border:2px solid #d7ecff;
+      border-radius:20px;
+      padding:14px 18px;
+      background:#fff;
+    }
+
+    .callout{
+      border-radius:26px;
+      padding:20px 22px;
+      background:linear-gradient(135deg,#fff7d6,#ffffff);
+      border:2px solid #ffe38c;
+      font-weight:800;
+      color:var(--navy);
+      font-size:23px;
+      margin:16px 0;
+    }
+
+    .example{
+      border-radius:26px;
+      padding:20px;
+      background:#f7fcff;
+      border:2px dashed #9fd5ff;
+      margin:18px 0;
+    }
+    .example h3{
+      margin:0 0 10px;
+      color:var(--blue);
+      font-size:28px;
+    }
+
+    .print-bar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:26px 0 0;
+    }
+    .btn{
+      border:0;
+      border-radius:999px;
+      padding:12px 20px;
+      background:var(--blue);
+      color:#fff;
+      font:inherit;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 8px 16px rgba(7,86,179,.22);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+    }
+    .btn.secondary{background:var(--yellow);color:var(--navy)}
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:26px 0 0;
+      font-weight:800;
+    }
+
+    @media (max-width:900px){
+      body{font-size:19px}
+      .hero{padding:24px 18px}
+      .hero-grid,.two-col,.three-col{grid-template-columns:1fr}
+      .time-row{grid-template-columns:1fr}
+      .section-body{padding:18px}
+      .teacher-say{font-size:20px}
+      .top-nav{border-radius:24px}
+    }
+
+    @media print{
+      body{background:#fff;font-size:18px}
+      .page{width:100%;padding:0}
+      .top-nav,.print-bar{display:none}
+      .section,.hero{box-shadow:none;break-inside:avoid}
+      .section{page-break-inside:avoid;margin:12px 0}
+      a{color:inherit}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="brand"><span class="foot">👣</span> Little Steps</div>
+      <h1>แผนการสอน วิทยาศาสตร์ ป.4</h1>
+      <p class="subtitle">ชั่วโมงที่ 1: การสังเกตและการใช้หลักฐาน</p>
+      <span class="tagline">เด็กมีแค่สมุดจดบันทึก + ดินสอ ก็เรียนได้</span>
+
+      <div class="hero-grid">
+        <div class="big-card">
+          <p><strong>แนวคิดหลัก:</strong> นักวิทยาศาสตร์ไม่รีบเดา แต่เริ่มจากการสังเกต เก็บข้อมูล แล้วใช้หลักฐานช่วยสรุปคำตอบ</p>
+          <p><strong>รูปแบบกิจกรรม:</strong> ใช้รูปภาพจากอินเทอร์เน็ต ภาพในมือถือ หรือการเล่าให้เด็กจินตนาการ แล้วให้เด็กจดบันทึกลงสมุดอย่างเป็นระบบ</p>
+          <div class="callout">ประโยคจำง่ายทั้งชั่วโมง: “ฉันคิดว่า ______ เพราะฉันสังเกตเห็นว่า ______”</div>
+        </div>
+        <div class="visual-card" aria-label="ภาพประกอบวัตถุสำหรับสังเกต">
+          <div class="scene">
+            <div class="object"><span class="emoji">🍃</span>ใบไม้</div>
+            <div class="object"><span class="emoji">🪨</span>ก้อนหิน</div>
+            <div class="object"><span class="emoji">🥛</span>แก้วน้ำ</div>
+            <div class="object"><span class="emoji">✏️</span>ดินสอ</div>
+            <div class="object"><span class="emoji">🔍</span>สังเกต</div>
+            <div class="object"><span class="emoji">💡</span>หลักฐาน</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="top-nav" aria-label="เมนูหัวข้อ">
+      <a href="#objectives">จุดประสงค์</a>
+      <a href="#keywords">คำสำคัญ</a>
+      <a href="#time">โครงเวลา</a>
+      <a href="#step1">เปิดชั่วโมง</a>
+      <a href="#step2">เกม 1</a>
+      <a href="#step3">สอนแก่น</a>
+      <a href="#step4">เกม 2</a>
+      <a href="#step5">บันทึกสมุด</a>
+      <a href="#examples">ตัวอย่างเพิ่ม</a>
+      <a href="#summary">สรุป</a>
+    </nav>
+
+    <section class="section" id="objectives">
+      <div class="section-header">
+        <div class="badge">1</div>
+        <h2>จุดประสงค์การเรียนรู้</h2>
+      </div>
+      <div class="section-body">
+        <div class="three-col">
+          <div class="card blue">
+            <h3 class="card-title">🎯 เด็กรู้ความหมาย</h3>
+            <ul>
+              <li>อธิบายได้ว่า “การสังเกต” คืออะไร</li>
+              <li>บอกได้ว่าข้อสังเกตคือสิ่งที่พบจริง</li>
+              <li>รู้ว่าความคิดเห็นคือสิ่งที่คิดต่อเอง</li>
+            </ul>
+          </div>
+          <div class="card yellow">
+            <h3 class="card-title">🧠 เด็กคิดเป็นระบบ</h3>
+            <ul>
+              <li>แยก “เห็นจริง” กับ “คิดเอง” ได้</li>
+              <li>เริ่มเข้าใจคำว่า “อนุมาน”</li>
+              <li>ใช้คำว่า “เพราะ” เพื่ออธิบายหลักฐาน</li>
+            </ul>
+          </div>
+          <div class="card green">
+            <h3 class="card-title">📝 เด็กจดบันทึกได้</h3>
+            <ul>
+              <li>บันทึกข้อมูลลงสมุดเป็นตาราง</li>
+              <li>เขียนสรุปแบบนักวิทยาศาสตร์</li>
+              <li>ตอบคำถามท้ายชั่วโมงได้</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="keywords">
+      <div class="section-header">
+        <div class="badge">2</div>
+        <h2>คำสำคัญที่เด็กต้องรู้</h2>
+      </div>
+      <div class="section-body">
+        <div class="three-col">
+          <div class="card">
+            <h3 class="card-title">👁️ การสังเกต</h3>
+            <p>การใช้ตา หู จมูก ลิ้น ผิวกาย หรือเครื่องมือ เพื่อเก็บข้อมูลจากสิ่งที่พบจริง</p>
+            <p><strong>ตัวอย่าง:</strong> ใบไม้สีเขียว / ก้อนหินผิวขรุขระ / แก้วน้ำใส</p>
+          </div>
+          <div class="card pink">
+            <h3 class="card-title">💬 ความคิดเห็น / การคาดเดา</h3>
+            <p>สิ่งที่เราคิดต่อจากสิ่งที่เห็น อาจถูกหรือผิดก็ได้</p>
+            <p><strong>ตัวอย่าง:</strong> ใบไม้น่าจะขาดน้ำ / แก้วใบนี้น่าจะแพง</p>
+          </div>
+          <div class="card yellow">
+            <h3 class="card-title">💡 อนุมาน</h3>
+            <p>การสรุปหรืออธิบายโดยใช้หลักฐานที่สังเกตได้</p>
+            <p><strong>ตัวอย่าง:</strong> ดินแห้ง + ใบเหี่ยว → พืชอาจขาดน้ำ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="time">
+      <div class="section-header">
+        <div class="badge">3</div>
+        <h2>โครงสร้างเวลาทั้งชั่วโมง</h2>
+      </div>
+      <div class="section-body">
+        <div class="timeline">
+          <div class="time-row"><div class="time">0–5 นาที</div><div class="time-content"><strong>เปิดชั่วโมง</strong> ตั้งคำถามชวนคิด และให้เด็กจดหัวข้อในสมุด</div></div>
+          <div class="time-row"><div class="time">5–15 นาที</div><div class="time-content"><strong>เกมที่ 1:</strong> เห็นจริง หรือ คิดไปเอง</div></div>
+          <div class="time-row"><div class="time">15–25 นาที</div><div class="time-content"><strong>สอนแก่น:</strong> การสังเกตคืออะไร ใช้ประสาทสัมผัสอย่างไร</div></div>
+          <div class="time-row"><div class="time">25–40 นาที</div><div class="time-content"><strong>เกมที่ 2:</strong> นักสืบภาพปริศนา จากภาพหรือสถานการณ์</div></div>
+          <div class="time-row"><div class="time">40–50 นาที</div><div class="time-content"><strong>สมุดบันทึกนักวิทยาศาสตร์</strong> เด็กเขียนด้วยตนเอง</div></div>
+          <div class="time-row"><div class="time">50–57 นาที</div><div class="time-content"><strong>ตัวอย่างเพิ่ม 2 เรื่อง</strong> แก้วน้ำเย็น / โต๊ะเรียนมีเศษดินสอ</div></div>
+          <div class="time-row"><div class="time">57–60 นาที</div><div class="time-content"><strong>สรุป + Exit Ticket</strong> ตอบ 3 ข้อสั้น ๆ ในสมุด</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step1">
+      <div class="section-header">
+        <div class="badge">4</div>
+        <h2>ช่วงที่ 1: เปิดชั่วโมง</h2>
+      </div>
+      <div class="section-body">
+        <span class="mini-label">เวลา 0–5 นาที</span>
+        <div class="teacher-say">
+          วันนี้เราจะลองเป็นนักวิทยาศาสตร์ตัวเล็ก ๆ กัน นักวิทยาศาสตร์ไม่ใช่คนที่เดาเก่ง แต่เป็นคนที่สังเกตเก่ง คิดเป็น และมีหลักฐานก่อนตอบคำถาม
+        </div>
+        <div class="two-col">
+          <div class="card blue">
+            <h3 class="card-title">ครูถามเด็ก</h3>
+            <ul>
+              <li>ถ้าครูให้ดูภาพหนึ่งภาพ แล้วถามว่าเกิดอะไรขึ้น เราควรตอบทันทีเลยไหม?</li>
+              <li>หรือควรดูรายละเอียดก่อน?</li>
+            </ul>
+          </div>
+          <div class="card yellow">
+            <h3 class="card-title">เด็กจดลงสมุด</h3>
+            <div class="note-template">
+              <strong>วิทยาศาสตร์ ป.4</strong><br>
+              <strong>ชั่วโมงที่ 1:</strong> การสังเกตและการใช้หลักฐาน
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step2">
+      <div class="section-header">
+        <div class="badge">5</div>
+        <h2>เกมที่ 1: เห็นจริง หรือ คิดไปเอง</h2>
+      </div>
+      <div class="section-body">
+        <span class="mini-label">เวลา 5–15 นาที</span>
+        <p><strong>เป้าหมาย:</strong> ให้เด็กเข้าใจความต่างระหว่าง “ข้อสังเกต” กับ “ความคิดเห็น/การคาดเดา”</p>
+
+        <div class="two-col">
+          <div class="card">
+            <h3 class="card-title">📝 ให้เด็กแบ่งสมุดเป็น 2 ช่อง</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>เห็นจริง</th><th>คิดเอง / คาดเดา</th></tr></thead>
+                <tbody><tr><td><div class="notebook-line"></div><div class="notebook-line"></div><div class="notebook-line"></div></td><td><div class="notebook-line"></div><div class="notebook-line"></div><div class="notebook-line"></div></td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card blue">
+            <h3 class="card-title">🔎 รูปที่ครูเปิดได้</h3>
+            <ul>
+              <li>ใบไม้สีเขียว close up</li>
+              <li>wilted plant</li>
+              <li>wet street after rain</li>
+              <li>rock texture</li>
+              <li>child holding umbrella</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teacher-say">
+          มองภาพนี้ดี ๆ แล้วบอกครูว่า เห็นอะไรจริง ๆ บ้าง ห้ามใช้คำว่า “น่าจะ” หรือ “อาจจะ” ก่อนนะครับ
+        </div>
+
+        <div class="example">
+          <h3>ตัวอย่าง: ถ้าเปิดรูปใบไม้</h3>
+          <div class="two-col">
+            <div class="card green">
+              <h3 class="card-title">เห็นจริง</h3>
+              <ul>
+                <li>ใบไม้สีเขียว</li>
+                <li>มีเส้นใบ</li>
+                <li>ใบมีรูปร่างยาว</li>
+                <li>มีหยดน้ำบนใบ</li>
+              </ul>
+            </div>
+            <div class="card pink">
+              <h3 class="card-title">คิดเอง / คาดเดา</h3>
+              <ul>
+                <li>ใบไม้น่าจะเพิ่งโดนฝน</li>
+                <li>ต้นไม้น่าจะได้รับน้ำ</li>
+                <li>อาจเป็นใบของต้นไม้ในสวน</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">ให้เด็กเขียนลงสมุด: <br>ข้อสังเกต = สิ่งที่พบจริง | ความคิดเห็น = สิ่งที่คิดเอง | อนุมาน = คิดจากหลักฐาน</div>
+      </div>
+    </section>
+
+    <section class="section" id="step3">
+      <div class="section-header">
+        <div class="badge">6</div>
+        <h2>ช่วงที่ 3: สอนแก่นความรู้ — การสังเกตคืออะไร</h2>
+      </div>
+      <div class="section-body">
+        <span class="mini-label">เวลา 15–25 นาที</span>
+        <div class="teacher-say">
+          การสังเกต คือ การเก็บข้อมูลจากสิ่งรอบตัว เราอาจใช้ตาดู ใช้หูฟัง ใช้จมูกดม ใช้มือสัมผัส หรือใช้ลิ้นชิมในกรณีที่ปลอดภัยและครูอนุญาตเท่านั้น
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ประสาทสัมผัส</th><th>ใช้สังเกตอะไร</th><th>ตัวอย่างคำตอบ</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ตา 👁️</td><td>สี รูปร่าง ขนาด จำนวน</td><td>ใบไม้สีเขียว / แก้วน้ำใส</td></tr>
+              <tr><td>หู 👂</td><td>เสียงดัง เสียงเบา เสียงสูง เสียงต่ำ</td><td>เสียงเบา / เสียงดัง</td></tr>
+              <tr><td>จมูก 👃</td><td>กลิ่นหอม กลิ่นเหม็น กลิ่นอ่อน กลิ่นแรง</td><td>มีกลิ่นหอม / กลิ่นแรง</td></tr>
+              <tr><td>ลิ้น 👅</td><td>รสชาติ แต่ต้องปลอดภัยและได้รับอนุญาต</td><td>หวาน / เปรี้ยว</td></tr>
+              <tr><td>ผิวกาย ✋</td><td>เรียบ ขรุขระ แข็ง นุ่ม ร้อน เย็น</td><td>ก้อนหินแข็ง / ผิวขรุขระ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="two-col">
+          <div class="card yellow">
+            <h3 class="card-title">คำถามตรวจความเข้าใจ</h3>
+            <ol>
+              <li>“แก้วน้ำใส” เป็นข้อสังเกตหรือความคิดเห็น?</li>
+              <li>“แก้วใบนี้น่าจะแพง” เป็นข้อสังเกตหรือความคิดเห็น?</li>
+              <li>“ดินสอยาว 12 เซนติเมตร” เป็นข้อสังเกตไหม?</li>
+              <li>“ต้นไม้น่าจะขาดน้ำ เพราะดินแห้งและใบเหี่ยว” เป็นอะไร?</li>
+            </ol>
+          </div>
+          <div class="card green">
+            <h3 class="card-title">คำตอบที่คาดหวัง</h3>
+            <ol>
+              <li>ข้อสังเกต</li>
+              <li>ความคิดเห็น</li>
+              <li>เป็นข้อสังเกต เพราะวัดได้จริง</li>
+              <li>อนุมาน เพราะใช้หลักฐานช่วยคิด</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step4">
+      <div class="section-header">
+        <div class="badge">7</div>
+        <h2>เกมที่ 2: นักสืบภาพปริศนา</h2>
+      </div>
+      <div class="section-body">
+        <span class="mini-label">เวลา 25–40 นาที</span>
+        <p><strong>จุดเด่น:</strong> เด็กไม่ต้องมีอุปกรณ์ ใช้แค่สมุดกับการดูภาพ ฟังสถานการณ์ หรือใช้จินตนาการ</p>
+
+        <div class="two-col">
+          <div class="card blue">
+            <h3 class="card-title">แบบที่ 1: เปิดรูปในเน็ต</h3>
+            <ul>
+              <li>ถนนเปียก</li>
+              <li>เด็กถือร่ม</li>
+              <li>กระถางต้นไม้เหี่ยว</li>
+              <li>โต๊ะเรียนที่มีเศษดินสอ</li>
+              <li>แก้วน้ำมีหยดน้ำด้านนอก</li>
+            </ul>
+          </div>
+          <div class="card yellow">
+            <h3 class="card-title">เด็กแบ่งสมุดเป็น 4 ช่อง</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>เห็นจริง</th><th>คิดว่า</th></tr></thead>
+                <tbody><tr><td><div class="notebook-line"></div><div class="notebook-line"></div></td><td><div class="notebook-line"></div><div class="notebook-line"></div></td></tr></tbody>
+              </table>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>หลักฐาน</th><th>สรุป</th></tr></thead>
+                <tbody><tr><td><div class="notebook-line"></div><div class="notebook-line"></div></td><td><div class="notebook-line"></div><div class="notebook-line"></div></td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="teacher-say">
+          ช่องที่ 1 เขียนเฉพาะสิ่งที่เห็นจริง ห้ามใช้คำว่า “น่าจะ” ช่องที่ 2 เขียนสิ่งที่เราคิดจากภาพ ช่องที่ 3 เขียนหลักฐาน และช่องที่ 4 สรุปเป็นประโยคเดียวว่า “ฉันคิดว่า…เพราะ…”
+        </div>
+
+        <div class="example">
+          <h3>ตัวอย่างภาพ: ถนนเปียกและมีคนถือร่ม</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ช่อง</th><th>ตัวอย่างคำตอบ</th></tr></thead>
+              <tbody>
+                <tr><td>เห็นจริง</td><td>ถนนเปียก / คนถือร่ม / มีเมฆบนท้องฟ้า</td></tr>
+                <tr><td>คิดว่า</td><td>อาจเพิ่งฝนตก</td></tr>
+                <tr><td>หลักฐาน</td><td>ถนนเปียกและคนถือร่ม</td></tr>
+                <tr><td>สรุป</td><td>ฉันคิดว่าอาจเพิ่งฝนตก เพราะถนนเปียกและมีคนถือร่ม</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>แบบไม่มีอินเทอร์เน็ต: ครูเล่าสถานการณ์</h3>
+          <p><strong>สถานการณ์:</strong> “ครูเดินเข้าห้องเรียนตอนเช้า เห็นพื้นหน้าห้องเปียก มีรอยรองเท้าเปียก ๆ และมีร่มวางอยู่ข้างประตู”</p>
+          <p><strong>สรุปตัวอย่าง:</strong> ฉันคิดว่าอาจมีคนเดินเข้ามาหลังฝนตก เพราะมีรอยรองเท้าเปียกและร่มวางอยู่</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step5">
+      <div class="section-header">
+        <div class="badge">8</div>
+        <h2>สมุดบันทึกนักวิทยาศาสตร์</h2>
+      </div>
+      <div class="section-body">
+        <span class="mini-label">เวลา 40–50 นาที</span>
+        <p>ให้เด็กเลือก 1 ภาพ หรือ 1 สถานการณ์จากที่เรียน แล้วเขียนลงสมุดตามแบบนี้</p>
+
+        <div class="note-template">
+          <strong>สมุดบันทึกนักวิทยาศาสตร์</strong><br><br>
+          1. ภาพหรือสถานการณ์ที่สังเกต: <div class="notebook-line"></div>
+          2. สิ่งที่เห็นจริง 3 ข้อ<br>
+          - <div class="notebook-line"></div>
+          - <div class="notebook-line"></div>
+          - <div class="notebook-line"></div>
+          3. สิ่งที่ฉันคิดว่าเกิดขึ้น: <div class="notebook-line"></div>
+          4. หลักฐานที่ใช้ช่วยคิด: <div class="notebook-line"></div>
+          5. สรุปแบบนักวิทยาศาสตร์:<br>
+          “ฉันคิดว่า <span style="display:inline-block;width:220px;border-bottom:2px dotted #9bcaf1"></span> เพราะ <span style="display:inline-block;width:300px;border-bottom:2px dotted #9bcaf1"></span>”
+        </div>
+
+        <div class="callout">ถ้าเด็กเขียน “ต้นไม้จะตาย” ในช่องเห็นจริง ให้ครูถามกลับว่า “อันนี้เราเห็นจริงไหม หรือเป็นสิ่งที่เราคิดว่าจะเกิดขึ้น?”</div>
+      </div>
+    </section>
+
+    <section class="section" id="examples">
+      <div class="section-header">
+        <div class="badge">9</div>
+        <h2>ตัวอย่างเพิ่ม 2 เรื่อง</h2>
+      </div>
+      <div class="section-body">
+        <div class="two-col">
+          <div class="card blue">
+            <h3 class="card-title">ตัวอย่างที่ 1: แก้วน้ำมีหยดน้ำด้านนอก</h3>
+            <p><strong>ครูถาม:</strong> เห็นอะไรจริงบ้าง?</p>
+            <ul>
+              <li>แก้วมีน้ำ</li>
+              <li>มีหยดน้ำเกาะด้านนอกแก้ว</li>
+              <li>มีน้ำแข็งในแก้ว</li>
+            </ul>
+            <p><strong>สรุปตัวอย่าง:</strong> ฉันคิดว่าแก้วน้ำน่าจะเย็น เพราะมีหยดน้ำเกาะด้านนอกแก้ว</p>
+          </div>
+
+          <div class="card yellow">
+            <h3 class="card-title">ตัวอย่างที่ 2: โต๊ะเรียนมีเศษดินสอและยางลบ</h3>
+            <p><strong>ครูเล่า:</strong> หลังเลิกเรียน ครูเห็นโต๊ะตัวหนึ่งมีเศษยางลบ เศษดินสอ และสมุดเปิดค้างอยู่</p>
+            <p><strong>สรุปตัวอย่าง:</strong> อาจมีนักเรียนเพิ่งทำงาน เพราะมีเศษยางลบ เศษดินสอ และสมุดเปิดอยู่</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="section-header">
+        <div class="badge">10</div>
+        <h2>สรุปท้ายชั่วโมง + Exit Ticket</h2>
+      </div>
+      <div class="section-body">
+        <div class="teacher-say">
+          วันนี้เราเรียนรู้ว่า การสังเกตคือการเก็บข้อมูลจากสิ่งที่พบจริง เราต้องแยกให้ออกว่าอะไรคือสิ่งที่เห็นจริง อะไรคือสิ่งที่เราคิดต่อเอง และถ้าเราจะสรุปคำตอบ เราควรมีหลักฐานช่วยคิดเสมอ
+        </div>
+
+        <div class="two-col">
+          <div class="card pink">
+            <h3 class="card-title">Exit Ticket ในสมุด</h3>
+            <ol>
+              <li>ข้อสังเกตคืออะไร?</li>
+              <li>ความคิดเห็นต่างจากข้อสังเกตอย่างไร?</li>
+              <li>เขียนประโยค 1 ประโยคที่มีคำว่า “เพราะ” เพื่อแสดงหลักฐาน</li>
+            </ol>
+          </div>
+          <div class="card green">
+            <h3 class="card-title">ตัวอย่างคำตอบที่ดี</h3>
+            <ol>
+              <li>ข้อสังเกตคือสิ่งที่เห็นหรือพบจริง</li>
+              <li>ความคิดเห็นคือสิ่งที่เราคิดต่อเองจากสิ่งที่เห็น</li>
+              <li>ฉันคิดว่าต้นไม้อาจขาดน้ำ เพราะดินแห้งและใบเหี่ยว</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout">
+          แก่นสำคัญ: การสังเกตเป็นขั้นแรกของการเรียนวิทยาศาสตร์ และคำตอบที่ดีต้องมีเหตุผลกับหลักฐานประกอบ
+        </div>
+
+        <div class="print-bar">
+          <button class="btn" onclick="window.print()">🖨️ พิมพ์ / บันทึกเป็น PDF</button>
+          <a class="btn secondary" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ กลับด้านบน</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Little Steps — ก้าวเล็ก ๆ สู่ความเข้าใจที่ยิ่งใหญ่
+    </div>
+  </main>
+</body>
+</html>
