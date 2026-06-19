@@ -1,0 +1,1098 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Little Steps | วิทยาศาสตร์ ป.4 แผน 3 ชั่วโมงแรก</title><style>
+:root{--blue:#0757A5;--blue2:#0F83C9;--sky:#EAF8FF;--sky2:#F4FBFF;--yellow:#FFC83D;--yellow2:#FFF6D6;--ink:#18344E;--muted:#648099;--line:#CDE8FA;--green:#66A84F;--shadow:0 18px 50px rgba(7,87,165,.14);--top:72px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+body{margin:0;font-family:"Noto Sans Thai","Sarabun","Kanit","Prompt",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 4%,rgba(40,183,223,.18),transparent 22%),radial-gradient(circle at 95% 96%,rgba(255,200,61,.22),transparent 25%),linear-gradient(135deg,#f8fdff,#eef9ff 50%,#fffdf3);overflow-x:hidden}
+.topbar{position:sticky;top:0;z-index:50;height:var(--top);display:flex;align-items:center;gap:12px;padding:10px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(7,87,165,.13)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:1000;color:var(--blue);white-space:nowrap;font-size:20px}
+.logo-mark{width:45px;height:45px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue2),var(--blue));color:white;font-size:25px;box-shadow:0 8px 18px rgba(7,87,165,.2)}
+.progress-wrap{flex:1;min-width:90px}.progress-track{height:9px;border-radius:999px;background:#E2F2FA;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue2),var(--yellow));transition:.2s}
+.btn{border:1px solid #d6eaf5;background:white;color:var(--blue);padding:9px 13px;border-radius:14px;font-weight:900;cursor:pointer;font:inherit;text-decoration:none;white-space:nowrap}
+.btn.primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;border:0}
+.menu{position:relative}.menu-panel{position:absolute;top:54px;right:0;width:min(380px,88vw);max-height:70vh;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);background:white;display:none}.menu.open .menu-panel{display:grid;gap:8px}.menu-panel a{color:var(--ink);text-decoration:none;padding:10px 12px;border-radius:14px;background:var(--sky2);font-weight:800;line-height:1.35}
+.snap-slide{min-height:calc(100svh - var(--top));scroll-snap-align:start;padding:18px;display:grid;place-items:center}
+.slide-shell{width:min(1220px,100%);min-height:calc(100svh - var(--top) - 36px);border:1px solid rgba(7,87,165,.12);border-radius:34px;overflow:hidden;background:rgba(255,255,255,.98);box-shadow:var(--shadow);display:grid;grid-template-rows:auto 1fr auto;position:relative}
+.slide-shell:before{content:"";position:absolute;right:-90px;top:-110px;width:270px;height:270px;border-radius:50%;border:32px solid rgba(40,183,223,.09)}
+.slide-head{position:relative;z-index:1;padding:22px 34px 18px;min-height:150px;background:linear-gradient(120deg,#F1FBFF,#FFFFFF 57%,#FFF8DD);border-bottom:1px solid var(--line)}
+.lesson-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:white;border:1px solid #D8EDF8;color:var(--blue2);font-weight:1000;font-size:16px}
+.page-num{position:absolute;top:20px;right:28px;background:var(--blue);color:#fff;border-radius:17px;padding:8px 14px;font-weight:1000;font-size:18px}
+.slide-head h2{margin:14px 90px 5px 0;color:var(--blue);font-size:clamp(30px,4vw,50px);line-height:1.12;font-weight:1000;letter-spacing:-.02em}
+.slide-head p{margin:0;color:var(--muted);font-size:clamp(18px,2.1vw,24px);font-weight:800}
+.slide-body{position:relative;z-index:1;padding:22px 34px 14px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:start}
+.card{border:2px solid var(--line);border-radius:25px;padding:18px 22px;background:white;min-height:255px}
+.main-card{background:linear-gradient(135deg,#FFFFFF,#F1FBFF)}.accent-card{background:linear-gradient(135deg,#FFF9DF,#FFFFFF);border-color:#F8DE8A}
+.card h3{margin:0 0 12px;color:var(--blue);font-size:clamp(22px,2.4vw,30px);line-height:1.25}.card ul{margin:0;padding-left:1.25em;font-size:clamp(18px,1.9vw,23px);line-height:1.62}.card li{margin:5px 0}
+.teacher-card{grid-column:1/-1;border-radius:25px;border:2px solid #BFE4FF;background:linear-gradient(135deg,#F4FBFF,#FFFFFF);padding:16px 22px;display:grid;grid-template-columns:auto 1fr;gap:15px;align-items:start}
+.teacher-card span{background:var(--yellow);color:var(--blue);border-radius:999px;padding:6px 14px;font-size:18px;font-weight:1000;white-space:nowrap}.teacher-card p{margin:0;font-size:clamp(19px,2vw,24px);line-height:1.55;font-weight:850;color:#183C63}
+.slide-foot{min-height:58px;padding:13px 34px;background:linear-gradient(180deg,rgba(255,255,255,.6),#fff);color:var(--blue);font-weight:1000;font-size:clamp(17px,1.9vw,22px);border-top:1px solid #E5F1F8}
+.h1 .lesson-pill,.h1 .page-num{background:#0757A5;color:#fff}.h2 .lesson-pill,.h2 .page-num{background:#2E8B57;color:#fff}.h3 .lesson-pill,.h3 .page-num{background:#0F83C9;color:#fff}.h-all .lesson-pill,.h-all .page-num{background:#FFC83D;color:#073C7D}
+.controls{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;display:flex;gap:10px;padding:8px;border-radius:22px;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border:1px solid rgba(7,87,165,.14);box-shadow:0 10px 35px rgba(7,87,165,.16)}
+.controls button{width:54px;height:45px;border:0;border-radius:15px;background:#EAF8FF;color:var(--blue);font-size:24px;font-weight:1000}.controls .center{min-width:190px;display:grid;place-items:center;text-align:center;font-weight:900;color:var(--blue);font-size:14px;padding:0 8px}
+@media(max-width:900px){:root{--top:68px}.topbar{gap:8px;padding:8px 10px}.logo span:last-child{display:none}.slide-body{grid-template-columns:1fr;gap:12px;padding:16px 20px 12px}.slide-head{padding:18px 20px 14px;min-height:130px}.slide-head h2{margin-right:70px}.card{min-height:auto;padding:15px 18px}.teacher-card{grid-template-columns:1fr;gap:8px}.teacher-card span{width:max-content}.slide-foot{padding:11px 20px 80px}.snap-slide{padding:10px}.slide-shell{border-radius:26px;min-height:calc(100svh - var(--top) - 20px)}}
+@media(max-width:560px){.btn.print{display:none}.slide-head h2{font-size:28px}.slide-head p{font-size:17px}.card ul{font-size:17px}.teacher-card p{font-size:17px}.controls .center{min-width:120px;font-size:12px}}
+@media print{html{scroll-snap-type:none}.topbar,.controls{display:none}.snap-slide{min-height:auto;page-break-after:always;padding:0}.slide-shell{min-height:auto;box-shadow:none;border-radius:0;border:0}.slide-foot{padding-bottom:14px}}
+
+/* ===== Little Steps Premium Polish Pack ===== */
+:root{
+  --soft-blue:#eaf8ff;
+  --soft-yellow:#fff5cf;
+  --deep:#062f66;
+  --glass:rgba(255,255,255,.78);
+  --glow-blue:0 18px 45px rgba(15,131,201,.18);
+  --glow-yellow:0 18px 45px rgba(255,200,61,.22);
+}
+
+/* พื้นหลังแบบมีชีวิต แต่นุ่มตา */
+body{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(40,183,223,.20), transparent 20%),
+    radial-gradient(circle at 88% 14%, rgba(255,200,61,.26), transparent 18%),
+    radial-gradient(circle at 18% 88%, rgba(15,131,201,.12), transparent 22%),
+    radial-gradient(circle at 90% 88%, rgba(255,200,61,.18), transparent 24%),
+    linear-gradient(135deg,#f8fdff,#eef9ff 50%,#fffdf4);
+}
+
+/* ลายเส้นตกแต่งลอยนุ่ม ๆ */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  z-index:0;
+  pointer-events:none;
+  border-radius:999px;
+  filter:blur(.2px);
+}
+body::before{
+  width:260px;
+  height:260px;
+  left:-90px;
+  top:18vh;
+  border:34px solid rgba(40,183,223,.08);
+  animation:floatSlow 9s ease-in-out infinite;
+}
+body::after{
+  width:210px;
+  height:210px;
+  right:-70px;
+  bottom:12vh;
+  border:28px solid rgba(255,200,61,.12);
+  animation:floatSlow 11s ease-in-out infinite reverse;
+}
+@keyframes floatSlow{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-18px) rotate(8deg)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes softPulse{
+  0%,100%{box-shadow:0 14px 36px rgba(7,87,165,.10)}
+  50%{box-shadow:0 18px 48px rgba(15,131,201,.20)}
+}
+@keyframes shimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Topbar ให้ดู premium */
+.topbar{
+  height:78px;
+  padding:12px 22px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(22px) saturate(1.25);
+  -webkit-backdrop-filter:blur(22px) saturate(1.25);
+  border-bottom:1px solid rgba(7,87,165,.13);
+  box-shadow:0 10px 32px rgba(7,87,165,.08);
+}
+.logo{
+  font-size:22px;
+  letter-spacing:-.01em;
+}
+.logo-mark{
+  width:52px;
+  height:52px;
+  border-radius:19px;
+  background:linear-gradient(135deg,#28B7DF,#0757A5,#0F83C9);
+  background-size:200% 200%;
+  animation:shimmer 6s ease-in-out infinite;
+}
+.btn{
+  border-radius:18px;
+  padding:11px 16px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-shadow:0 8px 18px rgba(7,87,165,.06);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(7,87,165,.13);
+}
+.btn.primary{
+  background:linear-gradient(135deg,#0757A5,#0F83C9);
+  box-shadow:0 12px 26px rgba(7,87,165,.22);
+}
+.progress-track{
+  height:11px;
+  border-radius:999px;
+  background:#dff2fb;
+  box-shadow:inset 0 1px 3px rgba(7,87,165,.10);
+}
+.progress-bar{
+  border-radius:999px;
+  background:linear-gradient(90deg,#28B7DF,#0757A5,#FFC83D);
+  background-size:220% 220%;
+  animation:shimmer 5.5s ease infinite;
+}
+
+/* เมนู */
+.menu-panel{
+  border-radius:28px;
+  padding:14px;
+  border:1px solid rgba(15,131,201,.18);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+  box-shadow:0 28px 70px rgba(7,87,165,.18);
+}
+.menu-panel a{
+  border:1px solid rgba(15,131,201,.10);
+  background:linear-gradient(135deg,#ffffff,#f3fbff);
+  transition:transform .16s ease, background .16s ease;
+}
+.menu-panel a:hover{
+  transform:translateX(4px);
+  background:linear-gradient(135deg,#eef9ff,#fff8dc);
+}
+
+/* พื้นที่สไลด์ */
+.snap-slide{
+  padding:22px;
+  position:relative;
+  z-index:1;
+}
+.slide-shell{
+  border-radius:40px;
+  border:1px solid rgba(15,131,201,.16);
+  box-shadow:0 22px 65px rgba(7,87,165,.16);
+  overflow:hidden;
+  animation:fadeUp .55s ease both;
+}
+.slide-shell::before{
+  border-color:rgba(40,183,223,.10);
+  animation:floatSlow 12s ease-in-out infinite;
+}
+.slide-shell::after{
+  content:"";
+  position:absolute;
+  left:-90px;
+  bottom:-110px;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  border:30px solid rgba(255,200,61,.12);
+  pointer-events:none;
+}
+
+/* หัวสไลด์ให้อ่านชัดขึ้น */
+.slide-head{
+  padding:28px 40px 22px;
+  min-height:172px;
+  background:
+    linear-gradient(120deg,rgba(241,251,255,.98),rgba(255,255,255,.96) 54%,rgba(255,248,221,.98)),
+    radial-gradient(circle at 95% 20%, rgba(255,200,61,.28), transparent 22%);
+}
+.lesson-pill{
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:18px;
+  background:#fff;
+  box-shadow:0 8px 18px rgba(7,87,165,.08);
+}
+.page-num{
+  top:24px;
+  right:32px;
+  padding:9px 17px;
+  border-radius:20px;
+  font-size:19px;
+  box-shadow:0 10px 22px rgba(7,87,165,.18);
+}
+.slide-head h2{
+  margin-top:18px;
+  font-size:clamp(34px,4.5vw,58px);
+  color:#073C7D;
+  text-wrap:balance;
+  letter-spacing:-.025em;
+}
+.slide-head h2::after{
+  content:"";
+  display:block;
+  width:min(460px,55%);
+  height:7px;
+  margin-top:14px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#FFC83D,#28B7DF);
+}
+.slide-head p{
+  font-size:clamp(20px,2.3vw,27px);
+  color:#526f88;
+}
+
+/* การ์ดเนื้อหา */
+.slide-body{
+  padding:26px 40px 18px;
+  gap:22px;
+}
+.card{
+  border-radius:30px;
+  border:1.7px solid rgba(15,131,201,.18);
+  padding:22px 26px;
+  box-shadow:0 14px 34px rgba(7,87,165,.08);
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  right:-48px;
+  top:-56px;
+  background:rgba(40,183,223,.08);
+}
+.main-card{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(238,249,255,.96)),
+    radial-gradient(circle at 100% 0%,rgba(40,183,223,.13),transparent 35%);
+}
+.accent-card{
+  background:
+    linear-gradient(135deg,rgba(255,250,226,.98),rgba(255,255,255,.98)),
+    radial-gradient(circle at 100% 0%,rgba(255,200,61,.22),transparent 35%);
+}
+.card h3{
+  font-size:clamp(24px,2.6vw,34px);
+  color:#0757A5;
+  margin-bottom:14px;
+}
+.card h3::before{
+  content:"";
+  display:inline-block;
+  width:12px;
+  height:12px;
+  border-radius:4px;
+  background:#FFC83D;
+  margin-right:10px;
+  vertical-align:middle;
+  box-shadow:7px 7px 0 rgba(40,183,223,.24);
+}
+.card ul{
+  font-size:clamp(19px,2vw,25px);
+  line-height:1.7;
+}
+.card li{
+  margin:7px 0;
+}
+.card li::marker{
+  color:#0F83C9;
+  font-weight:900;
+}
+
+/* กล่องบทพูดครู */
+.teacher-card{
+  border-radius:30px;
+  border:2px solid rgba(40,183,223,.25);
+  background:
+    linear-gradient(135deg,rgba(244,251,255,.98),rgba(255,255,255,.98)),
+    radial-gradient(circle at 0% 100%,rgba(255,200,61,.16),transparent 36%);
+  box-shadow:0 14px 34px rgba(7,87,165,.08);
+}
+.teacher-card span{
+  padding:8px 17px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#FFC83D,#FFE78A);
+  box-shadow:0 8px 16px rgba(255,200,61,.28);
+  font-size:20px;
+}
+.teacher-card p{
+  font-size:clamp(20px,2.1vw,27px);
+  line-height:1.65;
+  color:#14385e;
+}
+
+/* ท้ายหน้า */
+.slide-foot{
+  min-height:66px;
+  padding:16px 40px;
+  color:#073C7D;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.60),#fff),
+    linear-gradient(90deg,rgba(40,183,223,.08),rgba(255,200,61,.12));
+  font-size:clamp(18px,2vw,24px);
+}
+
+/* ปุ่มเลื่อน */
+.controls{
+  border-radius:26px;
+  padding:9px;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 18px 48px rgba(7,87,165,.18);
+}
+.controls button{
+  border-radius:18px;
+  transition:transform .16s ease, background .16s ease;
+}
+.controls button:hover{
+  transform:translateY(-2px);
+  background:#dff4ff;
+}
+.controls button:last-child{
+  background:linear-gradient(135deg,#0757A5,#0F83C9);
+  color:white;
+}
+.controls .center{
+  color:#073C7D;
+}
+
+/* สีแยกชั่วโมงให้ต่อเนื่อง */
+.h1 .slide-head{background:linear-gradient(120deg,#f1fbff,#fff 55%,#fff8dd)}
+.h2 .slide-head{background:linear-gradient(120deg,#f3fff6,#fff 55%,#fff8dd)}
+.h3 .slide-head{background:linear-gradient(120deg,#eef9ff,#fff 55%,#f6ffef)}
+.h2 .card h3,.h2 .slide-foot{color:#2E7D4F}
+.h2 .card h3::before{background:#65A844}
+.h3 .card h3,.h3 .slide-foot{color:#0757A5}
+
+/* iPad และจอเล็ก */
+@media (max-width:900px){
+  :root{--top:76px}
+  .topbar{height:76px}
+  .snap-slide{padding:12px}
+  .slide-shell{
+    border-radius:30px;
+    min-height:calc(100svh - var(--top) - 24px);
+  }
+  .slide-head{
+    padding:22px 22px 16px;
+    min-height:150px;
+  }
+  .slide-head h2{
+    margin-right:70px;
+    font-size:clamp(30px,5.4vw,48px);
+  }
+  .slide-body{
+    grid-template-columns:1fr;
+    padding:18px 22px 14px;
+    gap:14px;
+  }
+  .card{
+    padding:17px 20px;
+    border-radius:25px;
+  }
+  .card ul{
+    font-size:clamp(18px,2.6vw,23px);
+    line-height:1.62;
+  }
+  .teacher-card{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+  .teacher-card span{
+    width:max-content;
+  }
+  .slide-foot{
+    padding:13px 22px 86px;
+  }
+}
+@media (max-width:560px){
+  .topbar{height:70px}
+  :root{--top:70px}
+  .logo span:last-child{display:none}
+  .logo-mark{width:46px;height:46px}
+  .slide-head h2{font-size:28px}
+  .slide-head p{font-size:17px}
+  .card ul{font-size:17px}
+  .teacher-card p{font-size:17px}
+}
+
+/* ลด motion สำหรับผู้ใช้ที่ไม่ต้องการ animation */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+</style></head><body><header class="topbar"><div class="logo"><div class="logo-mark">👣</div><span>Little Steps | วิทยาศาสตร์ ป.4</span></div><div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="bar"></div></div></div><button class="btn print" onclick="window.print()">พิมพ์/PDF</button><div class="menu" id="menu"><button class="btn primary" onclick="toggleMenu()">เมนูหน้า</button><nav class="menu-panel"><a href="#slide-1">1. แผนการสอน วิทยาศาสตร์ ป.4</a>
+<a href="#slide-2">2. วิธีใช้แผนนี้ในห้องเรียน</a>
+<a href="#slide-3">3. ชั่วโมงที่ 1: การสังเกตและการใช้หลักฐาน</a>
+<a href="#slide-4">4. โครงเวลา ชั่วโมงที่ 1</a>
+<a href="#slide-5">5. เปิดชั่วโมง: นักวิทยาศาสตร์ไม่รีบเดา</a>
+<a href="#slide-6">6. เกมที่ 1: เห็นจริง หรือ คิดไปเอง</a>
+<a href="#slide-7">7. สอนแก่น: การสังเกตคืออะไร</a>
+<a href="#slide-8">8. เกมที่ 2: นักสืบภาพปริศนา</a>
+<a href="#slide-9">9. สมุดบันทึกนักวิทยาศาสตร์</a>
+<a href="#slide-10">10. ตัวอย่างเพิ่ม + สรุปชั่วโมงที่ 1</a>
+<a href="#slide-11">11. ชั่วโมงที่ 2: สิ่งมีชีวิต สิ่งไม่มีชีวิต และการจัดกลุ่ม</a>
+<a href="#slide-12">12. โครงเวลา ชั่วโมงที่ 2</a>
+<a href="#slide-13">13. เปิดชั่วโมง: ภาพนี้มีชีวิตไหม</a>
+<a href="#slide-14">14. สอนแก่น: เกณฑ์ของสิ่งมีชีวิต</a>
+<a href="#slide-15">15. เกม: ศาลหลักฐาน Evidence Court</a>
+<a href="#slide-16">16. สมุดจำแนกสิ่งมีชีวิตด้วยหลักฐาน</a>
+<a href="#slide-17">17. ตัวอย่างเพิ่ม ชั่วโมงที่ 2</a>
+<a href="#slide-18">18. สรุปชั่วโมงที่ 2 + Exit Ticket</a>
+<a href="#slide-19">19. ชั่วโมงที่ 3: ส่วนประกอบของพืชดอก</a>
+<a href="#slide-20">20. โครงเวลา ชั่วโมงที่ 3</a>
+<a href="#slide-21">21. เปิดชั่วโมง: พืชหนึ่งต้นมีอะไรบ้าง</a>
+<a href="#slide-22">22. สอนแก่น: ส่วนประกอบและหน้าที่</a>
+<a href="#slide-23">23. เกม: โรงงานพืชในจินตนาการ</a>
+<a href="#slide-24">24. สมุดวาดพืชดอก 1 ต้น</a>
+<a href="#slide-25">25. ตัวอย่างเพิ่ม ชั่วโมงที่ 3</a>
+<a href="#slide-26">26. สรุปชั่วโมงที่ 3 + Exit Ticket</a>
+<a href="#slide-27">27. สรุปหลังเรียนครบ 3 ชั่วโมง</a></nav></div></header><main id="slides">
+<section class="snap-slide h-all" id="slide-1" data-title="แผนการสอน วิทยาศาสตร์ ป.4">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">👣 ภาพรวม</div>
+      <div class="page-num">01/27</div>
+      <h2>แผนการสอน วิทยาศาสตร์ ป.4</h2>
+      <p>3 ชั่วโมงแรก | เด็กมีแค่สมุดจดบันทึก + ดินสอ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>แนวคิดหลัก</h3><ul><li>ไม่ใช้ใบงานพิมพ์เพิ่ม เด็กทำทุกอย่างในสมุด</li>
+<li>เกมใช้การดูภาพจากอินเทอร์เน็ต การจินตนาการ และการคิดจากสถานการณ์</li>
+<li>ทุกกิจกรรมให้เด็กตอบแบบมีหลักฐาน ไม่เดาลอย ๆ</li>
+<li>แต่ละหน้าออกแบบเป็นการ์ดเต็มจอ iPad เลื่อนทีละหน้า</li></ul></div>
+      <div class="card accent-card"><h3>โครง 3 ชั่วโมง</h3><ul><li>ชั่วโมงที่ 1: การสังเกตและการใช้หลักฐาน</li>
+<li>ชั่วโมงที่ 2: สิ่งมีชีวิต/สิ่งไม่มีชีวิต และการจัดกลุ่ม</li>
+<li>ชั่วโมงที่ 3: ส่วนประกอบของพืชดอกและหน้าที่</li>
+<li>ทุกชั่วโมงมี: เปิดคิด → เกม → สอนแก่น → บันทึกสมุด → สรุป</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ครูใช้เว็บนี้เป็นสคริปต์สอน เปิดทีละหน้า แล้วให้เด็กจดตามช่องที่กำหนดในสมุด</p></div>
+    </div>
+    <footer class="slide-foot">Little Steps: ก้าวเล็ก ๆ สู่การคิดแบบวิทยาศาสตร์</footer>
+  </div>
+</section>
+<section class="snap-slide h-all" id="slide-2" data-title="วิธีใช้แผนนี้ในห้องเรียน">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📝 ภาพรวม</div>
+      <div class="page-num">02/27</div>
+      <h2>วิธีใช้แผนนี้ในห้องเรียน</h2>
+      <p>จัดเป็นหน้าเต็มจอสำหรับ iPad / โปรเจกเตอร์</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ก่อนเริ่มสอน</h3><ul><li>ให้เด็กเตรียมสมุด 1 เล่มและดินสอ 1 แท่ง</li>
+<li>ครูเตรียมมือถือ/แท็บเล็ตเพื่อเปิดรูปในอินเทอร์เน็ต หรือใช้การเล่าให้เด็กจินตนาการ</li>
+<li>ทุกครั้งที่เด็กตอบ ให้ถามต่อว่า “รู้ได้อย่างไร”</li>
+<li>หากเด็กตอบผิด ให้ถามนำแทนการเฉลยทันที</li></ul></div>
+      <div class="card accent-card"><h3>รูปแบบจดสมุดที่ใช้ซ้ำ</h3><ul><li>เห็นจริง = สิ่งที่พบจากภาพ/เรื่องเล่า</li>
+<li>คิดว่า = สิ่งที่คาดจากข้อมูล</li>
+<li>หลักฐาน = ข้อมูลที่ใช้สนับสนุน</li>
+<li>สรุป = ฉันคิดว่า...เพราะ...</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>นักวิทยาศาสตร์ที่ดีไม่ได้ตอบเร็วที่สุด แต่ตอบโดยมีหลักฐานชัดที่สุด</p></div>
+    </div>
+    <footer class="slide-foot">ประโยคหลัก: “ฉันคิดว่า ______ เพราะฉันสังเกตเห็นว่า ______”</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-3" data-title="ชั่วโมงที่ 1: การสังเกตและการใช้หลักฐาน">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🔍 ชั่วโมงที่ 1</div>
+      <div class="page-num">03/27</div>
+      <h2>ชั่วโมงที่ 1: การสังเกตและการใช้หลักฐาน</h2>
+      <p>เป้าหมาย: แยกสิ่งที่เห็นจริง คิดเอง และคิดจากหลักฐาน</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>เด็กต้องทำได้</h3><ul><li>อธิบายได้ว่า “การสังเกต” คือการเก็บข้อมูลจากสิ่งที่พบจริง</li>
+<li>แยก “ข้อสังเกต” กับ “ความคิดเห็น/การคาดเดา” ได้</li>
+<li>เริ่มใช้คำว่า “อนุมาน” เมื่อคิดจากหลักฐาน</li>
+<li>เขียนสรุปแบบมีคำว่า “เพราะ” ได้</li></ul></div>
+      <div class="card accent-card"><h3>สื่อที่ครูใช้ได้</h3><ul><li>รูปใบไม้ / ก้อนหิน / แก้วน้ำ / ถนนเปียก / ต้นไม้เหี่ยว</li>
+<li>ภาพจากอินเทอร์เน็ตหรือภาพในมือถือ</li>
+<li>เรื่องเล่าให้เด็กจินตนาการ หากไม่มีอินเทอร์เน็ต</li>
+<li>สมุดจดบันทึกของเด็ก</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วันนี้เราไม่ได้ฝึกเดา แต่ฝึกสังเกต เก็บข้อมูล แล้วค่อยคิดจากหลักฐาน</p></div>
+    </div>
+    <footer class="slide-foot">แก่นชั่วโมงที่ 1: ก่อนตอบ ต้องสังเกตก่อน</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-4" data-title="โครงเวลา ชั่วโมงที่ 1">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">⏱️ ชั่วโมงที่ 1</div>
+      <div class="page-num">04/27</div>
+      <h2>โครงเวลา ชั่วโมงที่ 1</h2>
+      <p>60 นาที ปรับได้ตามเด็กจริง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ลำดับกิจกรรม</h3><ul><li>0–5 นาที: เปิดชั่วโมงและตั้งคำถามชวนคิด</li>
+<li>5–15 นาที: เกม “เห็นจริง หรือ คิดไปเอง”</li>
+<li>15–25 นาที: สอนแก่นเรื่องประสาทสัมผัสและข้อสังเกต</li>
+<li>25–40 นาที: เกม “นักสืบภาพปริศนา”</li>
+<li>40–52 นาที: สมุดบันทึกนักวิทยาศาสตร์</li>
+<li>52–60 นาที: ตัวอย่างเพิ่ม + Exit Ticket</li></ul></div>
+      <div class="card accent-card"><h3>เป้าหมายระหว่างสอน</h3><ul><li>ช่วงต้น: เด็กกล้าตอบจากสิ่งที่เห็น</li>
+<li>ช่วงกลาง: เด็กเริ่มแยกเห็นจริงกับคิดเอง</li>
+<li>ช่วงท้าย: เด็กเขียนประโยคสรุปแบบมีหลักฐาน</li>
+<li>ครูเน้นคำถาม: “หลักฐานคืออะไร”</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ไม่ต้องรีบทำครบทุกตัวอย่าง หากเด็กยังแยกไม่ออกให้ชะลอที่เกมแรก</p></div>
+    </div>
+    <footer class="slide-foot">ทุกช่วงต้องวนกลับมาที่คำว่า เห็นจริง / คิดเอง / หลักฐาน</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-5" data-title="เปิดชั่วโมง: นักวิทยาศาสตร์ไม่รีบเดา">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">💬 ชั่วโมงที่ 1</div>
+      <div class="page-num">05/27</div>
+      <h2>เปิดชั่วโมง: นักวิทยาศาสตร์ไม่รีบเดา</h2>
+      <p>เด็กจดหัวข้อและเริ่มเข้าใจเป้าหมายของชั่วโมง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ขั้นตอนครู</h3><ul><li>ครูถาม: “ถ้าดูภาพหนึ่งภาพ เราควรตอบทันทีไหม หรือควรดูรายละเอียดก่อน?”</li>
+<li>รับทุกคำตอบ ไม่ตัดสินทันที</li>
+<li>ครูเขียนบนกระดาน: เห็นจริง / คิดเอง / หลักฐาน</li>
+<li>ให้เด็กเขียนหัวข้อในสมุด: การสังเกตและการใช้หลักฐาน</li></ul></div>
+      <div class="card accent-card"><h3>เด็กทำอะไร</h3><ul><li>ตอบจากความคิดเดิม เช่น “ควรดูให้ดีก่อน” หรือ “ตอบเลยก็ได้”</li>
+<li>จดหัวข้อในสมุด</li>
+<li>เตรียมแบ่งสมุดเป็นช่องสำหรับกิจกรรมต่อไป</li>
+<li>ฟังประโยคจำง่ายและพูดตาม 1 รอบ</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วันนี้เราจะเป็นนักวิทยาศาสตร์ตัวเล็ก ๆ นักวิทยาศาสตร์ไม่ใช่คนที่เดาเก่ง แต่เป็นคนที่สังเกตเก่ง และตอบโดยมีหลักฐาน</p></div>
+    </div>
+    <footer class="slide-foot">เด็กต้องเข้าใจ: คำตอบที่ดีไม่ใช่คำตอบเร็ว แต่เป็นคำตอบที่มีหลักฐาน</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-6" data-title="เกมที่ 1: เห็นจริง หรือ คิดไปเอง">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🎮 ชั่วโมงที่ 1</div>
+      <div class="page-num">06/27</div>
+      <h2>เกมที่ 1: เห็นจริง หรือ คิดไปเอง</h2>
+      <p>ใช้รูปในเน็ตหรือภาพในมือถือ 1 รูป</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>วิธีเล่นละเอียด</h3><ul><li>เด็กแบ่งหน้าสมุดเป็น 2 ช่อง: เห็นจริง / คิดเอง</li>
+<li>ครูเปิดรูปใบไม้หลังฝนตก หรือรูปก้อนหิน close up</li>
+<li>รอบที่ 1 ครูถาม: “เห็นอะไรจริง ๆ บ้าง ห้ามใช้คำว่า น่าจะ”</li>
+<li>รอบที่ 2 ครูถาม: “จากสิ่งที่เห็น เราคิดต่อได้ว่าอะไร”</li>
+<li>ครูช่วยย้ายคำตอบผิดช่องแบบไม่ตำหนิ</li></ul></div>
+      <div class="card accent-card"><h3>ตัวอย่างคำตอบ</h3><ul><li>เห็นจริง: ใบไม้สีเขียว / มีเส้นใบ / มีหยดน้ำ</li>
+<li>คิดเอง: ใบไม้น่าจะเพิ่งโดนฝน / ต้นไม้น่าจะได้รับน้ำ</li>
+<li>ถ้าเด็กตอบว่า “ใบไม้สด” ให้ถามว่า เห็นจากอะไร?</li>
+<li>ถ้าเด็กตอบว่า “ใบไม้น่าจะขาดน้ำ” ให้ถามว่า มีหลักฐานอะไร?</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>คำว่า ‘น่าจะ’ หรือ ‘อาจจะ’ แปลว่าเราเริ่มคิดต่อจากสิ่งที่เห็นแล้ว ยังไม่ใช่ข้อสังเกตตรง ๆ</p></div>
+    </div>
+    <footer class="slide-foot">จดลงสมุด: ข้อสังเกต = สิ่งที่พบจริง | ความคิดเห็น = สิ่งที่คิดต่อเอง</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-7" data-title="สอนแก่น: การสังเกตคืออะไร">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">👁️ ชั่วโมงที่ 1</div>
+      <div class="page-num">07/27</div>
+      <h2>สอนแก่น: การสังเกตคืออะไร</h2>
+      <p>ใช้ประสาทสัมผัสและเครื่องมือเพื่อเก็บข้อมูล</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ครูอธิบาย</h3><ul><li>ตา: ดูสี รูปร่าง ขนาด จำนวน</li>
+<li>หู: ฟังเสียงดัง เบา สูง ต่ำ</li>
+<li>จมูก: ดมกลิ่น แต่ต้องปลอดภัย</li>
+<li>ผิวกาย: สัมผัสเรียบ ขรุขระ แข็ง นุ่ม ร้อน เย็น</li>
+<li>เครื่องมือ: ไม้บรรทัดใช้วัด ต้องมีตัวเลขและหน่วย</li></ul></div>
+      <div class="card accent-card"><h3>คำถามตรวจเร็ว</h3><ul><li>“แก้วน้ำใส” เป็นข้อสังเกตหรือความคิดเห็น?</li>
+<li>“แก้วใบนี้น่าจะแพง” เป็นอะไร?</li>
+<li>“ดินสอยาว 12 เซนติเมตร” ดีอย่างไร?</li>
+<li>“ต้นไม้อาจขาดน้ำ เพราะดินแห้งและใบเหี่ยว” เรียกว่าอะไร?</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>การวัดเป็นข้อสังเกตที่ชัดมาก เพราะมีตัวเลขและหน่วย เช่น ดินสอยาว 12 เซนติเมตร ชัดกว่าพูดว่า ดินสอยาวมาก</p></div>
+    </div>
+    <footer class="slide-foot">เด็กต้องเข้าใจ: ถ้าวัดได้หรือเห็นจริง บันทึกเป็นข้อสังเกตได้</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-8" data-title="เกมที่ 2: นักสืบภาพปริศนา">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🕵️ ชั่วโมงที่ 1</div>
+      <div class="page-num">08/27</div>
+      <h2>เกมที่ 2: นักสืบภาพปริศนา</h2>
+      <p>ใช้ภาพหรือเรื่องเล่า แล้วเด็กจด 4 ช่อง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>รูปแบบสมุด</h3><ul><li>ให้เด็กแบ่งสมุดเป็น 4 ช่อง: เห็นจริง / คิดว่า / หลักฐาน / สรุป</li>
+<li>ครูเปิดภาพถนนเปียก คนถือร่ม ต้นไม้เหี่ยว หรือแก้วน้ำเย็น</li>
+<li>เด็กเขียนสิ่งที่เห็นจริงก่อน</li>
+<li>เด็กเขียนสิ่งที่คิดต่อ</li>
+<li>เด็กเขียนหลักฐานและสรุปด้วยประโยค “ฉันคิดว่า...เพราะ...”</li></ul></div>
+      <div class="card accent-card"><h3>ตัวอย่าง 1: ถนนเปียก</h3><ul><li>เห็นจริง: ถนนเปียก / มีคนถือร่ม / ท้องฟ้ามืด</li>
+<li>คิดว่า: อาจเพิ่งฝนตก</li>
+<li>หลักฐาน: ถนนเปียกและคนถือร่ม</li>
+<li>สรุป: ฉันคิดว่าอาจเพิ่งฝนตก เพราะถนนเปียกและมีคนถือร่ม</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>คำตอบนี้ดี เพราะไม่ได้พูดว่า ‘ฝนตกแน่ ๆ’ แต่พูดว่า ‘อาจเพิ่งฝนตก’ และบอกหลักฐานจากภาพ</p></div>
+    </div>
+    <footer class="slide-foot">หากไม่มีเน็ต ครูเล่าเหตุการณ์ให้เด็กจินตนาการแทนได้</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-9" data-title="สมุดบันทึกนักวิทยาศาสตร์">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📓 ชั่วโมงที่ 1</div>
+      <div class="page-num">09/27</div>
+      <h2>สมุดบันทึกนักวิทยาศาสตร์</h2>
+      <p>เด็กเลือก 1 ภาพหรือ 1 สถานการณ์ แล้วเขียนด้วยตนเอง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>แบบฟอร์มในสมุด</h3><ul><li>1. ภาพ/สถานการณ์ที่สังเกต: __________</li>
+<li>2. สิ่งที่เห็นจริง 3 ข้อ: __________</li>
+<li>3. สิ่งที่ฉันคิดว่าเกิดขึ้น: __________</li>
+<li>4. หลักฐานที่ใช้ช่วยคิด: __________</li>
+<li>5. สรุป: ฉันคิดว่า ______ เพราะ ______</li></ul></div>
+      <div class="card accent-card"><h3>ครูเดินตรวจอย่างไร</h3><ul><li>ถ้าเด็กเขียนความคิดลงช่องเห็นจริง ให้ถามว่า “เห็นจริงไหม หรือคิดต่อเอง?”</li>
+<li>ถ้าเด็กสรุปไม่มีหลักฐาน ให้ถามว่า “เพราะอะไร?”</li>
+<li>ถ้าเด็กเขียนไม่ทัน ให้ลดเหลือ 2 ช่องก่อน: เห็นจริง / คิดว่า</li>
+<li>ชมเด็กที่อธิบายด้วยหลักฐาน แม้คำตอบยังไม่สมบูรณ์</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>หนูยังไม่ต้องตอบให้ถูกที่สุด แต่ต้องตอบให้มีเหตุผลที่สุดก่อน</p></div>
+    </div>
+    <footer class="slide-foot">ตัวอย่างที่ใช้ได้: แก้วน้ำเย็น / โต๊ะมีเศษดินสอ / ต้นไม้เหี่ยว</footer>
+  </div>
+</section>
+<section class="snap-slide h1" id="slide-10" data-title="ตัวอย่างเพิ่ม + สรุปชั่วโมงที่ 1">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">✅ ชั่วโมงที่ 1</div>
+      <div class="page-num">10/27</div>
+      <h2>ตัวอย่างเพิ่ม + สรุปชั่วโมงที่ 1</h2>
+      <p>ใช้ 1–2 เรื่องเพื่อย้ำก่อนจบ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ตัวอย่างเพิ่ม</h3><ul><li>แก้วน้ำเย็น: เห็นหยดน้ำด้านนอกแก้ว → คิดว่าแก้วน่าจะเย็น → หลักฐานคือหยดน้ำและน้ำแข็ง</li>
+<li>โต๊ะเรียนหลังทำงาน: เห็นเศษยางลบ ดินสอ สมุดเปิด → คิดว่าเพิ่งมีคนทำงาน → หลักฐานคืออุปกรณ์ที่ยังวางอยู่</li>
+<li>ต้นไม้เหี่ยว: เห็นใบเหี่ยว ดินแห้ง → คิดว่าพืชอาจขาดน้ำ</li></ul></div>
+      <div class="card accent-card"><h3>Exit Ticket ในสมุด</h3><ul><li>ข้อสังเกตคืออะไร?</li>
+<li>ความคิดเห็นต่างจากข้อสังเกตอย่างไร?</li>
+<li>เขียนประโยค 1 ประโยคที่มีคำว่า “เพราะ”</li>
+<li>ตัวอย่างคำตอบ: ฉันคิดว่าต้นไม้อาจขาดน้ำ เพราะดินแห้งและใบเหี่ยว</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วันนี้ให้จำว่า ก่อนตอบให้สังเกต ก่อนสรุปให้หาหลักฐาน</p></div>
+    </div>
+    <footer class="slide-foot">จบชั่วโมงที่ 1: เด็กควรแยก เห็นจริง / คิดเอง / หลักฐาน ได้</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-11" data-title="ชั่วโมงที่ 2: สิ่งมีชีวิต สิ่งไม่มีชีวิต และการจัดกลุ่ม">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🌱 ชั่วโมงที่ 2</div>
+      <div class="page-num">11/27</div>
+      <h2>ชั่วโมงที่ 2: สิ่งมีชีวิต สิ่งไม่มีชีวิต และการจัดกลุ่ม</h2>
+      <p>เป้าหมาย: ใช้เกณฑ์ ไม่ใช้ความรู้สึก</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>เด็กต้องทำได้</h3><ul><li>บอกลักษณะสำคัญของสิ่งมีชีวิตได้</li>
+<li>จำแนกสิ่งมีชีวิตและสิ่งไม่มีชีวิตพร้อมเหตุผล</li>
+<li>อธิบายตัวอย่างหลอกตา เช่น รถ ไฟ หุ่นยนต์ เมล็ดถั่ว</li>
+<li>จัดกลุ่มสิ่งมีชีวิตเป็น พืช / สัตว์ / กลุ่มอื่น เช่น เห็ด</li></ul></div>
+      <div class="card accent-card"><h3>สื่อที่ครูใช้ได้</h3><ul><li>รูปคน แมว ต้นไม้ เห็ด รถ ไฟ หุ่นยนต์ เมล็ดถั่ว</li>
+<li>รูปจากอินเทอร์เน็ต หรือวาดรูปง่าย ๆ บนกระดาน</li>
+<li>สมุดเด็กใช้ตารางจำแนกและเขียนเหตุผล</li>
+<li>สถานการณ์จินตนาการ เช่น “รถวิ่งได้ มีชีวิตไหม?”</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วันนี้ครูไม่ต้องการคำตอบแค่ มีชีวิต/ไม่มีชีวิต แต่ต้องการคำว่า “เพราะ...” ด้วย</p></div>
+    </div>
+    <footer class="slide-foot">แก่นชั่วโมงที่ 2: เคลื่อนที่ได้ ไม่ได้แปลว่ามีชีวิตเสมอไป</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-12" data-title="โครงเวลา ชั่วโมงที่ 2">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">⏱️ ชั่วโมงที่ 2</div>
+      <div class="page-num">12/27</div>
+      <h2>โครงเวลา ชั่วโมงที่ 2</h2>
+      <p>60 นาที เน้นถามเหตุผลทุกคำตอบ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ลำดับกิจกรรม</h3><ul><li>0–5 นาที: ทบทวนคำว่า หลักฐาน จากชั่วโมงที่ 1</li>
+<li>5–15 นาที: เกม “ภาพนี้มีชีวิตไหม”</li>
+<li>15–28 นาที: สอนเกณฑ์สิ่งมีชีวิต</li>
+<li>28–43 นาที: เกม “ศาลหลักฐาน”</li>
+<li>43–53 นาที: สมุดจำแนกพร้อมเหตุผล</li>
+<li>53–60 นาที: ตัวอย่างหลอกตา + Exit Ticket</li></ul></div>
+      <div class="card accent-card"><h3>คำถามหลักของครู</h3><ul><li>สิ่งนี้โตเองได้ไหม?</li>
+<li>ต้องการอาหาร น้ำ หรือพลังงานไหม?</li>
+<li>สืบพันธุ์หรือเกิดสิ่งใหม่ได้ไหม?</li>
+<li>ตอบสนองต่อสิ่งเร้าได้ไหม?</li>
+<li>เหตุผลของหนูมีหลักฐานกี่ข้อ?</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ชั่วโมงนี้ให้เด็กฝึก “จำแนก + เพราะ...” ไม่ใช่ตอบชื่อกลุ่มอย่างเดียว</p></div>
+    </div>
+    <footer class="slide-foot">ทุกคำตอบต้องมีเหตุผลรองรับ</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-13" data-title="เปิดชั่วโมง: ภาพนี้มีชีวิตไหม">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🖼️ ชั่วโมงที่ 2</div>
+      <div class="page-num">13/27</div>
+      <h2>เปิดชั่วโมง: ภาพนี้มีชีวิตไหม</h2>
+      <p>ใช้ภาพ 6–8 ภาพ ให้เด็กตอบเร็วแล้วอธิบาย</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ขั้นตอนครู</h3><ul><li>ครูเปิดภาพทีละภาพ: คน แมว ต้นไม้ รถ ไฟ หุ่นยนต์ เมล็ดถั่ว เห็ด</li>
+<li>ให้เด็กยกมือเลือก: มีชีวิต / ไม่มีชีวิต / ยังไม่แน่ใจ</li>
+<li>ครูไม่เฉลยทันที แต่ถามว่า “เพราะอะไร”</li>
+<li>ครูเขียนเหตุผลเด็กบนกระดานเป็น 2 ฝั่ง</li></ul></div>
+      <div class="card accent-card"><h3>เด็กทำอะไร</h3><ul><li>ตอบจากความคิดเดิมก่อน</li>
+<li>ฟังเหตุผลของเพื่อน</li>
+<li>เริ่มสังเกตว่าบางอย่างหลอกตา เช่น รถเคลื่อนที่ได้แต่ไม่มีชีวิต</li>
+<li>จดหัวข้อในสมุด: การจำแนกสิ่งมีชีวิตด้วยหลักฐาน</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ถ้ารถวิ่งได้ รถมีชีวิตไหม? ถ้าต้นไม้เดินไม่ได้ ต้นไม้ไม่มีชีวิตหรือเปล่า? วันนี้เราจะไม่ตัดสินจากสิ่งที่เห็นแค่ข้อเดียว</p></div>
+    </div>
+    <footer class="slide-foot">เด็กต้องเริ่มสงสัย: การเคลื่อนที่อย่างเดียวไม่พอ</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-14" data-title="สอนแก่น: เกณฑ์ของสิ่งมีชีวิต">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📌 ชั่วโมงที่ 2</div>
+      <div class="page-num">14/27</div>
+      <h2>สอนแก่น: เกณฑ์ของสิ่งมีชีวิต</h2>
+      <p>ใช้หลายเกณฑ์ร่วมกัน ไม่ใช้ความรู้สึก</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>เกณฑ์ที่ครูอธิบาย</h3><ul><li>ต้องการอาหาร น้ำ หรือพลังงาน</li>
+<li>เจริญเติบโตได้</li>
+<li>ตอบสนองต่อสิ่งเร้าได้</li>
+<li>สืบพันธุ์หรือทำให้เกิดสิ่งมีชีวิตรุ่นใหม่ได้</li>
+<li>มีการดำรงชีวิตของตนเอง ไม่ได้เคลื่อนที่เพราะเครื่องยนต์หรือแรงภายนอก</li></ul></div>
+      <div class="card accent-card"><h3>ตัวอย่างครูอธิบาย</h3><ul><li>รถเคลื่อนที่ได้ แต่ไม่โต ไม่กินอาหารเอง ไม่สืบพันธุ์ จึงไม่มีชีวิต</li>
+<li>ต้นไม้เดินไม่ได้ แต่โตได้ ต้องการน้ำและแสง และสืบพันธุ์ได้ จึงมีชีวิต</li>
+<li>เมล็ดถั่วอยู่นิ่ง แต่เมื่อเหมาะสมสามารถงอกเป็นต้นใหม่ได้</li>
+<li>ไฟลุกลามได้ แต่ไม่ใช่สิ่งมีชีวิต เพราะไม่ใช่การเจริญเติบโตแบบสิ่งมีชีวิต</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>เราไม่ดูแค่ลักษณะเดียว แต่ดูหลายเกณฑ์ร่วมกัน เหมือนใช้หลักฐานหลายชิ้นก่อนตัดสิน</p></div>
+    </div>
+    <footer class="slide-foot">จดลงสมุด: สิ่งมีชีวิตต้องพิจารณาหลายลักษณะร่วมกัน</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-15" data-title="เกม: ศาลหลักฐาน Evidence Court">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">⚖️ ชั่วโมงที่ 2</div>
+      <div class="page-num">15/27</div>
+      <h2>เกม: ศาลหลักฐาน Evidence Court</h2>
+      <p>เด็กเป็นผู้ตัดสิน ต้องใช้หลักฐานอย่างน้อย 2 ข้อ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>วิธีเล่นแบบใช้สมุด</h3><ul><li>ครูเปิดภาพ 1 ภาพ หรือพูดชื่อสิ่งหนึ่ง เช่น รถ / เห็ด / เมล็ดถั่ว</li>
+<li>เด็กวาดตาราง 3 ช่อง: คำตอบ / หลักฐาน 1 / หลักฐาน 2</li>
+<li>เด็กเขียนว่า สิ่งนั้นมีชีวิตหรือไม่มีชีวิต</li>
+<li>เด็กต้องเขียนหลักฐานอย่างน้อย 2 ข้อ</li>
+<li>ครูสุ่มเด็กอ่านคำตัดสิน</li></ul></div>
+      <div class="card accent-card"><h3>รูปแบบประโยค</h3><ul><li>ฉันจัด ______ เป็น ______ เพราะ ______ และ ______</li>
+<li>รถไม่มีชีวิต เพราะไม่เจริญเติบโตเอง และไม่สืบพันธุ์</li>
+<li>เมล็ดถั่วเป็นสิ่งมีชีวิต เพราะสามารถงอกเป็นต้นใหม่ได้เมื่อมีน้ำและสภาพเหมาะสม</li>
+<li>เห็ดเป็นสิ่งมีชีวิต แต่ไม่ใช่พืชและไม่ใช่สัตว์</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ในศาลหลักฐาน ห้ามตอบว่า ‘หนูคิดว่าใช่’ เฉย ๆ ต้องบอกหลักฐานอย่างน้อย 2 ข้อ</p></div>
+    </div>
+    <footer class="slide-foot">เกมนี้ฝึกให้เด็กตอบแบบวิทยาศาสตร์: คำตอบ + เหตุผล</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-16" data-title="สมุดจำแนกสิ่งมีชีวิตด้วยหลักฐาน">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📓 ชั่วโมงที่ 2</div>
+      <div class="page-num">16/27</div>
+      <h2>สมุดจำแนกสิ่งมีชีวิตด้วยหลักฐาน</h2>
+      <p>ไม่ใช้ใบงาน เด็กทำตารางในสมุด</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>แบบฟอร์มในสมุด</h3><ul><li>สิ่งที่พิจารณา: __________</li>
+<li>คำตอบ: มีชีวิต / ไม่มีชีวิต / กลุ่มอื่น</li>
+<li>หลักฐานที่ 1: __________</li>
+<li>หลักฐานที่ 2: __________</li>
+<li>สรุป: ฉันจัด ______ เป็น ______ เพราะ ______</li></ul></div>
+      <div class="card accent-card"><h3>ตารางต่อยอด ป.4</h3><ul><li>หากเป็นสิ่งมีชีวิต ให้จัดกลุ่มต่อ: พืช / สัตว์ / ไม่ใช่พืชไม่ใช่สัตว์</li>
+<li>ตัวอย่างพืช: ต้นไม้ ผัก หญ้า</li>
+<li>ตัวอย่างสัตว์: แมว ปลา คน นก</li>
+<li>ตัวอย่างกลุ่มอื่น: เห็ด</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ขั้นแรกแยกก่อนว่า มีชีวิตหรือไม่มีชีวิต จากนั้นถ้ามีชีวิตจึงจัดกลุ่มต่อ</p></div>
+    </div>
+    <footer class="slide-foot">เด็กต้องเข้าใจลำดับคิด: จำแนก → หาเหตุผล → จัดกลุ่มต่อ</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-17" data-title="ตัวอย่างเพิ่ม ชั่วโมงที่ 2">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🤖 ชั่วโมงที่ 2</div>
+      <div class="page-num">17/27</div>
+      <h2>ตัวอย่างเพิ่ม ชั่วโมงที่ 2</h2>
+      <p>ใช้ภาพจากเน็ตหรือเล่าให้เด็กคิดตาม</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ตัวอย่างที่ 1: หุ่นยนต์</h3><ul><li>เห็นจริง: หุ่นยนต์ขยับได้ มีแขน มีล้อ มีไฟ</li>
+<li>คิดผิดที่พบบ่อย: ขยับได้จึงมีชีวิต</li>
+<li>ครูถามแก้: หุ่นยนต์โตเองไหม? กินอาหารเองไหม? สืบพันธุ์ไหม?</li>
+<li>สรุป: หุ่นยนต์ไม่มีชีวิต เพราะทำงานจากคำสั่ง/พลังงานภายนอก</li></ul></div>
+      <div class="card accent-card"><h3>ตัวอย่างที่ 2: เห็ด</h3><ul><li>เห็นจริง: เห็ดขึ้นจากพื้นหรือขอนไม้ ไม่เดิน</li>
+<li>คิดผิดที่พบบ่อย: เห็ดเหมือนพืช</li>
+<li>ครูอธิบาย: เห็ดเป็นสิ่งมีชีวิต แต่จัดอยู่ในกลุ่มที่ไม่ใช่พืชและไม่ใช่สัตว์</li>
+<li>สรุป: เห็ดมีชีวิต แต่ไม่ใช่พืชและไม่ใช่สัตว์</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>บางสิ่งดูเหมือนมีชีวิตแต่ไม่มีชีวิต บางสิ่งดูนิ่งแต่มีชีวิต เราจึงต้องใช้เกณฑ์</p></div>
+    </div>
+    <footer class="slide-foot">ตัวอย่างหลอกตาช่วยให้เด็กเข้าใจลึกกว่าการจำคำตอบ</footer>
+  </div>
+</section>
+<section class="snap-slide h2" id="slide-18" data-title="สรุปชั่วโมงที่ 2 + Exit Ticket">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">✅ ชั่วโมงที่ 2</div>
+      <div class="page-num">18/27</div>
+      <h2>สรุปชั่วโมงที่ 2 + Exit Ticket</h2>
+      <p>ให้เด็กตอบสั้นแต่ต้องมีเหตุผล</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>Exit Ticket ในสมุด</h3><ul><li>รถวิ่งได้ ทำไมรถไม่มีชีวิต?</li>
+<li>ต้นไม้เดินไม่ได้ ทำไมต้นไม้มีชีวิต?</li>
+<li>เมล็ดถั่วอยู่นิ่ง ทำไมยังถือว่ามีชีวิต?</li>
+<li>ให้ยกตัวอย่างสิ่งมีชีวิต 1 อย่าง พร้อมเหตุผล 2 ข้อ</li></ul></div>
+      <div class="card accent-card"><h3>คำตอบที่คาดหวัง</h3><ul><li>รถไม่มีชีวิต เพราะไม่โตเองและไม่สืบพันธุ์</li>
+<li>ต้นไม้มีชีวิต เพราะโตได้ ต้องการน้ำและสร้างอาหารได้</li>
+<li>เมล็ดถั่วมีชีวิต เพราะงอกเป็นต้นใหม่ได้เมื่อเหมาะสม</li>
+<li>ตอบดีต้องมีคำว่า เพราะ และมีหลักฐานมากกว่า 1 ข้อ</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>อย่าตัดสินจากภาพลักษณ์ภายนอก ให้ใช้เกณฑ์และหลักฐานเสมอ</p></div>
+    </div>
+    <footer class="slide-foot">จบชั่วโมงที่ 2: เด็กควรจำแนกพร้อมเหตุผลได้</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-19" data-title="ชั่วโมงที่ 3: ส่วนประกอบของพืชดอก">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🌸 ชั่วโมงที่ 3</div>
+      <div class="page-num">19/27</div>
+      <h2>ชั่วโมงที่ 3: ส่วนประกอบของพืชดอก</h2>
+      <p>เป้าหมาย: รู้ชื่อส่วน ตำแหน่ง และหน้าที่</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>เด็กต้องทำได้</h3><ul><li>ระบุส่วนประกอบของพืชดอก: ราก ลำต้น ใบ ดอก ผล เมล็ด</li>
+<li>บอกหน้าที่ของแต่ละส่วนได้แบบสั้น</li>
+<li>อธิบายได้ว่าพืชแต่ละส่วนทำงานร่วมกัน</li>
+<li>วาดพืชดอก 1 ต้นในสมุด พร้อมใส่ป้ายชื่อและหน้าที่</li></ul></div>
+      <div class="card accent-card"><h3>สื่อที่ครูใช้ได้</h3><ul><li>รูปพืชดอกที่เห็นราก ลำต้น ใบ ดอก ผล เมล็ด</li>
+<li>ภาพในเน็ต: flower plant parts / roots stem leaf flower fruit seed</li>
+<li>พืชจริงในกระถาง หรือภาพวาดของครู</li>
+<li>สมุดเด็กใช้วาดและทำตารางหน้าที่</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วันนี้เราไม่ได้จำแค่ชื่อส่วนของพืช แต่จะดูว่าแต่ละส่วนช่วยให้พืชอยู่รอดอย่างไร</p></div>
+    </div>
+    <footer class="slide-foot">แก่นชั่วโมงที่ 3: ชื่อส่วน + ตำแหน่ง + หน้าที่ ต้องไปด้วยกัน</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-20" data-title="โครงเวลา ชั่วโมงที่ 3">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">⏱️ ชั่วโมงที่ 3</div>
+      <div class="page-num">20/27</div>
+      <h2>โครงเวลา ชั่วโมงที่ 3</h2>
+      <p>60 นาที เน้นวาดและอธิบายด้วยสมุด</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ลำดับกิจกรรม</h3><ul><li>0–5 นาที: ทบทวนหลักฐานและเกณฑ์จากชั่วโมงก่อน</li>
+<li>5–15 นาที: เกม “พืชหนึ่งต้นมีอะไรบ้าง”</li>
+<li>15–30 นาที: สอนหน้าที่ของส่วนประกอบพืชดอก</li>
+<li>30–45 นาที: เกม “โรงงานพืชในจินตนาการ”</li>
+<li>45–55 นาที: สมุดวาดพืชดอกพร้อมหน้าที่</li>
+<li>55–60 นาที: ตัวอย่างขาดส่วนใดจะเกิดอะไร + Exit Ticket</li></ul></div>
+      <div class="card accent-card"><h3>คำถามหลักของครู</h3><ul><li>ส่วนนี้อยู่ตรงไหนของพืช?</li>
+<li>ส่วนนี้ทำหน้าที่อะไร?</li>
+<li>ถ้าพืชไม่มีส่วนนี้ จะเกิดอะไรขึ้น?</li>
+<li>ส่วนใดเกี่ยวข้องกับน้ำ อาหาร และการเกิดต้นใหม่?</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ชั่วโมงนี้ให้เด็กอธิบายความสัมพันธ์ ไม่ใช่วาดภาพสวยอย่างเดียว</p></div>
+    </div>
+    <footer class="slide-foot">ใช้คำถาม “ถ้าไม่มี…” เพื่อดึงการคิดวิเคราะห์</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-21" data-title="เปิดชั่วโมง: พืชหนึ่งต้นมีอะไรบ้าง">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🌿 ชั่วโมงที่ 3</div>
+      <div class="page-num">21/27</div>
+      <h2>เปิดชั่วโมง: พืชหนึ่งต้นมีอะไรบ้าง</h2>
+      <p>ใช้ภาพพืชดอกหรือพืชจริง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ขั้นตอนครู</h3><ul><li>ครูเปิดภาพพืชดอก 1 ภาพ หรือวางพืชจริงให้ดู</li>
+<li>ถามเด็กว่า “เห็นส่วนไหนของพืชบ้าง?”</li>
+<li>ครูไม่รีบสอนชื่อครบ ให้เด็กชี้และพูดก่อน</li>
+<li>ครูเขียนคำที่เด็กตอบบนกระดาน แล้วจัดเป็น 6 ส่วนหลัก</li></ul></div>
+      <div class="card accent-card"><h3>เด็กทำอะไร</h3><ul><li>ตอบชื่อส่วนที่รู้จัก เช่น ราก ลำต้น ใบ ดอก</li>
+<li>จดหัวข้อในสมุด: ส่วนประกอบของพืชดอก</li>
+<li>วาดโครงต้นพืชอย่างง่าย ยังไม่ต้องใส่รายละเอียด</li>
+<li>เตรียมใส่ป้ายชื่อระหว่างเรียน</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>พืชหนึ่งต้นไม่ได้มีแค่ใบหรือดอก แต่มีหลายส่วนที่ทำงานร่วมกัน วันนี้เราจะดูว่าแต่ละส่วนอยู่ตรงไหนและทำหน้าที่อะไร</p></div>
+    </div>
+    <footer class="slide-foot">เด็กต้องเห็นภาพรวมก่อนลงรายละเอียด</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-22" data-title="สอนแก่น: ส่วนประกอบและหน้าที่">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📘 ชั่วโมงที่ 3</div>
+      <div class="page-num">22/27</div>
+      <h2>สอนแก่น: ส่วนประกอบและหน้าที่</h2>
+      <p>อธิบายทีละส่วนด้วยภาษาง่าย</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ส่วนของพืช</h3><ul><li>ราก: อยู่ใต้ดิน ดูดน้ำและธาตุอาหาร ยึดพืชกับดิน</li>
+<li>ลำต้น: พยุงต้น และลำเลียงน้ำไปส่วนต่าง ๆ</li>
+<li>ใบ: รับแสงและช่วยสร้างอาหาร</li>
+<li>ดอก: เกี่ยวข้องกับการสืบพันธุ์ของพืช</li>
+<li>ผล: ห่อหุ้มและป้องกันเมล็ด</li>
+<li>เมล็ด: งอกเป็นต้นใหม่ได้เมื่อเหมาะสม</li></ul></div>
+      <div class="card accent-card"><h3>สิ่งที่เด็กจด</h3><ul><li>ให้เด็กทำตาราง 2 ช่อง: ส่วนของพืช / หน้าที่</li>
+<li>ให้เด็กเขียนคำสั้น ๆ ไม่ต้องยาว</li>
+<li>ใช้ลูกศรในสมุด: ดิน → ราก → ลำต้น → ใบ</li>
+<li>ให้วงคำว่า “ทำงานร่วมกัน”</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>อย่าจำว่า รากคือราก เฉย ๆ ให้จำว่า รากดูดน้ำและช่วยยึดต้นไม้กับดิน</p></div>
+    </div>
+    <footer class="slide-foot">จดจำเป็นคู่: ราก=ดูดน้ำ | ลำต้น=ลำเลียง | ใบ=สร้างอาหาร</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-23" data-title="เกม: โรงงานพืชในจินตนาการ">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🏭 ชั่วโมงที่ 3</div>
+      <div class="page-num">23/27</div>
+      <h2>เกม: โรงงานพืชในจินตนาการ</h2>
+      <p>ใช้สมุดวาดแทนการตัดแปะ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>วิธีเล่นละเอียด</h3><ul><li>ครูให้เด็กจินตนาการว่า พืชเป็นโรงงานเล็ก ๆ</li>
+<li>เด็กวาดต้นพืช 1 ต้นในสมุด</li>
+<li>ครูอ่านภารกิจทีละข้อ: ติดป้ายชื่อ / ใส่หน้าที่ / วาดลูกศรน้ำ</li>
+<li>เด็กเพิ่มรายละเอียดลงภาพทีละขั้น</li>
+<li>ครูสุ่มถามว่า ถ้าส่วนใดหายไป โรงงานพืชจะมีปัญหาอะไร</li></ul></div>
+      <div class="card accent-card"><h3>ภารกิจในเกม</h3><ul><li>ภารกิจ 1: ใส่ป้ายชื่อ 6 ส่วนให้ครบ</li>
+<li>ภารกิจ 2: เขียนหน้าที่ข้าง ๆ อย่างน้อย 4 ส่วน</li>
+<li>ภารกิจ 3: วาดลูกศร ดิน → ราก → ลำต้น → ใบ</li>
+<li>ภารกิจ 4: เลือกส่วนหนึ่ง แล้วบอกว่าถ้าขาดไปจะเกิดอะไร</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>ให้คิดว่าพืชเป็นโรงงานเล็ก ๆ ถ้ารากทำงานไม่ได้ น้ำก็ไปไม่ถึงใบ ถ้าใบสร้างอาหารไม่ได้ พืชก็โตได้ไม่ดี</p></div>
+    </div>
+    <footer class="slide-foot">เกมนี้ทำให้เด็กเข้าใจความสัมพันธ์ ไม่ใช่ท่องชื่อส่วนประกอบ</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-24" data-title="สมุดวาดพืชดอก 1 ต้น">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">📓 ชั่วโมงที่ 3</div>
+      <div class="page-num">24/27</div>
+      <h2>สมุดวาดพืชดอก 1 ต้น</h2>
+      <p>งานเดี่ยว ใช้ประเมินความเข้าใจ</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>แบบงานในสมุด</h3><ul><li>1. วาดพืชดอก 1 ต้น</li>
+<li>2. ใส่ป้ายชื่อ: ราก ลำต้น ใบ ดอก ผล เมล็ด</li>
+<li>3. เขียนหน้าที่สั้น ๆ อย่างน้อย 4 ส่วน</li>
+<li>4. วาดลูกศรเส้นทางน้ำ: ดิน → ราก → ลำต้น → ใบ</li>
+<li>5. เขียนสรุป: พืชแต่ละส่วนทำงานร่วมกันอย่างไร</li></ul></div>
+      <div class="card accent-card"><h3>เกณฑ์ตรวจของครู</h3><ul><li>ระบุส่วนประกอบถูกต้อง</li>
+<li>หน้าที่ตรงกับส่วนของพืช</li>
+<li>มีลูกศรแสดงความสัมพันธ์</li>
+<li>สรุปด้วยคำของตนเอง ไม่ใช่คัดลอกอย่างเดียว</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>วาดไม่ต้องสวยมาก แต่ต้องแสดงความเข้าใจให้ครบ: ชื่อ ตำแหน่ง หน้าที่ และความสัมพันธ์</p></div>
+    </div>
+    <footer class="slide-foot">เด็กที่เขียนน้อย ให้เริ่มจาก 3 ส่วนก่อน: ราก ลำต้น ใบ</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-25" data-title="ตัวอย่างเพิ่ม ชั่วโมงที่ 3">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">❓ ชั่วโมงที่ 3</div>
+      <div class="page-num">25/27</div>
+      <h2>ตัวอย่างเพิ่ม ชั่วโมงที่ 3</h2>
+      <p>ใช้คำถาม “ถ้าไม่มี...” เพื่อให้เด็กคิดวิเคราะห์</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>ตัวอย่างที่ 1: ถ้าไม่มีราก</h3><ul><li>ครูถาม: ถ้าพืชไม่มีราก จะเกิดอะไรขึ้น?</li>
+<li>เด็กอาจตอบ: พืชดูดน้ำไม่ได้ / ล้มง่าย</li>
+<li>ครูอธิบาย: รากช่วยดูดน้ำและธาตุอาหาร รวมทั้งยึดพืชกับดิน</li>
+<li>สรุป: ถ้าไม่มีราก พืชอาจเหี่ยว ล้ม หรือเติบโตไม่ดี</li></ul></div>
+      <div class="card accent-card"><h3>ตัวอย่างที่ 2: ถ้าไม่มีใบ</h3><ul><li>ครูถาม: ถ้าพืชไม่มีใบ จะเกิดอะไรขึ้น?</li>
+<li>เด็กอาจตอบ: พืชสร้างอาหารได้น้อยลง</li>
+<li>ครูอธิบาย: ใบช่วยรับแสงและสร้างอาหารให้พืช</li>
+<li>สรุป: ถ้าไม่มีใบ พืชอาจเจริญเติบโตไม่ดี</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>คำถามแบบ ‘ถ้าไม่มี...’ ช่วยให้เด็กเห็นว่าหน้าที่ของแต่ละส่วนสำคัญจริง ไม่ใช่แค่ชื่อให้ท่องจำ</p></div>
+    </div>
+    <footer class="slide-foot">เด็กควรตอบผลกระทบได้อย่างน้อย 1 อย่างต่อส่วนประกอบ</footer>
+  </div>
+</section>
+<section class="snap-slide h3" id="slide-26" data-title="สรุปชั่วโมงที่ 3 + Exit Ticket">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">✅ ชั่วโมงที่ 3</div>
+      <div class="page-num">26/27</div>
+      <h2>สรุปชั่วโมงที่ 3 + Exit Ticket</h2>
+      <p>เด็กตอบจากภาพในสมุดของตนเอง</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>Exit Ticket ในสมุด</h3><ul><li>รากทำหน้าที่อะไร?</li>
+<li>ลำต้นเกี่ยวข้องกับน้ำอย่างไร?</li>
+<li>ใบช่วยพืชอย่างไร?</li>
+<li>ดอก ผล และเมล็ดเกี่ยวข้องกับการเกิดต้นใหม่อย่างไร?</li></ul></div>
+      <div class="card accent-card"><h3>คำตอบที่คาดหวัง</h3><ul><li>รากดูดน้ำและธาตุอาหาร</li>
+<li>ลำต้นพยุงต้นและลำเลียงน้ำ</li>
+<li>ใบช่วยสร้างอาหาร</li>
+<li>ดอกเกี่ยวข้องกับการสืบพันธุ์ ผลห่อหุ้มเมล็ด และเมล็ดงอกเป็นต้นใหม่</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>พืชดอกหนึ่งต้นมีหลายส่วน แต่ละส่วนทำงานต่างกัน และเมื่อทำงานร่วมกัน พืชจึงเจริญเติบโตและเกิดต้นใหม่ได้</p></div>
+    </div>
+    <footer class="slide-foot">จบชั่วโมงที่ 3: เด็กควรอธิบายส่วนประกอบพร้อมหน้าที่ได้</footer>
+  </div>
+</section>
+<section class="snap-slide h-all" id="slide-27" data-title="สรุปหลังเรียนครบ 3 ชั่วโมง">
+  <div class="slide-shell">
+    <header class="slide-head">
+      <div class="lesson-pill">🎉 ภาพรวม</div>
+      <div class="page-num">27/27</div>
+      <h2>สรุปหลังเรียนครบ 3 ชั่วโมง</h2>
+      <p>ใช้ตรวจภาพรวมความเข้าใจเด็ก</p>
+    </header>
+    <div class="slide-body">
+      <div class="card main-card"><h3>เด็กควรทำได้</h3><ul><li>ชั่วโมงที่ 1: แยกเห็นจริง / คิดเอง / หลักฐาน</li>
+<li>ชั่วโมงที่ 2: จำแนกสิ่งมีชีวิตด้วยเกณฑ์และเหตุผล</li>
+<li>ชั่วโมงที่ 3: ระบุส่วนของพืชดอกและหน้าที่</li>
+<li>เขียนคำตอบแบบ “ฉันคิดว่า...เพราะ...” ได้ชัดขึ้น</li></ul></div>
+      <div class="card accent-card"><h3>แนวประเมินง่าย ๆ</h3><ul><li>ระดับดีมาก: ตอบพร้อมหลักฐานได้เอง</li>
+<li>ระดับผ่าน: ทำได้เมื่อครูถามนำ</li>
+<li>ควรเสริม: ยังเดาโดยไม่มีหลักฐาน หรือจดแยกช่องไม่ถูก</li>
+<li>ให้เสริมด้วยภาพใกล้ตัว เช่น โต๊ะเรียน แก้วน้ำ ต้นไม้หน้าบ้าน</li></ul></div>
+      <div class="teacher-card"><span>ครูพูด/ย้ำ</span><p>สามชั่วโมงนี้คือฐานของการคิดแบบวิทยาศาสตร์: สังเกต ใช้เกณฑ์ และอธิบายด้วยหลักฐาน</p></div>
+    </div>
+    <footer class="slide-foot">พร้อมใช้เป็นเว็บสอนบน iPad / โปรเจกเตอร์</footer>
+  </div>
+</section></main><div class="controls"><button onclick="goPrev()">‹</button><div class="center" id="pageLabel">1 / 27</div><button onclick="goNext()">›</button></div><script>
+const total = 27;
+const slides = [...document.querySelectorAll('.snap-slide')];
+const bar = document.getElementById('bar');
+const pageLabel = document.getElementById('pageLabel');
+function toggleMenu(){document.getElementById('menu').classList.toggle('open');}
+document.addEventListener('click', e=>{const m=document.getElementById('menu'); if(!m.contains(e.target)) m.classList.remove('open');});
+function currentIndex(){let best=0,dist=Infinity;slides.forEach((s,i)=>{let d=Math.abs(s.getBoundingClientRect().top-72);if(d<dist){dist=d;best=i;}});return best;}
+function update(){let i=currentIndex();bar.style.width=((i+1)/total*100)+'%';pageLabel.textContent=(i+1)+' / '+total;}
+function goTo(i){i=Math.max(0,Math.min(total-1,i));slides[i].scrollIntoView({behavior:'smooth',block:'start'});}
+function goNext(){goTo(currentIndex()+1);}
+function goPrev(){goTo(currentIndex()-1);}
+window.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+window.addEventListener('resize',update);
+document.addEventListener('keydown',e=>{if(['ArrowDown','PageDown','ArrowRight'].includes(e.key))goNext(); if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key))goPrev();});
+update();
+</script>
+<script>
+document.querySelectorAll('.menu-panel a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('menu')?.classList.remove('open'));
+});
+let lastHashIndex = -1;
+function updateHashSoft(){
+  if(typeof currentIndex !== 'function') return;
+  const i = currentIndex();
+  if(i !== lastHashIndex){
+    lastHashIndex = i;
+    history.replaceState(null,'','#slide-' + (i+1));
+  }
+}
+window.addEventListener('scroll',()=>requestAnimationFrame(updateHashSoft),{passive:true});
+</script>
+
+</body></html>
