@@ -1,3 +1,936 @@
-<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Little Steps | คณิตศาสตร์ ป.4 แผน 3 ชั่วโมงแบบสมุดจด</title><style>
-:root{--blue:#0757A5;--blue2:#0F83C9;--cyan:#28B7DF;--yellow:#FFC83D;--yellow2:#FFF6D6;--green:#61A84F;--green2:#EFFBEA;--ink:#17344D;--muted:#617B91;--line:#D7ECF7;--shadow:0 22px 60px rgba(6,72,125,.14);--r:28px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Noto Sans Thai","Sarabun","Kanit","Leelawadee UI",Tahoma,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 8%,rgba(40,183,223,.17),transparent 23%),radial-gradient(circle at 92% 90%,rgba(255,200,61,.20),transparent 22%),linear-gradient(135deg,#f7fcff 0%,#eef8ff 48%,#fffdf4 100%);font-size:20px;line-height:1.78}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 18px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(7,87,165,.12)}.logo{display:flex;align-items:center;gap:10px;font-weight:1000;color:var(--blue);white-space:nowrap}.logo-mark{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;color:white;background:linear-gradient(135deg,var(--cyan),var(--blue));box-shadow:0 8px 18px rgba(7,87,165,.18)}.nav{display:flex;gap:8px;overflow:auto;flex:1;justify-content:flex-end}.nav a{flex:0 0 auto;color:var(--blue);text-decoration:none;font-weight:900;padding:9px 13px;border:1px solid #d8edf7;border-radius:999px;background:#fff}.hero{width:min(1180px,calc(100% - 28px));margin:24px auto;border-radius:40px;background:linear-gradient(135deg,#f1fbff,#fff 55%,#fff6d6);border:1px solid rgba(7,87,165,.12);box-shadow:var(--shadow);overflow:hidden;padding:38px;position:relative}.kicker{display:inline-flex;gap:8px;align-items:center;color:var(--blue);font-weight:1000;background:white;border:1px solid #d8edf7;border-radius:999px;padding:8px 15px}.hero h1{margin:20px 0 8px;color:#073C7D;font-size:clamp(38px,6vw,72px);line-height:1.08;letter-spacing:-.04em}.hero p{max-width:900px;font-size:clamp(22px,2.2vw,28px);color:#31536b;margin:0 0 20px}.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.pill{background:white;border:1px solid #d9ebf5;border-radius:16px;padding:10px 14px;color:var(--blue);font-weight:900}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto 50px}.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 26px}.mini{border-radius:var(--r);border:1px solid var(--line);background:white;padding:20px;box-shadow:0 10px 26px rgba(7,87,165,.08)}.mini b{display:block;color:var(--blue);font-size:24px;margin-bottom:8px}.mini p{margin:0;color:#36546b}.focus{margin:30px 0;border:3px solid rgba(255,200,61,.55);border-radius:40px;background:linear-gradient(135deg,#fff8d8,#fff);box-shadow:var(--shadow);padding:28px}.focus h2{color:#073C7D;margin:0 0 12px;font-size:42px}.focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.hour{margin:30px 0;border-radius:40px;background:rgba(255,255,255,.96);border:1px solid rgba(7,87,165,.10);box-shadow:var(--shadow);overflow:hidden}.hhead{padding:30px 34px;background:linear-gradient(120deg,#f1fbff,#fff 55%,#fff8df);border-bottom:1px solid var(--line)}.hhead span{display:inline-flex;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;padding:8px 16px;border-radius:999px;font-weight:1000}.hhead h2{margin:16px 0 8px;color:#073C7D;font-size:clamp(32px,4vw,54px);line-height:1.15}.hhead p{margin:0;font-size:24px;color:#526f88;font-weight:800}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:24px 30px 0}.panel{margin:24px 30px;border-radius:var(--r);background:white;border:1px solid var(--line);padding:24px 28px;box-shadow:0 10px 24px rgba(7,87,165,.06)}.grid .panel{margin:0}.panel h3{margin:0 0 14px;color:var(--blue);font-size:30px;line-height:1.28}.panel ul{margin:0;padding-left:1.35em}.panel li{margin:7px 0}.blue{background:linear-gradient(135deg,#f2fbff,#fff)}.yellow{background:linear-gradient(135deg,#fff8dc,#fff)}.green{background:linear-gradient(135deg,#f1fff0,#fff)}.steps{display:grid;gap:16px}.step{display:grid;grid-template-columns:140px 1fr;border:1px solid #dcecf5;border-radius:24px;overflow:hidden;background:#fff}.time{background:linear-gradient(135deg,#e9f8ff,#fff8dc);color:var(--blue);font-weight:1000;padding:18px;text-align:center;font-size:19px}.detail{padding:18px 20px}.detail h4{margin:0 0 14px;color:#073C7D;font-size:27px}.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.cols section{background:#fbfdff;border:1px solid #e1eff7;border-radius:20px;padding:15px 17px}.cols .why{background:var(--yellow2);border-color:#f5d47c}.cols b{color:var(--blue);font-size:20px}.cols p{margin:8px 0 0}.cols ul{margin:8px 0 0;padding-left:1.2em;font-size:18px;line-height:1.7}.print-note{text-align:center;color:var(--muted);margin:30px 0}button.print{border:0;border-radius:999px;padding:12px 20px;font:inherit;font-weight:1000;color:white;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 10px 24px rgba(7,87,165,.18);cursor:pointer}@media(max-width:980px){.overview,.grid,.focus-grid,.cols{grid-template-columns:1fr}.hero{padding:28px 20px}.step{grid-template-columns:1fr}.time{text-align:left}.panel{margin:18px 20px;padding:20px}.grid{padding:20px 20px 0}.nav{justify-content:flex-start}body{font-size:18px}}@media print{.topbar,.print-note{display:none}body{background:#fff;font-size:15px}.hero,.hour,.focus{box-shadow:none;break-inside:avoid}.hour{page-break-before:always}.cols{grid-template-columns:1fr}}
-</style></head><body><header class="topbar"><div class="logo"><div class="logo-mark">∑</div><span>Little Steps คณิตศาสตร์ ป.4</span></div><nav class="nav"><a href="#hour-1">ชั่วโมง 1</a><a href="#hour-2">ชั่วโมง 2</a><a href="#hour-3">ชั่วโมง 3</a><a href="#hour2-prep">เตรียมชั่วโมง 2</a></nav></header><section class="hero"><span class="kicker">👣 แผนแบบสมุดจดบันทึก</span><h1>คณิตศาสตร์ ป.4<br>ชั่วโมงที่ 1–3</h1><p>ปรับจากแผนเดิมให้เด็กมีเพียงสมุดจด + ดินสอ ครูใช้กระดาน จอ หรือรูปสถานการณ์ได้ ไม่ต้องใช้ใบงานพิมพ์ในชั่วโมงเรียน</p><div class="pills"><span class="pill">ชั่วโมง 1: ค่าประจำหลัก</span><span class="pill">ชั่วโมง 2: เปรียบเทียบ / เรียงลำดับ / ประมาณค่า</span><span class="pill">ชั่วโมง 3: บวก ลบ และตัวไม่ทราบค่า</span></div></section><main class="wrap"><section class="overview"><div class="mini"><b>แนวทางรวม</b><p>เด็กจดเป็นตาราง ฝึกคิดทีละขั้น เขียนเหตุผล และตรวจคำตอบในสมุดของตนเอง</p></div><div class="mini"><b>เกม</b><p>ใช้เกมบนกระดานและสมุด เช่น บ้านหลักเลข เลขใครมากกว่า และนักสืบจำนวนหาย</p></div><div class="mini"><b>ประเมิน</b><p>ใช้ Exit Ticket ท้ายชั่วโมงและดูหลักฐานวิธีคิดในสมุด ไม่เน้นคำตอบเร็วอย่างเดียว</p></div></section><section class="focus" id="hour2-prep"><h2>ชั่วโมงที่ 2 ต้องเตรียมอะไรบ้าง และสอนอย่างไร</h2><div class="focus-grid"><div class="panel yellow"><h3>รายการเตรียมก่อนสอน</h3><ul><li>สมุดจดและดินสอของเด็ก</li><li>ปากกาสี 2 สี สำหรับวง “หลักแรกที่ต่างกัน” และ “หลักที่ใช้ปัด”</li><li>กระดานหรือจอสำหรับเขียนจำนวนคู่เปรียบเทียบ</li><li>ชุดจำนวน: 450,215 / 405,999 / 703,120 / 730,012 / 370,210 / 703,102</li><li>ชุดปัดเศษ: 678,432 / 615,240 / 198,700 / 302,100 / 899,100</li><li>ภาพหรือสถานการณ์เสริม เช่น ป้ายราคา จำนวนผู้เข้าชม จำนวนประชากร หรือยอดขาย 2 สาขา</li></ul></div><div class="panel blue"><h3>แก่นการสอนชั่วโมงที่ 2</h3><ul><li>เริ่มจากทบทวนค่าประจำหลักจากชั่วโมงที่ 1</li><li>สอนเปรียบเทียบโดยดูจำนวนหลักก่อน แล้วเทียบจากซ้ายไปขวา</li><li>ให้เด็กวง “หลักแรกที่ต่างกัน” ทุกครั้ง</li><li>สอนปัดเศษโดยเลือกหลักที่จะปัด แล้วดูเลขถัดไป</li><li>ฝึกประมาณค่าเพื่อดูว่าคำตอบสมเหตุสมผลหรือไม่</li><li>จบด้วย Exit Ticket 3 ข้อ เพื่อดูว่าทำได้จริงหรือยัง</li></ul></div></div></section><section class="hour" id="hour-1"><div class="hhead"><span>ชั่วโมงที่ 1</span><h2>ค่าประจำหลักและการอ่านเขียนจำนวนนับมากกว่า 100,000</h2><p>เด็กอ่านจำนวน แยกหลัก บอกค่าของเลขโดด และเขียนกระจายจำนวนได้ โดยใช้แค่สมุดจดบันทึก</p></div><div class="grid"><div class="panel blue"><h3>ต้องเตรียมอะไร</h3><ul><li>สมุดจดและดินสอของเด็ก</li><li>กระดานหรือจอสำหรับครูเขียนจำนวน</li><li>ปากกาสี 2 สี เพื่อแยกคำว่า “หลัก” กับ “ค่า”</li><li>ตัวเลขตัวอย่าง 6 หลัก เช่น 583,426 / 604,215 / 719,508 / 456,203 / 832,076</li><li>สถานการณ์ใกล้ตัว เช่น จำนวนประชากร ยอดเงินบริจาค จำนวนหนังสือในห้องสมุด</li></ul></div><div class="panel yellow"><h3>เด็กจดอะไรลงสมุด</h3><ul><li>ตารางบ้านหลัก: หลักแสน | หลักหมื่น | หลักพัน | หลักร้อย | หลักสิบ | หลักหน่วย</li><li>ตาราง 3 ช่อง: จำนวน | อยู่หลักใด | มีค่าเท่าใด</li><li>ช่องเขียนรูปกระจายจำนวน</li><li>สรุป: ฉันรู้ว่าเลขโดดมีค่าเท่าใด เพราะดูจาก...</li></ul></div></div><div class="panel"><h3>ขั้นตอนการสอนแบบละเอียด</h3><div class="steps"><article class="step"><div class="time">0–5 นาที</div><div class="detail"><h4>เปิดบทด้วยตัวเลขใกล้ตัว</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียน 583,426 บนกระดาน</li><li>ถามว่าอ่านว่าอะไร และเลข 8 มีค่าเท่าไร</li><li>รับคำตอบก่อนแล้ววงเลข 8</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>จดหัวข้อ</li><li>ลองตอบคำอ่านและค่าของเลขโดด</li><li>ทำเครื่องหมาย ? หน้าจุดที่ไม่มั่นใจ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>เลขตัวเดียวกันมีค่าต่างกันตามบ้านหลักที่อยู่ เช่น 8 อยู่หลักหมื่นจึงมีค่า 80,000</p></section></div></div></article><article class="step"><div class="time">5–15 นาที</div><div class="detail"><h4>เกมในสมุด: บ้านหลักเลข</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้เด็กวาดตารางบ้านหลัก 6 ช่อง</li><li>อ่านจำนวน เช่น 604,215 ให้เด็กใส่ลงช่อง</li><li>ถามทีละตำแหน่งว่าอยู่หลักใด มีค่าเท่าใด</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>วาดตาราง</li><li>ใส่ตัวเลขให้ตรงหลัก</li><li>ตอบเป็นประโยคเต็ม เช่น เลข 4 อยู่หลักพัน มีค่า 4,000</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>เกมนี้ทำให้เด็กเห็นว่าหลักคือ “ตำแหน่ง” และค่าคือ “มูลค่าของเลขตามตำแหน่ง”</p></section></div></div></article><article class="step"><div class="time">15–28 นาที</div><div class="detail"><h4>สอนแก่น: หลัก ค่า และรูปกระจาย</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>สาธิต 583,426</li><li>เขียน 500,000 + 80,000 + 3,000 + 400 + 20 + 6</li><li>พูดคิดเสียงดังว่าดูจากซ้ายไปขวาและเติมศูนย์ตามตำแหน่ง</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>จดคำสำคัญ</li><li>เขียนรูปกระจายตามครู</li><li>วงจุดที่ตนเองสับสน</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>รูปกระจายช่วยให้เด็กไม่อ่านผิดหลัก เพราะเห็นชัดว่าแต่ละเลขมีค่าเท่าไร</p></section></div></div></article><article class="step"><div class="time">28–42 นาที</div><div class="detail"><h4>ฝึกคิดร่วมกัน: นักสืบค่าของเลข</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียน 719,508 แล้วถามเลข 1 อยู่หลักใด</li><li>เขียน 456,203 ให้ช่วยเขียนรูปกระจาย</li><li>ถามว่าเลข 6 ใน 268,401 หรือ 806,123 มีค่ามากกว่า</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ตอบพร้อมเหตุผล</li><li>ใช้สีวงเลขที่พิจารณา</li><li>เขียนเหตุผลสั้น ๆ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ต้องดูตำแหน่งของเลข ไม่ใช่ดูเลขโดดอย่างเดียว</p></section></div></div></article><article class="step"><div class="time">42–55 นาที</div><div class="detail"><h4>สมุดบันทึกเดี่ยว</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้โจทย์ 4 ข้อบนกระดาน</li><li>เดินดูสมุดและถามนำ</li><li>ให้เด็กตรวจด้วยตารางบ้านหลัก</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ทำในสมุด</li><li>เขียนประโยคสรุป 1 ประโยค</li><li>แก้ด้วยสีอื่นโดยไม่ลบหลักฐานเดิม</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>การไม่ลบคำตอบเดิมช่วยให้เห็นจุดที่เข้าใจผิดและใช้สอนต่อได้</p></section></div></div></article><article class="step"><div class="time">55–60 นาที</div><div class="detail"><h4>Exit Ticket</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้ตอบ 3 ข้อ: อ่าน 604,215 / เขียน 456,203 รูปกระจาย / ค่าเลข 6 ใน 268,401</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ตอบรายบุคคล</li><li>เขียนมั่นใจหรือยังไม่มั่นใจ</li><li>จดเป้าหมายครั้งต่อไป</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ใช้ดูว่าเด็กแยกหลักและค่าได้จริงหรือยัง</p></section></div></div></article></div></div><div class="panel green"><h3>ตัวอย่างพร้อมใช้</h3><ul><li>583,426 = 500,000 + 80,000 + 3,000 + 400 + 20 + 6</li><li>604,215 อ่านว่า หกแสนสี่พันสองร้อยสิบห้า</li><li>719,508 เลข 1 อยู่หลักหมื่น มีค่า 10,000</li><li>268,401 เลข 6 อยู่หลักหมื่น มีค่า 60,000</li></ul></div></section><section class="hour" id="hour-2"><div class="hhead"><span>ชั่วโมงที่ 2</span><h2>การเปรียบเทียบ เรียงลำดับจำนวน และการประมาณค่า</h2><p>เด็กเปรียบเทียบจำนวน เรียงลำดับจำนวน และปัดเศษเพื่อประมาณคำตอบได้ โดยใช้สมุดเป็นหลัก</p></div><div class="grid"><div class="panel blue"><h3>ต้องเตรียมอะไร</h3><ul><li>สมุดจดและดินสอของเด็ก</li><li>ปากกาสี 2 สี สำหรับวง “หลักแรกที่ต่างกัน” และ “หลักที่ใช้ปัด”</li><li>กระดานหรือจอสำหรับเขียนจำนวนคู่เปรียบเทียบ</li><li>ชุดจำนวน: 450,215 / 405,999 / 703,120 / 730,012 / 370,210 / 703,102</li><li>ชุดปัดเศษ: 678,432 / 615,240 / 198,700 / 302,100 / 899,100</li><li>ภาพหรือสถานการณ์เสริม เช่น ป้ายราคา จำนวนผู้เข้าชม จำนวนประชากร หรือยอดขาย 2 สาขา</li></ul></div><div class="panel yellow"><h3>เด็กจดอะไรลงสมุด</h3><ul><li>ตารางเปรียบเทียบ: จำนวนที่ 1 | จำนวนที่ 2 | หลักแรกที่ต่างกัน | เครื่องหมาย | เหตุผล</li><li>ตารางปัดเศษ: จำนวน | ปัดเป็นหลักใด | ตัวเลขถัดไป | คำตอบ</li><li>ช่องเรียงลำดับจำนวนจากน้อยไปมาก</li><li>สรุป: จำนวนใดมากกว่า เพราะ...</li></ul></div></div><div class="panel"><h3>ขั้นตอนการสอนแบบละเอียด</h3><div class="steps"><article class="step"><div class="time">0–5 นาที</div><div class="detail"><h4>ทบทวนจากชั่วโมงที่ 1</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียน 450,215 และ 405,999</li><li>ถามว่าควรดูตรงไหนก่อน</li><li>ชวนเด็กนึกถึงบ้านหลัก</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>จดหัวข้อ</li><li>ตอบจากความรู้เดิม</li><li>วงเลขหลักแสนของทั้งสองจำนวน</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>การเปรียบเทียบต้องใช้ค่าประจำหลัก ถ้าดูเลขท้ายก่อนจะพลาดง่าย</p></section></div></div></article><article class="step"><div class="time">5–15 นาที</div><div class="detail"><h4>เกม: เลขใครมากกว่า</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียน 450,215 ___ 405,999</li><li>ให้เด็กใส่เครื่องหมายในสมุด</li><li>ถามว่าหลักแรกที่ต่างกันคือหลักใด</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>เขียน &gt; &lt; หรือ =</li><li>วงหลักแรกที่ต่างกัน</li><li>อ่านเหตุผลให้เพื่อนฟัง</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ให้เปรียบเทียบจากซ้ายไปขวา เพราะหลักด้านซ้ายมีค่ามากกว่า</p></section></div></div></article><article class="step"><div class="time">15–25 นาที</div><div class="detail"><h4>สอนแก่น: เปรียบเทียบและเรียงลำดับ</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>สอน 3 ขั้น: ดูจำนวนหลัก → เทียบซ้ายไปขวา → วงหลักแรกที่ต่าง</li><li>ยกตัวอย่าง 428,915 &lt; 482,105</li><li>ให้เรียง 703,120 / 730,012 / 370,210 / 703,102</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>จดกฎ 3 ขั้น</li><li>เรียงจำนวนลงสมุด</li><li>เขียนเหตุผลข้างจำนวนที่วางผิดแล้วแก้</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>การวงหลักแรกที่ต่างกันช่วยลดปัญหาดูเลขท้ายหรือดูเลขตัวใหญ่ผิดตำแหน่ง</p></section></div></div></article><article class="step"><div class="time">25–38 นาที</div><div class="detail"><h4>สอนแก่น: การประมาณค่าและการปัดเศษ</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>อธิบายว่าประมาณค่าใช้ตรวจความสมเหตุสมผล</li><li>สอน เลือกหลักที่จะปัด → ดูเลขถัดไป → 0–4 คงเดิม / 5–9 เพิ่ม 1</li><li>ตัวอย่าง 678,432 ปัดหลักหมื่น = 680,000</li><li>ตัวอย่าง 198,700 + 302,100 ≈ 500,000</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>วาดตารางปัดเศษ</li><li>ขีดเส้นใต้หลักที่ปัด</li><li>วงเลขถัดไปที่ใช้ตัดสิน</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ปัดเศษไม่ใช่คำตอบจริง แต่เป็นคำตอบใกล้เคียงเพื่อช่วยตรวจ</p></section></div></div></article><article class="step"><div class="time">38–48 นาที</div><div class="detail"><h4>เกม: มากกว่า น้อยกว่า หรือใกล้กว่า</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>รอบ 1 เปรียบเทียบ 2 จำนวน</li><li>รอบ 2 เลือกจำนวนใกล้เป้าหมาย เช่น ใกล้ 900,000 ที่สุด</li><li>รอบ 3 ปัดเศษพร้อมเหตุผล</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>เขียนคำตอบในสมุด</li><li>ต้องมีเหตุผลทุกข้อ</li><li>เพื่อนตรวจโดยถามว่า วงหลักแรกที่ต่างกันหรือยัง</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ให้คะแนนคำตอบ + เหตุผล + การตรวจ ไม่ใช่ความเร็วอย่างเดียว</p></section></div></div></article><article class="step"><div class="time">48–56 นาที</div><div class="detail"><h4>สมุดบันทึกเดี่ยว</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้โจทย์ 4 ข้อ: เปรียบเทียบ / เรียงลำดับ / ปัดเศษ / ประมาณผลรวม</li><li>เดินตรวจและถามนำ</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ทำลงสมุดอย่างเป็นขั้น</li><li>เขียนเหตุผลหลังคำตอบ</li><li>วงจุดที่ไม่มั่นใจ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>เด็กต้องแสดงหลักฐานในสมุด ไม่ใช่ตอบแค่ตัวเลขหรือเครื่องหมาย</p></section></div></div></article><article class="step"><div class="time">56–60 นาที</div><div class="detail"><h4>Exit Ticket ชั่วโมงที่ 2</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ถาม 621,999 มากกว่า 619,999 เพราะอะไร</li><li>ถาม 615,240 ปัดหลักหมื่นได้เท่าไร</li><li>ถามจำนวนใดใกล้ 900,000 ที่สุด: 889,500 / 912,000 / 899,100</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ตอบรายบุคคล</li><li>เขียน 1 เรื่องที่ทำได้ดี</li><li>เขียน 1 เรื่องที่ต้องฝึก</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ใช้ตรวจว่าเด็กเข้าใจทั้งเปรียบเทียบ เรียงลำดับ และประมาณค่า</p></section></div></div></article></div></div><div class="panel green"><h3>ตัวอย่างพร้อมใช้</h3><ul><li>450,215 &gt; 405,999 เพราะหลักหมื่น 5 มากกว่า 0</li><li>เรียงจากน้อยไปมาก: 370,210 / 703,102 / 703,120 / 730,012</li><li>678,432 ปัดเป็นหลักหมื่นได้ 680,000</li><li>198,700 + 302,100 ≈ 200,000 + 300,000 = 500,000</li><li>899,100 ใกล้ 900,000 ที่สุด</li></ul></div></section><section class="hour" id="hour-3"><div class="hhead"><span>ชั่วโมงที่ 3</span><h2>การบวก การลบจำนวนหลายหลัก และตัวไม่ทราบค่า</h2><p>เด็กตั้งหลักบวก–ลบให้ตรง ตรวจคำตอบ และหาค่าตัวไม่ทราบค่าได้จากการคิดย้อนกลับ</p></div><div class="grid"><div class="panel blue"><h3>ต้องเตรียมอะไร</h3><ul><li>สมุดจดและดินสอของเด็ก</li><li>กระดานหรือจอสำหรับครูตั้งโจทย์แนวตั้ง</li><li>ปากกาสีสำหรับขีดหลักหน่วย สิบ ร้อย พัน หมื่น แสน</li><li>โจทย์ตัวอย่าง: 348,125 + 271,430 / 800,000 - 356,789 / □ + 124,500 = 600,000 / 750,000 - □ = 482,300</li><li>สถานการณ์เงินกองทุน ห้องสมุด หรือยอดจำนวนสิ่งของ</li></ul></div><div class="panel yellow"><h3>เด็กจดอะไรลงสมุด</h3><ul><li>ตารางหลักสำหรับตั้งโจทย์แนวตั้ง</li><li>ช่องตรวจคำตอบ: วิธีเดิม | วิธีตรวจย้อนกลับ</li><li>แบบจดตัวไม่ทราบค่า: สิ่งที่รู้ | สิ่งที่หาย | วิธีย้อนกลับ</li><li>สรุป: ฉันรู้ว่าคำตอบถูก เพราะ...</li></ul></div></div><div class="panel"><h3>ขั้นตอนการสอนแบบละเอียด</h3><div class="steps"><article class="step"><div class="time">0–5 นาที</div><div class="detail"><h4>เปิดบทด้วยสถานการณ์เงินกองทุน</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เล่าโจทย์เงินกองทุน 325,000 ได้รับเพิ่ม 178,500</li><li>ถามว่าคำตอบควรมากขึ้นหรือลดลง</li><li>ให้คาดเดาช่วงคำตอบ</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>จดหัวข้อ</li><li>ขีดเส้นใต้ข้อมูลสำคัญ</li><li>ตอบว่าเป็นบวกหรือลบพร้อมเหตุผล</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>การคาดเดาก่อนคำนวณช่วยตรวจว่าคำตอบจริงสมเหตุสมผลไหม</p></section></div></div></article><article class="step"><div class="time">5–15 นาที</div><div class="detail"><h4>Quick 10 แบบสมุด</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้โจทย์เร็ว 3–5 ข้อ</li><li>เช่น 348,125 + 271,430 และ 800,000 - 356,789</li><li>สุ่มเด็กอธิบายว่าเริ่มจากหลักใด</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ทำในสมุดทีละข้อ</li><li>ทำ ✓ หรือ ? หน้าข้อ</li><li>แก้ด้วยสีอื่นหลังฟังเฉลย</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ครูเห็นทันทีว่าเด็กติดเรื่องตั้งหลักไม่ตรงหรือการยืมผ่านศูนย์</p></section></div></div></article><article class="step"><div class="time">15–28 นาที</div><div class="detail"><h4>สอนแก่น: ตั้งหลักให้ตรงและตรวจย้อนกลับ</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>สาธิต 245,678 + 132,451</li><li>ย้ำหน่วยตรงหน่วย สิบตรงสิบ</li><li>สาธิต 700,000 - 284,635</li><li>อธิบายตรวจ: ผลลบ + ตัวลบ = ตัวตั้ง</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>วาดตารางหลัก</li><li>ใส่ตัวเลขให้ตรงหลัก</li><li>เขียนบรรทัดตรวจคำตอบ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>เด็กมักผิดเพราะหลักเลื่อน จึงต้องใช้ตารางหลักช่วยจัดตำแหน่ง</p></section></div></div></article><article class="step"><div class="time">28–40 นาที</div><div class="detail"><h4>สอนแก่น: ตัวไม่ทราบค่า</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียน □ + 158,000 = 430,000</li><li>ถามว่าส่วนที่หายควรหาอย่างไร</li><li>สรุป □ = 430,000 - 158,000</li><li>ต่อด้วย 750,000 - □ = 482,300</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>วาดภาพส่วน–ทั้งหมด</li><li>เขียนวิธีคิดย้อนกลับ</li><li>ตรวจโดยแทนค่ากลับ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ไม่ต้องเดาช่องว่าง ให้ใช้ความสัมพันธ์บวก–ลบย้อนกลับ</p></section></div></div></article><article class="step"><div class="time">40–50 นาที</div><div class="detail"><h4>เกม: นักสืบจำนวนหาย</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>เขียนสมการมีช่องว่าง 3 ข้อ</li><li>ให้เด็กหาคำตอบและเขียนเหตุผล 1 บรรทัด</li><li>ให้คะแนนเพิ่มเมื่อเด็กแทนค่าตรวจ</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ทำเดี่ยวหรือคู่ในสมุด</li><li>วงช่องว่างและข้อมูลที่รู้</li><li>เขียนคำตอบพร้อมวิธีตรวจ</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ฝึกการคิดย้อนกลับและตรวจคำตอบ ไม่ใช่เดาจำนวน</p></section></div></div></article><article class="step"><div class="time">50–57 นาที</div><div class="detail"><h4>สมุดบันทึกเดี่ยว</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้โจทย์บวก ลบ ตัวไม่ทราบค่า และสถานการณ์</li><li>เดินตรวจหลักฐานในสมุด</li><li>ถามว่าบรรทัดแรกที่เริ่มผิดอยู่ตรงไหน</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ทำโจทย์พร้อมวิธี</li><li>เขียนวิธีตรวจอย่างน้อย 1 ข้อ</li><li>วงจุดที่ต้องระวัง</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>การหาบรรทัดแรกที่ผิดช่วยให้แก้เป็นระบบ ไม่ต้องลบทำใหม่ทั้งหมด</p></section></div></div></article><article class="step"><div class="time">57–60 นาที</div><div class="detail"><h4>Exit Ticket ชั่วโมงที่ 3</h4><div class="cols"><section><b>ครูทำอะไร</b><ul><li>ให้ตอบ 348,125 + 271,430</li><li>ให้ตอบ 750,000 - □ = 482,300</li><li>ให้ตรวจข้อ 2 ด้วยการแทนค่า</li></ul></section><section><b>เด็กทำอะไร</b><ul><li>ตอบในสมุด</li><li>เขียนระดับความมั่นใจ</li><li>เขียนสิ่งที่ต้องฝึกเพิ่ม</li></ul></section><section class="why"><b>อธิบายให้เข้าใจ</b><p>ใช้ตรวจว่าเด็กคำนวณและตรวจย้อนกลับได้หรือยัง</p></section></div></div></article></div></div><div class="panel green"><h3>ตัวอย่างพร้อมใช้</h3><ul><li>348,125 + 271,430 = 619,555</li><li>800,000 - 356,789 = 443,211</li><li>□ + 124,500 = 600,000 ดังนั้น □ = 475,500</li><li>750,000 - □ = 482,300 ดังนั้น □ = 267,700</li><li>ตรวจ: 482,300 + 267,700 = 750,000</li></ul></div></section><div class="print-note"><button class="print" onclick="window.print()">พิมพ์ / บันทึกเป็น PDF</button></div></main></body></html>
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Little Steps | Math Quest iOS Soft UI ป.4 ชั่วโมงที่ 2</title>
+  <style>
+    :root{
+      --blue:#0757A5;
+      --blue2:#0F83C9;
+      --cyan:#28B7DF;
+      --yellow:#FFC83D;
+      --yellow2:#FFF6D6;
+      --green:#61A84F;
+      --green2:#EFFBEA;
+      --red:#E95353;
+      --pink:#FFE7EA;
+      --purple:#7C5CFF;
+      --ink:#17344D;
+      --muted:#647A8F;
+      --line:#D9EEF9;
+      --bg:#F3FAFF;
+      --white:#FFFFFF;
+      --card:rgba(255,255,255,.88);
+      --shadow:0 22px 60px rgba(6,72,125,.16);
+      --softshadow:0 12px 30px rgba(6,72,125,.10);
+      --radius:30px;
+      --radius2:22px;
+      --tap:56px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      font-family:"Noto Sans Thai","Sarabun","Kanit","Leelawadee UI",Tahoma,sans-serif;
+      font-size:20px;
+      line-height:1.65;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(40,183,223,.22), transparent 24%),
+        radial-gradient(circle at 92% 7%, rgba(255,200,61,.24), transparent 22%),
+        radial-gradient(circle at 12% 88%, rgba(124,92,255,.12), transparent 23%),
+        linear-gradient(135deg,#F8FDFF 0%,#EEF8FF 48%,#FFFDF2 100%);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.38;
+      background-image:
+        radial-gradient(#0F83C9 1px, transparent 1px),
+        radial-gradient(#FFC83D 1.3px, transparent 1.3px);
+      background-size:34px 34px,46px 46px;
+      background-position:0 0,18px 22px;
+      mask-image:linear-gradient(to bottom,transparent,black 13%,black 86%,transparent);
+    }
+    button,input{font:inherit}
+    button{cursor:pointer}
+    button:focus-visible{outline:4px solid rgba(255,200,61,.75);outline-offset:4px}
+    .hidden{display:none!important}
+    .app{position:relative;z-index:1;min-height:100vh}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:12px clamp(12px,3vw,28px);
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(7,87,165,.12);
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brandMark{
+      width:52px;height:52px;border-radius:20px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));color:white;font-weight:1000;font-size:27px;
+      box-shadow:0 12px 24px rgba(7,87,165,.18);
+      flex:0 0 auto;
+    }
+    .brandText{min-width:0}
+    .brandText b{display:block;color:var(--blue);font-size:20px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brandText span{display:block;color:var(--muted);font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .topActions{display:flex;gap:10px;align-items:center}
+    .ghostBtn,.primaryBtn,.dangerBtn{
+      min-height:48px;border:0;border-radius:999px;padding:11px 18px;font-weight:1000;display:inline-flex;gap:8px;align-items:center;justify-content:center;
+    }
+    .ghostBtn{background:rgba(255,255,255,.82);color:var(--blue);border:1px solid var(--line)}
+    .primaryBtn{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;box-shadow:0 12px 26px rgba(7,87,165,.22)}
+    .dangerBtn{background:#fff;color:var(--red);border:1px solid #FFD0D0}
+    .hero{
+      width:min(1220px,calc(100% - 28px));margin:26px auto 18px;
+      display:grid;grid-template-columns:1.12fr .88fr;gap:20px;align-items:stretch;
+    }
+    .heroCard,.sideQuest,.screenCard{
+      border:1px solid rgba(7,87,165,.12);
+      background:var(--card);
+      border-radius:42px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter:blur(12px);
+    }
+    .heroCard{padding:34px;position:relative;min-height:330px}
+    .heroCard:after{
+      content:"";position:absolute;right:-80px;bottom:-80px;width:270px;height:270px;border-radius:50%;
+      background:radial-gradient(circle,rgba(255,200,61,.38),rgba(255,200,61,0) 66%);
+    }
+    .kicker{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-weight:1000}
+    h1{margin:18px 0 10px;color:#073C7D;font-size:clamp(38px,6vw,72px);line-height:1.08;letter-spacing:-.045em}
+    .lead{font-size:clamp(21px,2.2vw,27px);color:#37556D;max-width:790px;margin:0}
+    .heroPills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:1}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:16px;background:#fff;border:1px solid var(--line);font-weight:1000;color:var(--blue);box-shadow:0 8px 16px rgba(7,87,165,.06)}
+    .sideQuest{padding:24px;display:grid;gap:14px;align-content:center}
+    .mascotBox{
+      border-radius:30px;background:linear-gradient(135deg,#EAF8FF,#FFF9DF);padding:22px;border:1px solid var(--line);position:relative;overflow:hidden;
+    }
+    .mascotBox .bigIcon{font-size:68px;line-height:1;margin-bottom:10px}
+    .mascotBox h2{margin:0 0 8px;color:#073C7D;font-size:30px;line-height:1.22}
+    .miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .miniStat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--softshadow)}
+    .miniStat b{display:block;color:var(--blue);font-size:26px;line-height:1.1}.miniStat span{font-size:15px;color:var(--muted);font-weight:800}
+    .wrap{width:min(1220px,calc(100% - 28px));margin:0 auto 50px}
+    .sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:28px 0 14px}
+    .sectionTitle h2{margin:0;color:#073C7D;font-size:34px;line-height:1.15}.sectionTitle p{margin:4px 0 0;color:var(--muted);font-weight:800}
+    .gameGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .gameCard{
+      position:relative;min-height:245px;padding:20px;border:1px solid rgba(7,87,165,.12);border-radius:30px;background:#fff;box-shadow:var(--softshadow);
+      overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .gameCard:hover{transform:translateY(-4px);box-shadow:0 18px 46px rgba(6,72,125,.16)}
+    .gameCard:before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:linear-gradient(90deg,var(--cyan),var(--yellow))}
+    .gameTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .iconBubble{width:60px;height:60px;border-radius:22px;background:linear-gradient(135deg,#E8F8FF,#FFF7D7);display:grid;place-items:center;font-size:32px;border:1px solid var(--line)}
+    .orderBadge{height:34px;min-width:34px;display:grid;place-items:center;border-radius:999px;background:#F0F8FF;color:var(--blue);font-weight:1000;border:1px solid var(--line)}
+    .gameCard h3{margin:14px 0 5px;color:#073C7D;font-size:25px;line-height:1.22}
+    .gameCard p{margin:0;color:#536C82;font-size:17px;font-weight:750}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.tag{padding:7px 9px;border-radius:999px;background:#F6FBFF;border:1px solid #E0F1FA;color:#346078;font-size:14px;font-weight:900}
+    .playCardBtn{margin-top:18px;width:100%;min-height:48px;border:0;border-radius:17px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:1000;box-shadow:0 12px 24px rgba(7,87,165,.18)}
+    .screen{width:min(1050px,calc(100% - 28px));margin:26px auto 50px}
+    .screenCard{padding:28px}
+    .crumb{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.crumb span{padding:8px 12px;border-radius:999px;background:#F4FBFF;color:var(--blue);font-weight:1000;border:1px solid var(--line);font-size:16px}
+    .introHeader{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:18px}
+    .introIcon{width:86px;height:86px;border-radius:30px;background:linear-gradient(135deg,#E9F9FF,#FFF3C4);display:grid;place-items:center;font-size:48px;border:1px solid var(--line);box-shadow:var(--softshadow)}
+    .introHeader h2{margin:0;color:#073C7D;font-size:42px;line-height:1.12}.introHeader p{margin:6px 0 0;color:#566F86;font-weight:800;font-size:21px}
+    .infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.infoBox{border:1px solid var(--line);border-radius:26px;background:#fff;padding:18px}.infoBox h3{margin:0 0 8px;color:var(--blue);font-size:25px}.infoBox ul{margin:0;padding-left:1.2em}.infoBox li{margin:7px 0}.teacherTip{border-radius:26px;background:linear-gradient(135deg,#FFF8D7,#fff);border:1px solid #F2DA8B;padding:18px;margin-top:14px}.teacherTip b{color:#8A6100}
+    .introActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:20px}
+    .playHeader{display:grid;gap:14px;margin-bottom:16px}
+    .statusRow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.statusPills{display:flex;gap:8px;flex-wrap:wrap}.statusPill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-weight:1000;font-size:16px}.scorePill{background:linear-gradient(135deg,#FFF5C6,#fff);border-color:#F3D877;color:#6E5000}
+    .progressTrack{height:16px;border-radius:999px;background:#E9F5FB;overflow:hidden;border:1px solid #D4ECF8}.progressBar{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--yellow));transition:width .25s ease}
+    .questionBox{border-radius:34px;background:#fff;border:1px solid rgba(7,87,165,.12);box-shadow:var(--softshadow);padding:28px;text-align:center;position:relative;overflow:hidden}.questionBox:before{content:"";position:absolute;top:-90px;right:-90px;width:210px;height:210px;border-radius:50%;background:rgba(40,183,223,.10)}
+    .questionLabel{display:inline-flex;gap:7px;align-items:center;padding:7px 12px;border-radius:999px;background:#F4FBFF;border:1px solid var(--line);color:var(--blue);font-weight:1000;font-size:16px}.questionText{position:relative;z-index:1;margin:16px auto 4px;max-width:900px;color:#073C7D;font-weight:1000;font-size:clamp(27px,4.5vw,46px);line-height:1.32}.subText{position:relative;z-index:1;color:#5D7388;font-weight:800;font-size:20px;margin-top:6px}.numberLine{font-variant-numeric:tabular-nums;letter-spacing:.01em}
+    .choiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.choice{min-height:76px;border:2px solid var(--line);border-radius:24px;background:#fff;color:#17344D;font-size:28px;font-weight:1000;box-shadow:0 8px 16px rgba(6,72,125,.07);transition:transform .12s ease,border-color .12s ease,background .12s ease}.choice:hover:not(:disabled){transform:translateY(-2px);border-color:var(--cyan)}.choice.correct{background:var(--green2);border-color:#7EC56E;color:#285E20}.choice.wrong{background:var(--pink);border-color:#F2A2A2;color:#9E2D2D}.choice:disabled{cursor:default;opacity:.96}
+    .orderArea{margin-top:18px;text-align:left}.orderZone{border:2px dashed #CFE8F5;border-radius:26px;background:#F8FCFF;padding:16px;margin-bottom:12px}.orderTitle{font-weight:1000;color:var(--blue);margin-bottom:10px}.smallChoices{display:flex;flex-wrap:wrap;gap:10px}.smallChoice{min-height:54px;border:2px solid var(--line);border-radius:17px;background:#fff;color:#17344D;font-weight:1000;padding:10px 14px;box-shadow:0 8px 14px rgba(6,72,125,.06)}.smallChoice.used{opacity:.35}.smallChoice.selected{background:#FFF6D6;border-color:#F0D06A}.orderButtons{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .feedback{margin-top:18px;border-radius:26px;padding:18px;text-align:left;border:1px solid var(--line)}.feedback.good{background:var(--green2);border-color:#BEE8B4}.feedback.bad{background:#FFF4F4;border-color:#FFC3C3}.feedback b{font-size:24px;color:#073C7D}.feedback p{margin:8px 0 0}.answerLine{display:inline-flex;margin-top:10px;padding:8px 12px;border-radius:14px;background:#fff;border:1px solid rgba(7,87,165,.12);font-weight:1000;color:var(--blue)}
+    .nextRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}.hintText{color:var(--muted);font-weight:800}.resultCard{text-align:center}.medal{width:134px;height:134px;border-radius:42px;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(135deg,#FFF0B8,#fff 70%);border:1px solid #F0D783;font-size:64px;box-shadow:var(--softshadow)}.finalScore{font-size:64px;font-weight:1000;color:#073C7D;line-height:1}.resultCard h2{font-size:40px;color:#073C7D;margin:12px 0 6px}.resultCard p{font-size:22px;color:#536C82;font-weight:800}.resultActions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .noteStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.note{background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:var(--softshadow)}.note b{display:block;color:var(--blue);font-size:20px}.note span{color:var(--muted);font-weight:800;font-size:16px}
+
+
+    /* iOS-inspired soft refresh */
+    :root{
+      --ios-blue:#5E9BFF;
+      --ios-sky:#8EDCFF;
+      --ios-mint:#B8F2D0;
+      --ios-peach:#FFD6A5;
+      --ios-pink:#FFCAD4;
+      --ios-purple:#CDB4DB;
+      --glass:rgba(255,255,255,.72);
+      --glass2:rgba(255,255,255,.58);
+    }
+    body{
+      background:
+        radial-gradient(circle at 8% 10%, rgba(142,220,255,.45), transparent 27%),
+        radial-gradient(circle at 86% 8%, rgba(255,202,212,.44), transparent 25%),
+        radial-gradient(circle at 8% 92%, rgba(184,242,208,.42), transparent 25%),
+        radial-gradient(circle at 88% 86%, rgba(255,214,165,.44), transparent 24%),
+        linear-gradient(135deg,#F8FBFF 0%,#F7F5FF 45%,#FFFCF5 100%);
+    }
+    body:before{opacity:.18;background-size:42px 42px,56px 56px;}
+    .topbar,.heroCard,.sideQuest,.screenCard{
+      background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(255,255,255,.54));
+      -webkit-backdrop-filter:blur(24px) saturate(1.25);
+      backdrop-filter:blur(24px) saturate(1.25);
+      border:1px solid rgba(255,255,255,.70);
+      box-shadow:0 22px 70px rgba(93,120,180,.16), inset 0 1px 0 rgba(255,255,255,.75);
+    }
+    .brandMark,.primaryBtn,.playCardBtn{
+      background:linear-gradient(135deg,#75B7FF,#7C8CFF 58%,#B79BFF);
+      box-shadow:0 14px 30px rgba(94,155,255,.22);
+    }
+    .ghostBtn,.dangerBtn,.kicker,.pill,.statusPill,.tag,.infoBox,.note,.miniStat,.questionBox,.gameCard{
+      background:rgba(255,255,255,.76);
+      -webkit-backdrop-filter:blur(18px);
+      backdrop-filter:blur(18px);
+      border-color:rgba(255,255,255,.74);
+      box-shadow:0 16px 38px rgba(93,120,180,.12), inset 0 1px 0 rgba(255,255,255,.8);
+    }
+    .heroCard:after{background:radial-gradient(circle,rgba(255,214,165,.58),rgba(255,214,165,0) 68%);}
+    .mascotBox,.iconBubble,.introIcon,.medal{
+      background:linear-gradient(135deg,#EAF7FF,#FFF1F4 52%,#FFF7DE);
+      border-color:rgba(255,255,255,.76);
+      box-shadow:0 16px 36px rgba(93,120,180,.13), inset 0 1px 0 rgba(255,255,255,.82);
+    }
+    .gameCard:before{height:10px;background:linear-gradient(90deg,#8EDCFF,#B8F2D0,#FFD6A5,#FFCAD4,#CDB4DB)}
+    .gameCard:nth-child(4n+1){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(234,247,255,.78));}
+    .gameCard:nth-child(4n+2){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,246,225,.78));}
+    .gameCard:nth-child(4n+3){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(241,255,244,.78));}
+    .gameCard:nth-child(4n+4){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,240,246,.78));}
+    .progressTrack{background:rgba(255,255,255,.56);border-color:rgba(255,255,255,.74);box-shadow:inset 0 2px 10px rgba(93,120,180,.08)}
+    .progressBar{background:linear-gradient(90deg,#75B7FF,#B8F2D0,#FFD6A5);}
+    .choice,.smallChoice{border-color:rgba(160,198,230,.45);background:rgba(255,255,255,.82);box-shadow:0 14px 28px rgba(93,120,180,.10)}
+    .choice:hover:not(:disabled),.smallChoice:hover:not(:disabled){transform:translateY(-2px) scale(1.01);border-color:#8EDCFF;}
+    .choice.correct,.feedback.good{background:linear-gradient(135deg,#EEFFF2,#FFFFFF);border-color:#9BE6B7;color:#225A35}
+    .choice.wrong,.feedback.bad{background:linear-gradient(135deg,#FFF1F3,#FFFFFF);border-color:#FFB7C1;color:#84303B}
+    .pointsPill{background:linear-gradient(135deg,#FFF4C7,#FFFFFF);border-color:#FFE08A;color:#73520A;}
+    .correctPill{background:linear-gradient(135deg,#EAF7FF,#FFFFFF);border-color:#BDE5FF;color:#0757A5;}
+    .timerPill{background:linear-gradient(135deg,#F1EEFF,#FFFFFF);border-color:#D8CCFF;color:#5944B0;}
+    .speedGood{color:#207C44;font-weight:1000}
+    .speedMid{color:#826200;font-weight:1000}
+    .speedSlow{color:#8B3C48;font-weight:1000}
+    .scoreHintBox{
+      margin-top:14px;border-radius:24px;padding:16px 18px;
+      background:linear-gradient(135deg,rgba(234,247,255,.86),rgba(255,246,225,.86));
+      border:1px solid rgba(255,255,255,.78);
+      color:#36546b;font-weight:850;
+    }
+    .scoreHintBox b{color:#0757A5}
+    .earnedLine{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+    .earnedBadge{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(7,87,165,.10);font-weight:1000;color:#0757A5}
+    .finalPointScore{font-size:34px;font-weight:1000;color:#73520A;margin:4px 0 10px;}
+    .resultStats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px auto 4px;max-width:720px}
+    .resultStat{border-radius:24px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.78);padding:16px;box-shadow:0 14px 30px rgba(93,120,180,.10)}
+    .resultStat b{display:block;color:#073C7D;font-size:28px;line-height:1.05}.resultStat span{display:block;color:#647A8F;font-size:15px;font-weight:900;margin-top:5px}
+
+    @media(max-width:1040px){.hero{grid-template-columns:1fr}.gameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.noteStrip{grid-template-columns:1fr}}
+    @media(max-width:720px){.resultStats{grid-template-columns:1fr}.finalPointScore{font-size:28px}body{font-size:18px}.topbar{align-items:flex-start}.brandText span{display:none}.topActions .ghostBtn{padding:10px 12px}.heroCard{padding:24px;border-radius:32px}.sideQuest{border-radius:32px}.gameGrid{grid-template-columns:1fr}.infoGrid,.choiceGrid{grid-template-columns:1fr}.introHeader{grid-template-columns:1fr;text-align:center}.screenCard{padding:20px;border-radius:32px}.questionBox{padding:22px;border-radius:28px}.choice{font-size:24px}.sectionTitle{align-items:flex-start;flex-direction:column}.miniGrid{grid-template-columns:1fr 1fr}}
+    @media print{.topbar,.hero,.sectionTitle,.gameGrid,.introActions,.topActions,.nextRow,.resultActions{display:none!important}body{background:white}.screen{width:100%;margin:0}.screenCard,.questionBox{box-shadow:none;border:1px solid #ccc}.hidden{display:block!important}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brandMark">∑</div>
+        <div class="brandText">
+          <b>Little Steps Math Quest</b>
+          <span>คณิตศาสตร์ ป.4 • ชั่วโมงที่ 2 + ทบทวนค่าประจำหลัก</span>
+        </div>
+      </div>
+      <div class="topActions">
+        <button class="ghostBtn" id="homeBtnTop">🏠 หน้าหลัก</button>
+      </div>
+    </header>
+
+    <section id="screenMenu">
+      <div class="hero">
+        <div class="heroCard">
+          <span class="kicker">👣 เกมสมุดจดบันทึก • 10 ข้อต่อหมวด</span>
+          <h1>เกมคณิตศาสตร์ ป.4<br>ชั่วโมงที่ 2</h1>
+          <p class="lead">เลือกหมวดเกมตามลำดับบทเรียน เริ่มจากทบทวนค่าประจำหลัก แล้วไปสู่การเปรียบเทียบ เรียงลำดับ ปัดเศษ และประมาณค่า</p>
+          <div class="heroPills">
+            <span class="pill">📘 อธิบายก่อนเล่น</span>
+            <span class="pill">🎲 สุ่มโจทย์ตามหลัก</span>
+            <span class="pill">✅ เฉลยพร้อมเหตุผล</span>
+            <span class="pill">📝 เหมาะกับทำลงสมุด</span>
+          </div>
+        </div>
+        <aside class="sideQuest">
+          <div class="mascotBox">
+            <div class="bigIcon">🧭</div>
+            <h2>โหมดคะแนนใหม่</h2>
+            <p>สีละมุนขึ้นแบบ iOS พร้อมคะแนน 2 แบบ: จำนวนข้อที่ถูก และคะแนนรวมจากความถูกต้อง + เวลา + การตอบถูกต่อเนื่อง</p>
+          </div>
+          <div class="miniGrid">
+            <div class="miniStat"><b>8</b><span>หมวดเกม</span></div>
+            <div class="miniStat"><b>10</b><span>ข้อสุ่มต่อรอบ</span></div>
+            <div class="miniStat"><b>เวลา</b><span>มีผลต่อโบนัส</span></div>
+            <div class="miniStat"><b>1,000+</b><span>คะแนนต่อข้อถูก</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <main class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h2>เลือกหมวดเกม</h2>
+            <p>เรียงตามเส้นทางการสอน: ทบทวน → เปรียบเทียบ → เรียงลำดับ → ปัดเศษ → ประมาณค่า</p>
+          </div>
+          <button class="ghostBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️ กลับบนสุด</button>
+        </div>
+        <div class="noteStrip">
+          <div class="note"><b>ครูใช้ยังไง</b><span>ให้เด็กตอบบนจอ แล้วเขียนเหตุผลหรือหลักที่ใช้คิดลงสมุด</span></div>
+          <div class="note"><b>เด็กได้ฝึกอะไร</b><span>มองหลักเลข วงจุดสำคัญ และอธิบายเหตุผลหลังคำตอบ</span></div>
+          <div class="note"><b>คะแนนใหม่</b><span>ข้อถูกเป็นหลัก คะแนนรวมใช้เวลาและคอมโบช่วยกระตุ้นให้คิดไวขึ้น</span></div>
+        </div>
+        <div class="gameGrid" id="gameGrid"></div>
+      </main>
+    </section>
+
+    <section class="screen hidden" id="screenIntro">
+      <div class="screenCard">
+        <div class="crumb"><span>หน้าหลัก</span><span id="introOrder">หมวด</span><span>อธิบายก่อนเล่น</span></div>
+        <div class="introHeader">
+          <div class="introIcon" id="introIcon">🧩</div>
+          <div>
+            <h2 id="introTitle">ชื่อเกม</h2>
+            <p id="introSubtitle">รายละเอียดเกม</p>
+          </div>
+        </div>
+        <div class="infoGrid">
+          <div class="infoBox">
+            <h3>เด็กต้องทำอะไร</h3>
+            <ul id="introHow"></ul>
+          </div>
+          <div class="infoBox">
+            <h3>หลักการสุ่มโจทย์</h3>
+            <ul id="introRule"></ul>
+          </div>
+        </div>
+        <div class="teacherTip" id="introTip"></div>
+        <div class="scoreHintBox"><b>ระบบคะแนนใหม่:</b> แสดง 2 ค่าแยกกัน คือ <b>จำนวนข้อที่ถูก</b> และ <b>คะแนนรวม</b> โดยคำตอบถูกได้ 1,000 คะแนนเป็นฐาน แล้วมีโบนัสเวลาและโบนัสตอบถูกต่อเนื่องเล็กน้อย เพื่อกระตุ้นให้เด็กคิดไวขึ้น แต่ความถูกต้องยังสำคัญที่สุด</div>
+        <div class="introActions">
+          <button class="ghostBtn" id="backMenuBtn">← กลับไปเลือกหมวด</button>
+          <button class="primaryBtn" id="startBtn">เริ่มเล่น 10 ข้อ →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen hidden" id="screenPlay">
+      <div class="screenCard">
+        <div class="playHeader">
+          <div class="statusRow">
+            <div class="statusPills">
+              <span class="statusPill" id="gameNamePill">เกม</span>
+              <span class="statusPill" id="questionTextPill">ข้อ 1/10</span>
+              <span class="statusPill correctPill" id="scoreText">ถูก 0/10</span>
+              <span class="statusPill pointsPill" id="pointText">คะแนน 0</span>
+              <span class="statusPill timerPill" id="timerText">เวลา 0.0 วิ</span>
+            </div>
+            <button class="dangerBtn" id="quitBtn">ออกจากเกม</button>
+          </div>
+          <div class="progressTrack"><div class="progressBar" id="progressBar"></div></div>
+        </div>
+
+        <div class="questionBox">
+          <span class="questionLabel" id="questionLabel">โจทย์</span>
+          <div class="questionText" id="questionText">...</div>
+          <div class="subText" id="subText"></div>
+        </div>
+
+        <div class="choiceGrid" id="choiceArea"></div>
+
+        <div class="orderArea hidden" id="orderArea">
+          <div class="orderZone">
+            <div class="orderTitle">ตัวเลขที่ให้มา — คลิกเพื่อจัดลำดับ</div>
+            <div class="smallChoices" id="orderPool"></div>
+          </div>
+          <div class="orderZone">
+            <div class="orderTitle">ลำดับที่เลือก</div>
+            <div class="smallChoices" id="orderSelected"></div>
+          </div>
+          <div class="orderButtons">
+            <button class="primaryBtn" id="checkOrderBtn">ตรวจคำตอบ</button>
+            <button class="ghostBtn" id="resetOrderBtn">เริ่มเลือกใหม่</button>
+          </div>
+        </div>
+
+        <div class="feedback hidden" id="feedback"></div>
+
+        <div class="nextRow">
+          <div class="hintText">เคล็ดลับ: หลังตอบ ให้เด็กเขียน “เพราะ...” ลงสมุด 1 บรรทัด</div>
+          <button class="primaryBtn hidden" id="nextBtn">ข้อต่อไป</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen hidden" id="screenResult">
+      <div class="screenCard resultCard">
+        <div class="medal" id="medal">🏅</div>
+        <div class="finalScore" id="finalScore">0/10</div>
+        <div class="finalPointScore" id="finalPointScore">0 คะแนน</div>
+        <div class="resultStats">
+          <div class="resultStat"><b id="resultCorrectStat">0</b><span>ข้อที่ตอบถูก</span></div>
+          <div class="resultStat"><b id="resultTimeStat">0.0 วิ</b><span>เวลาเฉลี่ยต่อข้อ</span></div>
+          <div class="resultStat"><b id="resultStreakStat">0</b><span>ตอบถูกต่อเนื่องสูงสุด</span></div>
+        </div>
+        <h2 id="resultTitle">เล่นจบแล้ว!</h2>
+        <p id="resultMessage">ข้อความสรุป</p>
+        <div class="resultActions">
+          <button class="primaryBtn" id="playAgainBtn">เล่นหมวดนี้อีกครั้ง</button>
+          <button class="ghostBtn" id="resultMenuBtn">กลับหน้าหลัก</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const TOTAL = 10;
+    const $ = id => document.getElementById(id);
+    const fmt = n => Number(n).toLocaleString('en-US');
+    const randInt = (min,max)=>Math.floor(Math.random()*(max-min+1))+min;
+    const shuffle = arr => arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+    const uniq = arr => [...new Set(arr.map(x=>String(x)))];
+    const fmtTime = seconds => `${seconds.toFixed(1)} วิ`;
+    function stopTimer(){
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+      const elapsed = questionStartTime ? (performance.now() - questionStartTime) / 1000 : 0;
+      totalAnswerTime += elapsed;
+      return elapsed;
+    }
+    function startTimer(){
+      if(timerInterval){ clearInterval(timerInterval); }
+      questionStartTime = performance.now();
+      $('timerText').textContent = 'เวลา 0.0 วิ';
+      timerInterval = setInterval(()=>{
+        const elapsed = (performance.now() - questionStartTime) / 1000;
+        $('timerText').textContent = `เวลา ${fmtTime(elapsed)}`;
+      },100);
+    }
+    function getSpeedBonus(seconds){
+      if(seconds <= 4) return 60;
+      if(seconds <= 7) return 45;
+      if(seconds <= 10) return 30;
+      if(seconds <= 15) return 15;
+      return 0;
+    }
+    function getSpeedLabel(seconds){
+      if(seconds <= 7) return '<span class="speedGood">เร็วมาก</span>';
+      if(seconds <= 15) return '<span class="speedMid">กำลังดี</span>';
+      return '<span class="speedSlow">ช้าแต่รอบคอบ</span>';
+    }
+    function calculatePoints(ok, seconds){
+      if(!ok){
+        streak = 0;
+        return {earned:0, base:0, speed:0, streakBonus:0, seconds, label:getSpeedLabel(seconds)};
+      }
+      streak++;
+      bestStreak = Math.max(bestStreak, streak);
+      const base = 1000;
+      const speed = getSpeedBonus(seconds);
+      const streakBonus = Math.min((streak-1)*10,40);
+      const earned = base + speed + streakBonus;
+      pointScore += earned;
+      return {earned, base, speed, streakBonus, seconds, label:getSpeedLabel(seconds)};
+    }
+    function updateScorePills(){
+      $('scoreText').textContent = `ถูก ${score}/${TOTAL}`;
+      $('pointText').textContent = `คะแนน ${fmt(pointScore)}`;
+    }
+    const placeNames = ['หลักแสน','หลักหมื่น','หลักพัน','หลักร้อย','หลักสิบ','หลักหน่วย'];
+    const placeValues = [100000,10000,1000,100,10,1];
+
+    let currentGame = null;
+    let questions = [];
+    let currentQuestion = null;
+    let index = 0;
+    let score = 0; // จำนวนข้อที่ตอบถูก
+    let pointScore = 0; // คะแนนรวมแบบหลักพัน
+    let locked = false;
+    let orderSelected = [];
+    let streak = 0;
+    let bestStreak = 0;
+    let totalAnswerTime = 0;
+    let questionStartTime = 0;
+    let timerInterval = null;
+    let lastPointInfo = null;
+
+    const games = [
+      {
+        id:'placevalue', order:1, icon:'🏠', title:'ทบทวนค่าประจำหลัก', subtitle:'อ่านบ้านหลัก บอกหลัก และค่าของเลขโดด', tags:['ทบทวน','บ้านหลัก','ก่อนเปรียบเทียบ'],
+        how:['ดูจำนวน 6 หลักที่ระบบสุ่ม','ตอบว่าเลขโดดอยู่หลักใด หรือมีค่าเท่าไร','บางข้อให้เลือกตัวเลขในหลักที่กำหนด'],
+        rule:['สุ่มจำนวนตั้งแต่ 100,000–999,999','เลือกเลขโดดจากตำแหน่งจริงในจำนวน','ตัวเลือกจะมีหลักใกล้กันเพื่อให้เด็กต้องดูตำแหน่ง ไม่ใช่เดา'],
+        tip:'ครูแนะนำให้เด็กวาด “บ้านหลัก” 6 ช่องในสมุดก่อนตอบ 2–3 ข้อแรก เพื่อเชื่อมกับชั่วโมงที่ 1',
+        make: makePlaceValueQuestion
+      },
+      {
+        id:'compare', order:2, icon:'⚖️', title:'เปรียบเทียบจำนวน', subtitle:'ใส่เครื่องหมาย > < = ให้ถูกต้อง', tags:['> < =','ดูซ้ายไปขวา','หลักแสนเท่ากัน'],
+        how:['อ่านจำนวนสองจำนวน','ดูจำนวนหลักและเทียบจากซ้ายไปขวา','เลือกเครื่องหมาย > < หรือ = พร้อมดูเฉลยเหตุผล'],
+        rule:['สุ่มให้เป็นจำนวน 6 หลัก','หลักแสนจะเหมือนกันเสมอ','หลักหมื่นมีโอกาสเหมือนกันสูง เพื่อบังคับให้ดูหลักถัดไป'],
+        tip:'ให้เด็กวง “หลักแรกที่ต่างกัน” ในสมุดก่อนกดตอบทุกข้อ',
+        make: makeCompareQuestion
+      },
+      {
+        id:'firstdiff', order:3, icon:'🔎', title:'วงหลักแรกที่ต่างกัน', subtitle:'หาหลักสำคัญที่ใช้ตัดสินจำนวน', tags:['วงหลัก','ลดการดูเลขท้าย','เหตุผล'],
+        how:['ดูจำนวนสองจำนวน','ไล่ดูจากหลักแสนไปหลักหน่วย','ตอบว่าหลักแรกที่ต่างกันคือหลักใด'],
+        rule:['สุ่มให้หลักด้านซ้ายหลายหลักเหมือนกัน','บังคับให้ต่างกันที่ตำแหน่งใดตำแหน่งหนึ่ง','ตัวเลือกเป็นชื่อหลัก เพื่อฝึกภาษาและตำแหน่ง'],
+        tip:'หมวดนี้เหมาะใช้ก่อนสอนเรียงลำดับ เพราะเด็กจะรู้ว่าควรดูหลักไหนก่อน',
+        make: makeFirstDiffQuestion
+      },
+      {
+        id:'order', order:4, icon:'📶', title:'เรียงลำดับจำนวน', subtitle:'คลิกเรียงจากน้อยไปมาก', tags:['4 จำนวน','น้อยไปมาก','จำนวนใกล้กัน'],
+        how:['อ่านตัวเลข 4 จำนวน','คลิกเลือกจากน้อยไปมาก','ถ้าเลือกผิด กดเริ่มเลือกใหม่ได้ก่อนตรวจ'],
+        rule:['สุ่มเลขให้มีหลักแสนใกล้เคียงกัน','บางคู่จะใกล้กันมาก เพื่อให้ต้องดูหลักหมื่น/หลักพัน','เรียงคำตอบจากค่าน้อยที่สุดไปมากที่สุด'],
+        tip:'ครูอาจให้เด็กเขียนตัวเลขซ้อนกันในสมุด แล้ววงหลักแรกที่ต่างกันก่อนจัดลำดับ',
+        make: makeOrderQuestion
+      },
+      {
+        id:'rounding', order:5, icon:'🎯', title:'ปัดเศษจำนวน', subtitle:'เลือกหลักที่จะปัด แล้วดูเลขถัดไป', tags:['หลักหมื่น','หลักแสน','0–4 / 5–9'],
+        how:['ดูจำนวนที่กำหนด','ดูว่าจะปัดเป็นหลักหมื่นหรือหลักแสน','เลือกคำตอบที่เป็นค่าประมาณที่ถูกต้อง'],
+        rule:['สุ่มจำนวน 6 หลัก','สุ่มหลักที่ต้องปัดระหว่างหลักหมื่นกับหลักแสน','ตัวเลือกจะใกล้คำตอบจริง เพื่อให้เด็กต้องดูเลขถัดไป'],
+        tip:'ให้เด็กขีดเส้นใต้ “หลักที่ปัด” และวง “เลขถัดไป” ก่อนตอบ',
+        make: makeRoundingQuestion
+      },
+      {
+        id:'estimate', order:6, icon:'➕', title:'ประมาณผลรวม', subtitle:'ปัดก่อน แล้วบวกเพื่อดูคำตอบใกล้เคียง', tags:['บวก','ปัดก่อนบวก','สมเหตุสมผล'],
+        how:['ดูโจทย์บวก 2 จำนวน','ปัดแต่ละจำนวนตามหลักที่กำหนด','นำค่าประมาณมาบวกกัน'],
+        rule:['สุ่มโจทย์บวกจำนวน 6 หลัก 2 จำนวน','สุ่มว่าจะปัดเป็นหลักหมื่นหรือหลักแสน','คำตอบเน้นค่าประมาณ ไม่ใช่ผลบวกจริง'],
+        tip:'ครูควรถามต่อว่า “คำตอบจริงควรใกล้กว่านี้ไหม” เพื่อเชื่อมกับการตรวจความสมเหตุสมผล',
+        make: makeEstimateQuestion
+      },
+      {
+        id:'closest', order:7, icon:'🧲', title:'จำนวนใกล้เป้าหมายที่สุด', subtitle:'เลือกจำนวนที่ใกล้เลขเป้าหมายมากที่สุด', tags:['ใกล้เคียง','ระยะห่าง','เป้าหมาย'],
+        how:['ดูเลขเป้าหมายด้านบน','เปรียบเทียบตัวเลือกแต่ละจำนวนกับเป้าหมาย','เลือกจำนวนที่มีระยะห่างน้อยที่สุด'],
+        rule:['สุ่มเป้าหมาย เช่น 500,000 / 700,000 / 900,000','สร้างตัวเลือกที่อยู่ใกล้และไกลปะปนกัน','เฉลยจะแสดงระยะห่างของคำตอบที่ถูก'],
+        tip:'ให้เด็กเขียน “ห่างจากเป้าหมายเท่าไร” อย่างน้อย 1 ตัวเลือกในสมุด',
+        make: makeClosestQuestion
+      },
+      {
+        id:'mixed', order:8, icon:'🏆', title:'ท้าทายรวมท้ายชั่วโมง', subtitle:'รวมค่าประจำหลัก เปรียบเทียบ เรียงลำดับ ปัดเศษ และประมาณค่า', tags:['Exit Ticket','รวมบทเรียน','ท้ายคาบ'],
+        how:['ตอบโจทย์แบบสุ่มจากทุกหมวด','อ่านเฉลยหลังตอบแต่ละข้อ','ใช้คะแนนรวมประเมินความเข้าใจท้ายชั่วโมง'],
+        rule:['สุ่มจากทุกเนื้อหาในชั่วโมงที่ 2 รวมทบทวนค่าประจำหลัก','บางข้อเป็นเลือกคำตอบ บางข้อเป็นเรียงลำดับ','ระบบสร้างโจทย์ใหม่ทุกครั้งที่เล่น'],
+        tip:'หมวดนี้ใช้เป็น Exit Ticket ได้ดี ครูดูได้ว่าเด็กพลาดเรื่องใดบ่อยที่สุดจากเฉลยรายข้อ',
+        make: makeMixedQuestion
+      }
+    ];
+
+    function show(id){
+      ['screenMenu','screenIntro','screenPlay','screenResult'].forEach(s=>$(s).classList.add('hidden'));
+      $(id).classList.remove('hidden');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function initCards(){
+      const grid = $('gameGrid');
+      grid.innerHTML = '';
+      games.forEach(g=>{
+        const card = document.createElement('article');
+        card.className = 'gameCard';
+        card.innerHTML = `
+          <div>
+            <div class="gameTop"><div class="iconBubble">${g.icon}</div><div class="orderBadge">${g.order}</div></div>
+            <h3>${g.title}</h3>
+            <p>${g.subtitle}</p>
+            <div class="tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+          <button class="playCardBtn">ดูรายละเอียด / เริ่มเกม</button>
+        `;
+        card.querySelector('button').onclick = ()=>openIntro(g.id);
+        grid.appendChild(card);
+      });
+    }
+
+    function openIntro(gameId){
+      currentGame = games.find(g=>g.id===gameId);
+      $('introOrder').textContent = `หมวด ${currentGame.order}`;
+      $('introIcon').textContent = currentGame.icon;
+      $('introTitle').textContent = currentGame.title;
+      $('introSubtitle').textContent = currentGame.subtitle;
+      $('introHow').innerHTML = currentGame.how.map(x=>`<li>${x}</li>`).join('');
+      $('introRule').innerHTML = currentGame.rule.map(x=>`<li>${x}</li>`).join('');
+      $('introTip').innerHTML = `<b>แนวทางครู:</b> ${currentGame.tip}`;
+      show('screenIntro');
+    }
+
+    function startGame(){
+      questions = Array.from({length:TOTAL},()=>currentGame.make());
+      index = 0; score = 0; pointScore = 0; streak = 0; bestStreak = 0; totalAnswerTime = 0; locked = false; orderSelected = [];
+      lastPointInfo = null;
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+      $('gameNamePill').textContent = `${currentGame.icon} ${currentGame.title}`;
+      $('progressBar').style.width = '0%';
+      renderQuestion();
+      show('screenPlay');
+    }
+
+    function renderQuestion(){
+      locked = false;
+      orderSelected = [];
+      currentQuestion = questions[index];
+      $('questionTextPill').textContent = `ข้อ ${index+1}/${TOTAL}`;
+      updateScorePills();
+      $('questionLabel').textContent = currentQuestion.label || 'โจทย์';
+      $('questionText').innerHTML = currentQuestion.text;
+      $('subText').innerHTML = currentQuestion.sub || '';
+      $('feedback').className = 'feedback hidden';
+      $('feedback').innerHTML = '';
+      $('nextBtn').classList.add('hidden');
+      $('choiceArea').innerHTML = '';
+      $('orderArea').classList.add('hidden');
+      $('choiceArea').classList.remove('hidden');
+      if(currentQuestion.type === 'order') renderOrderQuestion();
+      else renderChoiceQuestion();
+      startTimer();
+    }
+
+    function renderChoiceQuestion(){
+      currentQuestion.choices.forEach(choice=>{
+        const btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.textContent = choice;
+        btn.onclick = () => answerChoice(btn, choice);
+        $('choiceArea').appendChild(btn);
+      });
+    }
+
+    function answerChoice(btn, choice){
+      if(locked) return;
+      locked = true;
+      const ok = String(choice) === String(currentQuestion.answer);
+      const elapsed = stopTimer();
+      if(ok) score++;
+      lastPointInfo = calculatePoints(ok, elapsed);
+      [...$('choiceArea').children].forEach(b=>{
+        b.disabled = true;
+        if(b.textContent === String(currentQuestion.answer)) b.classList.add('correct');
+      });
+      if(!ok) btn.classList.add('wrong');
+      showFeedback(ok, lastPointInfo);
+    }
+
+    function renderOrderQuestion(){
+      $('choiceArea').classList.add('hidden');
+      $('orderArea').classList.remove('hidden');
+      $('orderPool').innerHTML = '';
+      $('orderSelected').innerHTML = '';
+      currentQuestion.numbers.forEach(n=>{
+        const btn = document.createElement('button');
+        btn.className = 'smallChoice';
+        btn.textContent = fmt(n);
+        btn.dataset.value = String(n);
+        btn.onclick = ()=>{
+          if(locked || btn.classList.contains('used')) return;
+          btn.classList.add('used');
+          orderSelected.push(n);
+          renderSelectedOrder();
+        };
+        $('orderPool').appendChild(btn);
+      });
+    }
+
+    function renderSelectedOrder(){
+      $('orderSelected').innerHTML = '';
+      orderSelected.forEach((n,i)=>{
+        const btn = document.createElement('button');
+        btn.className = 'smallChoice selected';
+        btn.textContent = `${i+1}. ${fmt(n)}`;
+        btn.onclick = ()=>{
+          if(locked) return;
+          orderSelected.splice(i,1);
+          [...$('orderPool').children].forEach(b=>{ if(b.dataset.value===String(n)) b.classList.remove('used'); });
+          renderSelectedOrder();
+        };
+        $('orderSelected').appendChild(btn);
+      });
+    }
+
+    function checkOrder(){
+      if(locked) return;
+      if(orderSelected.length !== currentQuestion.numbers.length){
+        $('feedback').className = 'feedback bad';
+        $('feedback').innerHTML = '<b>ยังเลือกไม่ครบ</b><p>คลิกตัวเลขให้ครบทุกจำนวนก่อนตรวจคำตอบ</p>';
+        return;
+      }
+      locked = true;
+      const elapsed = stopTimer();
+      const ok = orderSelected.join(',') === currentQuestion.answerRaw.join(',');
+      if(ok) score++;
+      lastPointInfo = calculatePoints(ok, elapsed);
+      showFeedback(ok, lastPointInfo);
+    }
+
+    function resetOrder(){
+      if(locked) return;
+      orderSelected = [];
+      [...$('orderPool').children].forEach(b=>b.classList.remove('used'));
+      renderSelectedOrder();
+      $('feedback').className = 'feedback hidden';
+      $('feedback').innerHTML = '';
+    }
+
+    function showFeedback(ok, pointInfo){
+      updateScorePills();
+      const timeLine = pointInfo ? `<div class="earnedLine">
+        <span class="earnedBadge">⏱️ เวลา ${fmtTime(pointInfo.seconds)} • ${pointInfo.label}</span>
+        <span class="earnedBadge">🎯 คะแนนข้อนี้ +${fmt(pointInfo.earned)}</span>
+        ${ok ? `<span class="earnedBadge">ฐาน ${fmt(pointInfo.base)} + เวลา ${pointInfo.speed} + ต่อเนื่อง ${pointInfo.streakBonus}</span>` : `<span class="earnedBadge">ตอบผิดไม่ได้คะแนน และคอมโบเริ่มใหม่</span>`}
+      </div>` : '';
+      $('feedback').className = `feedback ${ok?'good':'bad'}`;
+      $('feedback').innerHTML = `<b>${ok?'ถูกต้อง เก่งมาก!':'ยังไม่ถูก ลองดูเหตุผลนะ'}</b><br><span class="answerLine">คำตอบ: ${currentQuestion.answer}</span>${timeLine}<p>${currentQuestion.explain}</p>`;
+      $('nextBtn').textContent = index === TOTAL-1 ? 'ดูคะแนนสรุป' : 'ข้อต่อไป';
+      $('nextBtn').classList.remove('hidden');
+      $('progressBar').style.width = `${((index+1)/TOTAL)*100}%`;
+    }
+
+    function nextQuestion(){
+      if(index < TOTAL-1){ index++; renderQuestion(); }
+      else showResult();
+    }
+
+    function showResult(){
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+      const avgTime = totalAnswerTime / TOTAL;
+      $('finalScore').textContent = `${score}/${TOTAL}`;
+      $('finalPointScore').textContent = `${fmt(pointScore)} คะแนน`;
+      $('resultCorrectStat').textContent = `${score}/${TOTAL}`;
+      $('resultTimeStat').textContent = fmtTime(avgTime || 0);
+      $('resultStreakStat').textContent = `${bestStreak} ข้อ`;
+      $('resultTitle').textContent = `${currentGame.title} — เล่นจบแล้ว!`;
+      let msg = 'ควรทบทวนอีกครั้ง โดยให้เด็กวงหลักสำคัญและเขียนเหตุผลลงสมุดก่อนตอบ';
+      let medal = '💪';
+      if(score>=9){ msg = 'ยอดเยี่ยมมาก เข้าใจหลักการและตอบได้แม่นยำ ถ้าตอบได้เร็วขึ้นคะแนนโบนัสจะยิ่งสูงขึ้น'; medal='🏆'; }
+      else if(score>=7){ msg = 'ดีมาก เหลือเพียงบางข้อที่ควรตรวจหลักและเหตุผลให้ละเอียดขึ้น แล้วลองเพิ่มความเร็วทีละนิด'; medal='🏅'; }
+      else if(score>=5){ msg = 'พอใช้ได้ ให้ฝึกเพิ่มโดยจดขั้นตอนทีละข้อในสมุดก่อน แล้วค่อยเร่งเวลาเมื่อเริ่มแม่น'; medal='⭐'; }
+      $('medal').textContent = medal;
+      $('resultMessage').textContent = msg;
+      show('screenResult');
+    }
+
+    function digitsOf(n){ return String(n).padStart(6,'0').split('').map(Number); }
+    function numberFromDigits(ds){ return Number(ds.join('')); }
+    function firstDiffIndex(a,b){
+      const da = digitsOf(a), db = digitsOf(b);
+      for(let i=0;i<6;i++) if(da[i]!==db[i]) return i;
+      return -1;
+    }
+    function digitAtPlace(n,index){ return digitsOf(n)[index]; }
+    function expandNumber(n){
+      const ds = digitsOf(n);
+      return ds.map((d,i)=>d*placeValues[i]).filter(v=>v>0).map(fmt).join(' + ');
+    }
+    function makeChoices(answer, wrongs){
+      const list = uniq([answer, ...wrongs]).slice(0,4);
+      while(list.length<4) list.push(String(randInt(1,9)*1000));
+      return shuffle(list.map(String));
+    }
+    function roundTo(n, place){ return Math.round(n/place)*place; }
+    function nextDigitForPlace(n, place){
+      const ds = digitsOf(n);
+      if(place===100000) return ds[1];
+      if(place===10000) return ds[2];
+      if(place===1000) return ds[3];
+      return 0;
+    }
+    function randomSix(){ return randInt(100000,999999); }
+
+    function makePlaceValueQuestion(){
+      const n = randomSix();
+      const ds = digitsOf(n);
+      const mode = randInt(1,4);
+      if(mode===1){
+        let idx = randInt(0,5);
+        const digit = ds[idx];
+        const wrongs = shuffle(placeNames.filter((_,i)=>i!==idx)).slice(0,3);
+        return {
+          type:'choice', label:'ทบทวนค่าประจำหลัก',
+          text:`เลขโดด <span class="numberLine">${digit}</span> ในจำนวน <span class="numberLine">${fmt(n)}</span> อยู่หลักใด?`,
+          sub:'ให้ดูตำแหน่งของเลขโดด ไม่ใช่ดูค่าของเลขโดดอย่างเดียว',
+          choices:shuffle([placeNames[idx],...wrongs]), answer:placeNames[idx],
+          explain:`จำนวน ${fmt(n)} มีเลข ${digit} อยู่ที่${placeNames[idx]} จึงต้องอ่านจากบ้านหลักทางซ้ายไปขวา`
+        };
+      }
+      if(mode===2){
+        let idx = randInt(0,5);
+        const digit = ds[idx];
+        const ans = digit * placeValues[idx];
+        const wrongs = [digit*placeValues[Math.max(0,idx-1)], digit*placeValues[Math.min(5,idx+1)], digit*10, digit*1000].filter(v=>v!==ans && v>=0);
+        return {
+          type:'choice', label:'ค่าของเลขโดด',
+          text:`เลขโดด <span class="numberLine">${digit}</span> ในจำนวน <span class="numberLine">${fmt(n)}</span> มีค่าเท่าไร?`,
+          sub:'ตอบเป็นค่าตามตำแหน่ง เช่น อยู่หลักหมื่นจึงมีค่าเป็นหมื่น',
+          choices:makeChoices(fmt(ans), wrongs.map(fmt)), answer:fmt(ans),
+          explain:`เลข ${digit} อยู่ที่${placeNames[idx]} จึงมีค่า ${digit} × ${fmt(placeValues[idx])} = ${fmt(ans)}`
+        };
+      }
+      if(mode===3){
+        const idx = randInt(0,5);
+        const ans = String(ds[idx]);
+        const wrongs = shuffle(ds.map(String).filter(x=>x!==ans)).slice(0,3);
+        while(wrongs.length<3){ const x=String(randInt(0,9)); if(x!==ans && !wrongs.includes(x)) wrongs.push(x); }
+        return {
+          type:'choice', label:'เลขในบ้านหลัก',
+          text:`จำนวน <span class="numberLine">${fmt(n)}</span> มีเลขโดดใดอยู่ที่${placeNames[idx]}?`,
+          sub:'มองตำแหน่งบ้านหลักให้ตรง แล้วอ่านเลขโดดในช่องนั้น',
+          choices:shuffle([ans,...wrongs]), answer:ans,
+          explain:`เมื่อวาง ${fmt(n)} ในตารางบ้านหลัก ช่อง${placeNames[idx]} คือเลข ${ans}`
+        };
+      }
+      const exp = expandNumber(n);
+      const wrong1 = expandNumber(n + placeValues[randInt(2,5)]).replace(/999,?999/g,'');
+      const wrong2 = expandNumber(n - (n>200000?100000:0));
+      const wrong3 = digitsOf(n).reverse().map((d,i)=>d*placeValues[i]).filter(v=>v>0).map(fmt).join(' + ');
+      return {
+        type:'choice', label:'รูปกระจาย',
+        text:`ข้อใดคือรูปกระจายของ <span class="numberLine">${fmt(n)}</span>?`,
+        sub:'รูปกระจายช่วยให้เห็นค่าของเลขโดดทุกตำแหน่ง',
+        choices:makeChoices(exp,[wrong1,wrong2,wrong3]), answer:exp,
+        explain:`รูปกระจายต้องแยกค่าตามแต่ละหลัก จึงได้ ${exp}`
+      };
+    }
+
+    function makeCompareQuestion(){
+      const h = randInt(1,9);
+      let a = [h,randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
+      let b = [h,randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
+      if(Math.random()<0.78){ b[1] = a[1]; }
+      if(Math.random()<0.45){ b[2] = a[2]; }
+      if(Math.random()<0.20){ b = [...a]; }
+      if(a.join('')===b.join('') && Math.random()<0.78){
+        const pos = randInt(2,5);
+        b[pos] = (a[pos] + randInt(1,8)) % 10;
+      }
+      const n1 = numberFromDigits(a), n2 = numberFromDigits(b);
+      const ans = n1>n2 ? '>' : n1<n2 ? '<' : '=';
+      const fd = firstDiffIndex(n1,n2);
+      const explain = fd===-1 ? `ทั้งสองจำนวนเท่ากันทุกหลัก จึงใช้เครื่องหมาย =` : `หลักแรกที่ต่างกันคือ${placeNames[fd]}: ${digitAtPlace(n1,fd)} ${ans==='>'?'มากกว่า':'น้อยกว่า'} ${digitAtPlace(n2,fd)} จึงได้ ${fmt(n1)} ${ans} ${fmt(n2)}`;
+      return {
+        type:'choice', label:'เปรียบเทียบจำนวน',
+        text:`<span class="numberLine">${fmt(n1)}</span> ___ <span class="numberLine">${fmt(n2)}</span>`,
+        sub:'เลือกเครื่องหมายที่ถูกต้อง',
+        choices:['>','<','='], answer:ans, explain
+      };
+    }
+
+    function makeFirstDiffQuestion(){
+      const diffIdx = randInt(1,5);
+      const ds1 = [randInt(1,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
+      const ds2 = [...ds1];
+      for(let i=0;i<diffIdx;i++) ds2[i]=ds1[i];
+      let newDigit = ds1[diffIdx];
+      while(newDigit===ds1[diffIdx]) newDigit = randInt(0,9);
+      ds2[diffIdx] = newDigit;
+      for(let i=diffIdx+1;i<6;i++) ds2[i]=randInt(0,9);
+      const n1 = numberFromDigits(ds1), n2 = numberFromDigits(ds2);
+      const ans = placeNames[diffIdx];
+      const wrongs = shuffle(placeNames.filter(p=>p!==ans)).slice(0,3);
+      return {
+        type:'choice', label:'หลักแรกที่ต่างกัน',
+        text:`<span class="numberLine">${fmt(n1)}</span> และ <span class="numberLine">${fmt(n2)}</span><br>หลักแรกที่ต่างกันคือหลักใด?`,
+        sub:'ให้ไล่ดูจากซ้ายไปขวา',
+        choices:shuffle([ans,...wrongs]), answer:ans,
+        explain:`เมื่อดูจากซ้ายไปขวา หลักก่อนหน้าเหมือนกัน แล้วเริ่มต่างกันที่${ans}: ${digitAtPlace(n1,diffIdx)} กับ ${digitAtPlace(n2,diffIdx)}`
+      };
+    }
+
+    function makeOrderQuestion(){
+      const h = randInt(2,8);
+      const base = h*100000 + randInt(0,7)*10000 + randInt(0,9)*1000;
+      let nums = [];
+      while(nums.length<4){
+        const offset = randInt(-22000,22000);
+        const n = Math.max(100000,Math.min(999999,base+offset+randInt(0,999)));
+        if(!nums.includes(n)) nums.push(n);
+      }
+      nums = shuffle(nums);
+      const sorted = [...nums].sort((a,b)=>a-b);
+      return {
+        type:'order', label:'เรียงลำดับจำนวน',
+        text:'เรียงจำนวนต่อไปนี้จากน้อยไปมาก',
+        sub:'คลิกตัวเลขตามลำดับที่ต้องการ แล้วกดตรวจคำตอบ',
+        numbers:nums, answerRaw:sorted, answer:sorted.map(fmt).join(' → '),
+        explain:`เรียงโดยเทียบจากหลักแสน แล้วไล่ไปหลักหมื่น หลักพัน จึงได้ ${sorted.map(fmt).join(' → ')}`
+      };
+    }
+
+    function makeRoundingQuestion(){
+      const n = randomSix();
+      const place = Math.random()<0.62 ? 10000 : 100000;
+      const placeLabel = place===10000 ? 'หลักหมื่น' : 'หลักแสน';
+      const nextName = place===10000 ? 'หลักพัน' : 'หลักหมื่น';
+      const ansNum = roundTo(n,place);
+      const wrongs = [ansNum-place, ansNum+place, Math.floor(n/place)*place, Math.ceil(n/place)*place]
+        .filter(v=>v>=0 && v<=1000000 && v!==ansNum);
+      const nextDigit = nextDigitForPlace(n,place);
+      return {
+        type:'choice', label:'ปัดเศษจำนวน',
+        text:`<span class="numberLine">${fmt(n)}</span><br>ปัดเป็น${placeLabel} ได้เท่าไร?`,
+        sub:`ดูเลขถัดไปทางขวา คือ${nextName}`,
+        choices:makeChoices(fmt(ansNum), wrongs.map(fmt)), answer:fmt(ansNum),
+        explain:`ต้องดูเลข${nextName} คือ ${nextDigit} ${nextDigit>=5?'จึงปัดขึ้น':'จึงคงหลักที่ปัดไว้'} คำตอบคือ ${fmt(ansNum)}`
+      };
+    }
+
+    function makeEstimateQuestion(){
+      const a = randomSix();
+      const b = randomSix();
+      const place = Math.random()<0.70 ? 10000 : 100000;
+      const placeLabel = place===10000 ? 'หลักหมื่น' : 'หลักแสน';
+      const ra = roundTo(a,place), rb = roundTo(b,place), ansNum = ra+rb;
+      const wrongs = [roundTo(a+b,place), ra+b, a+rb, ansNum+place, ansNum-place].filter(v=>v>0 && v!==ansNum);
+      return {
+        type:'choice', label:'ประมาณผลรวม',
+        text:`<span class="numberLine">${fmt(a)} + ${fmt(b)}</span><br>ประมาณโดยปัดเป็น${placeLabel}ก่อนบวก`,
+        sub:'โจทย์นี้ถามค่าประมาณ ไม่ใช่ผลบวกจริง',
+        choices:makeChoices(fmt(ansNum), wrongs.map(fmt)), answer:fmt(ansNum),
+        explain:`ปัด ${fmt(a)} ≈ ${fmt(ra)} และ ${fmt(b)} ≈ ${fmt(rb)} แล้วบวกได้ ${fmt(ra)} + ${fmt(rb)} = ${fmt(ansNum)}`
+      };
+    }
+
+    function makeClosestQuestion(){
+      const targets = [300000,500000,700000,900000];
+      const target = targets[randInt(0,targets.length-1)];
+      const close = target + (Math.random()<0.5?-1:1)*randInt(700,9500);
+      const opts = [close];
+      while(opts.length<4){
+        const sign = Math.random()<0.5?-1:1;
+        const dist = randInt(15000,82000);
+        const n = Math.max(100000,Math.min(999999,target + sign*dist + randInt(-900,900)));
+        if(!opts.includes(n)) opts.push(n);
+      }
+      const choicesNums = shuffle(opts);
+      const answerNum = choicesNums.reduce((best,n)=>Math.abs(n-target)<Math.abs(best-target)?n:best,choicesNums[0]);
+      return {
+        type:'choice', label:'ใกล้เป้าหมายที่สุด',
+        text:`จำนวนใดใกล้ <span class="numberLine">${fmt(target)}</span> ที่สุด?`,
+        sub:'ดูระยะห่างจากจำนวนเป้าหมาย ยิ่งห่างน้อยยิ่งใกล้',
+        choices:choicesNums.map(fmt), answer:fmt(answerNum),
+        explain:`คำตอบ ${fmt(answerNum)} ห่างจาก ${fmt(target)} เพียง ${fmt(Math.abs(answerNum-target))} ซึ่งน้อยกว่าตัวเลือกอื่น`
+      };
+    }
+
+    function makeMixedQuestion(){
+      const makers = [makePlaceValueQuestion,makeCompareQuestion,makeFirstDiffQuestion,makeOrderQuestion,makeRoundingQuestion,makeEstimateQuestion,makeClosestQuestion];
+      return makers[randInt(0,makers.length-1)]();
+    }
+
+    function stopTimerAndShow(screenId){
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+      show(screenId);
+    }
+    $('startBtn').onclick = startGame;
+    $('backMenuBtn').onclick = () => stopTimerAndShow('screenMenu');
+    $('homeBtnTop').onclick = () => stopTimerAndShow('screenMenu');
+    $('quitBtn').onclick = () => stopTimerAndShow('screenMenu');
+    $('nextBtn').onclick = nextQuestion;
+    $('checkOrderBtn').onclick = checkOrder;
+    $('resetOrderBtn').onclick = resetOrder;
+    $('playAgainBtn').onclick = startGame;
+    $('resultMenuBtn').onclick = () => stopTimerAndShow('screenMenu');
+    initCards();
+  </script>
+</body>
+</html>
