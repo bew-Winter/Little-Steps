@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ภาษาไทย ป.4 | เกมชั่วโมงที่ 2 จับใจความสำคัญ</title>
+<style>
+:root{
+  --bg1:#fff7fb;
+  --bg2:#f7f0ff;
+  --bg3:#fff8e9;
+  --ink:#2d2437;
+  --muted:#75657f;
+  --primary:#a855f7;
+  --primary2:#ec4899;
+  --primary3:#fb7185;
+  --cream:#fff7ed;
+  --card:rgba(255,255,255,.72);
+  --card2:rgba(255,255,255,.88);
+  --line:rgba(168,85,247,.18);
+  --good:#16a34a;
+  --bad:#e11d48;
+  --warn:#f59e0b;
+  --shadow:0 28px 80px rgba(113,63,150,.16),0 6px 20px rgba(113,63,150,.08);
+  --r:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Sukhumvit Set","Thonburi","Noto Sans Thai","Leelawadee UI",Tahoma,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(236,72,153,.18), transparent 24%),
+    radial-gradient(circle at 92% 6%, rgba(168,85,247,.18), transparent 26%),
+    radial-gradient(circle at 83% 90%, rgba(251,191,36,.18), transparent 25%),
+    linear-gradient(135deg,var(--bg1),var(--bg2) 52%,var(--bg3));
+  min-height:100dvh;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.48),transparent 75%);
+  pointer-events:none;
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer;border:0}
+.app{position:relative;z-index:1;min-height:100dvh;padding:18px}
+.shell{max-width:1180px;margin:0 auto}
+.topbar{
+  position:sticky;top:12px;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.65);
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(24px) saturate(1.15);
+  -webkit-backdrop-filter:blur(24px) saturate(1.15);
+  border-radius:24px;
+  box-shadow:0 16px 48px rgba(113,63,150,.10);
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{
+  width:50px;height:50px;flex:0 0 50px;border-radius:18px;
+  display:grid;place-items:center;color:white;font-size:25px;font-weight:1000;
+  background:linear-gradient(135deg,var(--primary2),var(--primary));
+  box-shadow:0 12px 30px rgba(168,85,247,.24);
+}
+.brand h1{font-size:17px;line-height:1.25;margin:0;color:#5b247e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand p{font-size:12px;margin:2px 0 0;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:0 13px;border-radius:15px;
+  color:#6b21a8;font-weight:850;background:rgba(255,255,255,.74);border:1px solid rgba(168,85,247,.16);
+  box-shadow:0 6px 18px rgba(113,63,150,.07);
+}
+.pill.primary{color:white;background:linear-gradient(135deg,var(--primary2),var(--primary));border:0}
+.hero{
+  margin:22px 0 18px;padding:34px;
+  display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;
+  border-radius:36px;border:1px solid rgba(255,255,255,.72);
+  background:linear-gradient(135deg,rgba(255,255,255,.74),rgba(255,255,255,.52));
+  backdrop-filter:blur(26px) saturate(1.08);
+  box-shadow:var(--shadow);overflow:hidden;position:relative;
+}
+.hero:after{content:"ก";position:absolute;right:-28px;top:-68px;font-size:240px;font-weight:1000;color:rgba(168,85,247,.08);line-height:1}
+.kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(236,72,153,.18);background:rgba(255,255,255,.72);padding:8px 13px;border-radius:999px;color:#be185d;font-weight:900;font-size:14px}
+.hero h2{font-size:clamp(38px,6vw,72px);line-height:1.05;letter-spacing:-.045em;margin:18px 0 12px;color:#581c87;position:relative;z-index:1}
+.hero h2 span{color:#db2777}
+.hero p{font-size:20px;line-height:1.75;margin:0;color:#5f506a;max-width:760px;position:relative;z-index:1}
+.hero-card{
+  position:relative;z-index:1;min-height:260px;padding:22px;border-radius:30px;
+  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,247,237,.78));
+  border:1px solid rgba(168,85,247,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 18px 46px rgba(113,63,150,.11);
+}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{padding:15px;border-radius:20px;background:rgba(255,255,255,.72);border:1px solid rgba(168,85,247,.12)}
+.stat b{display:block;color:#7e22ce;font-size:25px;line-height:1}.stat small{display:block;color:var(--muted);margin-top:5px;font-weight:750}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:28px 4px 14px}
+.section-title h3{margin:0;font-size:28px;color:#581c87;letter-spacing:-.02em}.section-title p{margin:0;color:var(--muted);font-weight:650}
+.game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{
+  text-align:left;min-height:210px;padding:20px;border-radius:28px;
+  border:1px solid rgba(255,255,255,.72);background:var(--card);backdrop-filter:blur(20px) saturate(1.07);
+  box-shadow:0 14px 42px rgba(113,63,150,.10);position:relative;overflow:hidden;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(113,63,150,.16);border-color:rgba(236,72,153,.25)}
+.card:active{transform:translateY(-1px) scale(.99)}
+.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-54px;bottom:-56px;background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(168,85,247,.11))}
+.card .icon{width:50px;height:50px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:rgba(255,255,255,.72);border:1px solid rgba(168,85,247,.13);margin-bottom:14px;position:relative;z-index:1}
+.card h4{font-size:19px;line-height:1.34;margin:0 0 7px;color:#5b247e;position:relative;z-index:1}.card p{margin:0;color:#695976;font-size:14px;line-height:1.55;position:relative;z-index:1}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}.tag{font-size:12px;font-weight:850;color:#86198f;background:rgba(252,231,243,.75);border:1px solid rgba(236,72,153,.12);border-radius:999px;padding:5px 8px}
+.panel{
+  margin:22px 0;padding:28px;border-radius:34px;border:1px solid rgba(255,255,255,.72);background:var(--card2);
+  box-shadow:var(--shadow);backdrop-filter:blur(24px) saturate(1.08);overflow:hidden;position:relative;
+}
+.panel:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,rgba(236,72,153,.10),transparent 28%),radial-gradient(circle at 5% 100%,rgba(251,191,36,.12),transparent 28%);pointer-events:none}
+.panel>*{position:relative;z-index:1}
+.info-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}.info-head h2{margin:0;color:#581c87;font-size:36px;line-height:1.16;letter-spacing:-.03em}.info-head p{margin:8px 0 0;color:var(--muted);font-size:18px;line-height:1.75}.big-icon{width:70px;height:70px;border-radius:24px;display:grid;place-items:center;font-size:36px;background:linear-gradient(135deg,rgba(252,231,243,.9),rgba(237,233,254,.9));border:1px solid rgba(168,85,247,.16);flex:0 0 70px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.info-box{padding:18px;border-radius:22px;background:rgba(255,255,255,.72);border:1px solid rgba(168,85,247,.12)}.info-box b{display:block;color:#7e22ce;margin-bottom:8px}.info-box ul{margin:0;padding-left:20px;color:#5f506a;line-height:1.72}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{min-height:52px;padding:0 18px;border-radius:18px;font-weight:950;color:#6b21a8;background:rgba(255,255,255,.82);border:1px solid rgba(168,85,247,.15);box-shadow:0 10px 24px rgba(113,63,150,.09);display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.main{color:white;border:0;background:linear-gradient(135deg,var(--primary2),var(--primary));box-shadow:0 16px 34px rgba(168,85,247,.22)}.btn.good{color:white;border:0;background:linear-gradient(135deg,#22c55e,#16a34a)}.btn:disabled{opacity:.5;cursor:not-allowed}.btn:hover:not(:disabled){transform:translateY(-2px)}
+.quiz-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:18px}.progress{height:12px;border-radius:999px;background:rgba(168,85,247,.12);overflow:hidden}.bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary2),var(--primary),#f59e0b);border-radius:inherit;transition:width .25s ease}.score-strip{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.score-pill{padding:9px 12px;border-radius:15px;background:rgba(255,255,255,.76);border:1px solid rgba(168,85,247,.13);font-weight:900;color:#6b21a8;font-variant-numeric:tabular-nums}.question-card{padding:24px;border-radius:28px;background:rgba(255,255,255,.78);border:1px solid rgba(168,85,247,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}.q-label{display:inline-flex;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(252,231,243,.8);color:#be185d;font-weight:950;font-size:13px}.story{margin:16px 0 18px;padding:20px;border-radius:23px;background:linear-gradient(135deg,rgba(255,247,237,.82),rgba(255,255,255,.76));border:1px solid rgba(251,146,60,.16);color:#4f4358;font-size:18px;line-height:1.85}.question{font-size:24px;line-height:1.45;color:#581c87;font-weight:950;margin:15px 0 14px}.options{display:grid;gap:10px;margin-top:13px}.option{width:100%;text-align:left;padding:17px 18px;border-radius:20px;background:rgba(255,255,255,.83);border:1.5px solid rgba(168,85,247,.15);color:#382d45;font-weight:780;line-height:1.55;box-shadow:0 8px 22px rgba(113,63,150,.06);transition:.18s ease}.option:hover{border-color:rgba(236,72,153,.34);transform:translateY(-2px)}.option.selected{background:linear-gradient(135deg,rgba(252,231,243,.95),rgba(237,233,254,.96));border-color:rgba(236,72,153,.55);box-shadow:0 12px 26px rgba(236,72,153,.13)}.option.correct{border-color:rgba(22,163,74,.55);background:rgba(220,252,231,.86)}.option.wrong{border-color:rgba(225,29,72,.5);background:rgba(255,228,230,.86)}
+.order-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.order-zone{min-height:230px;padding:15px;border-radius:24px;background:rgba(255,255,255,.62);border:1.5px dashed rgba(168,85,247,.22)}.order-zone h4{margin:0 0 10px;color:#6b21a8}.order-card{display:block;width:100%;text-align:left;margin:8px 0;padding:14px 15px;border-radius:17px;background:rgba(255,255,255,.92);border:1px solid rgba(168,85,247,.15);color:#3e344b;font-weight:800;line-height:1.55}.order-card small{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:9px;background:#fce7f3;color:#be185d;margin-right:7px;font-weight:1000}.order-card:hover{transform:translateY(-1px)}
+textarea.answer{width:100%;min-height:150px;resize:vertical;margin-top:12px;padding:16px;border-radius:20px;border:1.5px solid rgba(168,85,247,.22);background:rgba(255,255,255,.85);color:var(--ink);line-height:1.75}.hint{color:var(--muted);font-size:14px;line-height:1.65;margin-top:10px}.feedback{margin-top:18px;padding:18px;border-radius:22px;border:1px solid rgba(168,85,247,.13);background:rgba(255,255,255,.78)}.feedback.good{border-color:rgba(22,163,74,.26);background:rgba(240,253,244,.85)}.feedback.bad{border-color:rgba(225,29,72,.24);background:rgba(255,241,242,.86)}.feedback.wait{border-color:rgba(245,158,11,.24);background:rgba(255,251,235,.9)}.feedback h3{margin:0 0 8px;font-size:23px}.feedback p{margin:6px 0;color:#4b4058;line-height:1.72}
+.result-hero{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin:18px 0}.result-stat{padding:18px;border-radius:24px;background:rgba(255,255,255,.75);border:1px solid rgba(168,85,247,.13)}.result-stat b{display:block;font-size:30px;color:#7e22ce;font-variant-numeric:tabular-nums}.result-stat span{display:block;color:var(--muted);font-weight:800;margin-top:4px}.review{margin-top:22px;max-height:none;overflow:visible}.review h3{font-size:28px;color:#581c87;margin:0 0 12px}.review-list{display:grid;gap:12px}.review-item{padding:18px;border-radius:24px;background:rgba(255,255,255,.78);border:1px solid rgba(168,85,247,.13);box-shadow:0 10px 26px rgba(113,63,150,.07)}.review-item.ok{border-color:rgba(22,163,74,.24)}.review-item.no{border-color:rgba(225,29,72,.22)}.review-item.manual{border-color:rgba(245,158,11,.24)}.review-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:9px}.badge{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 10px;font-weight:950;font-size:13px}.badge.ok{background:#dcfce7;color:#15803d}.badge.no{background:#ffe4e6;color:#be123c}.badge.manual{background:#fef3c7;color:#b45309}.review-item p{margin:5px 0;color:#4d4258;line-height:1.67}.review-item .mini{font-size:13px;color:var(--muted);font-weight:780}.answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.answer-box{padding:12px;border-radius:16px;background:rgba(255,255,255,.74);border:1px solid rgba(168,85,247,.11)}.answer-box b{display:block;color:#7e22ce;margin-bottom:4px}.footer-note{text-align:center;color:var(--muted);font-size:13px;line-height:1.7;margin:24px 0 8px}
+.hidden{display:none!important}
+@media(max-width:1050px){.game-grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.result-hero{grid-template-columns:1fr 1fr}.order-wrap{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.app{padding:10px}.topbar{top:8px;border-radius:20px}.brand h1{font-size:14px}.brand p{display:none}.logo{width:44px;height:44px;border-radius:16px}.top-actions .pill:not(.primary){display:none}.hero{padding:24px;border-radius:28px}.hero h2{font-size:42px}.hero p{font-size:17px}.game-grid{grid-template-columns:1fr}.panel{padding:19px;border-radius:28px}.info-head{display:block}.big-icon{margin-bottom:12px}.info-head h2{font-size:29px}.quiz-top{grid-template-columns:1fr}.score-strip{justify-content:flex-start}.question-card{padding:17px}.story{font-size:16px;padding:16px}.question{font-size:21px}.result-hero,.answer-grid{grid-template-columns:1fr}.section-title{display:block}.section-title h3{font-size:24px}.card{min-height:180px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">ก</div>
+        <div><h1>ภาษาไทย ป.4 · เกมชั่วโมงที่ 2</h1><p>จับใจความสำคัญและเรียงลำดับเหตุการณ์</p></div>
+      </div>
+      <div class="top-actions">
+        <button class="pill" onclick="renderHome()">⌂ หน้าหลัก</button>
+        <button class="pill primary" onclick="startInfo('mixed')">🎯 ท้าทายรวม</button>
+      </div>
+    </header>
+    <main id="app"></main>
+    <p class="footer-note">Little Steps · ภาษาไทย ป.4 · ใช้ได้ทั้งจอคอมพิวเตอร์ แท็บเล็ต และมือถือ</p>
+  </div>
+</div>
+<script>
+const stories = [
+  {id:'garden',title:'แปลงผักของห้องเรา',text:'วันจันทร์ นักเรียนชั้น ป.4 ช่วยกันทำแปลงผักหลังอาคารเรียน ครูให้ทุกคนแบ่งหน้าที่ บางคนพรวนดิน บางคนปลูกเมล็ดผักบุ้ง จากนั้นทุกคนช่วยกันรดน้ำและติดป้ายชื่อแปลง สองสัปดาห์ต่อมา ผักบุ้งงอกเขียวเต็มแปลง เด็ก ๆ ภูมิใจที่ได้ดูแลแปลงผักด้วยตนเอง',keywords:['แปลงผัก','ปลูกผัก','ร่วมมือกัน'],who:'นักเรียนชั้น ป.4',what:'ช่วยกันทำแปลงผัก',where:'หลังอาคารเรียน',when:'วันจันทร์และสองสัปดาห์ต่อมา',why:'เพราะครูให้ทุกคนแบ่งหน้าที่ทำแปลงผัก',result:'ผักบุ้งงอกเขียวเต็มแปลง',main:'นักเรียน ป.4 ร่วมกันทำแปลงผักจนผักบุ้งงอกงาม',moral:'ความร่วมมือทำให้งานสำเร็จ',sequence:['ครูให้ทุกคนแบ่งหน้าที่','นักเรียนพรวนดิน','นักเรียนปลูกเมล็ดผักบุ้ง','ทุกคนรดน้ำและติดป้าย','ผักบุ้งงอกเขียวเต็มแปลง'],details:['ครูให้ทุกคนแบ่งหน้าที่','บางคนพรวนดิน บางคนปลูกเมล็ดผักบุ้ง','สองสัปดาห์ต่อมา ผักบุ้งงอกเขียวเต็มแปลง']},
+  {id:'library',title:'ห้องสมุดวันฝนตก',text:'ตอนพักกลางวัน ฝนตกหนักจนเด็ก ๆ ออกไปเล่นสนามไม่ได้ มะลิชวนเพื่อนเข้าห้องสมุดแทนการวิ่งเล่น ทุกคนเลือกหนังสือที่ชอบแล้วนั่งอ่านอย่างเงียบ ๆ เมื่อฝนหยุด มะลิเล่าเรื่องที่อ่านให้เพื่อนฟัง เพื่อน ๆ จึงอยากยืมหนังสือกลับไปอ่านต่อ',keywords:['ห้องสมุด','อ่านหนังสือ','ใช้เวลาว่าง'],who:'มะลิและเพื่อน ๆ',what:'เข้าห้องสมุดและอ่านหนังสือ',where:'ห้องสมุด',when:'ตอนพักกลางวันในวันที่ฝนตกหนัก',why:'เพราะฝนตกจนออกไปเล่นสนามไม่ได้',result:'เพื่อน ๆ อยากยืมหนังสือกลับไปอ่านต่อ',main:'เด็ก ๆ ใช้เวลาว่างวันฝนตกด้วยการอ่านหนังสือในห้องสมุด',moral:'การใช้เวลาว่างให้เกิดประโยชน์ช่วยเพิ่มความรู้',sequence:['ฝนตกหนักตอนพักกลางวัน','มะลิชวนเพื่อนเข้าห้องสมุด','ทุกคนเลือกหนังสือที่ชอบ','มะลิเล่าเรื่องที่อ่านให้เพื่อนฟัง','เพื่อน ๆ อยากยืมหนังสือกลับไปอ่านต่อ'],details:['ฝนตกหนักจนเด็ก ๆ ออกไปเล่นสนามไม่ได้','ทุกคนเลือกหนังสือที่ชอบ','มะลิเล่าเรื่องที่อ่านให้เพื่อนฟัง']},
+  {id:'newfriend',title:'เพื่อนใหม่ในห้องเรียน',text:'เช้าวันอังคาร มีนักเรียนใหม่ชื่อภูผาย้ายมาเรียนที่ห้อง ป.4/2 เขายืนเงียบอยู่หน้าห้องเพราะยังไม่รู้จักใคร ต้นกล้าเดินไปทักและชวนภูผานั่งข้าง ๆ จากนั้นต้นกล้าแนะนำเพื่อนในกลุ่มให้รู้จัก ภูผาจึงกล้ายิ้มและแนะนำตัวหน้าชั้นเรียน',keywords:['เพื่อนใหม่','ช่วยเหลือ','แนะนำตัว'],who:'ต้นกล้าและภูผา',what:'ต้นกล้าช่วยเพื่อนใหม่ให้กล้าแนะนำตัว',where:'ห้อง ป.4/2',when:'เช้าวันอังคาร',why:'เพราะภูผายังไม่รู้จักใครและยืนเงียบอยู่หน้าห้อง',result:'ภูผากล้ายิ้มและแนะนำตัวหน้าชั้นเรียน',main:'ต้นกล้าช่วยให้เพื่อนใหม่ปรับตัวและกล้าแนะนำตัว',moral:'การช่วยเหลือเล็ก ๆ ทำให้ผู้อื่นรู้สึกอบอุ่นใจ',sequence:['ภูผาย้ายมาเรียนที่ห้อง ป.4/2','ภูผายืนเงียบอยู่หน้าห้อง','ต้นกล้าเดินไปทัก','ต้นกล้าแนะนำเพื่อนในกลุ่ม','ภูผากล้าแนะนำตัวหน้าชั้นเรียน'],details:['ภูผายืนเงียบอยู่หน้าห้อง','ต้นกล้าชวนภูผานั่งข้าง ๆ','ภูผากล้ายิ้ม']},
+  {id:'trash',title:'ขยะชิ้นเล็กในสนามใหญ่',text:'หลังเลิกแถว พลอยเห็นถุงขนมตกอยู่กลางสนาม แม้เป็นขยะชิ้นเล็ก แต่พลอยคิดว่าถ้าทุกคนทิ้งไว้ สนามคงสกปรก เธอจึงเก็บถุงขนมไปทิ้งลงถังและชวนเพื่อนแยกขยะหลังพักกลางวัน วันต่อมา สนามสะอาดขึ้นและเพื่อนหลายคนเริ่มทิ้งขยะให้ถูกที่',keywords:['ขยะ','รักษาความสะอาด','แยกขยะ'],who:'พลอยและเพื่อน ๆ',what:'เก็บขยะและชวนเพื่อนแยกขยะ',where:'สนามโรงเรียน',when:'หลังเลิกแถวและหลังพักกลางวัน',why:'เพราะไม่อยากให้สนามสกปรก',result:'สนามสะอาดขึ้นและเพื่อนเริ่มทิ้งขยะถูกที่',main:'พลอยเริ่มเก็บขยะชิ้นเล็กจนเพื่อนช่วยกันรักษาความสะอาด',moral:'การเริ่มทำสิ่งดีเพียงคนเดียวอาจชวนให้ผู้อื่นทำตามได้',sequence:['พลอยเห็นถุงขนมกลางสนาม','พลอยคิดว่าสนามอาจสกปรก','พลอยเก็บถุงขนมไปทิ้ง','พลอยชวนเพื่อนแยกขยะ','สนามสะอาดขึ้น'],details:['ถุงขนมตกอยู่กลางสนาม','พลอยชวนเพื่อนแยกขยะหลังพักกลางวัน','เพื่อนหลายคนเริ่มทิ้งขยะให้ถูกที่']},
+  {id:'sport',title:'วันซ้อมกีฬา',text:'ก้องสมัครแข่งวิ่งผลัดของห้อง แต่วันแรกเขาวิ่งช้ากว่าเพื่อนและเกือบทำไม้ส่งตก ก้องรู้สึกท้อ ครูจึงสอนให้เขาฝึกส่งไม้ทีละขั้น ทุกเย็นก้องซ้อมกับเพื่อนอย่างตั้งใจ หนึ่งสัปดาห์ต่อมา เขาส่งไม้ได้คล่องและวิ่งเข้าเส้นชัยพร้อมรอยยิ้ม',keywords:['ซ้อมกีฬา','พยายาม','วิ่งผลัด'],who:'ก้อง',what:'ฝึกซ้อมวิ่งผลัดและส่งไม้',where:'สนามกีฬา',when:'วันแรกของการซ้อมและหนึ่งสัปดาห์ต่อมา',why:'เพราะเขาวิ่งช้าและเกือบทำไม้ส่งตก',result:'ก้องส่งไม้ได้คล่องและวิ่งเข้าเส้นชัยด้วยรอยยิ้ม',main:'ก้องฝึกซ้อมอย่างตั้งใจจนพัฒนาการวิ่งผลัดได้ดีขึ้น',moral:'ความพยายามช่วยให้เราพัฒนาตนเอง',sequence:['ก้องสมัครแข่งวิ่งผลัด','ก้องวิ่งช้าและเกือบทำไม้ส่งตก','ครูสอนให้ฝึกส่งไม้ทีละขั้น','ก้องซ้อมกับเพื่อนทุกเย็น','ก้องส่งไม้ได้คล่อง'],details:['ก้องรู้สึกท้อ','ครูสอนให้เขาฝึกส่งไม้ทีละขั้น','ก้องวิ่งเข้าเส้นชัยพร้อมรอยยิ้ม']},
+  {id:'pencilcase',title:'กล่องดินสอที่หายไป',text:'ก่อนเริ่มเรียนศิลปะ นุ่นพบว่ากล่องดินสอของตนหายไป เธอถามเพื่อนว่าเห็นหรือไม่ เมย์บอกว่าเมื่อเช้านุ่นวางกล่องไว้บนโต๊ะใกล้หน้าต่าง นุ่นจึงย้อนกลับไปดูและพบว่ากล่องดินสอตกอยู่ใต้โต๊ะ เธอขอบคุณเมย์และเก็บของให้เป็นระเบียบมากขึ้น',keywords:['กล่องดินสอ','ตามหา','เก็บของ'],who:'นุ่นและเมย์',what:'นุ่นตามหากล่องดินสอที่หายไป',where:'ห้องเรียนใกล้หน้าต่าง',when:'ก่อนเริ่มเรียนศิลปะ',why:'เพราะนุ่นพบว่ากล่องดินสอหายไป',result:'นุ่นพบกล่องดินสอใต้โต๊ะและเก็บของเป็นระเบียบมากขึ้น',main:'นุ่นตามหากล่องดินสอจนพบและเรียนรู้การเก็บของให้เป็นระเบียบ',moral:'การเก็บของเป็นที่ช่วยลดการสูญหาย',sequence:['นุ่นพบว่ากล่องดินสอหาย','นุ่นถามเพื่อน','เมย์บอกว่าวางไว้ใกล้หน้าต่าง','นุ่นย้อนกลับไปดู','นุ่นพบกล่องดินสอใต้โต๊ะ'],details:['เมย์บอกสิ่งที่เห็นเมื่อเช้า','กล่องดินสอตกอยู่ใต้โต๊ะ','นุ่นขอบคุณเมย์']},
+  {id:'tree',title:'ต้นไม้หน้าห้อง',text:'ต้นไม้หน้าห้อง ป.4 เริ่มเหี่ยวเพราะหลายวันไม่มีใครรดน้ำ แก้มสังเกตเห็นใบไม้ห้อยลงจึงบอกหัวหน้าห้อง ทุกคนตกลงทำตารางเวรรดน้ำ วันแรกแก้มกับเพื่อนช่วยกันรดน้ำและพรวนดิน ผ่านไปไม่กี่วัน ใบไม้กลับมาสดชื่นและห้องเรียนดูน่าอยู่ขึ้น',keywords:['ต้นไม้','ดูแล','เวรรดน้ำ'],who:'แก้มและเพื่อน ๆ',what:'ช่วยกันดูแลต้นไม้หน้าห้อง',where:'หน้าห้อง ป.4',when:'หลายวันที่ไม่มีใครรดน้ำและวันถัด ๆ มา',why:'เพราะต้นไม้เริ่มเหี่ยว',result:'ใบไม้กลับมาสดชื่นและห้องเรียนน่าอยู่ขึ้น',main:'นักเรียนช่วยกันดูแลต้นไม้หน้าห้องจนกลับมาสดชื่น',moral:'การใส่ใจสิ่งเล็ก ๆ ทำให้สิ่งรอบตัวดีขึ้น',sequence:['ต้นไม้หน้าห้องเริ่มเหี่ยว','แก้มสังเกตเห็นใบไม้ห้อยลง','ทุกคนทำตารางเวรรดน้ำ','แก้มกับเพื่อนรดน้ำและพรวนดิน','ใบไม้กลับมาสดชื่น'],details:['ใบไม้ห้อยลง','ทุกคนตกลงทำตารางเวรรดน้ำ','ห้องเรียนดูน่าอยู่ขึ้น']},
+  {id:'grandma',title:'ร้านน้ำของคุณยาย',text:'วันหยุด ปาล์มไปช่วยคุณยายขายน้ำสมุนไพรหน้าบ้าน เขาช่วยล้างแก้ว จัดหลอด และเช็ดโต๊ะให้สะอาด ตอนแรกปาล์มทำช้า แต่คุณยายชมว่าเขาตั้งใจ เขาจึงพยายามทำให้คล่องขึ้น เมื่อลูกค้าเข้าร้าน ปาล์มยิ้มต้อนรับอย่างสุภาพ คุณยายดีใจที่หลานเรียนรู้การทำงาน',keywords:['ร้านน้ำ','ช่วยคุณยาย','ขยัน'],who:'ปาล์มและคุณยาย',what:'ปาล์มช่วยคุณยายขายน้ำสมุนไพร',where:'หน้าบ้านของคุณยาย',when:'วันหยุด',why:'เพราะปาล์มไปช่วยคุณยายทำงาน',result:'ปาล์มเรียนรู้การทำงานและคุณยายดีใจ',main:'ปาล์มช่วยคุณยายทำงานร้านน้ำและเรียนรู้ความขยัน',moral:'ความตั้งใจและความสุภาพทำให้งานออกมาดี',sequence:['ปาล์มไปช่วยคุณยายขายน้ำ','ปาล์มล้างแก้ว จัดหลอด และเช็ดโต๊ะ','คุณยายชมว่าปาล์มตั้งใจ','ปาล์มพยายามทำให้คล่องขึ้น','ปาล์มยิ้มต้อนรับลูกค้าอย่างสุภาพ'],details:['ปาล์มช่วยล้างแก้ว','คุณยายชมว่าเขาตั้งใจ','ลูกค้าเข้าร้าน']},
+  {id:'notice',title:'ป้ายประกาศหน้าโรงเรียน',text:'หน้าโรงเรียนมีป้ายประกาศเชิญชวนนักเรียน ป.4 ร่วมกิจกรรมอ่านหนังสือเวลา 15 นาทีทุกเช้าวันศุกร์ กิจกรรมจัดที่ห้องสมุด โดยให้นักเรียนนำหนังสือที่ชอบมาหนึ่งเล่ม ครูภาษาไทยจะให้ดาวพิเศษแก่ผู้ที่เล่าเรื่องจากหนังสือได้ชัดเจน',keywords:['ป้ายประกาศ','กิจกรรมอ่านหนังสือ','ห้องสมุด'],who:'นักเรียน ป.4',what:'ร่วมกิจกรรมอ่านหนังสือ 15 นาที',where:'ห้องสมุด',when:'ทุกเช้าวันศุกร์',why:'เพื่อส่งเสริมการอ่านและการเล่าเรื่อง',result:'ผู้ที่เล่าเรื่องชัดเจนจะได้ดาวพิเศษ',main:'ป้ายประกาศเชิญชวนนักเรียน ป.4 ร่วมกิจกรรมอ่านหนังสือทุกเช้าวันศุกร์',moral:'การอ่านสม่ำเสมอช่วยฝึกการเล่าเรื่องและเพิ่มความรู้',sequence:['โรงเรียนติดป้ายประกาศ','นักเรียนอ่านรายละเอียดกิจกรรม','นักเรียนนำหนังสือที่ชอบมาหนึ่งเล่ม','นักเรียนอ่านหนังสือ 15 นาที','ครูให้ดาวพิเศษแก่ผู้เล่าเรื่องชัดเจน'],details:['กิจกรรมจัดที่ห้องสมุด','ให้นำหนังสือที่ชอบมาหนึ่งเล่ม','ครูภาษาไทยให้ดาวพิเศษ']},
+  {id:'goodbook',title:'สมุดบันทึกความดี',text:'ครูให้นักเรียนจดความดีเล็ก ๆ ที่ทำในแต่ละวันลงสมุด ป่านเริ่มจากการช่วยแม่พับผ้า เก็บรองเท้าให้เป็นระเบียบ และแบ่งขนมให้เพื่อน เมื่อครบหนึ่งสัปดาห์ ป่านอ่านบันทึกของตนเองแล้วรู้สึกภูมิใจ ครูบอกว่าความดีเล็ก ๆ หากทำสม่ำเสมอจะกลายเป็นนิสัยที่ดี',keywords:['บันทึกความดี','ทำสม่ำเสมอ','นิสัยดี'],who:'ป่าน',what:'จดความดีเล็ก ๆ ที่ทำในแต่ละวัน',where:'ที่บ้านและโรงเรียน',when:'ตลอดหนึ่งสัปดาห์',why:'เพราะครูให้นักเรียนบันทึกความดี',result:'ป่านภูมิใจและเข้าใจว่าความดีเล็ก ๆ สร้างนิสัยที่ดีได้',main:'ป่านบันทึกความดีเล็ก ๆ จนเห็นคุณค่าของการทำดีสม่ำเสมอ',moral:'ความดีเล็ก ๆ เมื่อทำสม่ำเสมอจะกลายเป็นนิสัยที่ดี',sequence:['ครูให้นักเรียนจดความดี','ป่านช่วยแม่พับผ้า','ป่านเก็บรองเท้าและแบ่งขนมให้เพื่อน','ครบหนึ่งสัปดาห์ ป่านอ่านบันทึก','ครูสรุปว่าความดีเล็ก ๆ สร้างนิสัยดี'],details:['ป่านช่วยแม่พับผ้า','ป่านแบ่งขนมให้เพื่อน','ป่านรู้สึกภูมิใจ']}
+];
+const decoyKeywords = ['เครื่องคิดเลข','ป้ายจราจร','ทะเลทราย','โทรทัศน์','ตลาดนัด','สนามบิน','ดอกไม้ไฟ','หุ่นยนต์','ภูเขาหิมะ','อาหารกลางวัน'];
+const sequenceWords = ['ก่อน','ต่อมา','จากนั้น','สุดท้าย'];
+function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function sample(arr,n){return shuffle(arr).slice(0,n);}
+function optionSet(correct, decoys, count=4){const opts=[correct];for(const d of shuffle(decoys)){if(opts.length>=count)break;if(d!==correct && !opts.includes(d))opts.push(d);}return shuffle(opts);}
+function storyBlock(s){return `<div class="story"><b>${esc(s.title)}</b><br>${esc(s.text)}</div>`;}
+function makeChoice({gameId,story,prompt,correct,options,explain,base=1000,label='เลือกตอบ'}){const opts=optionSet(correct,options,4);return {type:'choice',gameId,story,prompt,options:opts,answer:opts.indexOf(correct),correctText:correct,explain,base,label};}
+function makeBinary({gameId,story,prompt,correct,explain,base=900}){const opts=['ใจความหลัก','รายละเอียดสนับสนุน'];return {type:'choice',gameId,story,prompt,options:opts,answer:opts.indexOf(correct),correctText:correct,explain,base,label:'แยกประเภท'};}
+function makeOrder({gameId,story,events,explain}){return {type:'order',gameId,story,prompt:'คลิกเหตุการณ์ให้เรียงจากก่อน → หลัง',cards:shuffle(events),correctOrder:events,correctText:events.join(' → '),explain,base:1500,label:'เรียงลำดับ'};}
+function makeManual({gameId,story,prompt,guide,label}){return {type:'manual',gameId,story,prompt,guide,correctText:'ให้ครูตรวจจากเกณฑ์',explain:guide,base:0,label};}
+function buildKeywordPool(){let pool=[];stories.forEach(s=>{
+  const allKeys=[...new Set(stories.flatMap(x=>x.keywords).concat(decoyKeywords))];
+  s.keywords.forEach((kw,idx)=>pool.push(makeChoice({gameId:'keywords',story:s,prompt:idx===0?'คำสำคัญที่ตรงกับเรื่องนี้มากที่สุดคือข้อใด':'คำใดเป็นคำสำคัญที่ช่วยบอกเนื้อหาของเรื่องนี้',correct:kw,options:allKeys,explain:`คำว่า “${kw}” เกี่ยวข้องกับแก่นเรื่อง ${s.title} โดยตรง`,base:900,label:'คำสำคัญ'})));
+});return pool;}
+function build5WPool(){let pool=[];stories.forEach(s=>{
+ const qs=[['ใครเป็นตัวละครหรือผู้กระทำสำคัญในเรื่องนี้',s.who],['ตัวละครทำอะไรเป็นหลัก',s.what],['เหตุการณ์เกิดขึ้นที่ไหน',s.where],['เหตุการณ์เกิดขึ้นเมื่อไร',s.when],['เพราะเหตุใดจึงเกิดเหตุการณ์นี้',s.why],['ผลที่เกิดขึ้นคืออะไร',s.result]];
+ const answers=stories.flatMap(x=>[x.who,x.what,x.where,x.when,x.why,x.result]);
+ qs.forEach(([prompt,correct])=>pool.push(makeChoice({gameId:'5w',story:s,prompt,correct,options:answers,explain:`คำตอบดูได้จากข้อมูลในเรื่อง “${s.title}”`,base:1000,label:'5W1H'})));
+});return pool;}
+function buildMainIdeaPool(){let pool=[];stories.forEach(s=>{
+ const decoys=[`เรื่องนี้เล่าว่า${s.details[0]}`,`ผู้เขียนรู้สึกว่าเรื่องนี้น่าสนใจมาก`,s.result,`เรื่องนี้กล่าวถึง${pick(decoyKeywords)}เป็นหลัก`,`${s.title}มีรายละเอียดหลายอย่าง`];
+ ['ใจความสำคัญของเรื่องนี้คือข้อใด','ประโยคใดสรุปเรื่องนี้ได้ดีที่สุด','ถ้าต้องเล่าเรื่องนี้สั้น ๆ ควรเลือกประโยคใด'].forEach(prompt=>pool.push(makeChoice({gameId:'mainidea',story:s,prompt,correct:s.main,options:decoys.concat(stories.map(x=>x.main)),explain:'ใจความสำคัญต้องบอกภาพรวมของเรื่อง ไม่ใช่รายละเอียดเล็ก ๆ เพียงจุดเดียว',base:1200,label:'ใจความสำคัญ'})));
+});return pool;}
+function buildMainDetailPool(){let pool=[];stories.forEach(s=>{
+ pool.push(makeBinary({gameId:'maindetail',story:s,prompt:`“${s.main}” เป็นข้อความประเภทใด`,correct:'ใจความหลัก',explain:'ประโยคนี้สรุปภาพรวมของเรื่อง จึงเป็นใจความหลัก',base:900}));
+ s.details.forEach(d=>pool.push(makeBinary({gameId:'maindetail',story:s,prompt:`“${d}” เป็นข้อความประเภทใด`,correct:'รายละเอียดสนับสนุน',explain:'ข้อความนี้ช่วยขยายว่าเกิดอะไร ที่ไหน เมื่อไร หรืออย่างไร จึงเป็นรายละเอียดสนับสนุน',base:900})));
+});return pool;}
+function buildOrderPool(){let pool=[];stories.forEach(s=>{
+ pool.push(makeOrder({gameId:'order',story:s,events:s.sequence,explain:'เรียงตามเหตุการณ์ที่เกิดขึ้นในเรื่องจากต้นเรื่องไปท้ายเรื่อง'}));
+ pool.push(makeOrder({gameId:'order',story:s,events:s.sequence.slice(0,4),explain:'ดูคำบอกลำดับและเหตุ–ผลในเรื่อง'}));
+ pool.push(makeOrder({gameId:'order',story:s,events:s.sequence.slice(1),explain:'เมื่อตัดเหตุการณ์แรกออก ยังต้องเรียงเหตุการณ์ที่เหลือจากก่อนหลัง'}));
+});return pool;}
+function buildSeqWordPool(){let pool=[];stories.forEach(s=>{
+ const ev=s.sequence;
+ const prompts=[
+  [`_____ ${ev[0]} แล้วจึงมีเหตุการณ์ถัดไป`, 'ก่อน'],
+  [`${ev[0]} _____ ${ev[1]}`, 'ต่อมา'],
+  [`${ev[1]} _____ ${ev[2]}`, 'จากนั้น'],
+  [`หลังจากเหตุการณ์ต่าง ๆ เกิดขึ้น _____ ${ev[ev.length-1]}`, 'สุดท้าย']
+ ];
+ prompts.forEach(([prompt,correct])=>pool.push(makeChoice({gameId:'seqword',story:s,prompt,correct,options:sequenceWords,explain:'คำบอกลำดับช่วยให้ผู้อ่านเห็นเหตุการณ์ก่อน–หลังชัดเจน',base:850,label:'คำบอกลำดับ'})));
+});return pool;}
+function buildMoralPool(){let pool=[];stories.forEach(s=>{
+ const decoys=['ควรรีบตอบก่อนอ่านให้จบ','ไม่จำเป็นต้องช่วยผู้อื่น','การทำงานไม่ต้องวางแผน','ควรทิ้งของไว้ให้คนอื่นเก็บ','อ่านหนังสือไม่สำคัญเท่าการเล่น'];
+ [0,1,2].forEach(()=>pool.push(makeChoice({gameId:'moral',story:s,prompt:'ข้อคิดใดเหมาะสมกับเรื่องนี้มากที่สุด',correct:s.moral,options:decoys.concat(stories.map(x=>x.moral)),explain:'ข้อคิดต้องสัมพันธ์กับเหตุการณ์และผลที่เกิดขึ้นในเรื่อง',base:1100,label:'ข้อคิด'})));
+});return pool;}
+function buildManualSummaryPool(){return stories.map(s=>makeManual({gameId:'writeSummary',story:s,prompt:'เขียนสรุปใจความสำคัญของเรื่องนี้ด้วยตนเอง 1 ประโยค',guide:'ครูตรวจว่าเด็กตอบตรงเรื่อง ใช้ประโยคสั้นชัดเจน และไม่คัดลอกทุกประโยค',label:'ข้อเขียน'}));}
+function buildManualOrderPool(){return stories.map(s=>makeManual({gameId:'tellOrder',story:s,prompt:'เขียนหรือเล่าเหตุการณ์สำคัญของเรื่องนี้ตามลำดับก่อน–หลัง',guide:'ครูตรวจว่าลำดับเหตุการณ์ถูก มีคำเชื่อม เช่น ก่อน ต่อมา จากนั้น สุดท้าย และเล่าไม่ข้ามขั้นสำคัญ',label:'ครูประเมิน'}));}
+function pools(){return {keywords:buildKeywordPool(),fivew:build5WPool(),mainidea:buildMainIdeaPool(),maindetail:buildMainDetailPool(),order:buildOrderPool(),seqword:buildSeqWordPool(),moral:buildMoralPool(),writeSummary:buildManualSummaryPool(),tellOrder:buildManualOrderPool()};}
+const games=[
+ {id:'keywords',icon:'🔎',title:'อ่านจับคำสำคัญ',count:8,pool:'keywords',desc:'อ่านเรื่องสั้นแล้วเลือกคำสำคัญที่ตรงกับเนื้อหามากที่สุด',skill:'ทบทวนก่อนจับใจความ',auto:true},
+ {id:'fivew',icon:'🕵️',title:'5W1H นักสืบเรื่องอ่าน',count:8,pool:'fivew',desc:'ตอบ ใคร ทำอะไร ที่ไหน เมื่อไร เพราะอะไร และผลเป็นอย่างไร',skill:'ตอบคำถามจากเรื่อง',auto:true},
+ {id:'mainidea',icon:'💡',title:'หาใจความสำคัญ',count:6,pool:'mainidea',desc:'เลือกประโยคที่สรุปเรื่องได้ดีที่สุด ไม่ใช่รายละเอียดเล็ก ๆ',skill:'จับใจความ',auto:true},
+ {id:'maindetail',icon:'🧩',title:'หลักหรือรายละเอียด',count:10,pool:'maindetail',desc:'แยกประโยคว่าเป็นใจความหลักหรือรายละเอียดสนับสนุน',skill:'แยกข้อมูลสำคัญ',auto:true},
+ {id:'order',icon:'🚂',title:'รถไฟเรียงเรื่อง',count:5,pool:'order',desc:'คลิกเรียงเหตุการณ์ก่อน–หลังจากเรื่องที่อ่าน',skill:'เรียงลำดับเหตุการณ์',auto:true},
+ {id:'seqword',icon:'➡️',title:'จับคำบอกลำดับ',count:10,pool:'seqword',desc:'เลือก ก่อน ต่อมา จากนั้น สุดท้าย ให้เหมาะกับประโยค',skill:'คำเชื่อมลำดับ',auto:true},
+ {id:'moral',icon:'🌱',title:'สรุปข้อคิดจากเรื่อง',count:6,pool:'moral',desc:'เลือกข้อคิดที่สัมพันธ์กับเหตุการณ์ในเรื่อง',skill:'ตีความข้อคิด',auto:true},
+ {id:'writeSummary',icon:'✍️',title:'เขียนใจความเอง',count:2,pool:'writeSummary',desc:'เด็กเขียนสรุปเอง ระบบไม่ให้คะแนนอัตโนมัติ ให้ครูตรวจในหน้าสุดท้าย',skill:'ครูประเมิน',auto:false},
+ {id:'tellOrder',icon:'🎤',title:'เล่าเหตุการณ์เอง',count:2,pool:'tellOrder',desc:'เด็กเขียนหรือเล่าลำดับเหตุการณ์เอง ให้ครูประเมินจากคำตอบ',skill:'ครูประเมิน',auto:false},
+ {id:'mixed',icon:'🎯',title:'ท้าทายรวมท้ายชั่วโมง',count:10,pool:'mixed',desc:'สุ่มข้อจากคำสำคัญ 5W1H ใจความสำคัญ เรียงเรื่อง คำบอกลำดับ และข้อคิด',skill:'Exit Ticket',auto:true}
+];
+let state={screen:'home',game:null,questions:[],i:0,selected:null,selectedOrder:[],results:[],correct:0,score:0,combo:0,maxCombo:0,questionStart:0,timer:null,answered:false};
+const app=document.getElementById('app');
+function clearTimer(){if(state.timer){clearInterval(state.timer);state.timer=null;}}
+function fmt(n){return Number(n||0).toLocaleString('th-TH');}
+function sec(){return Math.max(0,Math.round((Date.now()-state.questionStart)/1000));}
+function renderHome(){clearTimer();state.screen='home';const autoGames=games.filter(g=>g.auto&&g.id!=='mixed').length;app.innerHTML=`
+<section class="hero">
+ <div><span class="kicker">📚 ภาษาไทย ป.4 · ชั่วโมงที่ 2</span><h2>จับใจความ<br><span>ให้เป็นเกม</span></h2><p>เลือกหมวดเกม อ่านเรื่องสั้น แล้วตอบคำถามตามทักษะในบทเรียน มีคะแนน จำนวนข้อที่ถูก เวลา คอมโบ และตรวจย้อนหลังรายข้อเหมือนระบบคณิต แต่ใช้โทนสีใหม่แยกวิชาง่าย</p><div class="actions"><button class="btn main" onclick="startInfo('mixed')">เริ่มท้าทายรวม</button><button class="btn" onclick="document.getElementById('games').scrollIntoView()">เลือกหมวดเกม</button></div></div>
+ <div class="hero-card"><span class="kicker">ระบบเนื้อหา</span><div class="stat-grid"><div class="stat"><b>10</b><small>เรื่องอ่านในคลัง</small></div><div class="stat"><b>30+</b><small>ข้อในแต่ละหมวด</small></div><div class="stat"><b>${autoGames}</b><small>หมวดตรวจอัตโนมัติ</small></div><div class="stat"><b>2</b><small>หมวดให้ครูวัด</small></div></div><p class="hint">หมวดที่ต้องอ่านเยอะจะสุ่มน้อยกว่า 10 ข้อ เช่น ใจความสำคัญ 6 ข้อ และรถไฟเรียงเรื่อง 5 ชุด เพื่อไม่ให้ใช้เวลานานเกินไป</p></div>
+</section>
+<div class="section-title" id="games"><div><h3>เลือกหมวดเกม</h3><p>เรียงตามลำดับเนื้อหาที่ควรสอน</p></div></div>
+<div class="game-grid">${games.map(g=>`<button class="card" onclick="startInfo('${g.id}')"><div class="icon">${g.icon}</div><h4>${esc(g.title)}</h4><p>${esc(g.desc)}</p><div class="meta"><span class="tag">สุ่ม ${g.count} ข้อ</span><span class="tag">${esc(g.skill)}</span>${g.auto?'<span class="tag">ให้คะแนนได้</span>':'<span class="tag">ครูตรวจเอง</span>'}</div></button>`).join('')}</div>
+`;}
+function getGame(id){return games.find(g=>g.id===id);}
+function makeQuestions(g){const all=pools(); if(g.id==='mixed'){const mix=[...sample(all.keywords,2),...sample(all.fivew,2),...sample(all.mainidea,1),...sample(all.maindetail,2),...sample(all.order,1),...sample(all.seqword,1),...sample(all.moral,1)];return shuffle(mix).slice(0,g.count);} return sample(all[g.pool],g.count);}
+function startInfo(id){clearTimer();const g=getGame(id);const all=pools();const poolSize=id==='mixed'?Object.values(all).flat().filter(q=>q.type!=='manual').length:all[g.pool].length;app.innerHTML=`<section class="panel"><div class="info-head"><div><div class="big-icon">${g.icon}</div><h2>${esc(g.title)}</h2><p>${esc(g.desc)}</p></div></div><div class="info-grid"><div class="info-box"><b>กติกา</b><ul><li>ระบบจะสุ่มโจทย์จากคลังที่เตรียมไว้</li><li>ตอบแล้วจะเห็นเฉลยและเหตุผลทันที</li><li>หน้าสุดท้ายเลื่อนดูตรวจย้อนหลังรายข้อได้</li></ul></div><div class="info-box"><b>จำนวนและคะแนน</b><ul><li>คลังโจทย์: ${poolSize} รายการ</li><li>สุ่มทำรอบนี้: ${g.count} ข้อ</li><li>${g.auto?'คะแนนคิดจากตอบถูก + เวลา + คอมโบ':'หมวดนี้ไม่คิดคะแนนอัตโนมัติ ให้ครูตรวจจากคำตอบ'}</li></ul></div></div><div class="info-box"><b>ก่อนเริ่มครูอธิบายสั้น ๆ</b><ul><li>ใจความสำคัญคือประโยคที่บอกว่าเรื่องกล่าวถึงอะไรเป็นหลัก</li><li>รายละเอียดสนับสนุนช่วยขยายว่าเกิดอย่างไร ที่ไหน เมื่อไร หรือเพราะเหตุใด</li><li>การเรียงเหตุการณ์ให้สังเกตคำว่า ก่อน ต่อมา จากนั้น สุดท้าย</li></ul></div><div class="actions"><button class="btn" onclick="renderHome()">กลับหน้าหลัก</button><button class="btn main" onclick="startGame('${g.id}')">เริ่มเล่น</button></div></section>`;}
+function startGame(id){const g=getGame(id);state={screen:'quiz',game:g,questions:makeQuestions(g),i:0,selected:null,selectedOrder:[],results:[],correct:0,score:0,combo:0,maxCombo:0,questionStart:Date.now(),timer:null,answered:false};renderQuestion();}
+function updateTimer(){const el=document.getElementById('liveTime'); if(el)el.textContent=sec()+' วิ';}
+function renderQuestion(){clearTimer();state.selected=null;state.selectedOrder=[];state.answered=false;state.questionStart=Date.now();const q=state.questions[state.i];const total=state.questions.length;const pct=(state.i/total)*100;app.innerHTML=`<section class="panel"><div class="quiz-top"><div><div class="progress"><div class="bar" style="width:${pct}%"></div></div></div><div class="score-strip"><span class="score-pill">ข้อ ${state.i+1}/${total}</span><span class="score-pill">ถูก ${state.correct}/${state.results.filter(r=>!r.manual).length}</span><span class="score-pill">คะแนน ${fmt(state.score)}</span><span class="score-pill">เวลา <span id="liveTime">0 วิ</span></span></div></div><div class="question-card"><span class="q-label">${esc(q.label)} · ${esc(state.game.title)}</span>${q.story?storyBlock(q.story):''}<div class="question">${esc(q.prompt)}</div><div id="answerArea">${renderAnswerInput(q)}</div><div class="actions"><button class="btn" onclick="startInfo('${state.game.id}')">ออกจากเกม</button><button id="submitBtn" class="btn main" onclick="submitAnswer()" disabled>ตอบข้อนี้</button></div><div id="feedbackBox"></div></div></section>`;state.timer=setInterval(updateTimer,500);updateTimer();}
+function renderAnswerInput(q){if(q.type==='choice'){return `<div class="options">${q.options.map((o,i)=>`<button class="option" id="opt${i}" onclick="selectOption(${i})">${esc(o)}</button>`).join('')}</div>`;} if(q.type==='order'){return `<div class="order-wrap"><div class="order-zone"><h4>การ์ดเหตุการณ์</h4>${q.cards.map((c,i)=>`<button class="order-card" id="card${i}" onclick="pickOrder(${i})"><small>${i+1}</small>${esc(c)}</button>`).join('')}</div><div class="order-zone"><h4>ลำดับที่เลือก</h4><div id="chosenOrder"><p class="hint">คลิกการ์ดด้านซ้ายตามลำดับก่อน–หลัง</p></div><button class="btn" style="margin-top:10px" onclick="resetOrder()">เริ่มเรียงใหม่</button></div></div>`;} if(q.type==='manual'){return `<textarea class="answer" id="manualAnswer" placeholder="พิมพ์คำตอบของนักเรียนที่นี่..." oninput="manualChanged()"></textarea><p class="hint">${esc(q.guide)}</p>`;} return '';}
+function selectOption(i){if(state.answered)return;state.selected=i;document.querySelectorAll('.option').forEach(b=>b.classList.remove('selected'));document.getElementById('opt'+i).classList.add('selected');document.getElementById('submitBtn').disabled=false;}
+function pickOrder(i){if(state.answered)return;const q=state.questions[state.i];const card=q.cards[i];if(state.selectedOrder.includes(card))return;state.selectedOrder.push(card);document.getElementById('card'+i).disabled=true;document.getElementById('card'+i).style.opacity=.45;renderChosenOrder();document.getElementById('submitBtn').disabled=state.selectedOrder.length!==q.correctOrder.length;}
+function renderChosenOrder(){const box=document.getElementById('chosenOrder');box.innerHTML=state.selectedOrder.length?state.selectedOrder.map((c,i)=>`<div class="order-card"><small>${i+1}</small>${esc(c)}</div>`).join(''):'<p class="hint">คลิกการ์ดด้านซ้ายตามลำดับก่อน–หลัง</p>';}
+function resetOrder(){if(state.answered)return;state.selectedOrder=[];document.querySelectorAll('.order-card').forEach(b=>{b.disabled=false;b.style.opacity=1});renderChosenOrder();document.getElementById('submitBtn').disabled=true;}
+function manualChanged(){document.getElementById('submitBtn').disabled=!document.getElementById('manualAnswer').value.trim();}
+function equalArr(a,b){return a.length===b.length && a.every((v,i)=>v===b[i]);}
+function scoreFor(q,elapsed,correct){if(!correct)return 0;const base=q.base||1000;const cap=q.type==='order'?90:(q.story?60:35);const speed=Math.max(0,Math.round((cap-elapsed)/cap*260));const comboBonus=Math.min(state.combo*80,420);return base+speed+comboBonus;}
+function submitAnswer(){if(state.answered)return;state.answered=true;clearTimer();const q=state.questions[state.i];const elapsed=sec();let userText='',correct=false,manual=false;if(q.type==='choice'){userText=q.options[state.selected];correct=state.selected===q.answer;document.querySelectorAll('.option').forEach((b,i)=>{b.disabled=true;if(i===q.answer)b.classList.add('correct');if(i===state.selected&&i!==q.answer)b.classList.add('wrong');});}else if(q.type==='order'){userText=state.selectedOrder.join(' → ');correct=equalArr(state.selectedOrder,q.correctOrder);}else if(q.type==='manual'){manual=true;userText=document.getElementById('manualAnswer').value.trim();correct=false;}
+ let points=0;if(!manual){if(correct){state.combo++;state.correct++;state.maxCombo=Math.max(state.maxCombo,state.combo);points=scoreFor(q,elapsed,true);state.score+=points;}else{state.combo=0;}}
+ state.results.push({q,userText,correct,manual,elapsed,points,correctText:q.correctText,explain:q.explain});
+ const fb=document.getElementById('feedbackBox');fb.innerHTML=`<div class="feedback ${manual?'wait':correct?'good':'bad'}"><h3>${manual?'📝 บันทึกคำตอบแล้ว รอครูตรวจ':correct?'✅ ถูกต้อง':'❌ ยังไม่ถูก'}</h3><p><b>คำตอบของนักเรียน:</b> ${esc(userText||'-')}</p>${manual?`<p><b>แนวทางตรวจ:</b> ${esc(q.guide)}</p>`:`<p><b>คำตอบที่ถูก:</b> ${esc(q.correctText)}</p><p><b>เหตุผล:</b> ${esc(q.explain)}</p><p><b>คะแนนข้อนี้:</b> ${fmt(points)} คะแนน · เวลา ${elapsed} วิ</p>`}<div class="actions"><button class="btn main" onclick="nextQ()">${state.i===state.questions.length-1?'ดูคะแนนสุดท้าย':'ข้อต่อไป'}</button></div></div>`;document.getElementById('submitBtn').disabled=true;}
+function nextQ(){if(state.i>=state.questions.length-1){renderResult();}else{state.i++;renderQuestion();}}
+function renderResult(){clearTimer();const auto=state.results.filter(r=>!r.manual);const manual=state.results.filter(r=>r.manual);const avg=auto.length?Math.round(auto.reduce((s,r)=>s+r.elapsed,0)/auto.length):0;app.innerHTML=`<section class="panel"><span class="kicker">🏁 สรุปผล ${esc(state.game.title)}</span><h2 style="font-size:42px;line-height:1.15;margin:18px 0 8px;color:#581c87">คะแนนสุดท้าย</h2><p style="color:var(--muted);font-size:18px;margin:0">เลื่อนลงเพื่อตรวจย้อนหลังรายข้อ ดูได้ว่าเลือกอะไร ถูกหรือผิด และคำตอบที่ถูกคืออะไร</p><div class="result-hero"><div class="result-stat"><b>${auto.length?state.correct+'/'+auto.length:'รอครู'}</b><span>จำนวนข้อที่ถูก</span></div><div class="result-stat"><b>${fmt(state.score)}</b><span>คะแนนรวม</span></div><div class="result-stat"><b>${avg?avg+' วิ':'-'}</b><span>เวลาเฉลี่ย/ข้อ</span></div><div class="result-stat"><b>${state.maxCombo}</b><span>คอมโบสูงสุด</span></div></div>${manual.length?`<div class="feedback wait"><h3>มีคำตอบให้ครูตรวจ ${manual.length} ข้อ</h3><p>ระบบบันทึกคำตอบไว้ด้านล่างแล้ว ครูสามารถใช้เกณฑ์ตรวจจากหน้าตรวจย้อนหลังได้ทันที</p></div>`:''}<div class="actions"><button class="btn" onclick="startGame('${state.game.id}')">เล่นหมวดนี้อีกครั้ง</button><button class="btn main" onclick="renderHome()">กลับหน้าหลัก</button></div><div class="review"><h3>ตรวจย้อนหลังรายข้อ</h3><div class="review-list">${state.results.map((r,i)=>reviewItem(r,i)).join('')}</div></div></section>`;window.scrollTo({top:0,behavior:'smooth'});}
+function reviewItem(r,i){const cls=r.manual?'manual':r.correct?'ok':'no';const badge=r.manual?'<span class="badge manual">รอครูตรวจ</span>':r.correct?'<span class="badge ok">ถูก</span>':'<span class="badge no">ผิด</span>';return `<article class="review-item ${cls}"><div class="review-head"><div><b>ข้อ ${i+1}: ${esc(r.q.label)}</b><div class="mini">เวลา ${r.elapsed} วิ · คะแนน ${fmt(r.points)}</div></div>${badge}</div>${r.q.story?`<p><b>เรื่อง:</b> ${esc(r.q.story.title)}</p>`:''}<p><b>โจทย์:</b> ${esc(r.q.prompt)}</p><div class="answer-grid"><div class="answer-box"><b>นักเรียนตอบ/เลือก</b>${esc(r.userText||'-')}</div><div class="answer-box"><b>คำตอบที่ถูก/แนวทางตรวจ</b>${esc(r.correctText||'-')}</div></div><p><b>เหตุผล/เกณฑ์:</b> ${esc(r.explain||'-')}</p></article>`;}
+renderHome();
+</script>
+</body>
+</html>
