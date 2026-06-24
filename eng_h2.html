@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>English P.4 | Hour 2 Phonics Games</title>
+<style>
+:root{
+  --bg1:#f1fffb; --bg2:#eef8ff; --bg3:#fff8df;
+  --ink:#14313b; --muted:#5f7880;
+  --primary:#10b981; --primary2:#06b6d4; --primary3:#fbbf24;
+  --deep:#047857; --blue:#0284c7;
+  --card:rgba(255,255,255,.72); --card2:rgba(255,255,255,.9);
+  --line:rgba(16,185,129,.18); --good:#16a34a; --bad:#ef4444; --warn:#f59e0b;
+  --shadow:0 28px 80px rgba(14,116,144,.14),0 8px 24px rgba(4,120,87,.08);
+  --r:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Sukhumvit Set","Thonburi","Noto Sans Thai","Leelawadee UI",Tahoma,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 8%,rgba(16,185,129,.18),transparent 24%),radial-gradient(circle at 90% 10%,rgba(6,182,212,.16),transparent 25%),radial-gradient(circle at 80% 88%,rgba(251,191,36,.20),transparent 25%),linear-gradient(135deg,var(--bg1),var(--bg2) 52%,var(--bg3));min-height:100dvh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.35) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 80%);pointer-events:none}
+button,input,textarea{font:inherit}button{cursor:pointer;border:0}.app{position:relative;z-index:1;min-height:100dvh;padding:18px}.shell{max-width:1180px;margin:0 auto}.hidden{display:none!important}
+.topbar{position:sticky;top:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border:1px solid rgba(255,255,255,.68);background:rgba(255,255,255,.58);backdrop-filter:blur(24px) saturate(1.15);-webkit-backdrop-filter:blur(24px) saturate(1.15);border-radius:24px;box-shadow:0 16px 48px rgba(14,116,144,.10)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.logo{width:52px;height:52px;flex:0 0 52px;border-radius:18px;display:grid;place-items:center;color:white;font-size:26px;font-weight:1000;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 12px 30px rgba(6,182,212,.24)}.brand h1{font-size:17px;line-height:1.25;margin:0;color:#075985;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand p{font-size:12px;margin:2px 0 0;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:0 13px;border-radius:15px;color:#075985;font-weight:850;background:rgba(255,255,255,.74);border:1px solid rgba(6,182,212,.16);box-shadow:0 6px 18px rgba(14,116,144,.07)}.pill.primary{color:white;background:linear-gradient(135deg,var(--primary),var(--primary2));border:0}.pill:hover{transform:translateY(-1px)}
+.hero{margin:22px 0 18px;padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch;border-radius:36px;border:1px solid rgba(255,255,255,.72);background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(255,255,255,.52));backdrop-filter:blur(26px) saturate(1.08);box-shadow:var(--shadow);overflow:hidden;position:relative}.hero:after{content:"Aa";position:absolute;right:-22px;top:-38px;font-size:170px;font-weight:1000;color:rgba(16,185,129,.08);line-height:1}.kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(16,185,129,.18);background:rgba(255,255,255,.72);padding:8px 13px;border-radius:999px;color:#047857;font-weight:900;font-size:14px}.hero h2{font-size:clamp(38px,6vw,72px);line-height:1.05;letter-spacing:-.045em;margin:18px 0 12px;color:#075985;position:relative;z-index:1}.hero h2 span{color:#059669}.hero p{font-size:20px;line-height:1.75;margin:0;color:#46636a;max-width:760px;position:relative;z-index:1}.hero-card{position:relative;z-index:1;min-height:260px;padding:22px;border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(240,253,250,.78));border:1px solid rgba(16,185,129,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 18px 46px rgba(14,116,144,.11)}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.stat{padding:15px;border-radius:20px;background:rgba(255,255,255,.72);border:1px solid rgba(6,182,212,.12)}.stat b{display:block;color:#0284c7;font-size:25px;line-height:1}.stat small{display:block;color:var(--muted);margin-top:5px;font-weight:750}.phonics-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.sound{font-weight:950;color:#065f46;background:rgba(220,252,231,.72);border:1px solid rgba(16,185,129,.16);padding:7px 10px;border-radius:999px}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:28px 4px 14px}.section-title h3{margin:0;font-size:28px;color:#075985;letter-spacing:-.02em}.section-title p{margin:0;color:var(--muted);font-weight:650}.game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{text-align:left;min-height:218px;padding:20px;border-radius:28px;border:1px solid rgba(255,255,255,.72);background:var(--card);backdrop-filter:blur(20px) saturate(1.07);box-shadow:0 14px 42px rgba(14,116,144,.10);position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.card:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(14,116,144,.15);border-color:rgba(16,185,129,.25)}.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-54px;bottom:-56px;background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(6,182,212,.11))}.card .icon{width:50px;height:50px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:rgba(255,255,255,.74);border:1px solid rgba(6,182,212,.13);margin-bottom:14px;position:relative;z-index:1}.card h4{font-size:19px;line-height:1.34;margin:0 0 7px;color:#075985;position:relative;z-index:1}.card p{margin:0;color:#557177;font-size:14px;line-height:1.55;position:relative;z-index:1}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}.tag{font-size:12px;font-weight:850;color:#047857;background:rgba(209,250,229,.75);border:1px solid rgba(16,185,129,.12);border-radius:999px;padding:5px 8px}.tag.manual{color:#92400e;background:rgba(254,243,199,.76);border-color:rgba(245,158,11,.18)}
+.panel{margin:22px 0;padding:28px;border-radius:34px;border:1px solid rgba(255,255,255,.72);background:var(--card2);box-shadow:var(--shadow);backdrop-filter:blur(24px) saturate(1.08);overflow:hidden;position:relative}.panel:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,rgba(16,185,129,.10),transparent 30%),radial-gradient(circle at 5% 100%,rgba(251,191,36,.14),transparent 29%);pointer-events:none}.panel>*{position:relative;z-index:1}.info-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}.info-head h2{margin:0;color:#075985;font-size:36px;line-height:1.16;letter-spacing:-.03em}.info-head p{margin:8px 0 0;color:var(--muted);font-size:18px;line-height:1.75}.big-icon{width:70px;height:70px;border-radius:24px;display:grid;place-items:center;font-size:36px;background:linear-gradient(135deg,rgba(209,250,229,.9),rgba(207,250,254,.9));border:1px solid rgba(16,185,129,.16);flex:0 0 70px}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.info-box{padding:18px;border-radius:22px;background:rgba(255,255,255,.72);border:1px solid rgba(16,185,129,.12)}.info-box b{display:block;color:#047857;margin-bottom:8px}.info-box ul{margin:0;padding-left:20px;color:#4c666d;line-height:1.72}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{min-height:52px;padding:0 18px;border-radius:18px;font-weight:950;color:#075985;background:rgba(255,255,255,.84);border:1px solid rgba(6,182,212,.15);box-shadow:0 10px 24px rgba(14,116,144,.09);display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.main{color:white;border:0;background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 16px 34px rgba(6,182,212,.22)}.btn.good{color:white;border:0;background:linear-gradient(135deg,#22c55e,#16a34a)}.btn.warn{color:#7c2d12;background:#fff7ed;border:1px solid rgba(251,146,60,.24)}.btn:disabled{opacity:.5;cursor:not-allowed}.btn:hover:not(:disabled){transform:translateY(-2px)}
+.quiz-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:18px}.progress{height:12px;border-radius:999px;background:rgba(6,182,212,.12);overflow:hidden}.bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--primary2),#f59e0b);border-radius:inherit;transition:width .25s ease}.score-strip{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.score-pill{padding:9px 12px;border-radius:15px;background:rgba(255,255,255,.78);border:1px solid rgba(16,185,129,.13);font-weight:900;color:#075985;font-variant-numeric:tabular-nums}.question-card{padding:24px;border-radius:28px;background:rgba(255,255,255,.78);border:1px solid rgba(16,185,129,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}.q-label{display:inline-flex;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(209,250,229,.85);color:#047857;font-weight:950;font-size:13px}.word-big{margin:16px 0 12px;padding:26px;border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(240,253,250,.76));border:1px solid rgba(16,185,129,.15);text-align:center;color:#075985;font-size:clamp(42px,7vw,78px);font-weight:1000;letter-spacing:.02em}.word-big small{display:block;font-size:19px;color:var(--muted);font-weight:800;letter-spacing:0;margin-top:6px}.sound-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0}.sound-tile{padding:14px 16px;border-radius:18px;background:#ecfeff;border:1px solid rgba(6,182,212,.18);color:#075985;font-size:28px;font-weight:950}.question{font-size:24px;line-height:1.45;color:#075985;font-weight:950;margin:15px 0 14px}.options{display:grid;gap:10px;margin-top:13px}.option{width:100%;text-align:left;padding:17px 18px;border-radius:20px;background:rgba(255,255,255,.84);border:1.5px solid rgba(16,185,129,.15);color:#213f47;font-weight:780;line-height:1.55;box-shadow:0 8px 22px rgba(14,116,144,.06);transition:.18s ease}.option:hover{border-color:rgba(6,182,212,.36);transform:translateY(-1px)}.option.correct{background:rgba(220,252,231,.9);border-color:rgba(22,163,74,.55);color:#14532d}.option.wrong{background:rgba(254,226,226,.88);border-color:rgba(239,68,68,.55);color:#7f1d1d}.feedback{margin-top:14px;padding:16px;border-radius:20px;background:rgba(255,255,255,.78);border:1px solid rgba(16,185,129,.14);color:#415d64;line-height:1.68}.feedback b{color:#047857}.manual-box{margin-top:15px;padding:18px;border-radius:22px;background:rgba(255,251,235,.78);border:1px solid rgba(245,158,11,.18)}.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.checkitem{display:flex;gap:9px;align-items:center;padding:12px;border-radius:16px;background:rgba(255,255,255,.7);border:1px solid rgba(245,158,11,.15)}.checkitem input{width:18px;height:18px}.manual-note{width:100%;min-height:96px;margin-top:12px;padding:14px;border-radius:16px;border:1.5px dashed rgba(245,158,11,.4);background:rgba(255,255,255,.8);color:var(--ink)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.chip{border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.76);border:1px solid rgba(16,185,129,.15);font-weight:900;color:#075985}.read-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:16px}.read-word{padding:16px 10px;text-align:center;border-radius:18px;background:#fff;border:1px solid rgba(6,182,212,.18);font-size:24px;font-weight:1000;color:#075985}
+.result-hero{text-align:center;padding:18px}.result-hero h2{font-size:clamp(36px,6vw,64px);line-height:1.08;margin:10px 0;color:#075985}.result-hero p{color:var(--muted);font-size:18px}.result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.result-card{padding:18px;border-radius:22px;background:rgba(255,255,255,.78);border:1px solid rgba(16,185,129,.13)}.result-card b{display:block;font-size:30px;color:#0284c7;line-height:1}.result-card span{color:var(--muted);font-weight:800}.review-list{display:grid;gap:12px;margin-top:18px;max-height:520px;overflow:auto;padding-right:5px}.review{padding:16px;border-radius:22px;background:rgba(255,255,255,.8);border:1px solid rgba(16,185,129,.14)}.review.good{border-color:rgba(22,163,74,.35)}.review.bad{border-color:rgba(239,68,68,.35)}.review.manual{border-color:rgba(245,158,11,.35)}.review-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.badge{display:inline-flex;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:950}.badge.good{background:#dcfce7;color:#166534}.badge.bad{background:#fee2e2;color:#991b1b}.badge.manual{background:#fef3c7;color:#92400e}.review h4{margin:8px 0 9px;color:#075985;font-size:18px}.review p{margin:5px 0;color:#456169;line-height:1.65}.review code{background:#ecfeff;border:1px solid rgba(6,182,212,.16);border-radius:8px;padding:1px 6px;color:#075985;font-weight:800}.toast{position:fixed;z-index:100;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;padding:10px 15px;border-radius:14px;background:#14313b;color:#fff;font-size:14px;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1020px){.game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr}.result-grid{grid-template-columns:repeat(2,1fr)}.quiz-top{grid-template-columns:1fr}.score-strip{justify-content:flex-start}.read-list{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.app{padding:10px}.topbar{border-radius:20px;top:8px}.brand h1{font-size:15px}.brand p{display:none}.top-actions .pill:not(.primary){display:none}.hero{padding:24px;border-radius:30px}.hero h2{font-size:42px}.hero p{font-size:17px}.hero-card{min-height:auto}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{min-height:210px;padding:17px}.section-title{display:block}.section-title h3{font-size:24px}.panel{padding:20px;border-radius:28px}.info-head{display:block}.big-icon{margin-bottom:12px}.info-grid{grid-template-columns:1fr}.question{font-size:21px}.word-big{font-size:48px;padding:20px}.checklist{grid-template-columns:1fr}.read-list{grid-template-columns:repeat(2,1fr)}.result-grid{grid-template-columns:1fr}}
+@media(max-width:470px){.game-grid{grid-template-columns:1fr}.logo{width:46px;height:46px}.hero h2{font-size:38px}.score-pill{font-size:13px}.option{padding:15px}.read-list{grid-template-columns:1fr}.result-hero h2{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="app"><div class="shell">
+  <header class="topbar">
+    <div class="brand"><div class="logo">Aa</div><div><h1>English P.4 · Hour 2 Games</h1><p>Short Vowels & CVC Words</p></div></div>
+    <div class="top-actions"><button class="pill" onclick="resetAll()">↻ เริ่มใหม่</button><button class="pill primary" onclick="showHome()">⌂ หน้าหลัก</button></div>
+  </header>
+
+  <main id="homeScreen">
+    <section class="hero">
+      <div>
+        <span class="kicker">🌿 ภาษาอังกฤษ ป.4 · ชั่วโมงที่ 2</span>
+        <h2>Phonics<br><span>Short Vowels</span></h2>
+        <p>เกมฝึกเสียงสระสั้น a e i o u และคำ CVC พร้อมหมวดทบทวนชั่วโมงที่ 1 เรื่องคำทักทายและคำสั่งในห้องเรียนก่อนเข้าเนื้อหาใหม่</p>
+      </div>
+      <div class="hero-card">
+        <span class="kicker">ระบบคะแนนแบบเดิม</span>
+        <div class="stat-grid">
+          <div class="stat"><b id="statGames">11</b><small>หมวดเกม</small></div>
+          <div class="stat"><b>1,000+</b><small>คะแนน/ข้อ</small></div>
+          <div class="stat"><b>เวลา</b><small>มีโบนัสความเร็ว</small></div>
+          <div class="stat"><b>รีวิว</b><small>ตรวจย้อนหลังรายข้อ</small></div>
+        </div>
+        <div class="phonics-strip"><span class="sound">a /æ/</span><span class="sound">e /e/</span><span class="sound">i /ɪ/</span><span class="sound">o /ɒ/</span><span class="sound">u /ʌ/</span></div>
+      </div>
+    </section>
+    <div class="section-title"><div><h3>เลือกหมวดเกม</h3><p>เรียงจากทบทวนชั่วโมงที่ 1 → เนื้อหา Phonics → ภารกิจครูประเมิน</p></div></div>
+    <section class="game-grid" id="gameGrid"></section>
+  </main>
+
+  <section id="introScreen" class="panel hidden"></section>
+  <section id="quizScreen" class="panel hidden"></section>
+  <section id="resultScreen" class="panel hidden"></section>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const vowelInfo={
+  a:{sound:'/æ/',house:'บ้าน a',examples:['cat','map','bag','hat','fan','jam','tap','pan','man','sad']},
+  e:{sound:'/e/',house:'บ้าน e',examples:['bed','pen','hen','red','ten','net','leg','wet','pet','men']},
+  i:{sound:'/ɪ/',house:'บ้าน i',examples:['pig','sit','big','pin','win','lip','kid','six','fit','hit']},
+  o:{sound:'/ɒ/',house:'บ้าน o',examples:['hot','dog','box','pot','top','fox','log','mop','cot','nod']},
+  u:{sound:'/ʌ/',house:'บ้าน u',examples:['sun','cup','bus','run','bug','hut','mud','cut','nut','fun']}
+};
+const allWords=Object.entries(vowelInfo).flatMap(([v,d])=>d.examples.map(word=>({word,vowel:v,sound:d.sound}))); 
+const families={at:['cat','hat','mat','sat','bat','rat'],an:['fan','pan','man','tan','can'],ap:['map','tap','cap','nap'],en:['pen','hen','ten','men'],ed:['bed','red','fed','led'],ig:['pig','big','dig','fig'],it:['sit','fit','hit','pit'],og:['dog','log','fog','hog'],op:['top','mop','hop','pop'],un:['sun','run','fun','bun'],ug:['bug','mug','rug','hug'],ut:['cut','nut','hut','but']};
+const commands=[
+  ['Stand up','ยืนขึ้น'],['Sit down','นั่งลง'],['Open your book','เปิดหนังสือ'],['Close your book','ปิดหนังสือ'],['Listen','ฟัง'],['Point to the door','ชี้ไปที่ประตู'],['Raise your hand','ยกมือ'],['Turn around','หมุนตัว'],['Look at the board','มองกระดาน'],['Repeat after me','พูดตามครู']
+];
+const greetings=[
+  {q:'ช่วงเช้าควรทักทายว่าอะไร',a:'Good morning.',opts:['Good night.','Goodbye.','Thank you.'],why:'ช่วงเช้าใช้ Good morning.'},
+  {q:'เมื่อเพื่อนถาม “How are you?” คำตอบใดเหมาะสม',a:'I am fine, thank you.',opts:['Open your book.','Stand up.','Goodbye.'],why:'How are you? ใช้ถามสบายดีไหม จึงตอบความรู้สึกได้'},
+  {q:'คำใดช่วยให้คำสั่งสุภาพขึ้น',a:'Please',opts:['Book','Door','Morning'],why:'Please ใช้เพิ่มความสุภาพในคำขอหรือคำสั่ง'},
+  {q:'หลังจากเพื่อนช่วยเรา ควรพูดว่าอะไร',a:'Thank you.',opts:['Sit down.','Good night.','Listen.'],why:'Thank you. ใช้ขอบคุณ'},
+  {q:'บทสนทนาใดเรียงถูกต้อง',a:'Hello. → How are you? → I am happy, thank you.',opts:['I am happy. → Open your book. → Hello.','Thank you. → Sit down. → Good morning.','Listen. → Goodbye. → How are you?'],why:'เริ่มด้วยคำทักทาย แล้วถาม–ตอบความรู้สึก'}
+];
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function sample(arr,n){return shuffle(arr).slice(0,n)}
+function optionSet(correct,decoys,count=4){const opts=[correct];for(const d of shuffle(decoys)){if(opts.length>=count)break;if(d!==correct&&!opts.includes(d))opts.push(d)}return shuffle(opts)}
+function fmt(n){return Math.round(n).toLocaleString('th-TH')}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),1700)}
+function middleVowel(word){return word[1]}
+function splitLetters(word){return word.split('').join(' - ')}
+function makeChoice({gameId,prompt,word,display,correct,options,explain,base=1000,label='เลือกตอบ'}){const opts=optionSet(correct,options,4);return {type:'choice',gameId,prompt,word,display,options:opts,answer:opts.indexOf(correct),correctText:correct,explain,base,label}}
+function buildReviewPool(){
+  let pool=[];
+  greetings.forEach(g=>pool.push(makeChoice({gameId:'review1',prompt:g.q,correct:g.a,options:g.opts.concat(greetings.map(x=>x.a)),explain:g.why,base:900,label:'ทบทวนชั่วโมงที่ 1'})));
+  commands.forEach(([en,th])=>{
+    pool.push(makeChoice({gameId:'review1',prompt:`คำสั่ง “${en}” หมายถึงอะไร`,correct:th,options:commands.map(x=>x[1]),explain:`${en} = ${th}`,base:900,label:'Classroom English'}));
+    pool.push(makeChoice({gameId:'review1',prompt:`ถ้าครูต้องการให้เด็ก “${th}” ควรพูดว่าอะไร`,correct:en,options:commands.map(x=>x[0]),explain:`คำสั่งที่ตรงกับ “${th}” คือ ${en}`,base:900,label:'Classroom English'}));
+  });
+  return pool;
+}
+function buildVowelHousePool(){return allWords.map(w=>makeChoice({gameId:'house',prompt:`คำนี้ควรอยู่บ้านสระใด`,word:w.word,correct:w.vowel,options:['a','e','i','o','u'],explain:`${w.word} มีสระกลางคือ ${w.vowel} เสียง ${w.sound}`,base:1000,label:'Vowel House'}))}
+function buildMiddlePool(){return allWords.map(w=>makeChoice({gameId:'middle',prompt:`สระกลางของคำนี้คือตัวใด`,word:w.word,correct:w.vowel,options:['a','e','i','o','u'],explain:`คำ CVC ดูตัวกลางก่อน: ${w.word} → ${w.vowel}`,base:1000,label:'Middle Vowel'}))}
+function buildBlendPool(){return allWords.map(w=>makeChoice({gameId:'blend',prompt:`แตะเสียงทีละตัวแล้วรวมเป็นคำใด`,display:splitLetters(w.word),correct:w.word,options:allWords.map(x=>x.word),explain:`${splitLetters(w.word)} → ${w.word}`,base:1000,label:'Tap & Blend'}))}
+function buildSoundPool(){let pool=[];Object.entries(vowelInfo).forEach(([v,d])=>{d.examples.forEach(word=>pool.push(makeChoice({gameId:'sound',prompt:`คำใดมีเสียงสระสั้น ${d.sound} เหมือนบ้าน ${v}`,display:`${v} ${d.sound}`,correct:word,options:allWords.filter(x=>x.vowel!==v).map(x=>x.word).concat(d.examples),explain:`${word} อยู่บ้าน ${v} และมีเสียงสระ ${d.sound}`,base:1000,label:'Sound Match'})))});return pool}
+function buildChangePool(){
+ const pairs=[['cat','cot'],['cat','cut'],['bag','big'],['bag','bug'],['hot','hut'],['cot','cut'],['pen','pan'],['pin','pen'],['sit','sat'],['dog','dig'],['cup','cap'],['sun','son'],['map','mop'],['red','rid'],['top','tap'],['net','nut'],['fan','fun'],['bed','bad'],['pot','pet'],['kid','cod'],['lip','lap'],['jam','jum'],['ten','tan'],['mug','mag'],['fox','fix'],['hen','hin'],['man','men'],['bus','bas'],['run','ran'],['cut','cot']];
+ return pairs.map(([from,to])=>makeChoice({gameId:'change',prompt:`เปลี่ยน ${from} เป็น ${to} ต้องเปลี่ยนอะไร`,display:`${from} → ${to}`,correct:`${middleVowel(from)} → ${middleVowel(to)}`,options:['a → e','a → i','a → o','a → u','e → a','e → i','e → o','e → u','i → a','i → e','i → o','i → u','o → a','o → e','o → i','o → u','u → a','u → e','u → i','u → o'],explain:`คำ CVC นี้เปลี่ยนสระกลางจาก ${middleVowel(from)} เป็น ${middleVowel(to)}`,base:1100,label:'Change One Letter'}));
+}
+function buildFamilyPool(){let pool=[];Object.entries(families).forEach(([fam,words])=>{words.forEach(word=>pool.push(makeChoice({gameId:'family',prompt:`คำใดอยู่ในกลุ่มเสียงท้าย -${fam}`,display:`-${fam} family`,correct:word,options:Object.values(families).flat().filter(x=>!words.includes(x)),explain:`${word} ลงท้ายด้วย -${fam} จึงอยู่ในกลุ่มเดียวกัน`,base:1000,label:'Word Family'})))});return pool}
+function buildOddPool(){let pool=[];Object.entries(vowelInfo).forEach(([v,d])=>{for(let i=0;i<8;i++){const same=sample(d.examples,3);const otherV=pick(Object.keys(vowelInfo).filter(x=>x!==v));const odd=pick(vowelInfo[otherV].examples);const opts=shuffle([...same,odd]);pool.push({type:'choice',gameId:'odd',prompt:`คำใดมีสระกลางต่างจากเพื่อน`,display:opts.join('  ·  '),options:opts,answer:opts.indexOf(odd),correctText:odd,explain:`${odd} มีสระกลาง ${otherV} ส่วนคำอื่นอยู่บ้าน ${v}`,base:1000,label:'Odd One Out'});}});return pool}
+function buildReadAloudPool(){return allWords.map(w=>({type:'manual',gameId:'read',prompt:'อ่านคำเหล่านี้ให้ครูฟังทีละคำ',words:sample(allWords.map(x=>x.word),4).concat(w.word),correctText:'ให้ครูตรวจการออกเสียง',explain:'ครูฟังว่าเด็กแตะเสียงทีละตัวและ blend รวมคำได้ชัดเจนหรือไม่',base:0,label:'Read Aloud'}))}
+function buildExplainPool(){return [
+ {type:'manual',gameId:'explain',prompt:'อธิบายวิธีอ่านคำ CVC 3 ขั้นด้วยคำพูดของตนเอง',words:['ดูตัวอักษร','ออกเสียงทีละตัว','ลากรวมเป็นคำ'],correctText:'ให้ครูตรวจคำอธิบาย',explain:'คำตอบควรมีแนวคิด: ดูพยัญชนะต้น → ดูสระกลาง → ดูพยัญชนะท้าย → blend รวม',base:0,label:'Explain'},
+ {type:'manual',gameId:'explain',prompt:'เลือกคำ CVC 1 คำ แล้วอธิบายวิธีอ่านให้เพื่อนฟัง',words:sample(allWords.map(x=>x.word),6),correctText:'ให้ครูตรวจคำอธิบาย',explain:'เด็กควรชี้ตัวอักษร ออกเสียงทีละหน่วย และรวมเสียงเป็นคำ',base:0,label:'Explain'}
+]}
+function pools(){return {review1:buildReviewPool(),house:buildVowelHousePool(),middle:buildMiddlePool(),blend:buildBlendPool(),sound:buildSoundPool(),change:buildChangePool(),family:buildFamilyPool(),odd:buildOddPool(),read:buildReadAloudPool(),explain:buildExplainPool()}}
+const games=[
+ {id:'review1',icon:'👋',title:'ทบทวนชั่วโมงที่ 1',count:10,pool:'review1',desc:'ทบทวน Greetings และ Classroom English เช่น Hello, How are you?, Please, Thank you และคำสั่งในห้องเรียน',skill:'ก่อนเรียน',auto:true},
+ {id:'house',icon:'🏠',title:'Vowel House บ้านสระสั้น',count:10,pool:'house',desc:'ดูคำ CVC แล้วเลือกบ้านสระ a e i o u ให้ถูกต้อง',skill:'สระสั้น',auto:true},
+ {id:'middle',icon:'🎯',title:'Find the Middle Vowel',count:10,pool:'middle',desc:'ระบุตัวอักษรสระที่อยู่ตรงกลางของคำ CVC',skill:'ดูตัวกลาง',auto:true},
+ {id:'blend',icon:'🧲',title:'Tap & Blend',count:10,pool:'blend',desc:'แตะเสียงทีละตัว เช่น c-a-t แล้วเลือกคำที่รวมเสียงถูก',skill:'อ่านคำ',auto:true},
+ {id:'sound',icon:'🔊',title:'Sound Match',count:10,pool:'sound',desc:'ฟัง/ดูเสียงสระ เช่น /æ/ แล้วเลือกคำที่มีเสียงเดียวกัน',skill:'จับคู่เสียง',auto:true},
+ {id:'change',icon:'🔁',title:'Change One Letter',count:8,pool:'change',desc:'เปลี่ยนสระกลางแล้วดูว่าคำเปลี่ยนเป็นคำใหม่อย่างไร',skill:'เปลี่ยนสระ',auto:true},
+ {id:'family',icon:'👨‍👩‍👧',title:'Word Family Builder',count:8,pool:'family',desc:'เลือกคำที่อยู่กลุ่มเสียงท้ายเดียวกัน เช่น -at, -en, -ig',skill:'ตระกูลคำ',auto:true},
+ {id:'odd',icon:'🧪',title:'Odd One Out',count:10,pool:'odd',desc:'หาคำที่มีสระกลางแตกต่างจากเพื่อนในกลุ่ม',skill:'แยกเสียง',auto:true},
+ {id:'read',icon:'🎙️',title:'Read Aloud Check',count:5,pool:'read',desc:'สุ่มคำ CVC ให้เด็กอ่านออกเสียง ครูประเมินความชัดเจน',skill:'ครูประเมิน',auto:false},
+ {id:'explain',icon:'🗣️',title:'Explain CVC Steps',count:2,pool:'explain',desc:'ให้เด็กอธิบายขั้นตอนอ่านคำ CVC ด้วยตนเอง',skill:'ครูประเมิน',auto:false},
+ {id:'challenge',icon:'🏆',title:'Phonics Challenge รวมท้ายบท',count:10,pool:'mixed',desc:'รวมทบทวนชั่วโมงที่ 1 และเกม Phonics หลายแบบในรอบเดียว',skill:'Exit Ticket',auto:true}
+];
+let state={game:null,questions:[],index:0,correct:0,score:0,combo:0,maxCombo:0,start:0,qStart:0,records:[],answered:false,timer:null,manualItems:{}};
+function showOnly(screen){['homeScreen','introScreen','quizScreen','resultScreen'].forEach(id=>$(id).classList.add('hidden'));$(screen).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}
+function renderHome(){
+ $('statGames').textContent=games.length;
+ $('gameGrid').innerHTML=games.map(g=>`<button class="card" onclick="showIntro('${g.id}')"><div class="icon">${g.icon}</div><h4>${esc(g.title)}</h4><p>${esc(g.desc)}</p><div class="meta"><span class="tag">${g.count} ข้อ</span><span class="tag ${g.auto?'':'manual'}">${g.auto?'ให้คะแนนอัตโนมัติ':'ครูประเมิน'}</span><span class="tag">${esc(g.skill)}</span></div></button>`).join('');
+}
+function showHome(){renderHome();showOnly('homeScreen')}
+function showIntro(id){
+ const g=games.find(x=>x.id===id);
+ const autoText=g.auto?'ระบบจะคิดคะแนนจากจำนวนข้อถูก เวลา และคอมโบตอบถูกต่อเนื่อง':'หมวดนี้ไม่รวมคะแนนอัตโนมัติ แต่จะบันทึกคำตอบ/รายการอ่านไว้ให้ครูตรวจย้อนหลัง';
+ const examples={review1:'Good morning. / How are you? / Open your book.',house:'cat → a, bed → e, sun → u',middle:'pig มีสระกลาง i',blend:'c - a - t → cat',sound:'/ɪ/ → pig, sit, big',change:'cat → cot คือ a → o',family:'cat, hat, mat อยู่กลุ่ม -at',odd:'cat, map, bag, sun → sun ต่างจากเพื่อน',read:'cat · pen · pig · hot · sun',explain:'ดูตัวอักษร → ออกเสียงทีละตัว → blend รวมคำ',challenge:'รวมหลายรูปแบบใน 10 ข้อ'}[id]||'';
+ $('introScreen').innerHTML=`<div class="info-head"><div><h2>${g.icon} ${esc(g.title)}</h2><p>${esc(g.desc)}</p></div><div class="big-icon">${g.icon}</div></div><div class="info-grid"><div class="info-box"><b>เป้าหมายของเกม</b><ul><li>ฝึกตามเนื้อหาชั่วโมงที่ 2: Short Vowels & CVC Words</li><li>ทำทีละข้อพร้อมเฉลยทันที</li><li>${autoText}</li></ul></div><div class="info-box"><b>ตัวอย่างโจทย์</b><ul><li>${esc(examples)}</li><li>ระบบสุ่มจากคลังคำ/โจทย์ จึงเล่นซ้ำได้โดยไม่เหมือนเดิมง่าย</li><li>หน้าสุดท้ายตรวจย้อนหลังรายข้อได้</li></ul></div></div><div class="actions"><button class="btn" onclick="showHome()">← กลับหน้าหลัก</button><button class="btn main" onclick="startGame('${g.id}')">เริ่มเกม ${g.count} ข้อ</button></div>`;
+ showOnly('introScreen');
+}
+function buildQuestions(gameId){
+ const ps=pools();
+ if(gameId==='challenge'){
+   const mixed=[...sample(ps.review1,2),...sample(ps.house,2),...sample(ps.middle,1),...sample(ps.blend,2),...sample(ps.sound,1),...sample(ps.change,1),...sample(ps.odd,1)];
+   return shuffle(mixed).slice(0,10);
+ }
+ const g=games.find(x=>x.id===gameId);
+ return sample(ps[g.pool],g.count);
+}
+function startGame(id){
+ const g=games.find(x=>x.id===id);
+ state={game:g,questions:buildQuestions(id),index:0,correct:0,score:0,combo:0,maxCombo:0,start:Date.now(),qStart:Date.now(),records:[],answered:false,timer:null,manualItems:{}};
+ showOnly('quizScreen');renderQuestion();
+}
+function startTimer(){clearInterval(state.timer);state.qStart=Date.now();state.timer=setInterval(()=>{const el=$('liveTime');if(el)el.textContent=((Date.now()-state.qStart)/1000).toFixed(1)+' วิ';},100)}
+function currentTime(){return (Date.now()-state.qStart)/1000}
+function calculateScore(q,sec,correct){if(!correct||q.type==='manual')return 0;const timeBonus=Math.max(0,Math.round(360-sec*34));const comboBonus=Math.min(300,state.combo*60);return q.base+timeBonus+comboBonus}
+function renderQuestion(){
+ clearInterval(state.timer);state.answered=false;
+ const q=state.questions[state.index]; const total=state.questions.length; const p=(state.index/total)*100;
+ $('quizScreen').innerHTML=`<div class="quiz-top"><div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div><div class="score-strip"><span class="score-pill">ข้อ ${state.index+1}/${total}</span><span class="score-pill">ถูก ${state.correct}/${state.index}</span><span class="score-pill">คะแนน ${fmt(state.score)}</span><span class="score-pill" id="liveTime">0.0 วิ</span></div></div><div class="question-card" id="questionBox"></div>`;
+ const box=$('questionBox');
+ if(q.type==='manual') renderManual(q,box); else renderChoice(q,box);
+ startTimer();
+}
+function renderDisplay(q){
+ if(q.word) return `<div class="word-big">${esc(q.word)}<small>CVC word</small></div>`;
+ if(q.display){
+   if(String(q.display).includes(' - ')) return `<div class="sound-row">${q.display.split(' - ').map(x=>`<span class="sound-tile">${esc(x)}</span>`).join('')}</div>`;
+   return `<div class="word-big">${esc(q.display)}</div>`;
+ }
+ return '';
+}
+function renderChoice(q,box){
+ box.innerHTML=`<span class="q-label">${esc(q.label)}</span>${renderDisplay(q)}<div class="question">${esc(q.prompt)}</div><div class="options">${q.options.map((o,i)=>`<button class="option" onclick="answerChoice(${i})">${esc(o)}</button>`).join('')}</div><div id="feedback"></div>`;
+}
+function renderManual(q,box){
+ const words=q.words||[];
+ box.innerHTML=`<span class="q-label">${esc(q.label)} · ครูประเมิน</span><div class="question">${esc(q.prompt)}</div>${words.length?`<div class="read-list">${words.map(w=>`<div class="read-word">${esc(w)}</div>`).join('')}</div>`:''}<div class="manual-box"><b>เกณฑ์ครูตรวจ</b><div class="checklist"><label class="checkitem"><input type="checkbox" data-check="sound"> ออกเสียงสระสั้นได้ใกล้เคียง</label><label class="checkitem"><input type="checkbox" data-check="blend"> แตะเสียงและ blend ได้</label><label class="checkitem"><input type="checkbox" data-check="clear"> พูดชัด กล้าลอง</label><label class="checkitem"><input type="checkbox" data-check="self"> แก้คำอ่านของตนเองได้</label></div><textarea class="manual-note" id="manualNote" placeholder="บันทึกครู เช่น คำที่อ่านได้ดี / คำที่ควรฝึกเพิ่ม"></textarea></div><div id="feedback"></div><div class="actions"><button class="btn main" onclick="saveManual(true)">ผ่าน / บันทึกและถัดไป</button><button class="btn warn" onclick="saveManual(false)">ต้องฝึกเพิ่ม / บันทึก</button></div>`;
+}
+function answerChoice(choice){
+ if(state.answered)return;state.answered=true;clearInterval(state.timer);
+ const q=state.questions[state.index]; const sec=currentTime(); const ok=choice===q.answer;
+ if(ok){state.combo++;state.correct++;state.maxCombo=Math.max(state.maxCombo,state.combo)}else{state.combo=0}
+ const gained=calculateScore(q,sec,ok);state.score+=gained;
+ document.querySelectorAll('.option').forEach((btn,i)=>{btn.disabled=true;if(i===q.answer)btn.classList.add('correct');if(i===choice&&!ok)btn.classList.add('wrong')});
+ state.records.push({no:state.index+1,type:q.label,question:q.prompt,display:q.word||q.display||'',student:q.options[choice],correct:q.correctText,ok,sec,gained,explain:q.explain,manual:false});
+ $('feedback').innerHTML=`<div class="feedback"><b>${ok?'ถูกต้อง!':'ยังไม่ถูก'}</b><br>คำตอบที่ถูก: <b>${esc(q.correctText)}</b><br>${esc(q.explain)}<br>เวลา ${sec.toFixed(1)} วิ · ได้ ${fmt(gained)} คะแนน</div><div class="actions"><button class="btn main" onclick="nextQuestion()">${state.index+1>=state.questions.length?'ดูคะแนน':'ข้อถัดไป'} →</button></div>`;
+ updateScoreStrip();
+}
+function saveManual(pass){
+ if(state.answered)return;state.answered=true;clearInterval(state.timer);
+ const q=state.questions[state.index]; const sec=currentTime();
+ const checks=[...document.querySelectorAll('[data-check]')].filter(x=>x.checked).map(x=>x.parentElement.textContent.trim());
+ const note=$('manualNote')?.value||'';
+ state.records.push({no:state.index+1,type:q.label,question:q.prompt,display:(q.words||[]).join(', '),student:(pass?'ผ่าน':'ต้องฝึกเพิ่ม')+(checks.length?' · '+checks.join(' / '):''),correct:q.correctText,ok:pass,sec,gained:0,explain:q.explain+(note?' | บันทึกครู: '+note:''),manual:true});
+ $('feedback').innerHTML=`<div class="feedback"><b>บันทึกแล้ว</b><br>หมวดนี้ให้ครูประเมิน ไม่รวมคะแนนอัตโนมัติ<br>เวลา ${sec.toFixed(1)} วิ</div><div class="actions"><button class="btn main" onclick="nextQuestion()">${state.index+1>=state.questions.length?'ดูสรุป':'ข้อถัดไป'} →</button></div>`;
+}
+function updateScoreStrip(){const strip=document.querySelector('.score-strip');if(strip)strip.innerHTML=`<span class="score-pill">ข้อ ${state.index+1}/${state.questions.length}</span><span class="score-pill">ถูก ${state.correct}/${state.index+1}</span><span class="score-pill">คะแนน ${fmt(state.score)}</span><span class="score-pill">คอมโบ ${state.combo}</span>`}
+function nextQuestion(){if(state.index+1>=state.questions.length)showResult();else{state.index++;renderQuestion()}}
+function showResult(){
+ clearInterval(state.timer); const total=state.questions.length; const autoRecords=state.records.filter(r=>!r.manual); const manualRecords=state.records.filter(r=>r.manual); const avg=state.records.length?(state.records.reduce((s,r)=>s+r.sec,0)/state.records.length):0; const pct=autoRecords.length?Math.round((state.correct/autoRecords.length)*100):0;
+ $('resultScreen').innerHTML=`<div class="result-hero"><span class="kicker">ผลลัพธ์ · ${esc(state.game.title)}</span><h2>${state.game.auto?'ทำได้ดีมาก!':'บันทึกเพื่อครูตรวจ'}</h2><p>${state.game.auto?'ตรวจคำตอบย้อนหลังได้ด้านล่าง':'หมวดนี้เน้นการอ่านออกเสียง/อธิบาย ครูดูบันทึกย้อนหลังได้เลย'}</p></div><div class="result-grid"><div class="result-card"><b>${state.correct}/${autoRecords.length}</b><span>จำนวนข้อที่ถูก</span></div><div class="result-card"><b>${fmt(state.score)}</b><span>คะแนนรวม</span></div><div class="result-card"><b>${avg.toFixed(1)} วิ</b><span>เวลาเฉลี่ย/ข้อ</span></div><div class="result-card"><b>${state.maxCombo}</b><span>คอมโบสูงสุด</span></div></div><div class="actions"><button class="btn" onclick="showHome()">⌂ กลับหน้าหลัก</button><button class="btn main" onclick="startGame('${state.game.id}')">↻ เล่นหมวดนี้อีกครั้ง</button></div><div class="section-title"><div><h3>ตรวจย้อนหลังรายข้อ</h3><p>ดูได้ว่าเด็กเลือกอะไร คำตอบถูกคืออะไร และพลาดตรงไหน</p></div></div><div class="review-list">${state.records.map(r=>`<div class="review ${r.manual?'manual':r.ok?'good':'bad'}"><div class="review-head"><span class="badge ${r.manual?'manual':r.ok?'good':'bad'}">${r.manual?'ครูประเมิน':r.ok?'ถูก':'ผิด'}</span><span class="score-pill">${r.sec.toFixed(1)} วิ · ${fmt(r.gained)} คะแนน</span></div><h4>ข้อ ${r.no}: ${esc(r.type)}</h4>${r.display?`<p><b>โจทย์/คำ:</b> <code>${esc(r.display)}</code></p>`:''}<p><b>คำถาม:</b> ${esc(r.question)}</p><p><b>เด็กตอบ/เลือก:</b> ${esc(r.student)}</p><p><b>คำตอบ/แนวตรวจ:</b> ${esc(r.correct)}</p><p><b>เหตุผล/บันทึก:</b> ${esc(r.explain)}</p></div>`).join('')}</div>`;
+ showOnly('resultScreen');
+}
+function resetAll(){state={game:null,questions:[],index:0,correct:0,score:0,combo:0,maxCombo:0,start:0,qStart:0,records:[],answered:false,timer:null};showHome();toast('เริ่มใหม่แล้ว')}
+renderHome();
+</script>
+</body>
+</html>
