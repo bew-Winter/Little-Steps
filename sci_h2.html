@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Little Steps Science ป.4 | เกมชั่วโมงที่ 2 สิ่งมีชีวิตและสิ่งไม่มีชีวิต · แก้ตรวจคำตอบ</title>
+<style>
+:root{
+  --leaf:#2f8f5b;--leaf2:#4fbd7c;--mint:#ddf8e8;--mint2:#f0fff6;
+  --cream:#fff8e7;--sand:#f3d9a4;--amber:#ffbf4d;--sky:#dff7ff;
+  --ink:#17352a;--muted:#667b72;--white:rgba(255,255,255,.84);
+  --line:rgba(48,143,91,.16);--danger:#e65b6a;--ok:#28a76a;--warn:#d98b1f;
+  --shadow:0 24px 70px rgba(31,95,67,.16),0 4px 18px rgba(31,95,67,.08);
+  --r:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Sukhumvit Set","Noto Sans Thai","Leelawadee UI",Tahoma,sans-serif;
+  background:
+    radial-gradient(circle at 10% 8%,rgba(79,189,124,.24),transparent 25%),
+    radial-gradient(circle at 88% 16%,rgba(223,247,255,.85),transparent 26%),
+    radial-gradient(circle at 84% 88%,rgba(255,191,77,.24),transparent 28%),
+    linear-gradient(135deg,#f7fff9 0%,#eefdf7 48%,#fff8e7 100%);
+  overflow-x:hidden;
+}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.topbar{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px clamp(12px,3vw,26px);background:rgba(255,255,255,.72);
+  backdrop-filter:blur(22px) saturate(1.2);border-bottom:1px solid var(--line)
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.logo{
+  width:48px;height:48px;border-radius:18px;display:grid;place-items:center;color:white;font-weight:1000;
+  background:linear-gradient(135deg,var(--leaf2),var(--leaf));box-shadow:0 10px 26px rgba(47,143,91,.24);
+}
+.brand h1{margin:0;color:var(--leaf);font-size:clamp(16px,2vw,22px);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;gap:8px;align-items:center}.soft-btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--leaf);font-weight:900;border-radius:16px;
+  padding:10px 14px;box-shadow:0 8px 22px rgba(31,95,67,.07);transition:.18s;
+}.soft-btn:hover{transform:translateY(-1px);background:#fff}.soft-btn.primary{background:linear-gradient(135deg,var(--leaf2),var(--leaf));color:#fff;border-color:transparent}.soft-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.app{width:min(1180px,calc(100% - 24px));margin:22px auto 42px}.hero{
+  border:1px solid var(--line);border-radius:38px;background:rgba(255,255,255,.64);box-shadow:var(--shadow);overflow:hidden;position:relative;
+  backdrop-filter:blur(18px) saturate(1.08);padding:clamp(24px,4vw,42px);
+}
+.hero:before{content:"";position:absolute;width:260px;height:260px;border:38px solid rgba(79,189,124,.11);border-radius:50%;right:-130px;top:-120px}.hero:after{content:"🔬";position:absolute;right:44px;bottom:22px;font-size:70px;opacity:.12;transform:rotate(-8deg)}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border:1px solid var(--line);background:#fff;border-radius:999px;color:var(--leaf);font-weight:1000}.hero h2{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:18px 0 10px;color:#1d6e47;letter-spacing:-.04em}.hero p{font-size:clamp(18px,2vw,24px);max-width:850px;line-height:1.7;margin:0;color:#315a49}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.chip{padding:9px 13px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--leaf);font-weight:900;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.stat{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:22px;padding:14px 16px;box-shadow:0 10px 26px rgba(31,95,67,.07)}.stat b{display:block;font-size:26px;color:var(--leaf);line-height:1}.stat span{font-size:13px;color:var(--muted);font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.game-card{
+  position:relative;overflow:hidden;text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.72);border-radius:var(--r);padding:20px;min-height:210px;box-shadow:0 16px 42px rgba(31,95,67,.09);transition:.2s;display:flex;flex-direction:column;gap:12px
+}.game-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(31,95,67,.16)}.game-card:before{content:"";position:absolute;width:115px;height:115px;border-radius:50%;right:-35px;bottom:-45px;background:linear-gradient(135deg,rgba(79,189,124,.16),rgba(255,191,77,.16))}.game-num{width:44px;height:44px;border-radius:17px;background:linear-gradient(135deg,var(--leaf2),var(--leaf));color:#fff;display:grid;place-items:center;font-weight:1000;box-shadow:0 10px 24px rgba(47,143,91,.22)}.game-card h3{margin:0;color:#1e6b47;font-size:21px;line-height:1.28}.game-card p{margin:0;color:#4c685d;line-height:1.55;flex:1}.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:6px 9px;border-radius:999px;background:var(--mint);color:#247b4e;font-size:12px;font-weight:900}.screen{display:none}.screen.active{display:block}.panel{border:1px solid var(--line);border-radius:34px;background:rgba(255,255,255,.72);box-shadow:var(--shadow);overflow:hidden;backdrop-filter:blur(18px) saturate(1.05)}.panel-head{padding:24px 28px;background:linear-gradient(135deg,rgba(221,248,232,.9),rgba(255,248,231,.84));border-bottom:1px solid var(--line)}.panel-head small{color:var(--leaf);font-weight:1000}.panel-head h2{margin:8px 0 6px;font-size:clamp(28px,4vw,46px);line-height:1.16;color:#1d6e47}.panel-head p{margin:0;color:#557167;line-height:1.7}.panel-body{padding:24px 28px}.guide{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.guide-card{border:1px solid var(--line);border-radius:24px;background:#fff;padding:18px}.guide-card h3{margin:0 0 10px;color:var(--leaf);font-size:22px}.guide-card ul{margin:0;padding-left:1.25em;color:#3e5e52;line-height:1.75}.progress-line{display:flex;align-items:center;gap:12px;margin-bottom:18px}.track{height:12px;background:rgba(47,143,91,.12);border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--leaf2),var(--leaf),var(--amber));border-radius:inherit;transition:.25s}.qbox{border:1px solid var(--line);border-radius:30px;background:#fff;padding:clamp(18px,3vw,30px);box-shadow:0 12px 30px rgba(31,95,67,.07)}.q-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.qno{color:var(--leaf);font-weight:1000}.timer{font-variant-numeric:tabular-nums;background:var(--cream);border:1px solid rgba(217,139,31,.16);color:#9d6413;font-weight:1000;border-radius:999px;padding:7px 11px}.question{font-size:clamp(24px,3.2vw,38px);line-height:1.35;margin:16px 0;color:#193d2f;font-weight:1000}.scenario{font-size:18px;line-height:1.8;background:linear-gradient(135deg,#f6fffa,#fffaf0);border:1px solid var(--line);border-radius:22px;padding:16px 18px;margin:12px 0;color:#2f5144}.options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.option{border:1.5px solid var(--line);background:rgba(255,255,255,.95);border-radius:22px;padding:16px 18px;text-align:left;color:#244b3c;font-weight:900;min-height:62px;transition:.16s}.option:hover{transform:translateY(-1px);border-color:rgba(47,143,91,.38);box-shadow:0 10px 24px rgba(31,95,67,.08)}.option.selected{background:linear-gradient(135deg,var(--mint),#fff);border-color:var(--leaf2);box-shadow:0 10px 28px rgba(47,143,91,.14)}.option.correct{background:#eafbf2;border-color:var(--ok);color:#17613c}.option.wrong{background:#fff0f2;border-color:var(--danger);color:#9e2230}.multi-note{color:var(--muted);font-weight:800;margin-top:10px}.feedback{display:none;margin-top:16px;padding:16px 18px;border-radius:22px;border:1px solid var(--line);background:#f8fffb}.feedback.show{display:block}.feedback.ok{border-color:rgba(40,167,106,.32);background:#effcf5}.feedback.bad{border-color:rgba(230,91,106,.28);background:#fff4f5}.feedback b{display:block;margin-bottom:6px}.answer-area{width:100%;min-height:150px;border:1.5px dashed rgba(47,143,91,.35);border-radius:22px;padding:16px;background:#fff;color:var(--ink);resize:vertical}.review-list{display:grid;gap:12px;margin-top:18px}.review-item{border:1px solid var(--line);background:#fff;border-radius:22px;padding:16px}.review-item.good{border-color:rgba(40,167,106,.35);background:#f2fff7}.review-item.bad{border-color:rgba(230,91,106,.32);background:#fff7f8}.review-item.teacher{border-color:rgba(217,139,31,.25);background:#fffaf0}.review-title{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap;font-weight:1000}.tag{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:1000}.tag.good{background:#dff8ea;color:#1a7147}.tag.bad{background:#ffe4e8;color:#a02433}.tag.teacher{background:#fff0d2;color:#9d6413}.review-text{color:#415f54;line-height:1.65;margin:8px 0 0}.summary-hero{text-align:center;padding:14px 0 20px}.summary-hero h2{font-size:clamp(36px,6vw,64px);margin:0;color:#1d6e47}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.big-stat{border:1px solid var(--line);border-radius:24px;padding:18px;background:#fff;text-align:center}.big-stat b{display:block;font-size:32px;color:var(--leaf)}.big-stat span{font-weight:900;color:var(--muted)}.footer-actions2{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
+@media(max-width:900px){.grid,.guide,.summary-grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(2,1fr)}.options{grid-template-columns:1fr}.top-actions .soft-btn:not(.primary){display:none}.panel-body,.panel-head{padding:20px}.hero{border-radius:30px}.game-card{min-height:auto}}
+@media(max-width:560px){.app{width:min(100% - 16px,1180px);margin-top:12px}.brand p{display:none}.logo{width:42px;height:42px}.grid,.guide,.summary-grid,.stats{grid-template-columns:1fr}.hero h2{font-size:38px}.question{font-size:24px}.soft-btn{padding:9px 11px}.panel{border-radius:26px}.qbox{border-radius:24px}.game-card h3{font-size:19px}}
+@media print{.topbar,.footer-actions2,.soft-btn{display:none!important}body{background:#fff}.app{width:100%;margin:0}.panel,.hero,.qbox,.review-item{box-shadow:none;break-inside:avoid}.screen{display:block!important}.screen:not(#resultScreen){display:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">🔎</div><div><h1>Science ป.4 · เกมชั่วโมงที่ 2</h1><p>สิ่งมีชีวิต / สิ่งไม่มีชีวิต + ทบทวนทักษะวิทยาศาสตร์</p></div></div>
+  <div class="top-actions"><button class="soft-btn" onclick="showHome()">หน้าหลัก</button><button class="soft-btn primary" onclick="window.print()">พิมพ์ผล</button></div>
+</header>
+<main class="app">
+  <section id="homeScreen" class="screen active">
+    <div class="hero">
+      <span class="kicker">🌱 Little Steps Science Game</span>
+      <h2>ภารกิจจำแนกสิ่งมีชีวิต</h2>
+      <p>ฝึกคิดแบบนักวิทยาศาสตร์ ใช้หลายหลักฐานร่วมกัน ไม่ตัดสินจากการเคลื่อนที่เพียงอย่างเดียว พร้อมคะแนน เวลา คอมโบ และตรวจย้อนหลังรายข้อ</p>
+      <div class="chips"><span class="chip">ทบทวนชั่วโมง 1</span><span class="chip">สิ่งมีชีวิต/ไม่มีชีวิต</span><span class="chip">หลักฐาน</span><span class="chip">กรณีก้ำกึ่ง</span><span class="chip">ครูประเมินได้</span></div>
+    </div>
+    <div class="grid" id="gameGrid"></div>
+  </section>
+
+  <section id="introScreen" class="screen">
+    <div class="panel">
+      <div class="panel-head"><small id="introSmall"></small><h2 id="introTitle"></h2><p id="introDesc"></p></div>
+      <div class="panel-body">
+        <div class="guide">
+          <div class="guide-card"><h3>วิธีเล่น</h3><ul id="introHow"></ul></div>
+          <div class="guide-card"><h3>เด็กต้องเข้าใจ</h3><ul id="introLearn"></ul></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b id="introCount">0</b><span>จำนวนข้อ</span></div>
+          <div class="stat"><b id="introMode">Auto</b><span>การให้คะแนน</span></div>
+          <div class="stat"><b>1,000+</b><span>คะแนนฐาน/ข้อ</span></div>
+          <div class="stat"><b>⏱</b><span>มีโบนัสเวลา</span></div>
+        </div>
+        <div class="footer-actions2"><button class="soft-btn" onclick="showHome()">กลับหน้าหลัก</button><button class="soft-btn primary" onclick="startGame()">เริ่มภารกิจ</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="playScreen" class="screen">
+    <div class="panel">
+      <div class="panel-head"><small id="playSmall"></small><h2 id="playTitle"></h2><p id="playDesc"></p></div>
+      <div class="panel-body">
+        <div class="stats">
+          <div class="stat"><b id="correctStat">0/0</b><span>จำนวนข้อที่ถูก</span></div>
+          <div class="stat"><b id="scoreStat">0</b><span>คะแนนรวม</span></div>
+          <div class="stat"><b id="comboStat">0</b><span>คอมโบ</span></div>
+          <div class="stat"><b id="avgStat">0s</b><span>เวลาเฉลี่ย</span></div>
+        </div>
+        <div class="progress-line"><span class="qno" id="qNumber"></span><div class="track"><div class="bar" id="progressBar"></div></div><span class="timer" id="timer">0.0s</span></div>
+        <div class="qbox">
+          <div class="q-top"><span class="qno" id="qType"></span><span class="timer" id="basePoint"></span></div>
+          <div id="questionHost"></div>
+          <div id="optionsHost" class="options"></div>
+          <div id="textHost" class="hidden"><textarea class="answer-area" id="teacherText" placeholder="ให้เด็กพิมพ์คำตอบ หรือครูใช้ช่องนี้จดคำตอบที่เด็กพูด..."></textarea></div>
+          <p id="multiNote" class="multi-note hidden"></p>
+          <div id="feedback" class="feedback"></div>
+          <div class="footer-actions2">
+            <button class="soft-btn" onclick="quitGame()">ออกจากเกม</button>
+            <button class="soft-btn primary" id="submitBtn" onclick="submitAnswer()">ตอบ</button>
+            <button class="soft-btn primary hidden" id="nextBtn" onclick="nextQuestion()">ข้อต่อไป</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="screen">
+    <div class="panel">
+      <div class="panel-head"><small>สรุปคะแนน</small><h2 id="resultTitle">ผลภารกิจ</h2><p>เลื่อนลงเพื่อตรวจย้อนหลังรายข้อได้เลย</p></div>
+      <div class="panel-body">
+        <div class="summary-hero"><h2 id="resultScore">0</h2><p>คะแนนรวม</p></div>
+        <div class="summary-grid">
+          <div class="big-stat"><b id="resultCorrect">0/0</b><span>จำนวนข้อที่ถูก</span></div>
+          <div class="big-stat"><b id="resultAvg">0s</b><span>เวลาเฉลี่ย</span></div>
+          <div class="big-stat"><b id="resultCombo">0</b><span>คอมโบสูงสุด</span></div>
+          <div class="big-stat"><b id="resultTeacher">0</b><span>ข้อครูประเมิน</span></div>
+        </div>
+        <div class="footer-actions2"><button class="soft-btn" onclick="restartSame()">เล่นหมวดนี้อีกครั้ง</button><button class="soft-btn primary" onclick="showHome()">เลือกหมวดใหม่</button></div>
+        <h2 style="color:#1d6e47;margin-top:28px">ตรวจย้อนหลังรายข้อ</h2>
+        <div id="reviewList" class="review-list"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const livingTraits = ['ต้องการอาหาร/พลังงาน','เจริญเติบโต','ตอบสนองต่อสิ่งเร้า','สืบพันธุ์ได้','ขับถ่าย/หายใจ'];
+const nonLivingTraits = ['ไม่ต้องการอาหาร/พลังงาน','ไม่เจริญเติบโตเอง','ไม่สืบพันธุ์ได้','เคลื่อนที่ได้เพราะแรง/พลังงานภายนอก','ไม่มีการขับถ่ายหรือหายใจ'];
+const basicCriteriaNames = ['คน','แมว','ปลา','นก','ต้นถั่ว','ต้นไม้','เห็ด','แบคทีเรีย','โต๊ะ','เก้าอี้','ก้อนหิน','ดินสอ','หนังสือ','แก้วน้ำ','พัดลม','ลูกบอล'];
+const objects = [
+  {name:'คน',alive:true,reason:'คนต้องการอาหาร เจริญเติบโต ตอบสนอง สืบพันธุ์ และขับถ่ายได้'},
+  {name:'แมว',alive:true,reason:'แมวเป็นสัตว์ ต้องการอาหาร เติบโต ตอบสนอง และสืบพันธุ์ได้'},
+  {name:'ปลา',alive:true,reason:'ปลาเป็นสัตว์น้ำ ต้องการอาหาร หายใจ เติบโต และสืบพันธุ์ได้'},
+  {name:'นก',alive:true,reason:'นกเป็นสัตว์ ตอบสนองต่อสิ่งเร้า ต้องการอาหาร และสืบพันธุ์ได้'},
+  {name:'ต้นถั่ว',alive:true,reason:'ต้นถั่วเป็นพืช เจริญเติบโต ตอบสนองต่อแสง และสืบพันธุ์ด้วยเมล็ดได้'},
+  {name:'ต้นไม้',alive:true,reason:'ต้นไม้ต้องการน้ำ/แสง เจริญเติบโต ตอบสนองต่อสิ่งแวดล้อม และสืบพันธุ์ได้'},
+  {name:'เห็ด',alive:true,reason:'เห็ดเป็นสิ่งมีชีวิต ต้องการอาหาร เจริญเติบโต และสร้างสปอร์เพื่อสืบพันธุ์ได้'},
+  {name:'แบคทีเรีย',alive:true,reason:'แบคทีเรียมีชีวิต แม้มองไม่เห็นด้วยตาเปล่า แต่เติบโตและเพิ่มจำนวนได้'},
+  {name:'เมล็ดถั่วแห้ง',alive:true,reason:'เมล็ดถั่วแห้งเป็นสิ่งมีชีวิตในภาวะพักตัว เมื่อมีน้ำและสภาพเหมาะสมจึงงอกได้'},
+  {name:'ไข่ไก่ที่มีเชื้อ',alive:true,reason:'ไข่ที่มีเชื้อสามารถพัฒนาเป็นตัวอ่อนได้เมื่อได้รับสภาพเหมาะสม'},
+  {name:'โต๊ะ',alive:false,reason:'โต๊ะไม่ต้องการอาหาร ไม่เติบโต ไม่สืบพันธุ์ และไม่ตอบสนองเอง'},
+  {name:'เก้าอี้',alive:false,reason:'เก้าอี้เป็นสิ่งไม่มีชีวิต ไม่มีกระบวนการดำรงชีวิต'},
+  {name:'ก้อนหิน',alive:false,reason:'ก้อนหินไม่เติบโต ไม่สืบพันธุ์ และไม่ต้องการอาหาร'},
+  {name:'ดินสอ',alive:false,reason:'ดินสอไม่มีกระบวนการดำรงชีวิต'},
+  {name:'หนังสือ',alive:false,reason:'หนังสือไม่ต้องการอาหาร ไม่เติบโต และไม่ตอบสนองเอง'},
+  {name:'แก้วน้ำ',alive:false,reason:'แก้วน้ำเป็นวัตถุ ไม่มีลักษณะของสิ่งมีชีวิต'},
+  {name:'รถของเล่น',alive:false,reason:'รถเคลื่อนที่ได้เพราะแรงหรือพลังงานภายนอก แต่ไม่เติบโตหรือสืบพันธุ์'},
+  {name:'หุ่นยนต์',alive:false,reason:'หุ่นยนต์เคลื่อนที่และตอบสนองตามโปรแกรม แต่ไม่เติบโตหรือสืบพันธุ์เองตามธรรมชาติ'},
+  {name:'ไฟ',alive:false,reason:'ไฟลุกและขยายได้ แต่ไม่ครบลักษณะของสิ่งมีชีวิต เช่น ไม่มีเซลล์ ไม่สืบพันธุ์ตามชนิด'},
+  {name:'เมฆ',alive:false,reason:'เมฆเคลื่อนที่และเปลี่ยนรูปร่างได้ตามลม/อุณหภูมิ แต่ไม่ใช่สิ่งมีชีวิต'},
+  {name:'แม่น้ำ',alive:false,reason:'แม่น้ำไหลได้เพราะแรงโน้มถ่วง ไม่มีกระบวนการดำรงชีวิต'},
+  {name:'พัดลม',alive:false,reason:'พัดลมเคลื่อนที่ได้เมื่อมีไฟฟ้า แต่ไม่เติบโตหรือสืบพันธุ์'},
+  {name:'ลูกบอล',alive:false,reason:'ลูกบอลเคลื่อนที่เมื่อถูกแรงกระทำ ไม่ได้เคลื่อนที่ด้วยชีวิตของตนเอง'}
+];
+const scienceProcess = [
+  {text:'ใบไม้ยาว 8 เซนติเมตร',ans:'การวัด',why:'มีตัวเลขและหน่วย จึงเป็นการวัด'},
+  {text:'ใบไม้สีเขียวและมีขอบหยัก',ans:'ข้อสังเกต',why:'บอกสิ่งที่ตรวจเห็นได้ด้วยประสาทสัมผัส'},
+  {text:'ใบไม้อาจได้รับแสงไม่พอ',ans:'การอนุมาน',why:'เป็นคำอธิบายจากข้อมูล ใช้คำว่า “อาจ”'},
+  {text:'จัดเมล็ดเป็นกลุ่มเมล็ดกลมและเมล็ดยาว',ans:'การจำแนก',why:'แบ่งกลุ่มโดยใช้ลักษณะเป็นเกณฑ์'},
+  {text:'ถ้ารดน้ำทุกวัน ต้นถั่วน่าจะสูงขึ้น',ans:'การพยากรณ์',why:'คาดการณ์จากรูปแบบหรือความรู้เดิม'},
+  {text:'ดินสอแท่งนี้หนัก 12 กรัม',ans:'การวัด',why:'มีปริมาณและหน่วยกรัม'},
+  {text:'ก้อนหินมีผิวขรุขระ',ans:'ข้อสังเกต',why:'เป็นสิ่งที่ตรวจสอบได้จากการสัมผัส'},
+  {text:'กล่องนี้น่าจะมีเหรียญอยู่ข้างใน',ans:'การอนุมาน',why:'เป็นการคาดอธิบายจากเสียงหรือข้อมูลที่ได้'},
+  {text:'แบ่งสัตว์เป็นมีปีกและไม่มีปีก',ans:'การจำแนก',why:'ใช้ลักษณะปีกเป็นเกณฑ์แบ่งกลุ่ม'},
+  {text:'ถ้าเพิ่มแสง ต้นไม้คงโตเร็วขึ้น',ans:'การพยากรณ์',why:'เป็นการคาดการณ์เหตุการณ์ข้างหน้า'},
+  {text:'น้ำในแก้วมีอุณหภูมิ 30 องศาเซลเซียส',ans:'การวัด',why:'มีค่าจากเครื่องมือและมีหน่วย'},
+  {text:'ดอกไม้ดอกนี้มีกลีบ 5 กลีบ',ans:'ข้อสังเกต',why:'เป็นข้อมูลที่นับและตรวจสอบได้'},
+  {text:'รอยเท้านี้อาจเป็นของแมว',ans:'การอนุมาน',why:'อธิบายจากหลักฐานคือรอยเท้า'},
+  {text:'แยกวัตถุเป็นลอยน้ำและจมน้ำ',ans:'การจำแนก',why:'แบ่งกลุ่มจากผลการทดสอบ'},
+  {text:'พรุ่งนี้น้ำแข็งน่าจะละลายถ้าวางไว้กลางแดด',ans:'การพยากรณ์',why:'คาดการณ์จากความรู้เรื่องความร้อน'}
+];
+const evidenceOptions = ['ต้องการอาหาร/พลังงาน','เจริญเติบโต','ตอบสนองต่อสิ่งเร้า','สืบพันธุ์ได้','ขับถ่าย/หายใจ','เคลื่อนที่ได้เมื่อมีแรงภายนอก','ทำจากพลาสติกหรือโลหะ','เปลี่ยนรูปร่างเพราะลม'];
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function shuffle(a){const arr=[...a];for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function pick(a,n){return shuffle(a).slice(0,n)}
+function fmt(n){return Number(n||0).toLocaleString('th-TH')}
+function seconds(ms){return (ms/1000).toFixed(1)+'s'}
+function makeOptions(correct, extras){
+  const pool=[...new Set(extras.filter(x=>x!==correct))];
+  return shuffle([correct,...pick(pool,Math.min(3,pool.length))]);
+}
+function processQuestions(){return pick(scienceProcess,30).map(x=>({kind:'mc',type:'ทบทวนทักษะวิทยาศาสตร์',question:'ประโยคนี้เป็นทักษะ/ข้อมูลประเภทใด',scenario:x.text,answer:x.ans,options:makeOptions(x.ans,['ข้อสังเกต','การอนุมาน','การวัด','การจำแนก','การพยากรณ์']),why:x.why,base:1000}))}
+function aliveQuestions(){return pick(objects,40).map(o=>({kind:'mc',type:'จำแนกสิ่งมีชีวิต',question:`${o.name} จัดเป็นสิ่งใด`,scenario:'เลือกคำตอบจากหลักฐาน ไม่ใช้ความรู้สึกหรือการเคลื่อนที่อย่างเดียว',answer:o.alive?'สิ่งมีชีวิต':'สิ่งไม่มีชีวิต',options:['สิ่งมีชีวิต','สิ่งไม่มีชีวิต'],why:o.reason,base:1000}))}
+function evidenceQuestions(){
+  return pick(objects.filter(o=>o.alive),30).map(o=>({
+    kind:'multi',
+    limit:2,
+    type:'หลักฐานสิ่งมีชีวิต',
+    question:`เลือกหลักฐาน 2 ข้อที่สนับสนุนว่า “${o.name}” เป็นสิ่งมีชีวิต`,
+    scenario:'เลือกหลักฐานที่เป็นลักษณะการดำรงชีวิต ข้อนี้ยอมรับได้หลายคำตอบถ้าเป็นหลักฐานจริง',
+    answer:livingTraits,
+    acceptable:livingTraits,
+    displayAnswer:'เลือกได้ 2 ข้อจาก: '+livingTraits.join(', '),
+    options:shuffle([...livingTraits,...pick(evidenceOptions.filter(x=>!livingTraits.includes(x)),2)]),
+    why:o.reason,
+    base:1000
+  }))
+}
+function movementQuestions(){const pool=[
+  ['รถวิ่งบนถนน','ไม่มีชีวิต/แรงภายนอก','รถเคลื่อนที่เพราะเครื่องยนต์และคนควบคุม ไม่ใช่กระบวนการชีวิต'],
+  ['หุ่นยนต์เดินตามเส้น','ไม่มีชีวิต/โปรแกรม','หุ่นยนต์ทำตามโปรแกรม ไม่เติบโตหรือสืบพันธุ์เอง'],
+  ['แมวเดินไปกินอาหาร','สิ่งมีชีวิต/เคลื่อนที่เอง','แมวเคลื่อนที่เพื่อดำรงชีวิตและมีลักษณะสิ่งมีชีวิตหลายข้อ'],
+  ['ต้นอ่อนเอนเข้าหาแสง','สิ่งมีชีวิต/ตอบสนอง','พืชตอบสนองต่อแสง เป็นหลักฐานของสิ่งมีชีวิต'],
+  ['ลูกบอลกลิ้งลงทางลาด','ไม่มีชีวิต/แรงภายนอก','ลูกบอลกลิ้งเพราะแรงโน้มถ่วง ไม่ใช่ชีวิต'],
+  ['พัดลมหมุนเมื่อเสียบปลั๊ก','ไม่มีชีวิต/ไฟฟ้า','พัดลมหมุนเพราะไฟฟ้า ไม่มีการเติบโตหรือสืบพันธุ์'],
+  ['ปลาว่ายน้ำหนีเงา','สิ่งมีชีวิต/ตอบสนอง','ปลาเคลื่อนที่และตอบสนองต่อสิ่งเร้า'],
+  ['เมฆลอยตามลม','ไม่มีชีวิต/แรงธรรมชาติ','เมฆเคลื่อนที่เพราะลม ไม่ใช่สิ่งมีชีวิต'],
+  ['แม่น้ำไหลจากที่สูงลงต่ำ','ไม่มีชีวิต/แรงโน้มถ่วง','การไหลเกิดจากแรงโน้มถ่วง ไม่ใช่กระบวนการชีวิต'],
+  ['นกบินกลับรัง','สิ่งมีชีวิต/เคลื่อนที่เอง','นกเป็นสัตว์ มีการเคลื่อนที่และลักษณะชีวิตหลายข้อ']
+];return pick(pool,30).map(x=>({kind:'mc',type:'อย่าหลงกลการเคลื่อนที่',question:'การเคลื่อนที่ในสถานการณ์นี้บอกอะไร',scenario:x[0],answer:x[1],options:makeOptions(x[1],['สิ่งมีชีวิต/เคลื่อนที่เอง','สิ่งมีชีวิต/ตอบสนอง','ไม่มีชีวิต/แรงภายนอก','ไม่มีชีวิต/โปรแกรม','ไม่มีชีวิต/ไฟฟ้า','ไม่มีชีวิต/แรงธรรมชาติ']),why:x[2],base:1100}))}
+function trickyQuestions(){const pool=[
+  ['เมล็ดถั่วแห้ง','สิ่งมีชีวิต','อยู่ในภาวะพักตัว เมื่อมีน้ำและสภาพเหมาะสมสามารถงอกได้'],
+  ['ไฟ','สิ่งไม่มีชีวิต','ไฟลุกและขยายได้ แต่ไม่ครบลักษณะสิ่งมีชีวิต'],
+  ['หุ่นยนต์','สิ่งไม่มีชีวิต','ตอบสนองตามโปรแกรม ไม่เติบโตหรือสืบพันธุ์ตามธรรมชาติ'],
+  ['เห็ด','สิ่งมีชีวิต','เห็ดเติบโตและสร้างสปอร์ได้'],
+  ['แบคทีเรีย','สิ่งมีชีวิต','เป็นสิ่งมีชีวิตขนาดเล็ก เติบโตและเพิ่มจำนวนได้'],
+  ['เมฆ','สิ่งไม่มีชีวิต','เปลี่ยนรูปร่างและเคลื่อนที่ตามลม แต่ไม่มีชีวิต'],
+  ['ไข่ไก่ที่มีเชื้อ','สิ่งมีชีวิต','สามารถพัฒนาเป็นตัวอ่อนได้เมื่อสภาพเหมาะสม'],
+  ['กิ่งไม้ที่ตัดแห้งแล้ว','สิ่งไม่มีชีวิต','ไม่ดำรงชีวิตต่อแล้ว ไม่เจริญเติบโตหรือสืบพันธุ์'],
+  ['เมล็ดข้าวสารที่ผ่านการสีและขัดแล้ว','สิ่งไม่มีชีวิต','โดยทั่วไปไม่สามารถงอกเป็นต้นใหม่ได้แล้ว'],
+  ['ต้นกระบองเพชรที่ไม่ค่อยเห็นโต','สิ่งมีชีวิต','ยังต้องการน้ำ/แสง มีการเติบโตช้าและดำรงชีวิต']
+];return pick(pool,30).map(x=>({kind:'mc',type:'กรณีก้ำกึ่ง',question:`${x[0]} จัดเป็นอะไร`,scenario:'คิดจากหลายลักษณะ ไม่ตัดสินจากข้อเดียว',answer:x[1],options:['สิ่งมีชีวิต','สิ่งไม่มีชีวิต'],why:x[2],base:1200}))}
+function reasonQuestions(){return pick(objects,30).map(o=>({kind:'mc',type:'จับคู่เหตุผล',question:`เหตุผลใดเหมาะที่สุดกับ “${o.name}”`,scenario:'เลือกเหตุผลที่สอดคล้องกับลักษณะการดำรงชีวิตมากที่สุด ห้ามดูจากความรู้สึกหรือการเคลื่อนที่อย่างเดียว',answer:o.reason,options:shuffle([o.reason,...pick(objects.filter(x=>x.name!==o.name),3).map(x=>x.reason)]),why:'เหตุผลที่ดีต้องเชื่อมกับลักษณะการดำรงชีวิต ไม่ใช่ตอบจากความรู้สึก',base:1100}))}
+function criteriaQuestions(){
+  const pool=[];
+  objects.filter(o=>basicCriteriaNames.includes(o.name)).forEach(o=>{
+    const yes=o.alive;
+    pool.push({obj:o.name,crit:'ต้องการอาหาร/พลังงานเพื่อดำรงชีวิต',ans:yes?'ใช่':'ไม่ใช่',why:o.reason});
+    pool.push({obj:o.name,crit:'เจริญเติบโตหรือเปลี่ยนแปลงตามวัยได้เอง',ans:yes?'ใช่':'ไม่ใช่',why:o.reason});
+    pool.push({obj:o.name,crit:'สืบพันธุ์หรือเพิ่มจำนวนตามชนิดได้',ans:yes?'ใช่':'ไม่ใช่',why:o.reason});
+  });
+  return pick(pool,30).map(x=>({kind:'mc',type:'เกณฑ์ Yes/No',question:`${x.obj}: ${x.crit} หรือไม่`,scenario:'ตอบทีละเกณฑ์เหมือนสร้างแผนผังจำแนก ใช้เฉพาะตัวอย่างพื้นฐาน ไม่ใช้กรณีก้ำกึ่ง',answer:x.ans,options:['ใช่','ไม่ใช่'],why:x.why,base:1000}))
+}
+function courtQuestions(){return pick(objects,30).map(o=>{
+  const valid=o.alive?livingTraits:nonLivingTraits;
+  const opposing=o.alive?nonLivingTraits:livingTraits;
+  return {
+    kind:'court',
+    type:'Evidence Court',
+    question:`ขึ้นศาลหลักฐาน: “${o.name}”`,
+    scenario:'เลือกฝั่งก่อน แล้วเลือกหลักฐาน 2 ใบเพื่อสนับสนุนคำตอบ ข้อนี้ยอมรับหลายหลักฐานถ้าเป็นเหตุผลที่ถูกต้อง',
+    answer:o.alive?'สิ่งมีชีวิต':'สิ่งไม่มีชีวิต',
+    evidence:pick(valid,2),
+    acceptableEvidence:valid,
+    options:['สิ่งมีชีวิต','สิ่งไม่มีชีวิต'],
+    evidenceOptions:shuffle([...valid,...pick(opposing,3)]),
+    why:o.reason,
+    base:1500
+  }
+})}
+function explainQuestions(){const pool=[
+  ['ทำไมรถเคลื่อนที่ได้แต่ไม่ใช่สิ่งมีชีวิต','คำตอบควรกล่าวถึงการเคลื่อนที่จากแรง/เครื่องยนต์ และรถไม่เติบโต ไม่สืบพันธุ์ ไม่ต้องการอาหาร'],
+  ['ทำไมเมล็ดถั่วแห้งจึงยังจัดเป็นสิ่งมีชีวิต','คำตอบควรกล่าวถึงภาวะพักตัว และเมล็ดงอกได้เมื่อมีน้ำและสภาพเหมาะสม'],
+  ['ทำไมไฟจึงไม่ใช่สิ่งมีชีวิต แม้ไฟลุกลามได้','คำตอบควรกล่าวว่าไฟไม่ครบลักษณะสิ่งมีชีวิต ไม่สืบพันธุ์ตามชนิด ไม่มีเซลล์/กระบวนการชีวิต'],
+  ['ถ้าต้องแยกสิ่งมีชีวิตกับสิ่งไม่มีชีวิต ควรใช้เกณฑ์อะไรบ้าง','ควรตอบหลายเกณฑ์ เช่น ต้องการอาหาร โต ตอบสนอง สืบพันธุ์ ขับถ่าย/หายใจ'],
+  ['อธิบายว่าทำไมการเคลื่อนที่อย่างเดียวใช้ตัดสินไม่ได้','ควรยกตัวอย่างรถ ลูกบอล พัดลม ที่เคลื่อนที่ได้แต่ไม่มีชีวิต']
+];return pick(pool,10).map(x=>({kind:'teacher',type:'ครูประเมิน',question:x[0],scenario:'ให้เด็กพิมพ์หรือพูดคำตอบ ครูตรวจจากเหตุผลและหลักฐาน',answer:'ครูประเมิน',why:x[1],base:0}))}
+function challengeQuestions(){return shuffle([...processQuestions().slice(0,4),...aliveQuestions().slice(0,3),...evidenceQuestions().slice(0,2),...trickyQuestions().slice(0,2),...movementQuestions().slice(0,2),...courtQuestions().slice(0,2)]).slice(0,10)}
+const games=[
+  {id:'review',title:'ทบทวนชั่วโมงที่ 1',icon:'🔍',desc:'นักสังเกตหลักฐาน: แยกข้อสังเกต การอนุมาน การวัด การจำแนก และพยากรณ์',count:8,mode:'Auto',gen:processQuestions,how:['อ่านประโยคที่กำหนด','เลือกประเภททักษะวิทยาศาสตร์ให้ถูก','ใช้หลักฐานจากคำในประโยค เช่น ตัวเลข หน่วย หรือคำว่า “อาจ”'],learn:['ข้อสังเกตคือสิ่งที่ตรวจสอบได้','การอนุมานคือคำอธิบายจากข้อมูล','การวัดต้องมีตัวเลขและหน่วย']},
+  {id:'alive',title:'มีชีวิตหรือไม่มีชีวิต',icon:'🌿',desc:'จำแนกสิ่งต่าง ๆ ด้วยลักษณะการดำรงชีวิต ไม่ใช้ความรู้สึกตัดสิน',count:10,mode:'Auto',gen:aliveQuestions,how:['อ่านชื่อสิ่งที่ปรากฏ','เลือกสิ่งมีชีวิตหรือสิ่งไม่มีชีวิต','ดูเฉลยและเหตุผลหลังตอบ'],learn:['สิ่งมีชีวิตมีหลายลักษณะร่วมกัน','สิ่งไม่มีชีวิตบางอย่างอาจเคลื่อนที่ได้','ต้องมีเหตุผลประกอบการจำแนก']},
+  {id:'evidence',title:'หลักฐานของสิ่งมีชีวิต',icon:'🧬',desc:'เลือกหลักฐาน 2 ข้อที่บอกว่าสิ่งนั้นเป็นสิ่งมีชีวิต',count:8,mode:'Auto',gen:evidenceQuestions,how:['อ่านสิ่งที่กำหนด','เลือกหลักฐาน 2 ข้อ','เลือกครบแล้วกดตอบ'],learn:['หลักฐานต้องเชื่อมกับการดำรงชีวิต','ตอบถูกเพียงชื่อกลุ่มยังไม่พอ','ใช้หลายลักษณะร่วมกัน']},
+  {id:'movement',title:'อย่าหลงกลการเคลื่อนที่',icon:'🚗',desc:'ฝึกแยกว่าการเคลื่อนที่เกิดจากชีวิตของสิ่งนั้น หรือเกิดจากแรง/พลังงานภายนอก',count:8,mode:'Auto',gen:movementQuestions,how:['อ่านสถานการณ์','เลือกว่าการเคลื่อนที่เกิดจากอะไร','ดูคำอธิบายว่าเหตุผลคืออะไร'],learn:['เคลื่อนที่ได้ไม่เท่ากับมีชีวิตเสมอไป','รถ ลูกบอล พัดลม เคลื่อนที่จากแรงหรือพลังงานภายนอก','สัตว์และพืชตอบสนองต่อสิ่งเร้าได้']},
+  {id:'tricky',title:'กรณีก้ำกึ่ง',icon:'🫘',desc:'เมล็ด ไฟ หุ่นยนต์ เมฆ เห็ด และแบคทีเรีย ที่เด็กมักสับสน',count:6,mode:'Auto',gen:trickyQuestions,how:['อ่านกรณีที่ดูเหมือนสับสน','เลือกสิ่งมีชีวิต/สิ่งไม่มีชีวิต','อ่านเหตุผลอย่างละเอียด'],learn:['เมล็ดพักตัวเป็นสิ่งมีชีวิต','ไฟไม่ครบลักษณะสิ่งมีชีวิต','สิ่งที่มองไม่เห็นด้วยตาเปล่าบางชนิดมีชีวิต']},
+  {id:'reason',title:'จับคู่สิ่งของกับเหตุผล',icon:'🧩',desc:'เลือกเหตุผลที่ตรงกับสิ่งที่กำหนดมากที่สุด',count:8,mode:'Auto',gen:reasonQuestions,how:['ดูสิ่งที่กำหนด','อ่านเหตุผลแต่ละข้อ','เลือกเหตุผลที่สนับสนุนคำตอบได้ดีที่สุด'],learn:['เหตุผลต้องมีหลักฐาน','เหตุผลที่ดีไม่ใช่แค่คำตอบสั้น ๆ','ฝึกอธิบายแบบวิทยาศาสตร์']},
+  {id:'criteria',title:'เกณฑ์ Yes/No',icon:'✅',desc:'ตอบเกณฑ์ทีละข้อ เหมือนสร้างแผนผังจำแนกสิ่งมีชีวิต',count:5,mode:'Auto',gen:criteriaQuestions,how:['อ่านชื่อสิ่งของและเกณฑ์','ตอบใช่หรือไม่ใช่','ใช้คำตอบหลายเกณฑ์ประกอบการตัดสิน'],learn:['การจำแนกต้องมีเกณฑ์','หนึ่งเกณฑ์อาจยังไม่พอ','นักวิทยาศาสตร์ใช้คำถามช่วยตัดสิน']},
+  {id:'court',title:'Evidence Court ศาลหลักฐาน',icon:'⚖️',desc:'เลือกฝั่งมีชีวิต/ไม่มีชีวิต แล้วเลือกหลักฐาน 2 ใบให้ครบ',count:6,mode:'Auto',gen:courtQuestions,how:['เลือกฝั่งก่อน','เลือกหลักฐาน 2 ใบ','คะแนนเต็มเมื่อทั้งฝั่งและหลักฐานถูก'],learn:['ต้องตอบพร้อมหลักฐาน','หลักฐานไม่พออาจต้องเปลี่ยนคำตอบ','ฝึกอภิปรายแบบมีเหตุผล']},
+  {id:'explain',title:'อธิบายด้วยตนเอง',icon:'✍️',desc:'ข้อเขียน/คำพูด ให้ครูประเมินเหตุผล ไม่คิดคะแนนอัตโนมัติ',count:2,mode:'ครูประเมิน',gen:explainQuestions,how:['อ่านคำถาม','พิมพ์คำตอบหรือให้ครูจดคำพูดของเด็ก','ครูตรวจจากหลักฐานและความครบถ้วน'],learn:['เด็กต้องอธิบาย ไม่ใช่ตอบแค่ชื่อกลุ่ม','ใช้คำว่า เพราะ...','ยกตัวอย่างประกอบได้']},
+  {id:'challenge',title:'ท้าทายรวมท้ายชั่วโมง',icon:'🏆',desc:'รวมทบทวนชั่วโมง 1 และเนื้อหาชั่วโมง 2 ใช้เป็น Exit Ticket ได้',count:10,mode:'Auto',gen:challengeQuestions,how:['เจอโจทย์หลายรูปแบบ','ตอบให้ถูกและเร็วเพื่อสะสมคะแนน','ดูหน้าสรุปเพื่อตรวจจุดที่พลาด'],learn:['ทบทวนครบทุกทักษะ','แสดงความเข้าใจด้วยหลักฐาน','พร้อมใช้ประเมินท้ายชั่วโมง']}
+];
+let currentGame=null, questions=[], idx=0, selected=null, selectedMulti=[], selectedCourtSide=null, selectedCourtEvidence=[], startTime=0, timerId=null;
+let score=0, correct=0, combo=0, maxCombo=0, totalMs=0, history=[];
+function show(screen){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(screen).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function renderHome(){const grid=document.getElementById('gameGrid');grid.innerHTML=games.map((g,i)=>`<button class="game-card" onclick="openIntro('${g.id}')"><div class="game-num">${g.icon}</div><h3>${i+1}. ${g.title}</h3><p>${g.desc}</p><div class="meta"><span class="pill">สุ่ม ${g.count} ข้อ</span><span class="pill">${g.mode}</span></div></button>`).join('')}
+function showHome(){clearInterval(timerId);renderHome();show('homeScreen')}
+function openIntro(id){currentGame=games.find(g=>g.id===id);document.getElementById('introSmall').textContent='หมวดเกม';document.getElementById('introTitle').textContent=currentGame.title;document.getElementById('introDesc').textContent=currentGame.desc;document.getElementById('introHow').innerHTML=currentGame.how.map(x=>`<li>${x}</li>`).join('');document.getElementById('introLearn').innerHTML=currentGame.learn.map(x=>`<li>${x}</li>`).join('');document.getElementById('introCount').textContent=currentGame.count;document.getElementById('introMode').textContent=currentGame.mode==='ครูประเมิน'?'ครู':'Auto';show('introScreen')}
+function startGame(){questions=shuffle(currentGame.gen()).slice(0,currentGame.count);idx=0;score=0;correct=0;combo=0;maxCombo=0;totalMs=0;history=[];document.getElementById('playTitle').textContent=currentGame.title;document.getElementById('playDesc').textContent=currentGame.desc;document.getElementById('playSmall').textContent='กำลังเล่น';show('playScreen');renderQuestion()}
+function updateStats(){document.getElementById('correctStat').textContent=`${correct}/${questions.filter(q=>q.kind!=='teacher').length}`;document.getElementById('scoreStat').textContent=fmt(score);document.getElementById('comboStat').textContent=combo;const answered=history.filter(h=>h.ms).length;document.getElementById('avgStat').textContent=answered?seconds(totalMs/answered):'0s';document.getElementById('progressBar').style.width=`${(idx/questions.length)*100}%`;document.getElementById('qNumber').textContent=`ข้อ ${idx+1}/${questions.length}`}
+function renderQuestion(){clearInterval(timerId);selected=null;selectedMulti=[];selectedCourtSide=null;selectedCourtEvidence=[];document.getElementById('feedback').className='feedback';document.getElementById('feedback').innerHTML='';document.getElementById('nextBtn').classList.add('hidden');document.getElementById('submitBtn').classList.remove('hidden');document.getElementById('submitBtn').disabled=false;document.getElementById('textHost').classList.add('hidden');document.getElementById('teacherText').value='';document.getElementById('multiNote').classList.add('hidden');
+  const q=questions[idx];document.getElementById('qType').textContent=q.type;document.getElementById('basePoint').textContent=q.kind==='teacher'?'ครูประเมิน':`ฐาน ${fmt(q.base)} คะแนน`;document.getElementById('questionHost').innerHTML=`<div class="question">${q.question}</div>${q.scenario?`<div class="scenario">${q.scenario}</div>`:''}`;
+  const optHost=document.getElementById('optionsHost');optHost.innerHTML='';optHost.classList.remove('hidden');
+  if(q.kind==='mc') renderMc(q); else if(q.kind==='multi') renderMulti(q); else if(q.kind==='court') renderCourt(q); else renderTeacher(q);
+  updateStats();startTime=Date.now();document.getElementById('timer').textContent='0.0s';timerId=setInterval(()=>{document.getElementById('timer').textContent=seconds(Date.now()-startTime)},100)}
+function renderMc(q){document.getElementById('optionsHost').innerHTML=q.options.map((o,i)=>`<button class="option" onclick="selectOne(${i})">${o}</button>`).join('')}
+function selectOne(i){selected=i;document.querySelectorAll('.option').forEach((b,j)=>b.classList.toggle('selected',i===j))}
+function renderMulti(q){document.getElementById('multiNote').textContent=`เลือก ${q.limit} ข้อ`;document.getElementById('multiNote').classList.remove('hidden');document.getElementById('optionsHost').innerHTML=q.options.map((o,i)=>`<button class="option" onclick="toggleMulti(${i})">${o}</button>`).join('')}
+function toggleMulti(i){const q=questions[idx];const pos=selectedMulti.indexOf(i);if(pos>=0)selectedMulti.splice(pos,1);else{if(selectedMulti.length>=q.limit)selectedMulti.shift();selectedMulti.push(i)}document.querySelectorAll('.option').forEach((b,j)=>b.classList.toggle('selected',selectedMulti.includes(j)))}
+function renderCourt(q){document.getElementById('optionsHost').innerHTML=`<button class="option" onclick="selectCourtSide('สิ่งมีชีวิต')">สิ่งมีชีวิต</button><button class="option" onclick="selectCourtSide('สิ่งไม่มีชีวิต')">สิ่งไม่มีชีวิต</button>`+q.evidenceOptions.map((o,i)=>`<button class="option" data-ev="1" onclick="toggleCourtEvidence(${i})">หลักฐาน: ${o}</button>`).join('');document.getElementById('multiNote').textContent='เลือกฝั่ง 1 ข้อ และหลักฐาน 2 ใบ';document.getElementById('multiNote').classList.remove('hidden')}
+function selectCourtSide(v){selectedCourtSide=v;const btns=[...document.querySelectorAll('.option')].filter(b=>!b.dataset.ev);btns.forEach(b=>b.classList.toggle('selected',b.textContent===v))}
+function toggleCourtEvidence(i){const pos=selectedCourtEvidence.indexOf(i);if(pos>=0)selectedCourtEvidence.splice(pos,1);else{if(selectedCourtEvidence.length>=2)selectedCourtEvidence.shift();selectedCourtEvidence.push(i)}const evBtns=[...document.querySelectorAll('.option')].filter(b=>b.dataset.ev);evBtns.forEach((b,j)=>b.classList.toggle('selected',selectedCourtEvidence.includes(j)))}
+function renderTeacher(q){document.getElementById('optionsHost').classList.add('hidden');document.getElementById('textHost').classList.remove('hidden');document.getElementById('multiNote').textContent='ข้อนี้ไม่คิดคะแนนอัตโนมัติ ครูตรวจจากเหตุผลและความครบถ้วน';document.getElementById('multiNote').classList.remove('hidden')}
+function submitAnswer(){const q=questions[idx];const ms=Date.now()-startTime;clearInterval(timerId);let isCorrect=false, userAns='', correctAns='', partial=0;
+  if(q.kind==='mc'){ 
+    if(selected===null){alert('เลือกคำตอบก่อนครับ');return} 
+    userAns=q.options[selected]; correctAns=q.answer; isCorrect=userAns===q.answer; 
+  }
+  else if(q.kind==='multi'){ 
+    if(selectedMulti.length<q.limit){alert(`เลือกให้ครบ ${q.limit} ข้อก่อนครับ`);return} 
+    const chosen=selectedMulti.map(i=>q.options[i]); 
+    const valid=q.acceptable||q.answer; 
+    userAns=chosen.join(', '); 
+    correctAns=q.displayAnswer||q.answer.join(', '); 
+    partial=chosen.filter(x=>valid.includes(x)).length/q.limit; 
+    isCorrect=partial===1; 
+  }
+  else if(q.kind==='court'){ 
+    if(!selectedCourtSide || selectedCourtEvidence.length<2){alert('เลือกฝั่งและหลักฐาน 2 ใบก่อนครับ');return} 
+    const chosenEv=selectedCourtEvidence.map(i=>q.evidenceOptions[i]); 
+    const valid=q.acceptableEvidence||q.evidence; 
+    userAns=`${selectedCourtSide} | หลักฐาน: ${chosenEv.join(', ')}`; 
+    correctAns=`${q.answer} | หลักฐานที่ใช้ได้: ${valid.join(', ')}`; 
+    const sideOk=selectedCourtSide===q.answer; 
+    const evOk=chosenEv.filter(x=>valid.includes(x)).length/2; 
+    partial=(sideOk?0.5:0)+(evOk*0.5); 
+    isCorrect=partial===1; 
+  }
+  else { userAns=document.getElementById('teacherText').value.trim()||'(ยังไม่ได้กรอก)'; correctAns=q.answer; isCorrect=null; }
+  let points=0; if(q.kind!=='teacher'){ const base=Math.round(q.base*(q.kind==='mc'?(isCorrect?1:0):partial)); const timeBonus=isCorrect?Math.max(0,Math.round(280-(ms/1000)*18)):0; if(isCorrect){combo++;maxCombo=Math.max(maxCombo,combo)}else combo=0; const comboBonus=isCorrect?Math.min(350,combo*70):0; points=base+timeBonus+comboBonus; score+=points; if(isCorrect)correct++; totalMs+=ms; } else { combo=0; }
+  history.push({no:idx+1,type:q.type,question:q.question,scenario:q.scenario,userAns,correctAns,isCorrect,why:q.why,ms,points,teacher:q.kind==='teacher'});
+  showFeedback(q,isCorrect,points,userAns,correctAns); updateStats(); markOptions(q); document.getElementById('submitBtn').classList.add('hidden');document.getElementById('nextBtn').classList.remove('hidden'); if(idx===questions.length-1)document.getElementById('nextBtn').textContent='ดูสรุปคะแนน'; else document.getElementById('nextBtn').textContent='ข้อต่อไป'; }
+function markOptions(q){
+  const opts=[...document.querySelectorAll('.option')]; 
+  if(q.kind==='mc')opts.forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct'); else if(b.classList.contains('selected'))b.classList.add('wrong')}); 
+  if(q.kind==='multi'){
+    const valid=q.acceptable||q.answer;
+    opts.forEach(b=>{if(valid.includes(b.textContent))b.classList.add('correct'); else if(b.classList.contains('selected'))b.classList.add('wrong')});
+  } 
+  if(q.kind==='court'){
+    const valid=q.acceptableEvidence||q.evidence;
+    opts.forEach(b=>{const txt=b.textContent.replace('หลักฐาน: ',''); if(txt===q.answer||valid.includes(txt))b.classList.add('correct'); else if(b.classList.contains('selected'))b.classList.add('wrong')});
+  } 
+  opts.forEach(b=>b.disabled=true)
+}
+function showFeedback(q,isCorrect,points,userAns,correctAns){const fb=document.getElementById('feedback');fb.classList.add('show'); if(isCorrect===true){fb.classList.add('ok');fb.innerHTML=`<b>ถูกต้อง +${fmt(points)} คะแนน</b><div>${q.why}</div>`} else if(isCorrect===false){fb.classList.add('bad');fb.innerHTML=`<b>ยังไม่ถูก</b><div>คำตอบที่ถูก: <b>${correctAns}</b></div><div>${q.why}</div>`} else {fb.classList.add('show');fb.innerHTML=`<b>บันทึกคำตอบแล้ว รอครูประเมิน</b><div>แนวประเมิน: ${q.why}</div>`}}
+function nextQuestion(){idx++; if(idx>=questions.length)showResult(); else renderQuestion()}
+function showResult(){clearInterval(timerId);document.getElementById('resultTitle').textContent=currentGame.title;document.getElementById('resultScore').textContent=fmt(score);const totalAuto=history.filter(h=>!h.teacher).length;document.getElementById('resultCorrect').textContent=`${correct}/${totalAuto}`;document.getElementById('resultAvg').textContent=totalAuto?seconds(totalMs/totalAuto):'0s';document.getElementById('resultCombo').textContent=maxCombo;document.getElementById('resultTeacher').textContent=history.filter(h=>h.teacher).length;document.getElementById('reviewList').innerHTML=history.map(h=>`<div class="review-item ${h.teacher?'teacher':h.isCorrect?'good':'bad'}"><div class="review-title"><span>ข้อ ${h.no}: ${h.type}</span><span class="tag ${h.teacher?'teacher':h.isCorrect?'good':'bad'}">${h.teacher?'ครูประเมิน':h.isCorrect?'ถูก':'ผิด'}</span></div><div class="review-text"><b>โจทย์:</b> ${h.question}${h.scenario?`<br><b>สถานการณ์:</b> ${h.scenario}`:''}<br><b>เด็กตอบ:</b> ${h.userAns}<br><b>คำตอบ/แนวคำตอบ:</b> ${h.correctAns}<br><b>เหตุผล:</b> ${h.why}<br><b>เวลา:</b> ${seconds(h.ms)} · <b>คะแนน:</b> ${fmt(h.points)}</div></div>`).join('');show('resultScreen')}
+function restartSame(){openIntro(currentGame.id)}
+function quitGame(){if(confirm('ออกจากเกมและกลับหน้าหลักใช่ไหม?'))showHome()}
+renderHome();
+</script>
+</body>
+</html>
