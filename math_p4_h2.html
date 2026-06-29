@@ -3,1035 +3,272 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Little Steps | Math Quest iOS Soft UI ป.4 ชั่วโมงที่ 2</title>
+  <title>Little Steps | คณิตศาสตร์ ป.4 ชั่วโมงที่ 3</title>
   <style>
     :root{
-      --blue:#0757A5;
-      --blue2:#0F83C9;
-      --cyan:#28B7DF;
-      --yellow:#FFC83D;
-      --yellow2:#FFF6D6;
-      --green:#61A84F;
-      --green2:#EFFBEA;
-      --red:#E95353;
-      --pink:#FFE7EA;
-      --purple:#7C5CFF;
-      --ink:#17344D;
-      --muted:#647A8F;
-      --line:#D9EEF9;
-      --bg:#F3FAFF;
-      --white:#FFFFFF;
-      --card:rgba(255,255,255,.88);
-      --shadow:0 22px 60px rgba(6,72,125,.16);
-      --softshadow:0 12px 30px rgba(6,72,125,.10);
-      --radius:30px;
+      --bg:#F7FBFF;
+      --bg2:#FFF9F1;
+      --paper:rgba(255,255,255,.86);
+      --paper2:#FFFFFF;
+      --ink:#17324D;
+      --muted:#60778D;
+      --blue:#3A8DFF;
+      --blueDeep:#0C5CAA;
+      --sky:#EAF5FF;
+      --mint:#DDF8EC;
+      --mintDeep:#15956A;
+      --pink:#FFE8F1;
+      --rose:#F56EA3;
+      --lav:#EFE9FF;
+      --purple:#806CFF;
+      --sun:#FFE89A;
+      --sun2:#FFF7DA;
+      --orange:#FFAA62;
+      --red:#F45B69;
+      --green:#36B37E;
+      --line:#DCEBFA;
+      --shadow:0 24px 70px rgba(19,73,124,.14);
+      --soft:0 12px 30px rgba(19,73,124,.09);
+      --radius:32px;
       --radius2:22px;
       --tap:56px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      min-height:100vh;
-      color:var(--ink);
+      margin:0;min-height:100vh;color:var(--ink);
       font-family:"Noto Sans Thai","Sarabun","Kanit","Leelawadee UI",Tahoma,sans-serif;
-      font-size:20px;
-      line-height:1.65;
+      font-size:20px;line-height:1.68;
       background:
-        radial-gradient(circle at 8% 8%, rgba(40,183,223,.22), transparent 24%),
-        radial-gradient(circle at 92% 7%, rgba(255,200,61,.24), transparent 22%),
-        radial-gradient(circle at 12% 88%, rgba(124,92,255,.12), transparent 23%),
-        linear-gradient(135deg,#F8FDFF 0%,#EEF8FF 48%,#FFFDF2 100%);
+        radial-gradient(circle at 8% 7%, rgba(58,141,255,.18), transparent 25%),
+        radial-gradient(circle at 88% 10%, rgba(255,232,154,.34), transparent 23%),
+        radial-gradient(circle at 18% 84%, rgba(128,108,255,.14), transparent 24%),
+        radial-gradient(circle at 88% 82%, rgba(221,248,236,.60), transparent 26%),
+        linear-gradient(135deg,#F9FDFF 0%,#F3F9FF 47%,#FFF9F1 100%);
       overflow-x:hidden;
     }
-    body:before{
-      content:"";position:fixed;inset:0;pointer-events:none;opacity:.38;
-      background-image:
-        radial-gradient(#0F83C9 1px, transparent 1px),
-        radial-gradient(#FFC83D 1.3px, transparent 1.3px);
-      background-size:34px 34px,46px 46px;
-      background-position:0 0,18px 22px;
-      mask-image:linear-gradient(to bottom,transparent,black 13%,black 86%,transparent);
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.30;
+      background-image:radial-gradient(rgba(58,141,255,.45) 1px,transparent 1px),radial-gradient(rgba(255,170,98,.42) 1px,transparent 1px);
+      background-size:34px 34px,48px 48px;background-position:0 0,18px 24px;
+      mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent);
     }
-    button,input{font:inherit}
+    button,input,select,textarea{font:inherit}
     button{cursor:pointer}
-    button:focus-visible{outline:4px solid rgba(255,200,61,.75);outline-offset:4px}
-    .hidden{display:none!important}
-    .app{position:relative;z-index:1;min-height:100vh}
-    .topbar{
-      position:sticky;top:0;z-index:20;
-      display:flex;align-items:center;justify-content:space-between;gap:14px;
-      padding:12px clamp(12px,3vw,28px);
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(20px);
-      border-bottom:1px solid rgba(7,87,165,.12);
-    }
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brandMark{
-      width:52px;height:52px;border-radius:20px;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--cyan),var(--blue));color:white;font-weight:1000;font-size:27px;
-      box-shadow:0 12px 24px rgba(7,87,165,.18);
-      flex:0 0 auto;
-    }
-    .brandText{min-width:0}
-    .brandText b{display:block;color:var(--blue);font-size:20px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brandText span{display:block;color:var(--muted);font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .topActions{display:flex;gap:10px;align-items:center}
-    .ghostBtn,.primaryBtn,.dangerBtn{
-      min-height:48px;border:0;border-radius:999px;padding:11px 18px;font-weight:1000;display:inline-flex;gap:8px;align-items:center;justify-content:center;
-    }
-    .ghostBtn{background:rgba(255,255,255,.82);color:var(--blue);border:1px solid var(--line)}
-    .primaryBtn{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;box-shadow:0 12px 26px rgba(7,87,165,.22)}
-    .dangerBtn{background:#fff;color:var(--red);border:1px solid #FFD0D0}
-    .hero{
-      width:min(1220px,calc(100% - 28px));margin:26px auto 18px;
-      display:grid;grid-template-columns:1.12fr .88fr;gap:20px;align-items:stretch;
-    }
-    .heroCard,.sideQuest,.screenCard{
-      border:1px solid rgba(7,87,165,.12);
-      background:var(--card);
-      border-radius:42px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      backdrop-filter:blur(12px);
-    }
-    .heroCard{padding:34px;position:relative;min-height:330px}
-    .heroCard:after{
-      content:"";position:absolute;right:-80px;bottom:-80px;width:270px;height:270px;border-radius:50%;
-      background:radial-gradient(circle,rgba(255,200,61,.38),rgba(255,200,61,0) 66%);
-    }
-    .kicker{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-weight:1000}
-    h1{margin:18px 0 10px;color:#073C7D;font-size:clamp(38px,6vw,72px);line-height:1.08;letter-spacing:-.045em}
-    .lead{font-size:clamp(21px,2.2vw,27px);color:#37556D;max-width:790px;margin:0}
-    .heroPills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:1}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:16px;background:#fff;border:1px solid var(--line);font-weight:1000;color:var(--blue);box-shadow:0 8px 16px rgba(7,87,165,.06)}
-    .sideQuest{padding:24px;display:grid;gap:14px;align-content:center}
-    .mascotBox{
-      border-radius:30px;background:linear-gradient(135deg,#EAF8FF,#FFF9DF);padding:22px;border:1px solid var(--line);position:relative;overflow:hidden;
-    }
-    .mascotBox .bigIcon{font-size:68px;line-height:1;margin-bottom:10px}
-    .mascotBox h2{margin:0 0 8px;color:#073C7D;font-size:30px;line-height:1.22}
-    .miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .miniStat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--softshadow)}
-    .miniStat b{display:block;color:var(--blue);font-size:26px;line-height:1.1}.miniStat span{font-size:15px;color:var(--muted);font-weight:800}
-    .wrap{width:min(1220px,calc(100% - 28px));margin:0 auto 50px}
-    .sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:28px 0 14px}
-    .sectionTitle h2{margin:0;color:#073C7D;font-size:34px;line-height:1.15}.sectionTitle p{margin:4px 0 0;color:var(--muted);font-weight:800}
-    .gameGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-    .gameCard{
-      position:relative;min-height:245px;padding:20px;border:1px solid rgba(7,87,165,.12);border-radius:30px;background:#fff;box-shadow:var(--softshadow);
-      overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .gameCard:hover{transform:translateY(-4px);box-shadow:0 18px 46px rgba(6,72,125,.16)}
-    .gameCard:before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:linear-gradient(90deg,var(--cyan),var(--yellow))}
-    .gameTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .iconBubble{width:60px;height:60px;border-radius:22px;background:linear-gradient(135deg,#E8F8FF,#FFF7D7);display:grid;place-items:center;font-size:32px;border:1px solid var(--line)}
-    .orderBadge{height:34px;min-width:34px;display:grid;place-items:center;border-radius:999px;background:#F0F8FF;color:var(--blue);font-weight:1000;border:1px solid var(--line)}
-    .gameCard h3{margin:14px 0 5px;color:#073C7D;font-size:25px;line-height:1.22}
-    .gameCard p{margin:0;color:#536C82;font-size:17px;font-weight:750}
-    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.tag{padding:7px 9px;border-radius:999px;background:#F6FBFF;border:1px solid #E0F1FA;color:#346078;font-size:14px;font-weight:900}
-    .playCardBtn{margin-top:18px;width:100%;min-height:48px;border:0;border-radius:17px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:1000;box-shadow:0 12px 24px rgba(7,87,165,.18)}
-    .screen{width:min(1050px,calc(100% - 28px));margin:26px auto 50px}
-    .screenCard{padding:28px}
-    .crumb{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.crumb span{padding:8px 12px;border-radius:999px;background:#F4FBFF;color:var(--blue);font-weight:1000;border:1px solid var(--line);font-size:16px}
-    .introHeader{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:18px}
-    .introIcon{width:86px;height:86px;border-radius:30px;background:linear-gradient(135deg,#E9F9FF,#FFF3C4);display:grid;place-items:center;font-size:48px;border:1px solid var(--line);box-shadow:var(--softshadow)}
-    .introHeader h2{margin:0;color:#073C7D;font-size:42px;line-height:1.12}.introHeader p{margin:6px 0 0;color:#566F86;font-weight:800;font-size:21px}
-    .infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.infoBox{border:1px solid var(--line);border-radius:26px;background:#fff;padding:18px}.infoBox h3{margin:0 0 8px;color:var(--blue);font-size:25px}.infoBox ul{margin:0;padding-left:1.2em}.infoBox li{margin:7px 0}.teacherTip{border-radius:26px;background:linear-gradient(135deg,#FFF8D7,#fff);border:1px solid #F2DA8B;padding:18px;margin-top:14px}.teacherTip b{color:#8A6100}
-    .introActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:20px}
-    .playHeader{display:grid;gap:14px;margin-bottom:16px}
-    .statusRow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.statusPills{display:flex;gap:8px;flex-wrap:wrap}.statusPill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-weight:1000;font-size:16px}.scorePill{background:linear-gradient(135deg,#FFF5C6,#fff);border-color:#F3D877;color:#6E5000}
-    .progressTrack{height:16px;border-radius:999px;background:#E9F5FB;overflow:hidden;border:1px solid #D4ECF8}.progressBar{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--yellow));transition:width .25s ease}
-    .questionBox{border-radius:34px;background:#fff;border:1px solid rgba(7,87,165,.12);box-shadow:var(--softshadow);padding:28px;text-align:center;position:relative;overflow:hidden}.questionBox:before{content:"";position:absolute;top:-90px;right:-90px;width:210px;height:210px;border-radius:50%;background:rgba(40,183,223,.10)}
-    .questionLabel{display:inline-flex;gap:7px;align-items:center;padding:7px 12px;border-radius:999px;background:#F4FBFF;border:1px solid var(--line);color:var(--blue);font-weight:1000;font-size:16px}.questionText{position:relative;z-index:1;margin:16px auto 4px;max-width:900px;color:#073C7D;font-weight:1000;font-size:clamp(27px,4.5vw,46px);line-height:1.32}.subText{position:relative;z-index:1;color:#5D7388;font-weight:800;font-size:20px;margin-top:6px}.numberLine{font-variant-numeric:tabular-nums;letter-spacing:.01em}
-    .choiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.choice{min-height:76px;border:2px solid var(--line);border-radius:24px;background:#fff;color:#17344D;font-size:28px;font-weight:1000;box-shadow:0 8px 16px rgba(6,72,125,.07);transition:transform .12s ease,border-color .12s ease,background .12s ease}.choice:hover:not(:disabled){transform:translateY(-2px);border-color:var(--cyan)}.choice.correct{background:var(--green2);border-color:#7EC56E;color:#285E20}.choice.wrong{background:var(--pink);border-color:#F2A2A2;color:#9E2D2D}.choice:disabled{cursor:default;opacity:.96}
-    .orderArea{margin-top:18px;text-align:left}.orderZone{border:2px dashed #CFE8F5;border-radius:26px;background:#F8FCFF;padding:16px;margin-bottom:12px}.orderTitle{font-weight:1000;color:var(--blue);margin-bottom:10px}.smallChoices{display:flex;flex-wrap:wrap;gap:10px}.smallChoice{min-height:54px;border:2px solid var(--line);border-radius:17px;background:#fff;color:#17344D;font-weight:1000;padding:10px 14px;box-shadow:0 8px 14px rgba(6,72,125,.06)}.smallChoice.used{opacity:.35}.smallChoice.selected{background:#FFF6D6;border-color:#F0D06A}.orderButtons{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .feedback{margin-top:18px;border-radius:26px;padding:18px;text-align:left;border:1px solid var(--line)}.feedback.good{background:var(--green2);border-color:#BEE8B4}.feedback.bad{background:#FFF4F4;border-color:#FFC3C3}.feedback b{font-size:24px;color:#073C7D}.feedback p{margin:8px 0 0}.answerLine{display:inline-flex;margin-top:10px;padding:8px 12px;border-radius:14px;background:#fff;border:1px solid rgba(7,87,165,.12);font-weight:1000;color:var(--blue)}
-    .nextRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}.hintText{color:var(--muted);font-weight:800}.resultCard{text-align:center}.medal{width:134px;height:134px;border-radius:42px;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(135deg,#FFF0B8,#fff 70%);border:1px solid #F0D783;font-size:64px;box-shadow:var(--softshadow)}.finalScore{font-size:64px;font-weight:1000;color:#073C7D;line-height:1}.resultCard h2{font-size:40px;color:#073C7D;margin:12px 0 6px}.resultCard p{font-size:22px;color:#536C82;font-weight:800}.resultActions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-    .noteStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.note{background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:var(--softshadow)}.note b{display:block;color:var(--blue);font-size:20px}.note span{color:var(--muted);font-weight:800;font-size:16px}
-
-
-    /* iOS-inspired soft refresh */
-    :root{
-      --ios-blue:#5E9BFF;
-      --ios-sky:#8EDCFF;
-      --ios-mint:#B8F2D0;
-      --ios-peach:#FFD6A5;
-      --ios-pink:#FFCAD4;
-      --ios-purple:#CDB4DB;
-      --glass:rgba(255,255,255,.72);
-      --glass2:rgba(255,255,255,.58);
-    }
-    body{
-      background:
-        radial-gradient(circle at 8% 10%, rgba(142,220,255,.45), transparent 27%),
-        radial-gradient(circle at 86% 8%, rgba(255,202,212,.44), transparent 25%),
-        radial-gradient(circle at 8% 92%, rgba(184,242,208,.42), transparent 25%),
-        radial-gradient(circle at 88% 86%, rgba(255,214,165,.44), transparent 24%),
-        linear-gradient(135deg,#F8FBFF 0%,#F7F5FF 45%,#FFFCF5 100%);
-    }
-    body:before{opacity:.18;background-size:42px 42px,56px 56px;}
-    .topbar,.heroCard,.sideQuest,.screenCard{
-      background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(255,255,255,.54));
-      -webkit-backdrop-filter:blur(24px) saturate(1.25);
-      backdrop-filter:blur(24px) saturate(1.25);
-      border:1px solid rgba(255,255,255,.70);
-      box-shadow:0 22px 70px rgba(93,120,180,.16), inset 0 1px 0 rgba(255,255,255,.75);
-    }
-    .brandMark,.primaryBtn,.playCardBtn{
-      background:linear-gradient(135deg,#75B7FF,#7C8CFF 58%,#B79BFF);
-      box-shadow:0 14px 30px rgba(94,155,255,.22);
-    }
-    .ghostBtn,.dangerBtn,.kicker,.pill,.statusPill,.tag,.infoBox,.note,.miniStat,.questionBox,.gameCard{
-      background:rgba(255,255,255,.76);
-      -webkit-backdrop-filter:blur(18px);
-      backdrop-filter:blur(18px);
-      border-color:rgba(255,255,255,.74);
-      box-shadow:0 16px 38px rgba(93,120,180,.12), inset 0 1px 0 rgba(255,255,255,.8);
-    }
-    .heroCard:after{background:radial-gradient(circle,rgba(255,214,165,.58),rgba(255,214,165,0) 68%);}
-    .mascotBox,.iconBubble,.introIcon,.medal{
-      background:linear-gradient(135deg,#EAF7FF,#FFF1F4 52%,#FFF7DE);
-      border-color:rgba(255,255,255,.76);
-      box-shadow:0 16px 36px rgba(93,120,180,.13), inset 0 1px 0 rgba(255,255,255,.82);
-    }
-    .gameCard:before{height:10px;background:linear-gradient(90deg,#8EDCFF,#B8F2D0,#FFD6A5,#FFCAD4,#CDB4DB)}
-    .gameCard:nth-child(4n+1){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(234,247,255,.78));}
-    .gameCard:nth-child(4n+2){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,246,225,.78));}
-    .gameCard:nth-child(4n+3){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(241,255,244,.78));}
-    .gameCard:nth-child(4n+4){background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,240,246,.78));}
-    .progressTrack{background:rgba(255,255,255,.56);border-color:rgba(255,255,255,.74);box-shadow:inset 0 2px 10px rgba(93,120,180,.08)}
-    .progressBar{background:linear-gradient(90deg,#75B7FF,#B8F2D0,#FFD6A5);}
-    .choice,.smallChoice{border-color:rgba(160,198,230,.45);background:rgba(255,255,255,.82);box-shadow:0 14px 28px rgba(93,120,180,.10)}
-    .choice:hover:not(:disabled),.smallChoice:hover:not(:disabled){transform:translateY(-2px) scale(1.01);border-color:#8EDCFF;}
-    .choice.correct,.feedback.good{background:linear-gradient(135deg,#EEFFF2,#FFFFFF);border-color:#9BE6B7;color:#225A35}
-    .choice.wrong,.feedback.bad{background:linear-gradient(135deg,#FFF1F3,#FFFFFF);border-color:#FFB7C1;color:#84303B}
-    .pointsPill{background:linear-gradient(135deg,#FFF4C7,#FFFFFF);border-color:#FFE08A;color:#73520A;}
-    .correctPill{background:linear-gradient(135deg,#EAF7FF,#FFFFFF);border-color:#BDE5FF;color:#0757A5;}
-    .timerPill{background:linear-gradient(135deg,#F1EEFF,#FFFFFF);border-color:#D8CCFF;color:#5944B0;}
-    .speedGood{color:#207C44;font-weight:1000}
-    .speedMid{color:#826200;font-weight:1000}
-    .speedSlow{color:#8B3C48;font-weight:1000}
-    .scoreHintBox{
-      margin-top:14px;border-radius:24px;padding:16px 18px;
-      background:linear-gradient(135deg,rgba(234,247,255,.86),rgba(255,246,225,.86));
-      border:1px solid rgba(255,255,255,.78);
-      color:#36546b;font-weight:850;
-    }
-    .scoreHintBox b{color:#0757A5}
-    .earnedLine{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
-    .earnedBadge{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(7,87,165,.10);font-weight:1000;color:#0757A5}
-    .finalPointScore{font-size:34px;font-weight:1000;color:#73520A;margin:4px 0 10px;}
-    .resultStats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px auto 4px;max-width:720px}
-    .resultStat{border-radius:24px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.78);padding:16px;box-shadow:0 14px 30px rgba(93,120,180,.10)}
-    .resultStat b{display:block;color:#073C7D;font-size:28px;line-height:1.05}.resultStat span{display:block;color:#647A8F;font-size:15px;font-weight:900;margin-top:5px}
-
-
-    .reviewPanel{
-      margin:26px auto 0;
-      max-width:920px;
-      text-align:left;
-      border-radius:30px;
-      padding:18px;
-      background:linear-gradient(135deg,rgba(255,255,255,.70),rgba(245,250,255,.58));
-      border:1px solid rgba(255,255,255,.78);
-      box-shadow:0 18px 44px rgba(93,120,180,.11), inset 0 1px 0 rgba(255,255,255,.82);
-    }
-    .reviewHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
-    .reviewHead h3{margin:0;color:#073C7D;font-size:28px;line-height:1.2}
-    .reviewHead p{margin:5px 0 0;color:#647A8F;font-weight:850;font-size:16px}
-    .reviewList{display:grid;gap:12px;max-height:560px;overflow:auto;padding-right:4px;scrollbar-width:thin}
-    .reviewItem{
-      border-radius:24px;
-      padding:16px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(255,255,255,.78);
-      box-shadow:0 12px 28px rgba(93,120,180,.09);
-    }
-    .reviewItem.ok{background:linear-gradient(135deg,rgba(239,255,242,.92),rgba(255,255,255,.86));border-color:#BDEBC9}
-    .reviewItem.no{background:linear-gradient(135deg,rgba(255,242,244,.92),rgba(255,255,255,.86));border-color:#FFC7D0}
-    .reviewTop{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-    .reviewNo{font-weight:1000;color:#073C7D;font-size:18px}
-    .reviewBadge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 11px;font-weight:1000;font-size:15px;background:#fff;border:1px solid rgba(7,87,165,.10)}
-    .reviewBadge.ok{color:#1F7A42;border-color:#A5E3B7;background:#F1FFF4}
-    .reviewBadge.no{color:#9B3542;border-color:#FFC0C8;background:#FFF3F5}
-    .reviewQuestion{font-weight:1000;color:#17344D;font-size:20px;line-height:1.45;margin:0 0 10px}
-    .reviewGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
-    .reviewBox{border-radius:18px;background:rgba(255,255,255,.82);border:1px solid rgba(7,87,165,.10);padding:12px}
-    .reviewBox b{display:block;color:#0757A5;font-size:15px;margin-bottom:4px}
-    .reviewBox span{font-weight:1000;color:#17344D;word-break:break-word}
-    .reviewMeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .reviewMeta span{display:inline-flex;border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.88);border:1px solid rgba(7,87,165,.08);font-weight:900;color:#536C82;font-size:14px}
-    .reviewExplain{margin:10px 0 0;color:#4B657C;font-weight:800;font-size:16px;line-height:1.55}
-    .reviewScrollHint{font-size:14px;font-weight:1000;color:#73520A;background:#FFF7D9;border:1px solid #F4DD8C;border-radius:999px;padding:7px 11px}
-
-    @media(max-width:1040px){.hero{grid-template-columns:1fr}.gameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.noteStrip{grid-template-columns:1fr}}
-    @media(max-width:720px){.reviewGrid{grid-template-columns:1fr}.reviewList{max-height:620px}.resultStats{grid-template-columns:1fr}.finalPointScore{font-size:28px}body{font-size:18px}.topbar{align-items:flex-start}.brandText span{display:none}.topActions .ghostBtn{padding:10px 12px}.heroCard{padding:24px;border-radius:32px}.sideQuest{border-radius:32px}.gameGrid{grid-template-columns:1fr}.infoGrid,.choiceGrid{grid-template-columns:1fr}.introHeader{grid-template-columns:1fr;text-align:center}.screenCard{padding:20px;border-radius:32px}.questionBox{padding:22px;border-radius:28px}.choice{font-size:24px}.sectionTitle{align-items:flex-start;flex-direction:column}.miniGrid{grid-template-columns:1fr 1fr}}
-    @media print{.topbar,.hero,.sectionTitle,.gameGrid,.introActions,.topActions,.nextRow,.resultActions{display:none!important}body{background:white}.screen{width:100%;margin:0}.screenCard,.questionBox{box-shadow:none;border:1px solid #ccc}.hidden{display:block!important}}
+    button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:4px solid rgba(255,218,96,.85);outline-offset:3px}
+    a{color:inherit}.hidden{display:none!important}.app{position:relative;z-index:1;min-height:100vh}
+    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(12px,3vw,30px);background:rgba(255,255,255,.76);backdrop-filter:blur(22px);border-bottom:1px solid rgba(58,141,255,.15)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}.brandMark{width:54px;height:54px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#77C3FF,var(--blueDeep));color:white;font-weight:1000;font-size:28px;box-shadow:0 14px 26px rgba(12,92,170,.18);flex:0 0 auto}.brandText{min-width:0}.brandText b{display:block;color:var(--blueDeep);font-size:20px;line-height:1.12;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brandText span{display:block;color:var(--muted);font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{display:flex;gap:8px;align-items:center;overflow:auto;max-width:58vw;padding:4px}.navBtn,.ghostBtn,.primaryBtn,.softBtn,.dangerBtn{min-height:48px;border:0;border-radius:999px;padding:11px 16px;font-weight:1000;display:inline-flex;gap:8px;align-items:center;justify-content:center;white-space:nowrap}.navBtn{background:rgba(255,255,255,.75);border:1px solid var(--line);color:#2B628F}.navBtn:hover,.navBtn.active{background:var(--blueDeep);color:#fff;border-color:var(--blueDeep)}.ghostBtn{background:#fff;color:var(--blueDeep);border:1px solid var(--line);box-shadow:0 5px 12px rgba(19,73,124,.05)}.primaryBtn{background:linear-gradient(135deg,var(--blueDeep),var(--blue));color:#fff;box-shadow:0 14px 28px rgba(12,92,170,.22)}.softBtn{background:linear-gradient(135deg,#FFF8D9,#fff);color:#745100;border:1px solid #F1D982}.dangerBtn{background:#fff;color:var(--red);border:1px solid #FFD0D6}.wrap{width:min(1220px,calc(100% - 28px));margin:0 auto}.section{margin:26px auto 42px}.hero{width:min(1220px,calc(100% - 28px));margin:26px auto 18px;display:grid;grid-template-columns:1.12fr .88fr;gap:20px;align-items:stretch}.glass,.heroCard,.sideCard,.sectionCard,.miniCard,.lessonCard,.sheetCard{border:1px solid rgba(58,141,255,.14);background:var(--paper);border-radius:42px;box-shadow:var(--shadow);backdrop-filter:blur(14px);overflow:hidden}.heroCard{padding:36px;position:relative;min-height:360px}.heroCard:after{content:"";position:absolute;right:-90px;bottom:-90px;width:290px;height:290px;border-radius:50%;background:radial-gradient(circle,rgba(255,232,154,.65),rgba(255,232,154,0) 68%)}.kicker{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blueDeep);font-weight:1000}.hero h1{margin:18px 0 12px;color:#073C7D;font-size:clamp(38px,6vw,76px);line-height:1.06;letter-spacing:-.045em}.lead{font-size:clamp(21px,2.25vw,28px);color:#36566E;max-width:820px;margin:0;position:relative;z-index:1}.heroPills,.pillRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:1}.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:18px;background:#fff;border:1px solid var(--line);font-weight:1000;color:var(--blueDeep);box-shadow:0 9px 16px rgba(19,73,124,.06)}.sideCard{padding:24px;display:grid;gap:14px;align-content:center}.mascot{border-radius:32px;background:linear-gradient(135deg,#EAF6FF,#FFF5D7);padding:22px;border:1px solid var(--line);position:relative;overflow:hidden}.mascot .big{font-size:66px;line-height:1;margin-bottom:10px}.mascot h2{margin:0 0 8px;color:#073C7D;font-size:31px;line-height:1.22}.mascot p{margin:0;color:#506D85;font-weight:750}.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.miniStat{background:#fff;border:1px solid var(--line);border-radius:24px;padding:14px;box-shadow:var(--soft)}.miniStat b{display:block;color:var(--blueDeep);font-size:30px;line-height:1.1}.miniStat span{font-size:15px;color:var(--muted);font-weight:800}.sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:32px 0 14px}.sectionTitle h2{margin:0;color:#073C7D;font-size:clamp(30px,4vw,43px);line-height:1.12}.sectionTitle p{margin:6px 0 0;color:var(--muted);font-weight:800}.quickGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}.quickCard{border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:var(--soft);padding:18px;min-height:150px}.quickCard b{display:block;font-size:24px;color:var(--blueDeep);line-height:1.22}.quickCard span{display:block;color:var(--muted);font-weight:780;font-size:17px;margin-top:6px}.quickIcon{width:54px;height:54px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--sun2));font-size:30px;margin-bottom:12px}.stepBand{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}.step{position:relative;padding:20px;border-radius:30px;background:#fff;border:1px solid var(--line);box-shadow:var(--soft)}.step:before{content:attr(data-step);width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--purple));color:white;font-weight:1000;font-size:22px;margin-bottom:10px}.step b{display:block;color:#073C7D;font-size:26px}.step span{display:block;color:#557088;font-weight:780;margin-top:6px}.lessonDeck{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.lessonCard{padding:24px;border-radius:34px;box-shadow:var(--soft);background:#fff}.lessonCard.full{grid-column:1/-1}.lessonTop{display:flex;align-items:flex-start;gap:14px}.lessonIcon{width:62px;height:62px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,#EEF7FF,#FFF4CC);border:1px solid var(--line);font-size:34px;flex:0 0 auto}.lessonCard h3{margin:4px 0 6px;color:#073C7D;font-size:30px;line-height:1.18}.lessonCard p{margin:0;color:#526C84;font-weight:770}.exampleBox{margin-top:16px;border-radius:26px;background:linear-gradient(135deg,#F8FCFF,#fff);border:1px solid var(--line);padding:18px}.mathLine{font-size:clamp(27px,3.3vw,40px);font-weight:1000;color:#073C7D;line-height:1.35;font-variant-numeric:tabular-nums}.calcGrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-top:14px}.calcBox{border-radius:22px;background:#fff;border:1px solid var(--line);padding:16px;box-shadow:0 8px 16px rgba(19,73,124,.05)}.calcBox b{display:block;color:var(--blueDeep);font-size:18px}.calcBox .value{font-size:32px;color:#073C7D;font-weight:1000;font-variant-numeric:tabular-nums}.opMark{display:grid;place-items:center;font-size:46px;font-weight:1000;color:var(--purple)}.tableWrap{overflow:auto;border-radius:26px;border:1px solid var(--line);background:#fff;margin-top:14px}.niceTable{width:100%;border-collapse:collapse;min-width:720px}.niceTable th,.niceTable td{padding:14px 16px;border-bottom:1px solid #E9F2FB;text-align:left;vertical-align:top}.niceTable th{background:#F2F8FF;color:var(--blueDeep);font-weight:1000}.niceTable tr:last-child td{border-bottom:0}.noteBox{border-radius:26px;background:linear-gradient(135deg,#FFF8D6,#fff);border:1px solid #F2DA8B;padding:18px;margin-top:14px}.noteBox b{color:#8A6100}.warnBox{border-radius:26px;background:linear-gradient(135deg,#FFF0F4,#fff);border:1px solid #F7BDD0;padding:18px;margin-top:14px}.warnBox b{color:#AA315F}.sheetCard{padding:26px;border-radius:36px;background:#fff}.sheetHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:2px dashed #D8E9F6;padding-bottom:16px;margin-bottom:18px}.sheetHeader h3{margin:0;color:#073C7D;font-size:34px;line-height:1.16}.sheetHeader p{margin:4px 0 0;color:var(--muted);font-weight:800}.badge{display:inline-flex;align-items:center;gap:7px;background:#F1F8FF;color:var(--blueDeep);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:1000;white-space:nowrap}.sheetGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.miniCard{box-shadow:var(--soft);border-radius:28px;background:#fff;padding:18px}.miniCard h4{margin:0 0 8px;color:var(--blueDeep);font-size:25px}.miniCard ul,.lessonCard ul{margin:8px 0 0;padding-left:1.25em}.miniCard li,.lessonCard li{margin:7px 0}.formula{border-radius:24px;background:#F8FCFF;border:1px solid var(--line);padding:16px;margin-top:12px}.formula .mathLine{font-size:28px}.worksheetTabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tabBtn{min-height:48px;border:1px solid var(--line);background:#fff;color:#2B628F;border-radius:999px;padding:9px 14px;font-weight:1000}.tabBtn.active{background:var(--blueDeep);border-color:var(--blueDeep);color:#fff}.worksheetPanel{display:none}.worksheetPanel.active{display:block}.rowStatus{font-size:26px;font-weight:1000;text-align:center}.rowStatus.good{color:var(--green)}.rowStatus.bad{color:var(--red)}.workInput,.workSelect{min-height:48px;border:2px solid var(--line);border-radius:16px;padding:8px 12px;background:#fff;color:var(--ink);font-weight:900;max-width:180px}.workInput{width:160px}.checkBar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px}.scoreBubble{padding:10px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:1000;color:var(--blueDeep)}.answerHint{display:none;margin-top:12px;border-radius:22px;background:#EFFBF3;border:1px solid #BEE8CA;color:#245C42;padding:14px;font-weight:820}.answerHint.show{display:block}.gameShell{margin-top:18px}.gameGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.gameCard{position:relative;min-height:250px;padding:20px;border:1px solid rgba(58,141,255,.14);border-radius:32px;background:#fff;box-shadow:var(--soft);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease,box-shadow .18s ease}.gameCard:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(19,73,124,.16)}.gameCard:before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:linear-gradient(90deg,var(--blue),var(--rose),var(--sun))}.gameTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.iconBubble{width:64px;height:64px;border-radius:24px;background:linear-gradient(135deg,#EAF6FF,#FFF5D7);display:grid;place-items:center;font-size:35px;border:1px solid var(--line)}.orderBadge{height:36px;min-width:36px;display:grid;place-items:center;border-radius:999px;background:#F0F8FF;color:var(--blueDeep);font-weight:1000;border:1px solid var(--line)}.gameCard h3{margin:14px 0 6px;color:#073C7D;font-size:27px;line-height:1.2}.gameCard p{margin:0;color:#536C82;font-size:17px;font-weight:780}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.tag{padding:7px 10px;border-radius:999px;background:#F6FBFF;border:1px solid #E0F1FA;color:#346078;font-size:14px;font-weight:900}.playCardBtn{margin-top:18px;width:100%;min-height:50px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--blueDeep),var(--blue));color:white;font-weight:1000;box-shadow:0 12px 24px rgba(12,92,170,.18)}.gameScreen{display:none}.gameScreen.active{display:block}.screenCard{border:1px solid rgba(58,141,255,.14);background:var(--paper);border-radius:42px;box-shadow:var(--shadow);padding:28px;backdrop-filter:blur(14px)}.introHeader{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:18px}.introIcon{width:88px;height:88px;border-radius:30px;background:linear-gradient(135deg,#E9F9FF,#FFF3C4);display:grid;place-items:center;font-size:50px;border:1px solid var(--line);box-shadow:var(--soft)}.introHeader h3{margin:0;color:#073C7D;font-size:42px;line-height:1.12}.introHeader p{margin:6px 0 0;color:#566F86;font-weight:800;font-size:21px}.gameInfoGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.statusRow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.statusPills{display:flex;gap:8px;flex-wrap:wrap}.statusPill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blueDeep);font-weight:1000;font-size:16px}.scorePill{background:linear-gradient(135deg,#FFF5C6,#fff);border-color:#F3D877;color:#6E5000}.progressTrack{height:16px;border-radius:999px;background:#E9F5FB;overflow:hidden;border:1px solid #D4ECF8;margin-top:14px}.progressBar{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--rose),var(--sun));transition:width .25s ease}.questionBox{border-radius:34px;background:#fff;border:1px solid rgba(58,141,255,.14);box-shadow:var(--soft);padding:28px;text-align:center;position:relative;overflow:hidden;margin-top:16px}.questionBox:before{content:"";position:absolute;top:-90px;right:-90px;width:210px;height:210px;border-radius:50%;background:rgba(58,141,255,.09)}.questionLabel{display:inline-flex;gap:7px;align-items:center;padding:7px 12px;border-radius:999px;background:#F4FBFF;border:1px solid var(--line);color:var(--blueDeep);font-weight:1000;font-size:16px}.questionText{position:relative;z-index:1;margin:16px auto 4px;max-width:940px;color:#073C7D;font-weight:1000;font-size:clamp(28px,4.5vw,50px);line-height:1.34}.subText{position:relative;z-index:1;color:#5D7388;font-weight:800;font-size:20px;margin-top:6px}.numberLine{font-variant-numeric:tabular-nums;letter-spacing:.01em}.choiceGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.choice{min-height:82px;border:2px solid var(--line);border-radius:25px;background:#fff;color:#17344D;font-size:32px;font-weight:1000;box-shadow:0 8px 16px rgba(19,73,124,.07);transition:transform .12s ease,border-color .12s ease,background .12s ease}.choice:hover:not(:disabled){transform:translateY(-2px);border-color:var(--blue)}.choice.correct{background:#ECFAF2;border-color:#7EDBA6;color:#1A6D4A}.choice.wrong{background:#FFF0F4;border-color:#F7A6BA;color:#9E2D4A}.choice:disabled{cursor:default;opacity:.96}.feedback{margin-top:18px;border-radius:26px;padding:18px;text-align:left;border:1px solid var(--line)}.feedback.good{background:#ECFAF2;border-color:#BEE8CA}.feedback.bad{background:#FFF4F6;border-color:#FFC3CF}.feedback b{font-size:24px;color:#073C7D}.feedback p{margin:8px 0 0}.answerLine{display:inline-flex;margin-top:10px;padding:8px 12px;border-radius:14px;background:#fff;border:1px solid rgba(58,141,255,.14);font-weight:1000;color:var(--blueDeep)}.nextRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}.hintText{color:var(--muted);font-weight:800}.resultCard{text-align:center}.medal{width:134px;height:134px;border-radius:42px;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(135deg,#FFF0B8,#fff 70%);border:1px solid #F0D783;font-size:64px;box-shadow:var(--soft)}.finalScore{font-size:64px;font-weight:1000;color:#073C7D;line-height:1}.resultCard h3{font-size:40px;color:#073C7D;margin:12px 0 6px}.resultCard p{font-size:22px;color:#536C82;font-weight:800}.teacherGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.timeline{display:grid;gap:12px}.timeRow{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:start;border-radius:24px;background:#fff;border:1px solid var(--line);padding:14px;box-shadow:var(--soft)}.timeRow b:first-child{color:var(--blueDeep)}.timeRow h4{margin:0 0 6px;font-size:22px;color:#073C7D}.timeRow p{margin:0;color:#5C738A;font-weight:780}.rubric{display:grid;gap:10px}.rubricItem{display:grid;grid-template-columns:140px 1fr;gap:12px;border-radius:22px;background:#fff;border:1px solid var(--line);padding:14px}.rubricItem b{color:var(--blueDeep)}.footer{width:min(1220px,calc(100% - 28px));margin:32px auto 50px;text-align:center;color:var(--muted);font-weight:800}.printOnly{display:none}.center{text-align:center}.mt{margin-top:16px}.mb0{margin-bottom:0!important}
+    @media(max-width:1080px){.hero{grid-template-columns:1fr}.quickGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.lessonDeck,.sheetGrid,.teacherGrid,.gameInfoGrid{grid-template-columns:1fr}.gameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.calcGrid{grid-template-columns:1fr}.opMark{font-size:36px}.nav{max-width:52vw}}
+    @media(max-width:760px){body{font-size:18px}.topbar{align-items:flex-start}.brandText span{display:none}.nav{max-width:100%;width:100%;order:2}.topbar{flex-wrap:wrap}.heroCard{padding:24px;border-radius:32px}.sideCard,.sectionCard,.screenCard{border-radius:32px}.quickGrid,.stepBand,.gameGrid,.choiceGrid{grid-template-columns:1fr}.miniGrid{grid-template-columns:1fr 1fr}.sectionTitle{align-items:flex-start;flex-direction:column}.sheetHeader{flex-direction:column}.introHeader{grid-template-columns:1fr;text-align:center}.questionBox{padding:22px;border-radius:28px}.choice{font-size:28px}.workInput{width:130px}.niceTable{min-width:680px}.timeRow,.rubricItem{grid-template-columns:1fr}}
+    @media print{body{background:white;color:#000;font-size:16px}.topbar,.hero,.nav,.quickGrid,.worksheetTabs,.checkBar,.gameShell,.footer,.noPrint{display:none!important}.section{margin:0 0 20px}.wrap{width:100%;margin:0}.glass,.heroCard,.sideCard,.sectionCard,.miniCard,.lessonCard,.sheetCard,.screenCard{box-shadow:none!important;background:white;border:1px solid #ccc;border-radius:14px;break-inside:avoid}.lessonDeck,.sheetGrid,.teacherGrid{grid-template-columns:1fr}.worksheetPanel{display:block!important}.printOnly{display:block}.answerHint{display:none!important}}
   </style>
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brandMark">∑</div>
-        <div class="brandText">
-          <b>Little Steps Math Quest</b>
-          <span>คณิตศาสตร์ ป.4 • ชั่วโมงที่ 2 + ทบทวนค่าประจำหลัก</span>
-        </div>
-      </div>
-      <div class="topActions">
-        <button class="ghostBtn" id="homeBtnTop">🏠 หน้าหลัก</button>
-      </div>
-    </header>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandMark">±</div>
+      <div class="brandText"><b>Little Steps Math</b><span>ป.4 • ชั่วโมงที่ 3 • บวก–ลบหลายหลักและเปรียบเทียบค่า</span></div>
+    </div>
+    <nav class="nav" aria-label="เมนูบทเรียน">
+      <button class="navBtn active" data-go="home">หน้าหลัก</button>
+      <button class="navBtn" data-go="lesson">เนื้อหา</button>
+      <button class="navBtn" data-go="knowledge">ใบความรู้</button>
+      <button class="navBtn" data-go="worksheet">ใบงาน</button>
+      <button class="navBtn" data-go="game">เกม</button>
+      <button class="navBtn" data-go="teacher">แผนครู</button>
+    </nav>
+  </header>
 
-    <section id="screenMenu">
-      <div class="hero">
-        <div class="heroCard">
-          <span class="kicker">👣 เกมสมุดจดบันทึก • 10 ข้อต่อหมวด</span>
-          <h1>เกมคณิตศาสตร์ ป.4<br>ชั่วโมงที่ 2</h1>
-          <p class="lead">เลือกหมวดเกมตามลำดับบทเรียน เริ่มจากทบทวนค่าประจำหลัก แล้วไปสู่การเปรียบเทียบ เรียงลำดับ ปัดเศษ และประมาณค่า</p>
-          <div class="heroPills">
-            <span class="pill">📘 อธิบายก่อนเล่น</span>
-            <span class="pill">🎲 สุ่มโจทย์ตามหลัก</span>
-            <span class="pill">✅ เฉลยพร้อมเหตุผล</span>
-            <span class="pill">📝 เหมาะกับทำลงสมุด</span>
-          </div>
-        </div>
-        <aside class="sideQuest">
-          <div class="mascotBox">
-            <div class="bigIcon">🧭</div>
-            <h2>โหมดคะแนนใหม่</h2>
-            <p>สีละมุนขึ้นแบบ iOS พร้อมคะแนน 2 แบบ: จำนวนข้อที่ถูก และคะแนนรวมจากความถูกต้อง + เวลา + การตอบถูกต่อเนื่อง</p>
-          </div>
-          <div class="miniGrid">
-            <div class="miniStat"><b>8</b><span>หมวดเกม</span></div>
-            <div class="miniStat"><b>10</b><span>ข้อสุ่มต่อรอบ</span></div>
-            <div class="miniStat"><b>เวลา</b><span>มีผลต่อโบนัส</span></div>
-            <div class="miniStat"><b>1,000+</b><span>คะแนนต่อข้อถูก</span></div>
-          </div>
-        </aside>
+  <section class="hero" id="home">
+    <div class="heroCard">
+      <span class="kicker">🌷 iOS Pastel Learning • พอดีจอ iPad</span>
+      <h1>บวก–ลบหลายหลัก<br>แล้วเปรียบเทียบค่า</h1>
+      <p class="lead">บทเรียนนี้พาเด็กคิดเป็นขั้นตอนจาก “คำนวณให้ถูก” ไปสู่ “ตัดสินค่าอย่างมีเหตุผล” เหมาะกับใช้สอนหน้าชั้น เปิดบน iPad หรือให้เด็กเล่นทบทวนท้ายคาบ</p>
+      <div class="heroPills">
+        <span class="pill">🧮 ตั้งหลักให้ตรง</span>
+        <span class="pill">👀 ดูสองฝั่งให้ครบ</span>
+        <span class="pill">⚖️ ใช้ &gt; &lt; = ถูกต้อง</span>
+        <span class="pill">🎮 เกมสุ่มโจทย์พร้อมเฉลย</span>
       </div>
+    </div>
+    <aside class="sideCard">
+      <div class="mascot"><div class="big">🦦</div><h2>สูตรจำประจำคาบ</h2><p>“คิดซ้าย → คิดขวา → เทียบค่า → ใส่เครื่องหมาย” เด็กต้องไม่รีบเดาจากตัวเลขที่เห็น ต้องหาค่าของทั้งสองฝั่งก่อนทุกครั้ง</p></div>
+      <div class="miniGrid">
+        <div class="miniStat"><b>6</b><span>หน้าบทเรียน</span></div>
+        <div class="miniStat"><b>3</b><span>ใบงานเสริม</span></div>
+        <div class="miniStat"><b>3</b><span>โหมดเกม</span></div>
+        <div class="miniStat"><b>10</b><span>ข้อสุ่มต่อรอบ</span></div>
+      </div>
+    </aside>
+  </section>
 
-      <main class="wrap">
-        <div class="sectionTitle">
-          <div>
-            <h2>เลือกหมวดเกม</h2>
-            <p>เรียงตามเส้นทางการสอน: ทบทวน → เปรียบเทียบ → เรียงลำดับ → ปัดเศษ → ประมาณค่า</p>
-          </div>
-          <button class="ghostBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️ กลับบนสุด</button>
-        </div>
-        <div class="noteStrip">
-          <div class="note"><b>ครูใช้ยังไง</b><span>ให้เด็กตอบบนจอ แล้วเขียนเหตุผลหรือหลักที่ใช้คิดลงสมุด</span></div>
-          <div class="note"><b>เด็กได้ฝึกอะไร</b><span>มองหลักเลข วงจุดสำคัญ และอธิบายเหตุผลหลังคำตอบ</span></div>
-          <div class="note"><b>คะแนนใหม่</b><span>ข้อถูกเป็นหลัก คะแนนรวมใช้เวลาและคอมโบช่วยกระตุ้นให้คิดไวขึ้น</span></div>
-        </div>
-        <div class="gameGrid" id="gameGrid"></div>
-      </main>
-    </section>
-
-    <section class="screen hidden" id="screenIntro">
-      <div class="screenCard">
-        <div class="crumb"><span>หน้าหลัก</span><span id="introOrder">หมวด</span><span>อธิบายก่อนเล่น</span></div>
-        <div class="introHeader">
-          <div class="introIcon" id="introIcon">🧩</div>
-          <div>
-            <h2 id="introTitle">ชื่อเกม</h2>
-            <p id="introSubtitle">รายละเอียดเกม</p>
-          </div>
-        </div>
-        <div class="infoGrid">
-          <div class="infoBox">
-            <h3>เด็กต้องทำอะไร</h3>
-            <ul id="introHow"></ul>
-          </div>
-          <div class="infoBox">
-            <h3>หลักการสุ่มโจทย์</h3>
-            <ul id="introRule"></ul>
-          </div>
-        </div>
-        <div class="teacherTip" id="introTip"></div>
-        <div class="scoreHintBox"><b>ระบบคะแนนใหม่:</b> แสดง 2 ค่าแยกกัน คือ <b>จำนวนข้อที่ถูก</b> และ <b>คะแนนรวม</b> โดยคำตอบถูกได้ 1,000 คะแนนเป็นฐาน แล้วมีโบนัสเวลาและโบนัสตอบถูกต่อเนื่องเล็กน้อย เพื่อกระตุ้นให้เด็กคิดไวขึ้น แต่ความถูกต้องยังสำคัญที่สุด</div>
-        <div class="introActions">
-          <button class="ghostBtn" id="backMenuBtn">← กลับไปเลือกหมวด</button>
-          <button class="primaryBtn" id="startBtn">เริ่มเล่น 10 ข้อ →</button>
-        </div>
+  <main class="wrap">
+    <section class="section" id="overview">
+      <div class="sectionTitle"><div><h2>ภาพรวมบทเรียน</h2><p>จัดเนื้อหาให้เด็กเห็นเส้นทางคิด ไม่หลงเครื่องหมาย และตรวจคำตอบเองได้</p></div><button class="ghostBtn noPrint" onclick="window.print()">🖨️ พิมพ์ใบงาน/ใบความรู้</button></div>
+      <div class="quickGrid">
+        <div class="quickCard"><div class="quickIcon">🎯</div><b>เป้าหมาย</b><span>คำนวณผลบวก ผลลบ และเปรียบเทียบค่าของประโยคตัวเลขสองฝั่งได้</span></div>
+        <div class="quickCard"><div class="quickIcon">🧠</div><b>ทักษะคิด</b><span>อ่านโจทย์ แยกฝั่ง คำนวณ ตรวจผลลัพธ์ และอธิบายเหตุผลสั้น ๆ</span></div>
+        <div class="quickCard"><div class="quickIcon">👩‍🏫</div><b>ใช้สอน</b><span>เปิดเป็นสไลด์บทเรียน ใช้ใบงานท้ายคาบ หรือใช้เกมเป็น Exit Ticket</span></div>
+        <div class="quickCard"><div class="quickIcon">📱</div><b>เหมาะกับ iPad</b><span>ปุ่มใหญ่ แตะง่าย สีอ่อน แต่ข้อความคมชัด และเลื่อนอ่านเป็นช่วง ๆ</span></div>
+      </div>
+      <div class="stepBand">
+        <div class="step" data-step="1"><b>คำนวณฝั่งซ้าย</b><span>อ่านให้ครบว่าฝั่งซ้ายเป็นการบวกหรือลบ แล้วหาค่าให้ถูกต้อง</span></div>
+        <div class="step" data-step="2"><b>คำนวณฝั่งขวา</b><span>ทำเหมือนฝั่งซ้าย อย่าเพิ่งใส่เครื่องหมายจนกว่าจะได้คำตอบทั้งสองฝั่ง</span></div>
+        <div class="step" data-step="3"><b>เปรียบเทียบค่า</b><span>นำผลลัพธ์สองฝั่งมาเทียบกัน แล้วเลือก &gt; &lt; หรือ = พร้อมบอกเหตุผล</span></div>
       </div>
     </section>
 
-    <section class="screen hidden" id="screenPlay">
-      <div class="screenCard">
-        <div class="playHeader">
-          <div class="statusRow">
-            <div class="statusPills">
-              <span class="statusPill" id="gameNamePill">เกม</span>
-              <span class="statusPill" id="questionTextPill">ข้อ 1/10</span>
-              <span class="statusPill correctPill" id="scoreText">ถูก 0/10</span>
-              <span class="statusPill pointsPill" id="pointText">คะแนน 0</span>
-              <span class="statusPill timerPill" id="timerText">เวลา 0.0 วิ</span>
-            </div>
-            <button class="dangerBtn" id="quitBtn">ออกจากเกม</button>
-          </div>
-          <div class="progressTrack"><div class="progressBar" id="progressBar"></div></div>
-        </div>
-
-        <div class="questionBox">
-          <span class="questionLabel" id="questionLabel">โจทย์</span>
-          <div class="questionText" id="questionText">...</div>
-          <div class="subText" id="subText"></div>
-        </div>
-
-        <div class="choiceGrid" id="choiceArea"></div>
-
-        <div class="orderArea hidden" id="orderArea">
-          <div class="orderZone">
-            <div class="orderTitle">ตัวเลขที่ให้มา — คลิกเพื่อจัดลำดับ</div>
-            <div class="smallChoices" id="orderPool"></div>
-          </div>
-          <div class="orderZone">
-            <div class="orderTitle">ลำดับที่เลือก</div>
-            <div class="smallChoices" id="orderSelected"></div>
-          </div>
-          <div class="orderButtons">
-            <button class="primaryBtn" id="checkOrderBtn">ตรวจคำตอบ</button>
-            <button class="ghostBtn" id="resetOrderBtn">เริ่มเลือกใหม่</button>
-          </div>
-        </div>
-
-        <div class="feedback hidden" id="feedback"></div>
-
-        <div class="nextRow">
-          <div class="hintText">เคล็ดลับ: หลังตอบ ให้เด็กเขียน “เพราะ...” ลงสมุด 1 บรรทัด</div>
-          <button class="primaryBtn hidden" id="nextBtn">ข้อต่อไป</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen hidden" id="screenResult">
-      <div class="screenCard resultCard">
-        <div class="medal" id="medal">🏅</div>
-        <div class="finalScore" id="finalScore">0/10</div>
-        <div class="finalPointScore" id="finalPointScore">0 คะแนน</div>
-        <div class="resultStats">
-          <div class="resultStat"><b id="resultCorrectStat">0</b><span>ข้อที่ตอบถูก</span></div>
-          <div class="resultStat"><b id="resultTimeStat">0.0 วิ</b><span>เวลาเฉลี่ยต่อข้อ</span></div>
-          <div class="resultStat"><b id="resultStreakStat">0</b><span>ตอบถูกต่อเนื่องสูงสุด</span></div>
-        </div>
-        <h2 id="resultTitle">เล่นจบแล้ว!</h2>
-        <p id="resultMessage">ข้อความสรุป</p>
-        <div class="reviewPanel" id="reviewPanel">
-          <div class="reviewHead">
-            <div>
-              <h3>ตรวจย้อนหลังรายข้อ</h3>
-              <p>ดูได้ทันทีว่าข้อไหนถูก/ผิด กาอะไรไป คำตอบที่ถูกคืออะไร และได้คะแนนเท่าไร</p>
-            </div>
-            <span class="reviewScrollHint">เลื่อนลงเพื่อดูครบ 10 ข้อ</span>
-          </div>
-          <div class="reviewList" id="reviewList"></div>
-        </div>
-        <div class="resultActions">
-          <button class="primaryBtn" id="playAgainBtn">เล่นหมวดนี้อีกครั้ง</button>
-          <button class="ghostBtn" id="resultMenuBtn">กลับหน้าหลัก</button>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    const TOTAL = 10;
-    const $ = id => document.getElementById(id);
-    const fmt = n => Number(n).toLocaleString('en-US');
-    const randInt = (min,max)=>Math.floor(Math.random()*(max-min+1))+min;
-    const shuffle = arr => arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
-    const uniq = arr => [...new Set(arr.map(x=>String(x)))];
-    const fmtTime = seconds => `${seconds.toFixed(1)} วิ`;
-    function stopTimer(){
-      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
-      const elapsed = questionStartTime ? (performance.now() - questionStartTime) / 1000 : 0;
-      totalAnswerTime += elapsed;
-      return elapsed;
-    }
-    function startTimer(){
-      if(timerInterval){ clearInterval(timerInterval); }
-      questionStartTime = performance.now();
-      $('timerText').textContent = 'เวลา 0.0 วิ';
-      timerInterval = setInterval(()=>{
-        const elapsed = (performance.now() - questionStartTime) / 1000;
-        $('timerText').textContent = `เวลา ${fmtTime(elapsed)}`;
-      },100);
-    }
-    function getSpeedBonus(seconds){
-      if(seconds <= 4) return 60;
-      if(seconds <= 7) return 45;
-      if(seconds <= 10) return 30;
-      if(seconds <= 15) return 15;
-      return 0;
-    }
-    function getSpeedLabel(seconds){
-      if(seconds <= 7) return '<span class="speedGood">เร็วมาก</span>';
-      if(seconds <= 15) return '<span class="speedMid">กำลังดี</span>';
-      return '<span class="speedSlow">ช้าแต่รอบคอบ</span>';
-    }
-    function calculatePoints(ok, seconds){
-      if(!ok){
-        streak = 0;
-        return {earned:0, base:0, speed:0, streakBonus:0, seconds, label:getSpeedLabel(seconds)};
-      }
-      streak++;
-      bestStreak = Math.max(bestStreak, streak);
-      const base = 1000;
-      const speed = getSpeedBonus(seconds);
-      const streakBonus = Math.min((streak-1)*10,40);
-      const earned = base + speed + streakBonus;
-      pointScore += earned;
-      return {earned, base, speed, streakBonus, seconds, label:getSpeedLabel(seconds)};
-    }
-    function updateScorePills(){
-      $('scoreText').textContent = `ถูก ${score}/${TOTAL}`;
-      $('pointText').textContent = `คะแนน ${fmt(pointScore)}`;
-    }
-    const placeNames = ['หลักแสน','หลักหมื่น','หลักพัน','หลักร้อย','หลักสิบ','หลักหน่วย'];
-    const placeValues = [100000,10000,1000,100,10,1];
-
-    let currentGame = null;
-    let questions = [];
-    let currentQuestion = null;
-    let index = 0;
-    let score = 0; // จำนวนข้อที่ตอบถูก
-    let pointScore = 0; // คะแนนรวมแบบหลักพัน
-    let locked = false;
-    let orderSelected = [];
-    let streak = 0;
-    let bestStreak = 0;
-    let totalAnswerTime = 0;
-    let questionStartTime = 0;
-    let timerInterval = null;
-    let lastPointInfo = null;
-    let reviewLog = [];
-
-    const games = [
-      {
-        id:'placevalue', order:1, icon:'🏠', title:'ทบทวนค่าประจำหลัก', subtitle:'อ่านบ้านหลัก บอกหลัก และค่าของเลขโดด', tags:['ทบทวน','บ้านหลัก','ก่อนเปรียบเทียบ'],
-        how:['ดูจำนวน 6 หลักที่ระบบสุ่ม','ตอบว่าเลขโดดอยู่หลักใด หรือมีค่าเท่าไร','บางข้อให้เลือกตัวเลขในหลักที่กำหนด'],
-        rule:['สุ่มจำนวนตั้งแต่ 100,000–999,999','เลือกเลขโดดจากตำแหน่งจริงในจำนวน','ตัวเลือกจะมีหลักใกล้กันเพื่อให้เด็กต้องดูตำแหน่ง ไม่ใช่เดา'],
-        tip:'ครูแนะนำให้เด็กวาด “บ้านหลัก” 6 ช่องในสมุดก่อนตอบ 2–3 ข้อแรก เพื่อเชื่อมกับชั่วโมงที่ 1',
-        make: makePlaceValueQuestion
-      },
-      {
-        id:'compare', order:2, icon:'⚖️', title:'เปรียบเทียบจำนวน', subtitle:'ใส่เครื่องหมาย > < = ให้ถูกต้อง', tags:['> < =','ดูซ้ายไปขวา','หลักแสนเท่ากัน'],
-        how:['อ่านจำนวนสองจำนวน','ดูจำนวนหลักและเทียบจากซ้ายไปขวา','เลือกเครื่องหมาย > < หรือ = พร้อมดูเฉลยเหตุผล'],
-        rule:['สุ่มให้เป็นจำนวน 6 หลัก','หลักแสนจะเหมือนกันเสมอ','หลักหมื่นมีโอกาสเหมือนกันสูง เพื่อบังคับให้ดูหลักถัดไป'],
-        tip:'ให้เด็กวง “หลักแรกที่ต่างกัน” ในสมุดก่อนกดตอบทุกข้อ',
-        make: makeCompareQuestion
-      },
-      {
-        id:'firstdiff', order:3, icon:'🔎', title:'วงหลักแรกที่ต่างกัน', subtitle:'หาหลักสำคัญที่ใช้ตัดสินจำนวน', tags:['วงหลัก','ลดการดูเลขท้าย','เหตุผล'],
-        how:['ดูจำนวนสองจำนวน','ไล่ดูจากหลักแสนไปหลักหน่วย','ตอบว่าหลักแรกที่ต่างกันคือหลักใด'],
-        rule:['สุ่มให้หลักด้านซ้ายหลายหลักเหมือนกัน','บังคับให้ต่างกันที่ตำแหน่งใดตำแหน่งหนึ่ง','ตัวเลือกเป็นชื่อหลัก เพื่อฝึกภาษาและตำแหน่ง'],
-        tip:'หมวดนี้เหมาะใช้ก่อนสอนเรียงลำดับ เพราะเด็กจะรู้ว่าควรดูหลักไหนก่อน',
-        make: makeFirstDiffQuestion
-      },
-      {
-        id:'order', order:4, icon:'📶', title:'เรียงลำดับจำนวน', subtitle:'คลิกเรียงจากน้อยไปมาก', tags:['4 จำนวน','น้อยไปมาก','จำนวนใกล้กัน'],
-        how:['อ่านตัวเลข 4 จำนวน','คลิกเลือกจากน้อยไปมาก','ถ้าเลือกผิด กดเริ่มเลือกใหม่ได้ก่อนตรวจ'],
-        rule:['สุ่มเลขให้มีหลักแสนใกล้เคียงกัน','บางคู่จะใกล้กันมาก เพื่อให้ต้องดูหลักหมื่น/หลักพัน','เรียงคำตอบจากค่าน้อยที่สุดไปมากที่สุด'],
-        tip:'ครูอาจให้เด็กเขียนตัวเลขซ้อนกันในสมุด แล้ววงหลักแรกที่ต่างกันก่อนจัดลำดับ',
-        make: makeOrderQuestion
-      },
-      {
-        id:'rounding', order:5, icon:'🎯', title:'ปัดเศษจำนวน', subtitle:'เลือกหลักที่จะปัด แล้วดูเลขถัดไป', tags:['หลักหมื่น','หลักแสน','0–4 / 5–9'],
-        how:['ดูจำนวนที่กำหนด','ดูว่าจะปัดเป็นหลักหมื่นหรือหลักแสน','เลือกคำตอบที่เป็นค่าประมาณที่ถูกต้อง'],
-        rule:['สุ่มจำนวน 6 หลัก','สุ่มหลักที่ต้องปัดระหว่างหลักหมื่นกับหลักแสน','ตัวเลือกจะใกล้คำตอบจริง เพื่อให้เด็กต้องดูเลขถัดไป'],
-        tip:'ให้เด็กขีดเส้นใต้ “หลักที่ปัด” และวง “เลขถัดไป” ก่อนตอบ',
-        make: makeRoundingQuestion
-      },
-      {
-        id:'estimate', order:6, icon:'➕', title:'ประมาณผลรวม', subtitle:'ปัดก่อน แล้วบวกเพื่อดูคำตอบใกล้เคียง', tags:['บวก','ปัดก่อนบวก','สมเหตุสมผล'],
-        how:['ดูโจทย์บวก 2 จำนวน','ปัดแต่ละจำนวนตามหลักที่กำหนด','นำค่าประมาณมาบวกกัน'],
-        rule:['สุ่มโจทย์บวกจำนวน 6 หลัก 2 จำนวน','สุ่มว่าจะปัดเป็นหลักหมื่นหรือหลักแสน','คำตอบเน้นค่าประมาณ ไม่ใช่ผลบวกจริง'],
-        tip:'ครูควรถามต่อว่า “คำตอบจริงควรใกล้กว่านี้ไหม” เพื่อเชื่อมกับการตรวจความสมเหตุสมผล',
-        make: makeEstimateQuestion
-      },
-      {
-        id:'closest', order:7, icon:'🧲', title:'จำนวนใกล้เป้าหมายที่สุด', subtitle:'เลือกจำนวนที่ใกล้เลขเป้าหมายมากที่สุด', tags:['ใกล้เคียง','ระยะห่าง','เป้าหมาย'],
-        how:['ดูเลขเป้าหมายด้านบน','เปรียบเทียบตัวเลือกแต่ละจำนวนกับเป้าหมาย','เลือกจำนวนที่มีระยะห่างน้อยที่สุด'],
-        rule:['สุ่มเป้าหมาย เช่น 500,000 / 700,000 / 900,000','สร้างตัวเลือกที่อยู่ใกล้และไกลปะปนกัน','เฉลยจะแสดงระยะห่างของคำตอบที่ถูก'],
-        tip:'ให้เด็กเขียน “ห่างจากเป้าหมายเท่าไร” อย่างน้อย 1 ตัวเลือกในสมุด',
-        make: makeClosestQuestion
-      },
-      {
-        id:'mixed', order:8, icon:'🏆', title:'ท้าทายรวมท้ายชั่วโมง', subtitle:'รวมค่าประจำหลัก เปรียบเทียบ เรียงลำดับ ปัดเศษ และประมาณค่า', tags:['Exit Ticket','รวมบทเรียน','ท้ายคาบ'],
-        how:['ตอบโจทย์แบบสุ่มจากทุกหมวด','อ่านเฉลยหลังตอบแต่ละข้อ','ใช้คะแนนรวมประเมินความเข้าใจท้ายชั่วโมง'],
-        rule:['สุ่มจากทุกเนื้อหาในชั่วโมงที่ 2 รวมทบทวนค่าประจำหลัก','บางข้อเป็นเลือกคำตอบ บางข้อเป็นเรียงลำดับ','ระบบสร้างโจทย์ใหม่ทุกครั้งที่เล่น'],
-        tip:'หมวดนี้ใช้เป็น Exit Ticket ได้ดี ครูดูได้ว่าเด็กพลาดเรื่องใดบ่อยที่สุดจากเฉลยรายข้อ',
-        make: makeMixedQuestion
-      }
-    ];
-
-    function show(id){
-      ['screenMenu','screenIntro','screenPlay','screenResult'].forEach(s=>$(s).classList.add('hidden'));
-      $(id).classList.remove('hidden');
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-
-    function initCards(){
-      const grid = $('gameGrid');
-      grid.innerHTML = '';
-      games.forEach(g=>{
-        const card = document.createElement('article');
-        card.className = 'gameCard';
-        card.innerHTML = `
-          <div>
-            <div class="gameTop"><div class="iconBubble">${g.icon}</div><div class="orderBadge">${g.order}</div></div>
-            <h3>${g.title}</h3>
-            <p>${g.subtitle}</p>
-            <div class="tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-          </div>
-          <button class="playCardBtn">ดูรายละเอียด / เริ่มเกม</button>
-        `;
-        card.querySelector('button').onclick = ()=>openIntro(g.id);
-        grid.appendChild(card);
-      });
-    }
-
-    function openIntro(gameId){
-      currentGame = games.find(g=>g.id===gameId);
-      $('introOrder').textContent = `หมวด ${currentGame.order}`;
-      $('introIcon').textContent = currentGame.icon;
-      $('introTitle').textContent = currentGame.title;
-      $('introSubtitle').textContent = currentGame.subtitle;
-      $('introHow').innerHTML = currentGame.how.map(x=>`<li>${x}</li>`).join('');
-      $('introRule').innerHTML = currentGame.rule.map(x=>`<li>${x}</li>`).join('');
-      $('introTip').innerHTML = `<b>แนวทางครู:</b> ${currentGame.tip}`;
-      show('screenIntro');
-    }
-
-    function startGame(){
-      questions = Array.from({length:TOTAL},()=>currentGame.make());
-      index = 0; score = 0; pointScore = 0; streak = 0; bestStreak = 0; totalAnswerTime = 0; locked = false; orderSelected = [];
-      lastPointInfo = null;
-      reviewLog = [];
-      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
-      $('gameNamePill').textContent = `${currentGame.icon} ${currentGame.title}`;
-      $('progressBar').style.width = '0%';
-      renderQuestion();
-      show('screenPlay');
-    }
-
-    function renderQuestion(){
-      locked = false;
-      orderSelected = [];
-      currentQuestion = questions[index];
-      $('questionTextPill').textContent = `ข้อ ${index+1}/${TOTAL}`;
-      updateScorePills();
-      $('questionLabel').textContent = currentQuestion.label || 'โจทย์';
-      $('questionText').innerHTML = currentQuestion.text;
-      $('subText').innerHTML = currentQuestion.sub || '';
-      $('feedback').className = 'feedback hidden';
-      $('feedback').innerHTML = '';
-      $('nextBtn').classList.add('hidden');
-      $('choiceArea').innerHTML = '';
-      $('orderArea').classList.add('hidden');
-      $('choiceArea').classList.remove('hidden');
-      if(currentQuestion.type === 'order') renderOrderQuestion();
-      else renderChoiceQuestion();
-      startTimer();
-    }
-
-    function renderChoiceQuestion(){
-      currentQuestion.choices.forEach(choice=>{
-        const btn = document.createElement('button');
-        btn.className = 'choice';
-        btn.textContent = choice;
-        btn.onclick = () => answerChoice(btn, choice);
-        $('choiceArea').appendChild(btn);
-      });
-    }
-
-    function answerChoice(btn, choice){
-      if(locked) return;
-      locked = true;
-      const ok = String(choice) === String(currentQuestion.answer);
-      const elapsed = stopTimer();
-      if(ok) score++;
-      lastPointInfo = calculatePoints(ok, elapsed);
-      recordReview(ok, String(choice), lastPointInfo);
-      [...$('choiceArea').children].forEach(b=>{
-        b.disabled = true;
-        if(b.textContent === String(currentQuestion.answer)) b.classList.add('correct');
-      });
-      if(!ok) btn.classList.add('wrong');
-      showFeedback(ok, lastPointInfo);
-    }
-
-    function renderOrderQuestion(){
-      $('choiceArea').classList.add('hidden');
-      $('orderArea').classList.remove('hidden');
-      $('orderPool').innerHTML = '';
-      $('orderSelected').innerHTML = '';
-      currentQuestion.numbers.forEach(n=>{
-        const btn = document.createElement('button');
-        btn.className = 'smallChoice';
-        btn.textContent = fmt(n);
-        btn.dataset.value = String(n);
-        btn.onclick = ()=>{
-          if(locked || btn.classList.contains('used')) return;
-          btn.classList.add('used');
-          orderSelected.push(n);
-          renderSelectedOrder();
-        };
-        $('orderPool').appendChild(btn);
-      });
-    }
-
-    function renderSelectedOrder(){
-      $('orderSelected').innerHTML = '';
-      orderSelected.forEach((n,i)=>{
-        const btn = document.createElement('button');
-        btn.className = 'smallChoice selected';
-        btn.textContent = `${i+1}. ${fmt(n)}`;
-        btn.onclick = ()=>{
-          if(locked) return;
-          orderSelected.splice(i,1);
-          [...$('orderPool').children].forEach(b=>{ if(b.dataset.value===String(n)) b.classList.remove('used'); });
-          renderSelectedOrder();
-        };
-        $('orderSelected').appendChild(btn);
-      });
-    }
-
-    function checkOrder(){
-      if(locked) return;
-      if(orderSelected.length !== currentQuestion.numbers.length){
-        $('feedback').className = 'feedback bad';
-        $('feedback').innerHTML = '<b>ยังเลือกไม่ครบ</b><p>คลิกตัวเลขให้ครบทุกจำนวนก่อนตรวจคำตอบ</p>';
-        return;
-      }
-      locked = true;
-      const elapsed = stopTimer();
-      const ok = orderSelected.join(',') === currentQuestion.answerRaw.join(',');
-      if(ok) score++;
-      lastPointInfo = calculatePoints(ok, elapsed);
-      recordReview(ok, orderSelected.map(fmt).join(' → '), lastPointInfo);
-      showFeedback(ok, lastPointInfo);
-    }
-
-    function resetOrder(){
-      if(locked) return;
-      orderSelected = [];
-      [...$('orderPool').children].forEach(b=>b.classList.remove('used'));
-      renderSelectedOrder();
-      $('feedback').className = 'feedback hidden';
-      $('feedback').innerHTML = '';
-    }
-
-    function recordReview(ok, selectedAnswer, pointInfo){
-      reviewLog.push({
-        no:index+1,
-        label:currentQuestion.label || currentGame.title,
-        question:currentQuestion.text,
-        sub:currentQuestion.sub || '',
-        selected:selectedAnswer || 'ยังไม่ได้เลือก',
-        correct:currentQuestion.answer,
-        ok,
-        explain:currentQuestion.explain,
-        seconds:pointInfo ? pointInfo.seconds : 0,
-        earned:pointInfo ? pointInfo.earned : 0,
-        game:currentGame.title
-      });
-    }
-
-    function showFeedback(ok, pointInfo){
-      updateScorePills();
-      const timeLine = pointInfo ? `<div class="earnedLine">
-        <span class="earnedBadge">⏱️ เวลา ${fmtTime(pointInfo.seconds)} • ${pointInfo.label}</span>
-        <span class="earnedBadge">🎯 คะแนนข้อนี้ +${fmt(pointInfo.earned)}</span>
-        ${ok ? `<span class="earnedBadge">ฐาน ${fmt(pointInfo.base)} + เวลา ${pointInfo.speed} + ต่อเนื่อง ${pointInfo.streakBonus}</span>` : `<span class="earnedBadge">ตอบผิดไม่ได้คะแนน และคอมโบเริ่มใหม่</span>`}
-      </div>` : '';
-      $('feedback').className = `feedback ${ok?'good':'bad'}`;
-      $('feedback').innerHTML = `<b>${ok?'ถูกต้อง เก่งมาก!':'ยังไม่ถูก ลองดูเหตุผลนะ'}</b><br><span class="answerLine">คำตอบ: ${currentQuestion.answer}</span>${timeLine}<p>${currentQuestion.explain}</p>`;
-      $('nextBtn').textContent = index === TOTAL-1 ? 'ดูคะแนนสรุป' : 'ข้อต่อไป';
-      $('nextBtn').classList.remove('hidden');
-      $('progressBar').style.width = `${((index+1)/TOTAL)*100}%`;
-    }
-
-    function nextQuestion(){
-      if(index < TOTAL-1){ index++; renderQuestion(); }
-      else showResult();
-    }
-
-    function escapeHTML(value){
-      return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-    }
-    function renderReview(){
-      const list = $('reviewList');
-      if(!list) return;
-      if(!reviewLog.length){
-        list.innerHTML = '<div class="reviewItem"><p class="reviewQuestion">ยังไม่มีข้อมูลรายข้อ</p></div>';
-        return;
-      }
-      list.innerHTML = reviewLog.map(item=>`
-        <article class="reviewItem ${item.ok?'ok':'no'}">
-          <div class="reviewTop">
-            <div class="reviewNo">ข้อ ${item.no} • ${escapeHTML(item.label)}</div>
-            <span class="reviewBadge ${item.ok?'ok':'no'}">${item.ok?'✅ ถูก':'❌ ผิด'}</span>
-          </div>
-          <div class="reviewQuestion">${item.question}</div>
-          ${item.sub ? `<div class="subText" style="font-size:16px;text-align:left;margin:0 0 8px">${item.sub}</div>` : ''}
-          <div class="reviewGrid">
-            <div class="reviewBox"><b>นักเรียนกา/เลือกไป</b><span>${escapeHTML(item.selected)}</span></div>
-            <div class="reviewBox"><b>คำตอบที่ถูก</b><span>${escapeHTML(item.correct)}</span></div>
-          </div>
-          <div class="reviewMeta">
-            <span>⏱️ เวลา ${fmtTime(item.seconds || 0)}</span>
-            <span>🎯 คะแนนข้อนี้ +${fmt(item.earned || 0)}</span>
-          </div>
-          <p class="reviewExplain"><b>เหตุผล:</b> ${escapeHTML(item.explain)}</p>
+    <section class="section" id="lesson">
+      <div class="sectionTitle"><div><h2>หน้าอ่าน / เนื้อหาบทเรียน</h2><p>ปรับให้เป็นการ์ดสั้น ๆ ชัดเจน เหมาะเปิดสอนทีละช่วงบนจอ iPad</p></div></div>
+      <div class="lessonDeck">
+        <article class="lessonCard full">
+          <div class="lessonTop"><div class="lessonIcon">⚖️</div><div><h3>1) โจทย์เปรียบเทียบค่าไม่เหมือนโจทย์บวก–ลบธรรมดา</h3><p>โจทย์ลักษณะนี้มีสองฝั่ง เช่น <b>24,500 + 10,000 ___ 40,000 - 6,000</b> นักเรียนต้องหาค่าฝั่งซ้ายและฝั่งขวาก่อน แล้วจึงใส่เครื่องหมาย</p></div></div>
+          <div class="exampleBox"><div class="mathLine">24,500 + 10,000 ___ 40,000 - 6,000</div><div class="calcGrid"><div class="calcBox"><b>ฝั่งซ้าย</b><div class="value">34,500</div><span>24,500 + 10,000</span></div><div class="opMark">&gt;</div><div class="calcBox"><b>ฝั่งขวา</b><div class="value">34,000</div><span>40,000 - 6,000</span></div></div><div class="noteBox"><b>สรุป:</b> 34,500 มากกว่า 34,000 จึงเติมเครื่องหมาย <b>&gt;</b></div></div>
         </article>
-      `).join('');
-    }
 
-    function showResult(){
-      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
-      const avgTime = totalAnswerTime / TOTAL;
-      $('finalScore').textContent = `${score}/${TOTAL}`;
-      $('finalPointScore').textContent = `${fmt(pointScore)} คะแนน`;
-      $('resultCorrectStat').textContent = `${score}/${TOTAL}`;
-      $('resultTimeStat').textContent = fmtTime(avgTime || 0);
-      $('resultStreakStat').textContent = `${bestStreak} ข้อ`;
-      $('resultTitle').textContent = `${currentGame.title} — เล่นจบแล้ว!`;
-      let msg = 'ควรทบทวนอีกครั้ง โดยให้เด็กวงหลักสำคัญและเขียนเหตุผลลงสมุดก่อนตอบ';
-      let medal = '💪';
-      if(score>=9){ msg = 'ยอดเยี่ยมมาก เข้าใจหลักการและตอบได้แม่นยำ ถ้าตอบได้เร็วขึ้นคะแนนโบนัสจะยิ่งสูงขึ้น'; medal='🏆'; }
-      else if(score>=7){ msg = 'ดีมาก เหลือเพียงบางข้อที่ควรตรวจหลักและเหตุผลให้ละเอียดขึ้น แล้วลองเพิ่มความเร็วทีละนิด'; medal='🏅'; }
-      else if(score>=5){ msg = 'พอใช้ได้ ให้ฝึกเพิ่มโดยจดขั้นตอนทีละข้อในสมุดก่อน แล้วค่อยเร่งเวลาเมื่อเริ่มแม่น'; medal='⭐'; }
-      $('medal').textContent = medal;
-      $('resultMessage').textContent = msg;
-      renderReview();
-      show('screenResult');
-    }
+        <article class="lessonCard">
+          <div class="lessonTop"><div class="lessonIcon">➕</div><div><h3>2) ทบทวนการบวกหลายหลัก</h3><p>การบวกจำนวนหลายหลักต้องตั้งหลักให้ตรงกัน เริ่มบวกจากหลักหน่วยไปทางซ้าย และถ้าผลบวกครบสิบต้อง “ทด” ไปหลักถัดไป</p></div></div>
+          <div class="exampleBox"><div class="mathLine">36,785 + 12,470 = 49,255</div><ul><li>หลักหน่วย: 5 + 0 = 5</li><li>หลักสิบ: 8 + 7 = 15 เขียน 5 ทด 1</li><li>หลักร้อย/พัน/หมื่น คิดต่อไปจนหมดทุกหลัก</li></ul></div>
+        </article>
 
-    function digitsOf(n){ return String(n).padStart(6,'0').split('').map(Number); }
-    function numberFromDigits(ds){ return Number(ds.join('')); }
-    function firstDiffIndex(a,b){
-      const da = digitsOf(a), db = digitsOf(b);
-      for(let i=0;i<6;i++) if(da[i]!==db[i]) return i;
-      return -1;
-    }
-    function digitAtPlace(n,index){ return digitsOf(n)[index]; }
-    function expandNumber(n){
-      const ds = digitsOf(n);
-      return ds.map((d,i)=>d*placeValues[i]).filter(v=>v>0).map(fmt).join(' + ');
-    }
-    function makeChoices(answer, wrongs){
-      const list = uniq([answer, ...wrongs]).slice(0,4);
-      while(list.length<4) list.push(String(randInt(1,9)*1000));
-      return shuffle(list.map(String));
-    }
-    function roundTo(n, place){ return Math.round(n/place)*place; }
-    function nextDigitForPlace(n, place){
-      const ds = digitsOf(n);
-      if(place===100000) return ds[1];
-      if(place===10000) return ds[2];
-      if(place===1000) return ds[3];
-      return 0;
-    }
-    function randomSix(){ return randInt(100000,999999); }
+        <article class="lessonCard">
+          <div class="lessonTop"><div class="lessonIcon">➖</div><div><h3>3) ทบทวนการลบหลายหลัก</h3><p>การลบจำนวนหลายหลักต้องตั้งหลักให้ตรงกัน เริ่มลบจากหลักหน่วย ถ้าตัวบนลบน้อยกว่าตัวล่าง ให้ “ยืม” จากหลักทางซ้าย</p></div></div>
+          <div class="exampleBox"><div class="mathLine">70,000 - 15,450 = 54,550</div><ul><li>ถ้าหลักใดลบไม่ได้ ให้ยืมจากหลักทางซ้าย</li><li>หลังยืมแล้วต้องปรับค่าหลักที่ถูกยืมให้ถูก</li><li>ตรวจคำตอบได้ด้วยการนำผลลบไปบวกกับตัวลบ</li></ul></div>
+        </article>
 
-    function makePlaceValueQuestion(){
-      const n = randomSix();
-      const ds = digitsOf(n);
-      const mode = randInt(1,4);
-      if(mode===1){
-        let idx = randInt(0,5);
-        const digit = ds[idx];
-        const wrongs = shuffle(placeNames.filter((_,i)=>i!==idx)).slice(0,3);
-        return {
-          type:'choice', label:'ทบทวนค่าประจำหลัก',
-          text:`เลขโดด <span class="numberLine">${digit}</span> ในจำนวน <span class="numberLine">${fmt(n)}</span> อยู่หลักใด?`,
-          sub:'ให้ดูตำแหน่งของเลขโดด ไม่ใช่ดูค่าของเลขโดดอย่างเดียว',
-          choices:shuffle([placeNames[idx],...wrongs]), answer:placeNames[idx],
-          explain:`จำนวน ${fmt(n)} มีเลข ${digit} อยู่ที่${placeNames[idx]} จึงต้องอ่านจากบ้านหลักทางซ้ายไปขวา`
-        };
-      }
-      if(mode===2){
-        let idx = randInt(0,5);
-        const digit = ds[idx];
-        const ans = digit * placeValues[idx];
-        const wrongs = [digit*placeValues[Math.max(0,idx-1)], digit*placeValues[Math.min(5,idx+1)], digit*10, digit*1000].filter(v=>v!==ans && v>=0);
-        return {
-          type:'choice', label:'ค่าของเลขโดด',
-          text:`เลขโดด <span class="numberLine">${digit}</span> ในจำนวน <span class="numberLine">${fmt(n)}</span> มีค่าเท่าไร?`,
-          sub:'ตอบเป็นค่าตามตำแหน่ง เช่น อยู่หลักหมื่นจึงมีค่าเป็นหมื่น',
-          choices:makeChoices(fmt(ans), wrongs.map(fmt)), answer:fmt(ans),
-          explain:`เลข ${digit} อยู่ที่${placeNames[idx]} จึงมีค่า ${digit} × ${fmt(placeValues[idx])} = ${fmt(ans)}`
-        };
-      }
-      if(mode===3){
-        const idx = randInt(0,5);
-        const ans = String(ds[idx]);
-        const wrongs = shuffle(ds.map(String).filter(x=>x!==ans)).slice(0,3);
-        while(wrongs.length<3){ const x=String(randInt(0,9)); if(x!==ans && !wrongs.includes(x)) wrongs.push(x); }
-        return {
-          type:'choice', label:'เลขในบ้านหลัก',
-          text:`จำนวน <span class="numberLine">${fmt(n)}</span> มีเลขโดดใดอยู่ที่${placeNames[idx]}?`,
-          sub:'มองตำแหน่งบ้านหลักให้ตรง แล้วอ่านเลขโดดในช่องนั้น',
-          choices:shuffle([ans,...wrongs]), answer:ans,
-          explain:`เมื่อวาง ${fmt(n)} ในตารางบ้านหลัก ช่อง${placeNames[idx]} คือเลข ${ans}`
-        };
-      }
-      const exp = expandNumber(n);
-      const wrong1 = expandNumber(n + placeValues[randInt(2,5)]).replace(/999,?999/g,'');
-      const wrong2 = expandNumber(n - (n>200000?100000:0));
-      const wrong3 = digitsOf(n).reverse().map((d,i)=>d*placeValues[i]).filter(v=>v>0).map(fmt).join(' + ');
-      return {
-        type:'choice', label:'รูปกระจาย',
-        text:`ข้อใดคือรูปกระจายของ <span class="numberLine">${fmt(n)}</span>?`,
-        sub:'รูปกระจายช่วยให้เห็นค่าของเลขโดดทุกตำแหน่ง',
-        choices:makeChoices(exp,[wrong1,wrong2,wrong3]), answer:exp,
-        explain:`รูปกระจายต้องแยกค่าตามแต่ละหลัก จึงได้ ${exp}`
-      };
-    }
+        <article class="lessonCard">
+          <div class="lessonTop"><div class="lessonIcon">👀</div><div><h3>4) เปรียบเทียบผลลัพธ์ ไม่ใช่เปรียบเทียบแค่ตัวเลขหน้าโจทย์</h3><p>เด็กมักพลาดเพราะเห็นจำนวนบางตัวใหญ่กว่าแล้วรีบตอบ เช่นเห็น 70,000 แล้วคิดว่าฝั่งนั้นมากกว่า ทั้งที่ต้องลบออกก่อน</p></div></div>
+          <div class="exampleBox"><div class="mathLine">68,000 - 15,500 ___ 40,000 + 12,500</div><div class="calcGrid"><div class="calcBox"><b>ซ้าย</b><div class="value">52,500</div></div><div class="opMark">=</div><div class="calcBox"><b>ขวา</b><div class="value">52,500</div></div></div><div class="noteBox"><b>สังเกต:</b> ถึงโจทย์จะคนละแบบ แต่ผลลัพธ์อาจเท่ากันได้</div></div>
+        </article>
 
-    function makeCompareQuestion(){
-      const h = randInt(1,9);
-      let a = [h,randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
-      let b = [h,randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
-      if(Math.random()<0.78){ b[1] = a[1]; }
-      if(Math.random()<0.45){ b[2] = a[2]; }
-      if(Math.random()<0.20){ b = [...a]; }
-      if(a.join('')===b.join('') && Math.random()<0.78){
-        const pos = randInt(2,5);
-        b[pos] = (a[pos] + randInt(1,8)) % 10;
-      }
-      const n1 = numberFromDigits(a), n2 = numberFromDigits(b);
-      const ans = n1>n2 ? '>' : n1<n2 ? '<' : '=';
-      const fd = firstDiffIndex(n1,n2);
-      const explain = fd===-1 ? `ทั้งสองจำนวนเท่ากันทุกหลัก จึงใช้เครื่องหมาย =` : `หลักแรกที่ต่างกันคือ${placeNames[fd]}: ${digitAtPlace(n1,fd)} ${ans==='>'?'มากกว่า':'น้อยกว่า'} ${digitAtPlace(n2,fd)} จึงได้ ${fmt(n1)} ${ans} ${fmt(n2)}`;
-      return {
-        type:'choice', label:'เปรียบเทียบจำนวน',
-        text:`<span class="numberLine">${fmt(n1)}</span> ___ <span class="numberLine">${fmt(n2)}</span>`,
-        sub:'เลือกเครื่องหมายที่ถูกต้อง',
-        choices:['>','<','='], answer:ans, explain
-      };
-    }
+        <article class="lessonCard">
+          <div class="lessonTop"><div class="lessonIcon">🧭</div><div><h3>5) วิธีตรวจคำตอบแบบเด็ก ป.4</h3><p>ก่อนตอบ ให้เด็กถามตัวเอง 4 ข้อสั้น ๆ เพื่อป้องกันความผิดพลาด</p></div></div>
+          <div class="exampleBox"><ul><li>ฉันคำนวณฝั่งซ้ายครบหรือยัง?</li><li>ฉันคำนวณฝั่งขวาครบหรือยัง?</li><li>ฉันใส่เครื่องหมายหันถูกทางหรือไม่?</li><li>คำตอบสมเหตุสมผลไหม เช่น ฝั่งที่ลบมาก ๆ ควรลดลงหรือไม่?</li></ul></div>
+        </article>
 
-    function makeFirstDiffQuestion(){
-      const diffIdx = randInt(1,5);
-      const ds1 = [randInt(1,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9),randInt(0,9)];
-      const ds2 = [...ds1];
-      for(let i=0;i<diffIdx;i++) ds2[i]=ds1[i];
-      let newDigit = ds1[diffIdx];
-      while(newDigit===ds1[diffIdx]) newDigit = randInt(0,9);
-      ds2[diffIdx] = newDigit;
-      for(let i=diffIdx+1;i<6;i++) ds2[i]=randInt(0,9);
-      const n1 = numberFromDigits(ds1), n2 = numberFromDigits(ds2);
-      const ans = placeNames[diffIdx];
-      const wrongs = shuffle(placeNames.filter(p=>p!==ans)).slice(0,3);
-      return {
-        type:'choice', label:'หลักแรกที่ต่างกัน',
-        text:`<span class="numberLine">${fmt(n1)}</span> และ <span class="numberLine">${fmt(n2)}</span><br>หลักแรกที่ต่างกันคือหลักใด?`,
-        sub:'ให้ไล่ดูจากซ้ายไปขวา',
-        choices:shuffle([ans,...wrongs]), answer:ans,
-        explain:`เมื่อดูจากซ้ายไปขวา หลักก่อนหน้าเหมือนกัน แล้วเริ่มต่างกันที่${ans}: ${digitAtPlace(n1,diffIdx)} กับ ${digitAtPlace(n2,diffIdx)}`
-      };
-    }
+        <article class="lessonCard full">
+          <div class="lessonTop"><div class="lessonIcon">🌟</div><div><h3>6) ตัวอย่างนำสอนแบบละเอียด</h3><p>ใช้ตัวอย่างนี้เป็นหน้า “ครูคิดให้ดู” แล้วให้นักเรียนพูดตามทีละขั้น</p></div></div>
+          <div class="exampleBox"><div class="mathLine">42,650 + 18,300 ___ 75,000 - 13,900</div><div class="tableWrap"><table class="niceTable"><thead><tr><th>ขั้น</th><th>วิธีคิด</th><th>ผลลัพธ์</th></tr></thead><tbody><tr><td>1</td><td>คิดฝั่งซ้าย: 42,650 + 18,300</td><td>60,950</td></tr><tr><td>2</td><td>คิดฝั่งขวา: 75,000 - 13,900</td><td>61,100</td></tr><tr><td>3</td><td>เปรียบเทียบ 60,950 กับ 61,100</td><td>60,950 &lt; 61,100</td></tr><tr><td>คำตอบ</td><td colspan="2"><b>42,650 + 18,300 &lt; 75,000 - 13,900</b></td></tr></tbody></table></div></div>
+          <div class="warnBox"><b>จุดเน้น:</b> เด็กไม่ควรตอบจากความรู้สึก ต้องมีร่องรอยการคิด เช่น เขียนค่าฝั่งซ้ายและขวาก่อนใส่เครื่องหมาย</div>
+        </article>
+      </div>
+    </section>
 
-    function makeOrderQuestion(){
-      const h = randInt(2,8);
-      const base = h*100000 + randInt(0,7)*10000 + randInt(0,9)*1000;
-      let nums = [];
-      while(nums.length<4){
-        const offset = randInt(-22000,22000);
-        const n = Math.max(100000,Math.min(999999,base+offset+randInt(0,999)));
-        if(!nums.includes(n)) nums.push(n);
-      }
-      nums = shuffle(nums);
-      const sorted = [...nums].sort((a,b)=>a-b);
-      return {
-        type:'order', label:'เรียงลำดับจำนวน',
-        text:'เรียงจำนวนต่อไปนี้จากน้อยไปมาก',
-        sub:'คลิกตัวเลขตามลำดับที่ต้องการ แล้วกดตรวจคำตอบ',
-        numbers:nums, answerRaw:sorted, answer:sorted.map(fmt).join(' → '),
-        explain:`เรียงโดยเทียบจากหลักแสน แล้วไล่ไปหลักหมื่น หลักพัน จึงได้ ${sorted.map(fmt).join(' → ')}`
-      };
-    }
+    <section class="section" id="knowledge">
+      <div class="sectionTitle"><div><h2>ใบความรู้เพิ่มเติม</h2><p>เพิ่มจากเดิมให้ครบทั้งหลักคิด ตัวอย่าง และข้อควรระวัง ใช้พิมพ์แจกได้</p></div></div>
+      <div class="sheetCard">
+        <div class="sheetHeader"><div><h3>ใบความรู้: คำนวณสองฝั่งก่อนเปรียบเทียบ</h3><p>คณิตศาสตร์ ป.4 • การบวก ลบจำนวนหลายหลัก และการเปรียบเทียบค่า</p></div><span class="badge">📄 ใช้เป็น A4 ได้</span></div>
+        <div class="sheetGrid">
+          <div class="miniCard"><h4>หลักคิด 3 ขั้น</h4><ol><li><b>คำนวณฝั่งซ้าย</b> ให้ได้คำตอบหนึ่งจำนวน</li><li><b>คำนวณฝั่งขวา</b> ให้ได้คำตอบหนึ่งจำนวน</li><li><b>เปรียบเทียบผลลัพธ์</b> แล้วใส่ &gt; &lt; หรือ =</li></ol><div class="formula"><div class="mathLine">ซ้าย = ? &nbsp;&nbsp; ขวา = ? &nbsp;&nbsp; แล้วค่อยเทียบ</div></div></div>
+          <div class="miniCard"><h4>เครื่องหมายต้องจำ</h4><ul><li><b>&gt;</b> ฝั่งซ้ายมากกว่าฝั่งขวา</li><li><b>&lt;</b> ฝั่งซ้ายน้อยกว่าฝั่งขวา</li><li><b>=</b> ทั้งสองฝั่งมีค่าเท่ากัน</li></ul><div class="noteBox"><b>จำง่าย:</b> ปากจระเข้หันไปหาค่าที่มากกว่าเสมอ</div></div>
+          <div class="miniCard"><h4>ตัวอย่างที่ 1</h4><div class="mathLine">35,420 + 12,300 ___ 50,000 - 2,000</div><p>ซ้าย = 47,720<br>ขวา = 48,000<br><b>คำตอบ: &lt;</b></p></div>
+          <div class="miniCard"><h4>ตัวอย่างที่ 2</h4><div class="mathLine">24,650 + 31,200 ___ 70,000 - 15,000</div><p>ซ้าย = 55,850<br>ขวา = 55,000<br><b>คำตอบ: &gt;</b></p></div>
+          <div class="miniCard"><h4>ข้อผิดพลาดที่เจอบ่อย</h4><ul><li>รีบใส่เครื่องหมายก่อนคำนวณ</li><li>ตั้งหลักบวก–ลบไม่ตรงกัน</li><li>ลืมทดหรือลืมยืม</li><li>สลับเครื่องหมาย &gt; กับ &lt;</li></ul></div>
+          <div class="miniCard"><h4>ประโยคสรุปติดกระดาน</h4><div class="formula"><div class="mathLine">คำนวณก่อน<br>เปรียบเทียบทีหลัง<br>อธิบายเหตุผลทุกครั้ง</div></div></div>
+        </div>
+      </div>
+    </section>
 
-    function makeRoundingQuestion(){
-      const n = randomSix();
-      const place = Math.random()<0.62 ? 10000 : 100000;
-      const placeLabel = place===10000 ? 'หลักหมื่น' : 'หลักแสน';
-      const nextName = place===10000 ? 'หลักพัน' : 'หลักหมื่น';
-      const ansNum = roundTo(n,place);
-      const wrongs = [ansNum-place, ansNum+place, Math.floor(n/place)*place, Math.ceil(n/place)*place]
-        .filter(v=>v>=0 && v<=1000000 && v!==ansNum);
-      const nextDigit = nextDigitForPlace(n,place);
-      return {
-        type:'choice', label:'ปัดเศษจำนวน',
-        text:`<span class="numberLine">${fmt(n)}</span><br>ปัดเป็น${placeLabel} ได้เท่าไร?`,
-        sub:`ดูเลขถัดไปทางขวา คือ${nextName}`,
-        choices:makeChoices(fmt(ansNum), wrongs.map(fmt)), answer:fmt(ansNum),
-        explain:`ต้องดูเลข${nextName} คือ ${nextDigit} ${nextDigit>=5?'จึงปัดขึ้น':'จึงคงหลักที่ปัดไว้'} คำตอบคือ ${fmt(ansNum)}`
-      };
-    }
+    <section class="section" id="worksheet">
+      <div class="sectionTitle"><div><h2>ใบงานเพิ่มเติม</h2><p>ทำบนจอได้ มีปุ่มตรวจคำตอบ และพิมพ์เป็นใบงานได้</p></div></div>
+      <div class="sheetCard">
+        <div class="sheetHeader"><div><h3>ใบงาน: ศึกสองฝั่งตัวเลข</h3><p>ให้นักเรียนคำนวณค่าทั้งสองฝั่ง แล้วเติมเครื่องหมายให้ถูกต้อง</p></div><span class="badge">✅ ตรวจคำตอบได้</span></div>
+        <div class="worksheetTabs noPrint">
+          <button class="tabBtn active" data-tab="w1">ตอนที่ 1 เติมเครื่องหมาย</button>
+          <button class="tabBtn" data-tab="w2">ตอนที่ 2 หาค่าสองฝั่ง</button>
+          <button class="tabBtn" data-tab="w3">ตอนที่ 3 สถานการณ์</button>
+        </div>
+        <div class="worksheetPanel active" id="w1">
+          <div class="tableWrap"><table class="niceTable" id="part1Table"><thead><tr><th>ข้อ</th><th>โจทย์</th><th>เครื่องหมาย</th><th>ผลตรวจ</th></tr></thead><tbody></tbody></table></div>
+          <div class="checkBar"><button class="primaryBtn" id="checkPart1">ตรวจตอนที่ 1</button><span class="scoreBubble" id="scorePart1">ยังไม่ได้ตรวจ</span></div><div class="answerHint" id="hintPart1"></div>
+        </div>
+        <div class="worksheetPanel" id="w2">
+          <div class="tableWrap"><table class="niceTable" id="part2Table"><thead><tr><th>ข้อ</th><th>โจทย์</th><th>ฝั่งซ้าย</th><th>ฝั่งขวา</th><th>เครื่องหมาย</th><th>ผลตรวจ</th></tr></thead><tbody></tbody></table></div>
+          <div class="checkBar"><button class="primaryBtn" id="checkPart2">ตรวจตอนที่ 2</button><span class="scoreBubble" id="scorePart2">ยังไม่ได้ตรวจ</span></div><div class="answerHint" id="hintPart2"></div>
+        </div>
+        <div class="worksheetPanel" id="w3">
+          <div class="lessonDeck">
+            <div class="lessonCard"><h3>สถานการณ์ที่ 1: ร้านขายอุปกรณ์ศิลปะ</h3><p>ร้าน A ขายได้ <b>25,500 บาท</b><br>ร้าน B ขายได้ <b>18,000 + 8,000 บาท</b></p><p>ร้านใดขายได้มากกว่า?</p><label>คำตอบ <select class="workSelect" data-word="0"><option value="">เลือก</option><option>ร้าน A</option><option>ร้าน B</option><option>เท่ากัน</option></select></label><div class="rowStatus" id="wordStatus0"></div></div>
+            <div class="lessonCard"><h3>สถานการณ์ที่ 2: ห้องสมุด</h3><p>ห้องสมุดมีหนังสือ <b>60,000 - 12,500 เล่ม</b><br>อีกโรงเรียนมีหนังสือ <b>40,000 + 7,000 เล่ม</b></p><p>ที่ใดมีหนังสือมากกว่า?</p><label>คำตอบ <select class="workSelect" data-word="1"><option value="">เลือก</option><option>ห้องสมุด</option><option>อีกโรงเรียน</option><option>เท่ากัน</option></select></label><div class="rowStatus" id="wordStatus1"></div></div>
+            <div class="lessonCard full"><h3>สถานการณ์ที่ 3: คิดเอง 1 ข้อ</h3><p>แต่งโจทย์เปรียบเทียบค่าที่มีการบวกหรือลบอย่างน้อย 1 ฝั่ง แล้วเขียนวิธีคิด</p><textarea class="workInput" style="width:100%;max-width:none;min-height:130px" placeholder="ตัวอย่าง: 42,000 - 8,000 ___ 20,000 + 15,000 เพราะ..."></textarea><div class="noteBox"><b>เกณฑ์ผ่าน:</b> มีโจทย์สองฝั่ง คำนวณสองฝั่ง และใส่เครื่องหมายพร้อมเหตุผล</div></div>
+          </div>
+          <div class="checkBar"><button class="primaryBtn" id="checkPart3">ตรวจสถานการณ์ 1–2</button><span class="scoreBubble" id="scorePart3">ยังไม่ได้ตรวจ</span></div><div class="answerHint" id="hintPart3"></div>
+        </div>
+      </div>
+    </section>
 
-    function makeEstimateQuestion(){
-      const a = randomSix();
-      const b = randomSix();
-      const place = Math.random()<0.70 ? 10000 : 100000;
-      const placeLabel = place===10000 ? 'หลักหมื่น' : 'หลักแสน';
-      const ra = roundTo(a,place), rb = roundTo(b,place), ansNum = ra+rb;
-      const wrongs = [roundTo(a+b,place), ra+b, a+rb, ansNum+place, ansNum-place].filter(v=>v>0 && v!==ansNum);
-      return {
-        type:'choice', label:'ประมาณผลรวม',
-        text:`<span class="numberLine">${fmt(a)} + ${fmt(b)}</span><br>ประมาณโดยปัดเป็น${placeLabel}ก่อนบวก`,
-        sub:'โจทย์นี้ถามค่าประมาณ ไม่ใช่ผลบวกจริง',
-        choices:makeChoices(fmt(ansNum), wrongs.map(fmt)), answer:fmt(ansNum),
-        explain:`ปัด ${fmt(a)} ≈ ${fmt(ra)} และ ${fmt(b)} ≈ ${fmt(rb)} แล้วบวกได้ ${fmt(ra)} + ${fmt(rb)} = ${fmt(ansNum)}`
-      };
-    }
+    <section class="section" id="game">
+      <div class="sectionTitle"><div><h2>หน้าเกม: ศึกสองฝั่งตัวเลข</h2><p>ออกแบบตามแนวไฟล์ตัวอย่าง: การ์ดเกม หน้าอธิบาย แถบความคืบหน้า เฉลยทีละขั้น</p></div></div>
+      <div class="gameShell">
+        <div id="gameMenu" class="gameScreen active"><div class="gameGrid" id="gameGrid"></div></div>
+        <div id="gameIntro" class="gameScreen"><div class="screenCard"><div class="introHeader"><div class="introIcon" id="introIcon">⚔️</div><div><h3 id="introTitle">ชื่อเกม</h3><p id="introSubtitle">รายละเอียดเกม</p></div></div><div class="gameInfoGrid"><div class="miniCard"><h4>เด็กต้องทำอะไร</h4><ul id="introHow"></ul></div><div class="miniCard"><h4>หลักการสุ่มโจทย์</h4><ul id="introRule"></ul></div></div><div class="noteBox mt" id="introTip"></div><div class="checkBar"><button class="ghostBtn" id="backGameMenu">← กลับไปเลือกเกม</button><button class="primaryBtn" id="startGameBtn">เริ่มเล่น 10 ข้อ →</button></div></div></div>
+        <div id="gamePlay" class="gameScreen"><div class="screenCard"><div class="statusRow"><div class="statusPills"><span class="statusPill" id="gameNamePill">เกม</span><span class="statusPill" id="questionPill">ข้อ 1/10</span><span class="statusPill scorePill" id="scorePill">คะแนน 0</span></div><button class="dangerBtn" id="quitGameBtn">ออกจากเกม</button></div><div class="progressTrack"><div class="progressBar" id="gameProgress"></div></div><div class="questionBox"><span class="questionLabel" id="questionLabel">โจทย์</span><div class="questionText" id="questionText">...</div><div class="subText" id="questionSub"></div></div><div class="choiceGrid" id="choiceArea"></div><div class="feedback hidden" id="feedback"></div><div class="nextRow"><div class="hintText">หลังตอบ ให้เด็กพูดเหตุผลว่า “เพราะฝั่งซ้ายได้... ฝั่งขวาได้...”</div><button class="primaryBtn hidden" id="nextGameBtn">ข้อต่อไป</button></div></div></div>
+        <div id="gameResult" class="gameScreen"><div class="screenCard resultCard"><div class="medal" id="medal">🏅</div><div class="finalScore" id="finalScore">0/10</div><h3 id="resultTitle">เล่นจบแล้ว!</h3><p id="resultMessage">ข้อความสรุป</p><div class="checkBar" style="justify-content:center"><button class="primaryBtn" id="playAgainBtn">เล่นหมวดนี้อีกครั้ง</button><button class="ghostBtn" id="resultMenuBtn">กลับหน้าเลือกเกม</button></div></div></div>
+      </div>
+    </section>
 
-    function makeClosestQuestion(){
-      const targets = [300000,500000,700000,900000];
-      const target = targets[randInt(0,targets.length-1)];
-      const close = target + (Math.random()<0.5?-1:1)*randInt(700,9500);
-      const opts = [close];
-      while(opts.length<4){
-        const sign = Math.random()<0.5?-1:1;
-        const dist = randInt(15000,82000);
-        const n = Math.max(100000,Math.min(999999,target + sign*dist + randInt(-900,900)));
-        if(!opts.includes(n)) opts.push(n);
-      }
-      const choicesNums = shuffle(opts);
-      const answerNum = choicesNums.reduce((best,n)=>Math.abs(n-target)<Math.abs(best-target)?n:best,choicesNums[0]);
-      return {
-        type:'choice', label:'ใกล้เป้าหมายที่สุด',
-        text:`จำนวนใดใกล้ <span class="numberLine">${fmt(target)}</span> ที่สุด?`,
-        sub:'ดูระยะห่างจากจำนวนเป้าหมาย ยิ่งห่างน้อยยิ่งใกล้',
-        choices:choicesNums.map(fmt), answer:fmt(answerNum),
-        explain:`คำตอบ ${fmt(answerNum)} ห่างจาก ${fmt(target)} เพียง ${fmt(Math.abs(answerNum-target))} ซึ่งน้อยกว่าตัวเลือกอื่น`
-      };
-    }
+    <section class="section" id="teacher">
+      <div class="sectionTitle"><div><h2>แผนครูแบบย่อ 1 ชั่วโมง</h2><p>แยกชัดว่าครูทำอะไร นักเรียนทำอะไร และประเมินอย่างไร</p></div></div>
+      <div class="teacherGrid">
+        <div class="sheetCard"><div class="sheetHeader"><div><h3>ลำดับการสอน</h3><p>ปรับใช้ได้ตามความเร็วของห้องเรียน</p></div></div><div class="timeline"><div class="timeRow"><b>5 นาที</b><div><h4>ทบทวน</h4><p>ครูเขียนโจทย์ง่าย ๆ ให้เด็กตอบว่าต้องทำอะไรก่อนใส่เครื่องหมาย นักเรียนตอบว่า “ต้องคำนวณสองฝั่งก่อน”</p></div></div><div class="timeRow"><b>15 นาที</b><div><h4>สอนตัวอย่าง</h4><p>ครูใช้หน้าเนื้อหา 1–6 คิดให้ดูทีละขั้น นักเรียนจดคำว่า ซ้าย / ขวา / เครื่องหมาย</p></div></div><div class="timeRow"><b>20 นาที</b><div><h4>ฝึกกลุ่ม</h4><p>ให้นักเรียนจับคู่ทำใบงานตอนที่ 1–2 แล้วอธิบายเหตุผลให้เพื่อนฟัง</p></div></div><div class="timeRow"><b>10 นาที</b><div><h4>เล่นเกม</h4><p>ใช้เกมโหมด “คิดสองฝั่ง” หรือ “สถานการณ์ร้านค้า” เป็นการทบทวนแบบสนุก</p></div></div><div class="timeRow"><b>10 นาที</b><div><h4>สรุป/ประเมิน</h4><p>ครูถาม 3 คำถาม: คิดฝั่งไหนก่อน? ถ้าเท่ากันใช้เครื่องหมายอะไร? ทำไมต้องเขียนผลลัพธ์ก่อน?</p></div></div></div></div>
+        <div class="sheetCard"><div class="sheetHeader"><div><h3>เกณฑ์ประเมินเร็ว</h3><p>ใช้ดูความเข้าใจท้ายคาบ</p></div></div><div class="rubric"><div class="rubricItem"><b>ดีมาก</b><span>คำนวณถูกทั้งสองฝั่ง ใส่เครื่องหมายถูก และอธิบายเหตุผลได้</span></div><div class="rubricItem"><b>ดี</b><span>คำนวณและใส่เครื่องหมายได้ แต่ยังอธิบายเหตุผลไม่ชัด</span></div><div class="rubricItem"><b>พอใช้</b><span>เข้าใจว่าให้คำนวณก่อน แต่ยังผิดเรื่องทด ยืม หรือสลับเครื่องหมาย</span></div><div class="rubricItem"><b>ต้องเสริม</b><span>รีบเดาเครื่องหมายโดยไม่คำนวณ ต้องกลับไปฝึกตั้งหลักและเขียนค่าซ้าย–ขวา</span></div></div><div class="noteBox mt"><b>คำถามกระตุ้น:</b> “ฝั่งซ้ายได้เท่าไร?” “ฝั่งขวาได้เท่าไร?” “เครื่องหมายหันไปหาฝั่งที่มากกว่าหรือยัง?”</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">Little Steps Math • Single HTML • ปรับแต่งสำหรับ iPad และการสอนในห้องเรียน</footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);const $$=sel=>[...document.querySelectorAll(sel)];const fmt=n=>Number(n).toLocaleString('en-US');const clean=s=>Number(String(s||'').replace(/,/g,'').trim());const rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+function scrollToId(id){document.getElementById(id==='home'?'home':id).scrollIntoView({behavior:'smooth',block:'start'});$$('.navBtn').forEach(b=>b.classList.toggle('active',b.dataset.go===id));}
+$$('.navBtn').forEach(b=>b.addEventListener('click',()=>scrollToId(b.dataset.go)));
 
-    function makeMixedQuestion(){
-      const makers = [makePlaceValueQuestion,makeCompareQuestion,makeFirstDiffQuestion,makeOrderQuestion,makeRoundingQuestion,makeEstimateQuestion,makeClosestQuestion];
-      return makers[randInt(0,makers.length-1)]();
-    }
+const part1=[
+ {l:'24,500 + 10,000',lv:34500,r:'40,000 - 6,000',rv:34000,ans:'>'},
+ {l:'56,000 - 12,000',lv:44000,r:'30,000 + 14,000',rv:44000,ans:'='},
+ {l:'18,250 + 21,750',lv:40000,r:'50,000 - 10,000',rv:40000,ans:'='},
+ {l:'72,000 - 25,500',lv:46500,r:'40,000 + 5,000',rv:45000,ans:'>'},
+ {l:'13,600 + 24,400',lv:38000,r:'60,000 - 22,000',rv:38000,ans:'='},
+ {l:'63,200 - 18,100',lv:45100,r:'22,000 + 21,000',rv:43000,ans:'>'}
+];
+const part2=[
+ {l:'35,000 + 8,500',lv:43500,r:'50,000 - 7,000',rv:43000,ans:'>'},
+ {l:'64,000 - 19,000',lv:45000,r:'20,000 + 26,000',rv:46000,ans:'<'},
+ {l:'17,250 + 32,750',lv:50000,r:'80,000 - 30,000',rv:50000,ans:'='},
+ {l:'90,000 - 45,500',lv:44500,r:'22,000 + 20,000',rv:42000,ans:'>'},
+ {l:'42,650 + 18,300',lv:60950,r:'75,000 - 13,900',rv:61100,ans:'<'}
+];
+function renderWorksheets(){
+ const tb1=$('part1Table').querySelector('tbody');tb1.innerHTML=part1.map((q,i)=>`<tr><td>${i+1}</td><td><b>${q.l}</b> ___ <b>${q.r}</b></td><td><select class="workSelect" data-p1="${i}"><option value="">เลือก</option><option>&gt;</option><option>&lt;</option><option>=</option></select></td><td class="rowStatus" id="p1s${i}"></td></tr>`).join('');
+ const tb2=$('part2Table').querySelector('tbody');tb2.innerHTML=part2.map((q,i)=>`<tr><td>${i+1}</td><td><b>${q.l}</b> ___ <b>${q.r}</b></td><td><input class="workInput" data-left="${i}" placeholder="ฝั่งซ้าย"></td><td><input class="workInput" data-right="${i}" placeholder="ฝั่งขวา"></td><td><select class="workSelect" data-sign="${i}"><option value="">เลือก</option><option>&gt;</option><option>&lt;</option><option>=</option></select></td><td class="rowStatus" id="p2s${i}"></td></tr>`).join('');
+}
+renderWorksheets();
+$$('.tabBtn').forEach(btn=>btn.addEventListener('click',()=>{$$('.tabBtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');$$('.worksheetPanel').forEach(p=>p.classList.remove('active'));$(btn.dataset.tab).classList.add('active');}));
+$('checkPart1').onclick=()=>{let score=0;part1.forEach((q,i)=>{const val=document.querySelector(`[data-p1="${i}"]`).value;const ok=val===q.ans;if(ok)score++;const s=$(`p1s${i}`);s.textContent=ok?'✓':'✕';s.className='rowStatus '+(ok?'good':'bad');});$('scorePart1').textContent=`ได้ ${score}/${part1.length}`;$('hintPart1').classList.add('show');$('hintPart1').innerHTML=part1.map((q,i)=>`${i+1}) ${q.lv.toLocaleString()} ${q.ans} ${q.rv.toLocaleString()}`).join('<br>');};
+$('checkPart2').onclick=()=>{let score=0;part2.forEach((q,i)=>{const lv=clean(document.querySelector(`[data-left="${i}"]`).value),rv=clean(document.querySelector(`[data-right="${i}"]`).value),sg=document.querySelector(`[data-sign="${i}"]`).value;const ok=lv===q.lv&&rv===q.rv&&sg===q.ans;if(ok)score++;const s=$(`p2s${i}`);s.textContent=ok?'✓':'✕';s.className='rowStatus '+(ok?'good':'bad');});$('scorePart2').textContent=`ได้ ${score}/${part2.length}`;$('hintPart2').classList.add('show');$('hintPart2').innerHTML=part2.map((q,i)=>`${i+1}) ฝั่งซ้าย ${fmt(q.lv)} ฝั่งขวา ${fmt(q.rv)} เครื่องหมาย ${q.ans}`).join('<br>');};
+$('checkPart3').onclick=()=>{const ans=['ร้าน B','ห้องสมุด'];let score=0;ans.forEach((a,i)=>{const val=document.querySelector(`[data-word="${i}"]`).value;const ok=val===a;if(ok)score++;const s=$(`wordStatus${i}`);s.textContent=ok?'✓':'✕';s.className='rowStatus '+(ok?'good':'bad');});$('scorePart3').textContent=`ได้ ${score}/2`;$('hintPart3').classList.add('show');$('hintPart3').innerHTML='1) ร้าน A = 25,500 บาท, ร้าน B = 26,000 บาท จึงตอบ ร้าน B<br>2) ห้องสมุด = 47,500 เล่ม, อีกโรงเรียน = 47,000 เล่ม จึงตอบ ห้องสมุด';};
 
-    function stopTimerAndShow(screenId){
-      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
-      show(screenId);
-    }
-    $('startBtn').onclick = startGame;
-    $('backMenuBtn').onclick = () => stopTimerAndShow('screenMenu');
-    $('homeBtnTop').onclick = () => stopTimerAndShow('screenMenu');
-    $('quitBtn').onclick = () => stopTimerAndShow('screenMenu');
-    $('nextBtn').onclick = nextQuestion;
-    $('checkOrderBtn').onclick = checkOrder;
-    $('resetOrderBtn').onclick = resetOrder;
-    $('playAgainBtn').onclick = startGame;
-    $('resultMenuBtn').onclick = () => stopTimerAndShow('screenMenu');
-    initCards();
-  </script>
+const TOTAL=10;let currentGame=null,questions=[],idx=0,score=0,locked=false;const gameModes=[
+ {id:'compare',order:1,icon:'⚔️',title:'คิดสองฝั่ง',subtitle:'คำนวณซ้าย–ขวา แล้วเลือก > < =',tags:['บวก/ลบ','เปรียบเทียบ','เฉลยทีละขั้น'],how:['อ่านโจทย์สองฝั่ง','คำนวณฝั่งซ้ายและฝั่งขวาก่อน','เลือกเครื่องหมาย > < หรือ ='],rule:['สุ่มโจทย์บวกและลบจำนวนหลายหลัก','บางข้อผลลัพธ์เท่ากัน','เฉลยแสดงค่าของทั้งสองฝั่ง'],tip:'เหมาะใช้เป็นเกมหลักท้ายบทเรียน ให้เด็กเขียนค่าฝั่งซ้าย–ขวาในสมุดก่อนกดตอบ',make:makeCompareQ},
+ {id:'shop',order:2,icon:'🛍️',title:'ร้านค้าพาเทียบ',subtitle:'เปรียบเทียบยอดขายจากสถานการณ์',tags:['โจทย์สถานการณ์','เงินบาท','คิดก่อนตอบ'],how:['อ่านสถานการณ์ร้าน A และร้าน B','หายอดรวม/ยอดคงเหลือของแต่ละร้าน','เลือกเครื่องหมายเปรียบเทียบ'],rule:['สุ่มชื่อร้านและจำนวนเงิน','มีทั้งการบวกและการลบ','ถามค่าของร้านแรกเทียบกับร้านที่สอง'],tip:'ใช้เชื่อมคณิตศาสตร์กับชีวิตจริง เช่น ยอดขาย คะแนนสะสม หนังสือในห้องสมุด',make:makeShopQ},
+ {id:'mixed',order:3,icon:'🏆',title:'ท้าทายรวม',subtitle:'รวมโจทย์ตรงและโจทย์สถานการณ์',tags:['Exit Ticket','10 ข้อ','วัดผลเร็ว'],how:['เล่นสุ่ม 10 ข้อจากทุกแบบ','ตอบแล้วอ่านเฉลยทันที','ดูคะแนนรวมท้ายเกม'],rule:['สุ่มจากโหมดคิดสองฝั่งและร้านค้า','ระดับความยากคละกัน','เน้นความเข้าใจมากกว่าความเร็ว'],tip:'ใช้วัดท้ายคาบได้ ถ้าได้ต่ำกว่า 6 คะแนนให้กลับไปทำใบงานตอนที่ 2 เพิ่ม',make:()=>Math.random()<.5?makeCompareQ():makeShopQ()}
+];
+function initGameCards(){const grid=$('gameGrid');grid.innerHTML='';gameModes.forEach(g=>{const card=document.createElement('article');card.className='gameCard';card.innerHTML=`<div><div class="gameTop"><div class="iconBubble">${g.icon}</div><div class="orderBadge">${g.order}</div></div><h3>${g.title}</h3><p>${g.subtitle}</p><div class="tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div><button class="playCardBtn">ดูรายละเอียด / เริ่มเกม</button>`;card.querySelector('button').onclick=()=>openGameIntro(g.id);grid.appendChild(card);});}
+function showGameScreen(id){['gameMenu','gameIntro','gamePlay','gameResult'].forEach(s=>$(s).classList.remove('active'));$(id).classList.add('active');document.getElementById('game').scrollIntoView({behavior:'smooth'});}
+function openGameIntro(id){currentGame=gameModes.find(g=>g.id===id);$('introIcon').textContent=currentGame.icon;$('introTitle').textContent=currentGame.title;$('introSubtitle').textContent=currentGame.subtitle;$('introHow').innerHTML=currentGame.how.map(x=>`<li>${x}</li>`).join('');$('introRule').innerHTML=currentGame.rule.map(x=>`<li>${x}</li>`).join('');$('introTip').innerHTML=`<b>แนวทางครู:</b> ${currentGame.tip}`;showGameScreen('gameIntro');}
+function startGame(){questions=Array.from({length:TOTAL},()=>currentGame.make());idx=0;score=0;locked=false;$('gameNamePill').textContent=`${currentGame.icon} ${currentGame.title}`;renderQ();showGameScreen('gamePlay');}
+function renderQ(){locked=false;const q=questions[idx];$('questionPill').textContent=`ข้อ ${idx+1}/${TOTAL}`;$('scorePill').textContent=`คะแนน ${score}`;$('gameProgress').style.width=`${(idx/TOTAL)*100}%`;$('questionLabel').textContent=q.label;$('questionText').innerHTML=q.text;$('questionSub').innerHTML=q.sub||'';$('feedback').className='feedback hidden';$('nextGameBtn').classList.add('hidden');const area=$('choiceArea');area.innerHTML='';['>','<','='].forEach(ch=>{const b=document.createElement('button');b.className='choice';b.innerHTML=ch==='>'?'&gt;':ch==='<'?'&lt;':'=';b.onclick=()=>answerQ(b,ch);area.appendChild(b);});}
+function answerQ(btn,ch){if(locked)return;locked=true;const q=questions[idx],ok=ch===q.ans;if(ok)score++;[...$('choiceArea').children].forEach(b=>{b.disabled=true;const t=b.textContent.trim();if(t===q.ans)b.classList.add('correct');});if(!ok)btn.classList.add('wrong');$('scorePill').textContent=`คะแนน ${score}`;$('gameProgress').style.width=`${((idx+1)/TOTAL)*100}%`;$('feedback').className=`feedback ${ok?'good':'bad'}`;$('feedback').innerHTML=`<b>${ok?'ถูกต้อง เก่งมาก!':'ยังไม่ถูก ลองดูวิธีคิดนะ'}</b><br><span class="answerLine">คำตอบ: ${q.ans}</span><p>${q.explain}</p>`;$('nextGameBtn').textContent=idx===TOTAL-1?'ดูคะแนนสรุป':'ข้อต่อไป';$('nextGameBtn').classList.remove('hidden');}
+function nextQ(){if(idx<TOTAL-1){idx++;renderQ();}else showResult();}
+function showResult(){$('finalScore').textContent=`${score}/${TOTAL}`;let medal='💪',msg='ควรทบทวนเพิ่ม โดยให้เขียนค่าฝั่งซ้ายและขวาก่อนเลือกเครื่องหมายทุกครั้ง';if(score>=9){medal='🏆';msg='ยอดเยี่ยมมาก คำนวณและเปรียบเทียบได้แม่นยำ พร้อมอธิบายให้เพื่อนได้';}else if(score>=7){medal='🏅';msg='ดีมาก เหลือเพียงตรวจทด/ยืม และการหันเครื่องหมายให้แม่นขึ้น';}else if(score>=5){medal='⭐';msg='เริ่มเข้าใจแล้ว ควรฝึกใบงานตอนที่ 2 เพื่อให้เห็นค่าทั้งสองฝั่งชัดขึ้น';}$('medal').textContent=medal;$('resultTitle').textContent=`${currentGame.title} — เล่นจบแล้ว!`;$('resultMessage').textContent=msg;showGameScreen('gameResult');}
+function exprAny(){return Math.random()<.52?exprAdd():exprSub();}
+function exprAdd(){const a=rand(12000,78000),b=rand(1500,21000);return {text:`${fmt(a)} + ${fmt(b)}`,value:a+b};}
+function exprSub(){const a=rand(30000,98000),b=rand(1500,Math.min(26000,a-5000));return {text:`${fmt(a)} - ${fmt(b)}`,value:a-b};}
+function exprForValue(v){if(Math.random()<.5){const a=rand(Math.max(1000,v-28000),v-1000);return {text:`${fmt(a)} + ${fmt(v-a)}`,value:v};}else{const b=rand(1000,24000);return {text:`${fmt(v+b)} - ${fmt(b)}`,value:v};}}
+function makeCompareQ(){const left=exprAny();let rel=['>','<','='][rand(0,2)],rv;if(rel==='=')rv=left.value;else if(rel==='>')rv=Math.max(1000,left.value-rand(500,6000));else rv=left.value+rand(500,6000);const right=exprForValue(rv);const ans=left.value>right.value?'>':left.value<right.value?'<':'=';return {label:'ศึกสองฝั่ง',text:`<span class="numberLine">${left.text}</span><br>___<br><span class="numberLine">${right.text}</span>`,sub:'คำนวณทั้งสองฝั่งก่อนเลือกเครื่องหมาย',ans,explain:`ฝั่งซ้าย: ${left.text} = ${fmt(left.value)}<br>ฝั่งขวา: ${right.text} = ${fmt(right.value)}<br>ดังนั้น ${fmt(left.value)} ${ans} ${fmt(right.value)}`};}
+const shopNames=['ร้านดินสอสี','ร้านสมุดน่ารัก','ร้านขนมปัง','ร้านของเล่น','ร้านน้ำผลไม้','ร้านอุปกรณ์ศิลปะ'];
+function makeShopQ(){const a=shopNames[rand(0,shopNames.length-1)],b=shopNames[rand(0,shopNames.length-1)]+' B';const left=exprAny(),right=exprAny();const ans=left.value>right.value?'>':left.value<right.value?'<':'=';return {label:'สถานการณ์ร้านค้า',text:`${a}<br><span class="numberLine">${left.text}</span><br>___<br>${b}<br><span class="numberLine">${right.text}</span>`,sub:`เปรียบเทียบยอดของ ${a} กับ ${b}`,ans,explain:`${a}: ${left.text} = ${fmt(left.value)} บาท<br>${b}: ${right.text} = ${fmt(right.value)} บาท<br>จึงได้ ${fmt(left.value)} ${ans} ${fmt(right.value)}`};}
+$('backGameMenu').onclick=()=>showGameScreen('gameMenu');$('startGameBtn').onclick=startGame;$('quitGameBtn').onclick=()=>showGameScreen('gameMenu');$('nextGameBtn').onclick=nextQ;$('playAgainBtn').onclick=startGame;$('resultMenuBtn').onclick=()=>showGameScreen('gameMenu');initGameCards();
+</script>
 </body>
 </html>
